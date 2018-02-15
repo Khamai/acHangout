@@ -13,16 +13,6 @@
 		<url-pattern>/loginServlet</url-pattern>
 	</servlet-mapping>
 
-	<servlet>
-		<servlet-name>signUp</servlet-name>
-		<jsp-file>signup.jsp</jsp-file>
-	</servlet>
-	
-	<servlet-mapping>
-		<servlet-name>signUp</servlet-name>
-		<url-pattern>/signUp</url-pattern>
-	</servlet-mapping>
-
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>

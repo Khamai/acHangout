@@ -7,6 +7,7 @@
 </head>
 <body>
 	<div>
+		<h2>acHangout</h2>
 		<form action="loginServlet" method="post">
 			<fieldset>
 				<table>
