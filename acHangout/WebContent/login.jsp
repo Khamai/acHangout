@@ -10,7 +10,7 @@
 	<h2 align=center>acHangout</h2>
 	<form action="loginServlet" method="post">
 		<fieldset id="border" style='margin: 0px 155px; width: 360px;'>
-			<legend> DETAIL </legend>
+			<legend> <b>DETAIL</b> </legend>
 			<table cellpadding="10">
 				<tr>
 					<td>Username:</td>
