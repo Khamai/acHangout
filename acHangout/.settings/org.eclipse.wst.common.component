@@ -2,6 +2,7 @@
     <wb-module deploy-name="acHangout">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/Media"/>
         <property name="context-root" value="acHangout"/>
         <property name="java-output-path" value="/acHangout/build/classes"/>
     </wb-module>
