@@ -7,7 +7,7 @@
 
 </head>
 <body>
-<img src="achangout.jpg" alt="achangout logo" style="width:500px;height:600px;">
+<img src="/Media/achangout.JPG" alt="achangout logo" style="width:500px;height:600px;">
     <form action="loginServlet" method="post">
         <fieldset style="width: 300px">
             <legend> INDEX </legend>
