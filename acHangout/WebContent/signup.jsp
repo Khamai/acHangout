@@ -4,12 +4,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login Application</title>
-<link rel="stylesheet" type="text/css" href="index.css"/>
+<link rel="stylesheet"type="text/css" href="index.css">
 </head>
 <body>
 	<h2 align=center>Sign up</h2>
 	<form action="loginServlet" method="post">
-		<fieldset id="border" style='margin: 0px 155px; width: 360px;'>
+		<fieldset style='margin: 0px 155px; width: 360px;'>
 			<legend> <b>DETAIL</b> </legend>
 			<table cellpadding="10">
 				<tr>
