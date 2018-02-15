@@ -10,10 +10,16 @@ public class Login {
 
 	public static boolean validate(String name, String pass) {        
         boolean status = false;
+       
+        
         Connection conn = null;
+        
+        
         /*A SQL statement is precompiled and stored in a PreparedStatement object. 
          * This object can then be used to efficiently execute this statement multiple times. */
         PreparedStatement pst = null;
+       
+        
         ResultSet rs = null;
 
         String url = "jdbc:mysql://localhost:3306/";
@@ -23,9 +29,10 @@ public class Login {
         String password = "root";
         try {
             Class.forName(driver).newInstance();
+           
             conn = DriverManager
                     .getConnection(url + dbName, userName, password);
-
+            //The question marks will then be replaced in the setString(nth question mark, replaced with) method.
             pst = conn
                     .prepareStatement("select * from login where user=? and password=?");
             pst.setString(1, name);
