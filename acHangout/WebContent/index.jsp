@@ -12,7 +12,7 @@
     <form action="loginServlet" method="post">
         <fieldset style="width: 300px">
             <legend> INDEX </legend>
-            <table>
+            <table cellpadding="10">
                 <tr>
                     <td>User ID</td>
                     <td><input type="text" name="username" required="required" /></td>

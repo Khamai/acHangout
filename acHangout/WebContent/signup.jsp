@@ -6,32 +6,45 @@
 <title>Login Application</title>
 </head>
 <body>
-	<div>
-		<h2 align=center>Sign up</h2>
-		<form action="loginServlet" method="post">
-			<fieldset style='margin: 0px 155px; width: 360px;'>
-				<legend>Detail</legend>
-				<div align="center">
-					<label>First Name:<br /> <input type="text"
-						name="firstname" required="required" /></label> <br />
-					<br /> <label>Last Name:<br /> <input type="text"
-						name="lastname" required="required" /></label> <br />
-					<br /> <label>Gender:</label> &emsp;&emsp;<input type="radio"
-						name="type" value="male" required>Male &emsp;&emsp;<input
-						type="radio" name="type" value="female" required>Female <br />
-					<br /> <label>Username:<br /> <input type="text"
-						name="username" required="required" /></label> <br />
-					<br /> <label>Password: <br />
-					<input type="password" name="userpass" required="required" /></label> <br />
-					<br /> <label>Email: <br />
-					<input type="email" name="email" required="required" /></label> <br />
-					<br /> <label>Telephone: <br />
-					<input type="tel" name="telephone" /></label> <br />
-					<br />
-				</div>
-				<input type="submit" value="Sign Up"  /> <br />
-			</fieldset>
-		</form>
-	</div>
+	<h2 align=center>Sign up</h2>
+	<form action="loginServlet" method="post">
+		<fieldset style='margin: 0px 155px; width: 360px;'>
+			<legend> DETAIL </legend>
+			<table cellpadding="10">
+				<tr>
+					<td>First Name:</td>
+					<td><input type="text" name="firstname" required="required" /></td>
+				</tr>
+				<tr>
+					<td>Last Name:</td>
+					<td><input type="text" name="lastname" required="required" /></td>
+				</tr>
+				<tr>
+					<td>Gender:</td>
+					<td><input type="radio" name="type" value="male" required>Male&emsp;&emsp;
+						<input type="radio" name="type" value="female" required>Female</td>
+				</tr>
+				<tr>
+					<td>Username:</td>
+					<td><input type="text" name="username" required="required" /></td>
+				</tr>
+				<tr>
+					<td>Password:</td>
+					<td><input type="password" name="pass" required="required" /></td>
+				</tr>
+				<tr>
+					<td>Email:</td>
+					<td><input type="email" name="email" required="required" /></td>
+				</tr>
+				<tr>
+					<td>Telephone:</td>
+					<td><input type="tel" name="tel" required="required" /></td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="Sign up" align="center"/></td>
+				</tr>
+			</table>
+		</fieldset>
+	</form>
 </body>
 </html>
