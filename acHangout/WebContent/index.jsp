@@ -8,23 +8,10 @@
 </head>
 <body>
 <img src="Resources/achangout.JPG" alt="achangout logo" style="width:300px;height:100px;">
-    <form action="loginServlet" method="post">
-        <fieldset style="width: 300px">
-            <legend> INDEX </legend>
-            <table>
-                <tr>
-                    <td>User ID</td>
-                    <td><input type="text" name="username" required="required" /></td>
-                </tr>
-                <tr>
-                    <td>Password</td>
-                    <td><input type="password" name="userpass" required="required" /></td>
-                </tr>
-                <tr>
-                    <td><input type="submit" value="Login" /></td>
-                </tr>
-            </table>
-        </fieldset>
-    </form>
+   
+   <!--  -->>
+   <div>
+   
+   </div>
 </body>
 </html>
