@@ -11,7 +11,7 @@
 <body>
     <form action="loginServlet" method="post">
         <fieldset style="width: 300px">
-            <legend> Login to App1 </legend>
+            <legend> INDEX </legend>
             <table>
                 <tr>
                     <td>User ID</td>
