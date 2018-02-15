@@ -9,7 +9,7 @@
 <body>
 	<h2 align=center>acHangout</h2>
 	<form action="loginServlet" method="post">
-		<fieldset style='margin: 0px 155px; width: 360px;'>
+		<fieldset id="border" style='margin: 0px 155px; width: 360px;'>
 			<legend> DETAIL </legend>
 			<table cellpadding="10">
 				<tr>
