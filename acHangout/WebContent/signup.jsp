@@ -12,7 +12,7 @@
 			<legend> DETAIL </legend>
 			<table cellpadding="10">
 				<tr>
-					<td>First Name:</td>
+					<td>FirstName:</td>
 					<td><input type="text" name="firstname" required="required" /></td>
 				</tr>
 				<tr>
