@@ -15,7 +15,7 @@
 				<label>Password: <br /><input type="password" name="userpass" required="required" /></label> 
 				<br /><br />
 				<input type="submit" value="Login" /> <br />
-				<br />Don't have an account? <a href="signup.jsp" style="text-decoration: none;">Sign up your account here</a>
+				<br />Don't have an account? <a href="signup.jsp" style="text-decoration: none;">Sign up</a>
 			</fieldset>
 		</form>
 	</div>
