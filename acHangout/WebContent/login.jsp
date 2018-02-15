@@ -7,7 +7,7 @@
 <link rel="stylesheet"type="text/css" href="index.css">
 </head>
 <body>
-	<h2 align=center>Sign up</h2>
+	<h2 align=center>acHangout</h2>
 	<form action="loginServlet" method="post">
 		<fieldset style='margin: 0px 155px; width: 360px;'>
 			<legend> DETAIL </legend>
