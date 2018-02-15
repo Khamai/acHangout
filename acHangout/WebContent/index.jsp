@@ -4,9 +4,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login Application</title>
-<h1><img src="achangout.jpg" alt="achangout logo" style="width:500px;height:600px;"></h1>>
+
 </head>
 <body>
+<img src="achangout.jpg" alt="achangout logo" style="width:500px;height:600px;">
     <form action="loginServlet" method="post">
         <fieldset style="width: 300px">
             <legend> INDEX </legend>
