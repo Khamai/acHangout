@@ -7,24 +7,15 @@
 </head>
 <body>
 	<div>
-		<h2>acHangout</h2>
+		<h2 align=center>acHangout</h2>
 		<form action="loginServlet" method="post">
-			<fieldset>
-				<table>
-					<tr>
-						<td>UserName</td>
-						<td><input type="text" name="username" required="required" /></td>
-					</tr>
-					<tr>
-						<td>Password</td>
-						<td><input type="password" name="userpass"
-							required="required" /></td>
-					</tr>
-					<tr>
-						<td><a href="signup.jsp">Sign up your account here</a></td>
-						<td><input type="submit" value="Login" /></td>
-					</tr>
-				</table>
+			<fieldset style='margin: 0px 155px; width: 360px;'>
+				<label>Username:<br /> <input type="text" name="username" required="required" /></label> 
+				<br /><br /> 
+				<label>Password: <br /><input type="password" name="userpass" required="required" /></label> 
+				<br /><br />
+				<input type="submit" value="Login" /> <br />
+				<br />Don't have an account? <a href="signup.jsp" style="text-decoration: none;">Sign up your account here</a>
 			</fieldset>
 		</form>
 	</div>
