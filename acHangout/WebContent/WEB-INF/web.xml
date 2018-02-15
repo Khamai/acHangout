@@ -13,6 +13,7 @@
 		<url-pattern>/loginServlet</url-pattern>
 	</servlet-mapping>
 
+<<<<<<< HEAD
 
 	<servlet>
 		<servlet-name>signUp</servlet-name>
@@ -24,6 +25,8 @@
 		<url-pattern>/signUp</url-pattern>
 	</servlet-mapping>
 
+=======
+>>>>>>> branch 'Kha' of https://github.com/leenguyen95/acHangout.git
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
