@@ -13,22 +13,17 @@ body {
 	border-color:DarkGreen ;
 }
 
-h1 {
-	color: red;
-}
+h1 {color: red;}
 
-h2 {
-	color: green;
-}
+h2 {color: green;}
 
-h3 {
-	color: black;
-}
+h3 {color: black;}
 
 #header {
+	background-image:"WebContent/achangout.JPG"
 	text-align: left;
-	color: black;
-	background-color: lightgray;
+	color: Darkgreen;
+	background-color: white;
 	width: 1343px;
 	height: 250px;
 	left: 5%;
