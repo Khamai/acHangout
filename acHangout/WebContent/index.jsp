@@ -5,6 +5,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login Application</title>
 </head>
+
+<link rel="stylesheet" type="text/css" href="index.css" />
+
 <body>
     <form action="loginServlet" method="post">
         <fieldset style="width: 300px">
