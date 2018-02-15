@@ -21,7 +21,7 @@
 							required="required" /></td>
 					</tr>
 					<tr>
-						<td><a href="signUp">Sign up your account here</a></td>
+						<td><a href="signup.jsp">Sign up your account here</a></td>
 						<td><input type="submit" value="Login" /></td>
 					</tr>
 				</table>
