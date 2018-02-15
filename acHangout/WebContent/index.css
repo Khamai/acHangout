@@ -2,10 +2,15 @@
 
 body {
 	background-color: White;
-	font: "Times New Roman";
 	font-size: 20px;
 	padding: 0px;
 	margin: 0px;
+}
+
+#border
+{
+	border-style:solid;
+	border-color:DarkGreen ;
 }
 
 h1 {
@@ -72,12 +77,3 @@ h3 {
 	margin-left:10px;
 	text-align: center;
 }
-<
-body
->
-</
-body
->
-</
-style
->
