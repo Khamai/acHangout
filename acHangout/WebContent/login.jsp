@@ -4,15 +4,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login Application</title>
-<link rel="stylesheet" type="text/css" href="index.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<div id="header">
+	<div class="header">
 		<jsp:include page="header.html" />
 	</div>
 
 	<div id="content">
-		<h2 align=center>acHangout</h2>
+	<br/>
 		<form action="loginServlet" method="post">
 			<fieldset id="border" style='margin: 0px 155px; width: 360px;'>
 				<legend>
