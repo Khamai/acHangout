@@ -37,9 +37,10 @@ body {
 	background-position: right;
 	background-repeat: no-repeat;
 	background-size: contain;
+	width: 380px;
 	padding: 8px;
 	margin-top: 8px;
 	margin-right: 16px;
 	border: none;
-	font-size: 20px;
+	font-size: 18px;
 }
