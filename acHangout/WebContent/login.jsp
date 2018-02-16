@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div id="header">
-		<jsp:include page="header.jsp" />
+		<jsp:include page="header.html" />
 	</div>
 
 	<div id="content">
