@@ -4,13 +4,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login Application</title>
-<link rel="stylesheet"type="text/css" href="index.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+	<div class="header">
+		<jsp:include page="header.html" />
+	</div>
 	<h2 align=center>Sign up</h2>
 	<form action="loginServlet" method="post">
 		<fieldset style='margin: 0px 155px; width: 360px;'>
-			<legend> <b>DETAIL</b> </legend>
+			<legend>
+				<b>DETAIL</b>
+			</legend>
 			<table cellpadding="10">
 				<tr>
 					<td>First Name:</td>
@@ -42,7 +47,7 @@
 					<td><input type="tel" name="tel" required="required" /></td>
 				</tr>
 				<tr>
-					<td><input type="submit" value="Sign up" align="center"/></td>
+					<td><input type="submit" value="Sign up" align="center" /></td>
 				</tr>
 			</table>
 		</fieldset>

@@ -4,6 +4,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login Application</title>
+<!--  <link rel="stylesheet" type="text/css"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	-->
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -12,7 +15,7 @@
 	</div>
 
 	<div id="content">
-	<br/>
+		<br />
 		<form action="loginServlet" method="post">
 			<fieldset id="border" style='margin: 0px 155px; width: 360px;'>
 				<legend>
