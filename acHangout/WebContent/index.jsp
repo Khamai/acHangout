@@ -4,10 +4,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login Application</title>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<jsp:include page="header.jsp" />
+	<div class="header">
+		<jsp:include page="header.html" />
+	</div>
 
-	<jsp:include page="footer.jsp" />
+
 </body>
 </html>
