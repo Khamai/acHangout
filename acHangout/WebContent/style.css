@@ -2,6 +2,18 @@
 	box-sizing: border-box;
 }
 
+h1 {
+	color: red;
+}
+
+h2 {
+	color: green;
+}
+
+h3 {
+	color: black;
+}
+
 .header {
 	text-align: left;
 	color: Darkgreen;
@@ -9,6 +21,22 @@
 	width: auto;
 	height: 95px;
 	margin-left: auto;
+}
+
+.top-menu {
+	text-align: center;
+	color: Darkgreen;
+	width: auto;
+	height: 95px;
+	margin-left: auto;
+}
+
+.top-hot {
+	border-right: 5px solid #126758;
+	top: 95px;
+	width: 280px;
+	position: absolute;
+	font-size: 18spx;
 }
 
 body {
@@ -26,14 +54,31 @@ body {
 	position: absolute;
 }
 
+.top-hot a {
+	display: block;
+	float: left;
+}
+
+a {
+	text-decoration: none;
+	text-align: center;
+}
+
+a:hover {
+	color: #FF8C00;
+}
+
+li {
+	margin: 20px;
+	margin-left: 0;
+}
+
 .topnav a {
 	float: left;
 	display: block;
-	color: black;
-	text-align: center;
 	/* Padding: make button bigger or smaller (top, right, bottom, left */
+	color: black;
 	padding: 13px 16px;
-	text-decoration: none;
 	font-size: 18px;
 }
 
