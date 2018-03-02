@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+
 	<img src='Resources/1.png' style='float: left;' width='380' height='95'>
+
 	<div class="topnav">
-		<a class="active" href="index.jsp">Home</a> <a href="#profile">Profile</a>
-		<a href="#messenger">Messenger</a> <a href="#help">Help</a>&emsp; <input
-			type="text" placeholder="Search..."> <a class="active1" href="signup.jsp"
-			style="float: right">Sign up</a><a href="login.jsp"
+		<a class="active" href="index.jsp">Home</a> <a href="#about">Profile</a>
+		<a href="#contact">Messenger</a> <a href="#contact">Help&nbsp;<i
+			class="fa fa-question-circle-o"></i></a> &emsp; <a href="signup.jsp"
+			style="float: right">Sign up</a> <a href="login.jsp"
 			style="float: right">Login</a>
+
+		<div class="search-container">
+			<form action="search.jsp">
+				&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; <input type="text"
+					placeholder="Search.." name="search">
+				<button type="submit">
+					<i class="fa fa-search"></i>
+				</button>
+			</form>
+		</div>
 	</div>
 </body>
 </html>
