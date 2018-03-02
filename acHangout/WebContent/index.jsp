@@ -14,8 +14,11 @@
 	<div class="header">
 		<jsp:include page="header.html" />
 	</div>
+	
 	<div class="top-menu">
 		<jsp:include page="top-menu.html" />
 	</div>
+	
+	
 </body>
 </html>
