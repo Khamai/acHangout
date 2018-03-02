@@ -4,6 +4,7 @@
 <html>
 <head>
 <style>
+
 	.poll{
 		font-size: 15px;;
 		background-color: #6699FF;
