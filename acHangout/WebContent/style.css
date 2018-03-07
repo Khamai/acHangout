@@ -76,7 +76,7 @@ li {
 .topnav a {
 	float: left;
 	display: block;
-	/* Padding: make button bigger or smaller (top, right, bottom, left */
+	/* Padding: make button bigger or smaller (top, right, bottom, left) */
 	color: black;
 	padding: 13px 16px;
 	font-size: 18px;
@@ -116,6 +116,11 @@ li {
 
 .topnav .search-container button:hover {
 	background: #ccc;
+}
+
+#google_translate_element{
+	right:50px;
+	position: absolute;
 }
 
 @media screen and (max-width: 990px) {

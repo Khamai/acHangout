@@ -16,6 +16,9 @@
 		<jsp:include page="header.html" />
 	</div>
 
+	<div id="google_translate_element"></div>
+
+
 	<div id="content">
 		<br />
 		<form action="loginServlet" method="post">
