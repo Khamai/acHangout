@@ -118,6 +118,11 @@ li {
 	background: #ccc;
 }
 
+#google_translate_element{
+	right:50px;
+	position: absolute;
+}
+
 @media screen and (max-width: 990px) {
 	.topnav .search-container {
 		float: none;
