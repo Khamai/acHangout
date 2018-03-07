@@ -15,9 +15,9 @@
 	<div class="header">
 		<jsp:include page="header.html" />
 	</div>
-	
-<div id="google_translate_element"></div>
-	
+
+	<div id="google_translate_element"></div>
+
 	<script type="text/javascript">
 	function googleTranslateElementInit() 
 	{
@@ -25,10 +25,10 @@
 	}
 	</script>
 
-	<script type="text/javascript" 
+	<script type="text/javascript"
 		src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
 	</script>
-	
+
 	<div id="content">
 		<br />
 		<form action="loginServlet" method="post">

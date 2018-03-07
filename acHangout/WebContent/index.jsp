@@ -4,16 +4,13 @@
 <html>
 <head>
 <style>
-
-	.poll{
-		font-size: 15px;;
-		background-color: #6699FF;
-		color: #3300FF;
-		margin: 80px 200px 200px 400px;
-		border: 
-		
-	}
-
+.poll {
+	font-size: 15px;;
+	background-color: #6699FF;
+	color: #3300FF;
+	margin: 80px 200px 200px 400px;
+	border:
+}
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>acHangout</title>
