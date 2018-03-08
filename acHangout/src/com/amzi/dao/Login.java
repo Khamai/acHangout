@@ -34,7 +34,7 @@ public class Login {
                     .getConnection(url + dbName, userName, password);
             //The question marks will then be replaced in the setString(nth question mark, replaced with) method.
             pst = conn
-                    .prepareStatement("select * from login where user=? and password=?");
+                    .prepareStatement("select * from users where username=? and password=?");
             pst.setString(1, name);
             pst.setString(2, pass);
 
