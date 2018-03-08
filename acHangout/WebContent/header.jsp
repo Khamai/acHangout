@@ -1,3 +1,10 @@
+<%@ page import="java.io.*,java.util.Locale"%>
+<%@ page import="javax.servlet.*,javax.servlet.http.* "%>
+<%
+	//Get the client's Locale
+	Locale locale = request.getLocale();
+	String language = locale.getLanguage();
+%>
 
 <!DOCTYPE html>
 <html>
@@ -22,7 +29,7 @@
 			style="float: right">Login</a> <a href="#" style="float: right"
 			onclick="open_translate(this)" title="Google Translate"><i
 			class="fa fa-globe"></i></a>
-			
+
 		<div class="search-container">
 			<form action="search.jsp">
 				&emsp; &emsp; &emsp; &emsp; <input type="text"
@@ -48,7 +55,7 @@
 
 		function googleTranslateElementInit() {
 			new google.translate.TranslateElement({
-				pageLanguage : 'en',
+				pageLanguage : '<%=language%>',
 				layout : google.translate.TranslateElement.InlineLayout.SIMPLE
 			}, 'google_translate_element');
 		}
