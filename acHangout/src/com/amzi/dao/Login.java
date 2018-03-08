@@ -1,4 +1,4 @@
-package dao;
+package com.amzi.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -26,7 +26,7 @@ public class Login {
         String dbName = "form";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "root";
-        String password = "root";
+        String password = "abc123";
         try {
             Class.forName(driver).newInstance();
            

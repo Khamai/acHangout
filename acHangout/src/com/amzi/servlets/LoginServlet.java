@@ -1,4 +1,4 @@
-package servlet;
+package com.amzi.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.Login;
+import com.amzi.dao.Login;
 
 
 
@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet{
         PrintWriter out = response.getWriter();  
         
         String n=request.getParameter("username");  
-        String p=request.getParameter("userpass"); 
+        String p=request.getParameter("password"); 
         
         HttpSession session = request.getSession(false);
         if(session!=null)
