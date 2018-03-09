@@ -22,7 +22,7 @@
 		<div class="container">
 			<br /> <br /> <br />
 			<h2>DETAIL</h2>
-			<form class="form-horizontal" action="loginServlet">
+			<form class="form-horizontal" action="loginServlet" method="post">
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="username">Username:</label>
 					<div class="col-sm-10">
@@ -49,7 +49,7 @@
 				</div>
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
-						<button type="submit" class="btn btn-default">Login</button>
+						<button type="submit" class="Login"= value="Login">Login</button>
 					</div>
 				</div>
 				<br /> &nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Don't have
