@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<<<<<<< HEAD
+=======
+    
+    <% if(session.getAttribute("username") == null){ %>
+    	%><jsp:forward page="login.jsp"><%
+    	}%>
+    		
+>>>>>>> refs/remotes/origin/Kha
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +22,7 @@
 </head>
 <body>
 <div class="jumbotron text-center">
+<<<<<<< HEAD
   <h1>Create A Poll</h1>
   <p>Start a poll! <br> Select from the options which type of poll you would like to post and type in your question.</p> 
 </div>
@@ -40,6 +49,43 @@
 				<br /> 
 			</fieldset>
 		</form>
+=======
+  <h1>Get your question out there</h1>
+  <p> Select from the options which type of poll you would like to post and type in your question.</p> 
+</div>
+  
+		<div class="container-fluid">
+		<br />
+		
+			<fieldset id="border" style='margin: 0px 155px; width: 360px;'>
+				<legend>
+					<b>Create A Poll</b>
+				</legend>
+				<div class ="row">
+						<div class="col-sm-12"></div>
+						
+						<div class="col-sm-12">
+						<form action="poll" method="post">
+						<div class="form-group">
+						<div>Your Question</div>
+						<div><textarea maxlength="255" rows="5" cols="40"></textarea></div>
+						
+						<div>Question Type</div>
+						
+						<input type="radio" name="qtype" value="multi" checked> Multiple Choice
+  						<input type="radio" name="qtype" value="shortAnswer"> Short Answer
+  						<input type="radio" name="qtype" value="rank"> Ranking
+  						 <button type="submit" class="btn btn-primary">Submit</button>
+  						 </div>
+  						</form>
+						</div>
+						 
+						 </div><div class="col-sm-12">
+				</div>
+				<br /> 
+			</fieldset>
+		
+>>>>>>> refs/remotes/origin/Kha
 	</div>
 </body>
 </html>
