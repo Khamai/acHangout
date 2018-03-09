@@ -23,7 +23,15 @@ public class PollController extends HttpServlet{
 		 /*Instantiate the poll bean object*/
 	//	 PollModel poll = new PollModel();
 		 
-		 RequestDispatcher rd=request.getRequestDispatcher("poll.jsp"); 
+		
+		 
+		 
+	 }
+	 
+	 
+	 public void doGet(HttpServletRequest request, HttpServletResponse response)
+			 throws ServletException, IOException {
+ RequestDispatcher rd=request.getRequestDispatcher("poll.jsp"); 
 		 
 		 
 		 /*MIME*/
@@ -36,11 +44,12 @@ public class PollController extends HttpServlet{
 	     String qt=request.getParameter("qtype");
 	     String q=request.getParameter("q");
 	     
-	     if(q.equals(null)) {
+	     if(q.equals("")) {
 	    	 
 	    	 
 	    	 out.print("<p style=\"color:red\">Sorry username or password error</p>");
 	    	 rd.forward(request, response);
+	    	
 	     }
 	    	  
 	     
@@ -48,16 +57,9 @@ public class PollController extends HttpServlet{
 	     
 	     
 	    // poll.init(q,qt);
-	     
-	     
+	     out.print("<p style=\"color:red\">q is:"+q+"</p>");
+	    
 	     
 	     out.close();
-		 
-		 
-	 }
-	 
-	 
-	 public void doGet(HttpServletRequest request, HttpServletResponse response) {
-    	 
      }
 }

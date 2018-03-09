@@ -1,4 +1,16 @@
 
+<%
+	out.print("<img src='achangout.JPG' style= 'float:left; width:200; height:70;'>");
+%>
+
+<%@ page import="java.io.*,java.util.Locale"%>
+<%@ page import="javax.servlet.*,javax.servlet.http.* "%>
+<%
+	//Get the client's Locale
+	Locale locale = request.getLocale();
+	String language = locale.getLanguage();
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,13 +20,13 @@
 <body>
 
 	<a href="index.jsp"> <img src='Resources/1.png'
-		style='float: left;' width='380' height='100'>
+		style='float: left;' width='380' height='95'>
 	</a>
 
 	<div style='display: none; padding: 10px;'
 		id='google_translate_element'></div>
 
-	<div class="topnav" id="myTopnav">
+	<div class="topnav">
 		<a class="active" href="index.jsp">Home</a> <a href="#about">Profile</a>
 		<a href="#contact">Messenger</a> <a href="#contact">Help&nbsp;<i
 			class="fa fa-question-circle-o"></i></a> &emsp; <a href="signup.jsp"
@@ -53,7 +65,6 @@
 			}, 'google_translate_element');
 		}
 	</script>
-
 	<script type="text/javascript"
 		src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
 		

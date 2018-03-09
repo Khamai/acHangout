@@ -13,8 +13,24 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  
+  
+  <script>
+	function checkText(){
+		
+		var text = document.forms["pollForm"]["q"].value;
+		if(text == ""){
+		//document.getElementById("submit").disabled = true;
+		//document.getElementById("submit").style.background = '#F00';
+		alert("Please enter a question");
+		return false;
+		}
+	}
+		
+</script>
+  
 </head>
-</head>
+
 <body>
  <div class="container-fluid">
   <div class="row col-lg-12">
@@ -72,7 +88,7 @@
 						<div class="col-sm-12"></div>
 						
 						<div class="col-sm-12">
-						<form id=pollForm action="PollController" method="post">
+						<form id=pollForm action="PollController" method="get">
 						<div class="form-group">
 						<div>Your Question</div>
 						<div><textarea name="q" maxlength="255" rows="5" cols="40"></textarea></div>
@@ -82,7 +98,7 @@
 						<input type="radio" name="qtype" value="multi" checked> Multiple Choice
   						<input type="radio" name="qtype" value="shortAnswer"> Short Answer
   						<input type="radio" name="qtype" value="rank"> Ranking
-  						 <button type="submit" class="btn btn-primary">Submit</button>
+  						 <button id="submit" type="submit" class="btn btn-primary" onSubmit="return checkText()">Submit</button>
   						 </div>
   						</form>
 						</div>
@@ -104,6 +120,9 @@
 	
 	
 <!-- JavaScript to add listeners to qtype buttons. Will send current selection to the controller and page will react appropriately. 
+	<button onclick="myFunction()">Try it</button>
+
+
 	<script>
 var f = document.getElementById("pollForm");
 f.addEventListener("focus", myFocusFunction, true);

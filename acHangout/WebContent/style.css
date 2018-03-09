@@ -19,7 +19,7 @@ h3 {
 	color: Darkgreen;
 	background-color: #C0C0C0;
 	width: auto;
-	height: 95px;
+	height: 120px;
 	margin-left: auto;
 }
 
@@ -27,19 +27,18 @@ h3 {
 	text-align: center;
 	color: Darkgreen;
 	width: auto;
-	height: 95px;
-	margin-left: auto;
+	height: auto;
 }
 
 .top-hot {
 	border-right: 5px solid #126758;
-	top: 95px;
 	width: 280px;
 	position: absolute;
 	font-size: 18spx;
 }
 
 body {
+	background-image: url("brilliant.png");
 	margin: 0;
 	font-family: Arial, Helvetica, sans-serif;
 }
@@ -49,19 +48,15 @@ body {
 	border-left: 5px solid #126758;
 	overflow: hidden;
 	background-color: #e9e9e9;
-	top: 43px;
+	/* Remove these things to make it full bar */
+	top: 64px;
 	right: 0;
 	position: absolute;
-}
-
-.top-hot a {
-	display: block;
-	float: left;
+	right: 0;
 }
 
 a {
 	text-decoration: none;
-	text-align: center;
 }
 
 a:hover {
@@ -69,8 +64,7 @@ a:hover {
 }
 
 li {
-	margin: 20px;
-	margin-left: 0;
+	margin: 12px;
 }
 
 .topnav a {
@@ -80,6 +74,7 @@ li {
 	color: black;
 	padding: 13px 16px;
 	font-size: 18px;
+	text-decoration: none;
 }
 
 .topnav a:hover {
@@ -118,8 +113,8 @@ li {
 	background: #ccc;
 }
 
-#google_translate_element{
-	right:50px;
+#google_translate_element {
+	right: 50px;
 	position: absolute;
 }
 
@@ -138,4 +133,20 @@ li {
 	.topnav input[type=text] {
 		border: 2px solid #ccc;
 	}
+}
+
+.dropdown ul li a:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+footer {
+	height: 120px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	text-align: center;
+	background-color: #555;
+	color: white;
+	padding: 15px;
 }
