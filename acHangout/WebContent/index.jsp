@@ -32,7 +32,6 @@
 	<div class="top-menu">
 		<jsp:include page="top-menu.html" />
 	</div>
-	<div class="poll">Hello</div>
 
 </body>
 </html>

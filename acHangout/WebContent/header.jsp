@@ -60,8 +60,7 @@
 
 		function googleTranslateElementInit() {
 			new google.translate.TranslateElement({
-				pageLanguage : '<%=language%>
-		',
+				pageLanguage : 'en',
 				layout : google.translate.TranslateElement.InlineLayout.SIMPLE
 			}, 'google_translate_element');
 		}
