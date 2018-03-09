@@ -4,22 +4,29 @@
 
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<style>
-
-</style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>acHangout</title>
+<<<<<<< HEAD
 
 <meta charset="UTF-8">
+=======
+>>>>>>> branch 'Tianze' of https://github.com/leenguyen95/acHangout.git
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<<<<<<< HEAD
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+=======
+>>>>>>> branch 'Tianze' of https://github.com/leenguyen95/acHangout.git
 <link rel="stylesheet" type="text/css" href="style.css">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<!-- I include header and top-menu separately because the other web pages also need to have both of them 
@@ -32,6 +39,7 @@
 	<div class="top-menu">
 		<jsp:include page="top-menu.html" />
 	</div>
+<<<<<<< HEAD
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -39,5 +47,239 @@
 
 
 
+=======
+	<br />
+	<br />
+
+	<div class="container text-center">
+		<h2>Forum Topics</h2>
+		<br /> <br />
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="well">
+					<img src='Resources/food.png' class="img-circle" height="80"
+						width="80" alt="Avatar"> <br /> <br />
+					<div class="btn-group">
+						<div class="dropdown">
+							<button class="btn btn-primary dropdown-toggle" type="button"
+								data-toggle="dropdown">
+								Food Topics <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">Asian Foods</a></li>
+								<li><a href="#">Europe Foods</a></li>
+								<li><a href="#">American Foods</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="btn-group">
+						<div class="dropdown">
+							<button class="btn btn-primary dropdown-toggle" type="button"
+								data-toggle="dropdown">
+								Restaurant Topics <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">Asian Restaurants</a></li>
+								<li><a href="#">Canadian Restaurants</a></li>
+								<li><a href="#">Middle Eastern Restaurants</a></li>
+								<li><a href="#">Indian Restaurants</a></li>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="well">
+					<img src='Resources/study.png' class="img-circle" height="80"
+						width="80" alt="Avatar"><br /> <br />
+					<div class="dropdown">
+						<button class="btn btn-primary dropdown-toggle" type="button"
+							data-toggle="dropdown">
+							Program Topics <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li><a href="#">Full-time Programs</a></li>
+							<li><a href="#">Part-time Programs</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="well">
+					<img src='Resources/media.png' class="img-circle" height="80"
+						width="80" alt="Avatar"><br /> <br />
+					<div class="dropdown">
+						<button class="btn btn-primary dropdown-toggle" type="button"
+							data-toggle="dropdown">
+							Media Topics <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li><a href="#">Musics</a></li>
+							<li><a href="#">Films</a></li>
+							<li><a href="#">TV Series</a></li>
+							<li><a href="#">TV Shows</a></li>
+							<li><a href="#">Anime</a></li>
+							<li><a href="#">Photos</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br />
+
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="well">
+					<img src='Resources/sport.png' height="82" width="90" alt="Avatar">
+					<br /> <br />
+					<div class="dropdown">
+						<button class="btn btn-primary dropdown-toggle" type="button"
+							data-toggle="dropdown">
+							Sport Topics <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li><a href="#">Soccer</a></li>
+							<li><a href="#">American Football</a></li>
+							<li><a href="#">Basketball</a></li>
+							<li><a href="#">Baseball</a></li>
+							<li><a href="#">Hockey</a></li>
+							<li><a href="#">Fitness</a></li>
+							<li><a href="#">Badminton</a></li>
+							<li><a href="#">Swimming</a></li>
+							<li><a href="#">Tennis</a></li>
+							<li><a href="#">Others</a></li>
+
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="well">
+					<img src='Resources/help.png' class="img-circle" height="80"
+						width="80" alt="Avatar"><br /> <br />
+					<button type="button" class="btn btn-primary">Ask For Help</button>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="well">
+					<img src='Resources/event.png' class="img-circle" height="80"
+						width="80" alt="Avatar"><br /> <br />
+					<div class="dropdown">
+						<button class="btn btn-primary dropdown-toggle" type="button"
+							data-toggle="dropdown">
+							Activity Topics <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li><a href="#">Event</a></li>
+							<li><a href="#">Indoor Activities</a></li>
+							<li><a href="#">Outdoor Activities</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br />
+
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="well">
+					<img src='Resources/comic.png' height="82" width="90" alt="Avatar">
+					<br /> <br />
+					<div class="btn-group">
+						<div class="dropdown">
+							<button class="btn btn-primary dropdown-toggle" type="button"
+								data-toggle="dropdown">
+								Book Topics <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li class="dropdown-header"
+									style="color: brown; font-weight: bold;">Literature</li>
+								<li><a href="#">Asia</a></li>
+								<li><a href="#">Africa</a></li>
+								<li><a href="#">Europe</a></li>
+								<li><a href="#">America</a></li>
+								<li class="divider"></li>
+								<li class="dropdown-header"
+									style="color: brown; font-weight: bold;">Books</li>
+								<li><a href="#">Manga</a></li>
+								<li><a href="#">Novel</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="btn-group">
+						<div class="dropdown">
+							<button class="btn btn-primary dropdown-toggle" type="button"
+								data-toggle="dropdown">
+								Genre Topics <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="#">Horror</a></li>
+								<li><a href="#">Thriller</a></li>
+								<li><a href="#">Action/Adventure</a></li>
+								<li><a href="#">Comedy</a></li>
+								<li><a href="#">Science Fiction</a></li>
+								<li><a href="#">Romance</a></li>
+								<li><a href="#">Mystery</a></li>
+								<li><a href="#">Fantasy</a></li>
+								<li><a href="#">Drama</a></li>
+								<li><a href="#">Others</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-4">
+				<div class="well">
+					<img src='Resources/happy.ico' class="img-circle" height="80"
+						width="80" alt="Avatar"><br /> <br />
+					<button type="button" class="btn btn-primary">Funny Spots</button>
+				</div>
+			</div>
+
+			<div class="col-sm-4">
+				<div class="well">
+					<img src='Resources/money2.png' class="img-circle" height="80"
+						width="80" alt="Avatar"><br /> <br />
+					<div class="dropdown">
+						<button class="btn btn-primary dropdown-toggle" type="button"
+							data-toggle="dropdown">
+							Classific Topics <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li><a href="#">Houses/Apts For Renting</a></li>
+							<li><a href="#">Used Stuff</a></li>
+							<li><a href="#">Others</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+
+
+	<footer class="container-fluid text-center">
+		<p>Footer Text</p>
+	</footer>
+>>>>>>> branch 'Tianze' of https://github.com/leenguyen95/acHangout.git
 </body>
 </html>

@@ -8,13 +8,13 @@
 <body>
 
 	<a href="index.jsp"> <img src='Resources/1.png'
-		style='float: left;' width='380' height='95'>
+		style='float: left;' width='380' height='100'>
 	</a>
 
 	<div style='display: none; padding: 10px;'
 		id='google_translate_element'></div>
 
-	<div class="topnav">
+	<div class="topnav" id="myTopnav">
 		<a class="active" href="index.jsp">Home</a> <a href="#about">Profile</a>
 		<a href="#contact">Messenger</a> <a href="#contact">Help&nbsp;<i
 			class="fa fa-question-circle-o"></i></a> &emsp; <a href="signup.jsp"
@@ -22,7 +22,7 @@
 			style="float: right">Login</a> <a href="#" style="float: right"
 			onclick="open_translate(this)" title="Google Translate"><i
 			class="fa fa-globe"></i></a>
-			
+
 		<div class="search-container">
 			<form action="search.jsp">
 				&emsp; &emsp; &emsp; &emsp; <input type="text"
@@ -53,6 +53,7 @@
 			}, 'google_translate_element');
 		}
 	</script>
+
 	<script type="text/javascript"
 		src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
 		
