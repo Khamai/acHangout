@@ -22,7 +22,7 @@
 		<div class="container">
 			<br /> <br /> <br />
 			<h2>DETAIL</h2>
-			<form class="form-horizontal" action="loginServlet">
+			<form class="form-horizontal" action="loginServlet" method="post">
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="username">Username:</label>
 					<div class="col-sm-10">
