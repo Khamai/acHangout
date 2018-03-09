@@ -28,6 +28,7 @@
 		<jsp:include page="top-menu.html" />
 	</div>
 
+
 	<div class="container text-center">
 		<h2>Forum Topics</h2>
 		<br /> <br />
@@ -241,6 +242,18 @@
 	<br />
 	<br />
 	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+
 
 	<footer class="container-fluid text-center">
 		<p>Footer Text</p>
