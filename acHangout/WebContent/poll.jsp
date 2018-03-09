@@ -72,7 +72,7 @@
 						<div class="col-sm-12"></div>
 						
 						<div class="col-sm-12">
-						<form action="poll" method="post">
+						<form action="PollController" method="post">
 						<div class="form-group">
 						<div>Your Question</div>
 						<div><textarea name="q" maxlength="255" rows="5" cols="40"></textarea></div>
