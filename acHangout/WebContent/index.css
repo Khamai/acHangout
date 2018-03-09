@@ -3,6 +3,10 @@
 body {
 
 	background-color: White;
+	background-color: White;
+	font-size: 20px;
+
+	background-color: White;
 	padding: 0px;
 	margin: 0px;
 }
@@ -27,7 +31,41 @@ h3 {color: black;}
 	height: 200px;
 	top: 20px;
 	border: 2px solid;
+<<<<<<< HEAD
+	left: 5%;
+	margin-top: 10px;
+	margin-left:10px;
+	text-align: center;
+}
+
+#border
+{
+	border-style:solid;
+	border-color:DarkGreen ;
+}
+
+h1 {color: red;}
+
+h2 {color: green;}
+
+h3 {color: black;}
+
+#header {
+	background-image:"WebContent/achangout.JPG"
+	text-align: left;
+	color: Darkgreen;
+	background-color: white;
+	width: 1343px;
+	height: 250px;
+	left: 5%;
+	top: 20px;
+	padding-top: 3%;
+	padding-left:10%;
+	border: 2px solid;
+	margin-left:10px;
+=======
 	margin-left:auto;
+>>>>>>> refs/remotes/origin/Kha
 	margin-top: 10px;
 }
 
@@ -68,6 +106,9 @@ h3 {color: black;}
 	margin-left:10px;
 	text-align: center;
 }
+<<<<<<< HEAD
+
+=======
 /* Add a black background color to the top navigation bar */
 .topnav {
     overflow: hidden;
@@ -122,3 +163,4 @@ h3 {color: black;}
     }
 }
 
+>>>>>>> refs/remotes/origin/Kha
