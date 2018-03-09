@@ -1,3 +1,8 @@
+
+<%
+	out.print("<img src='achangout.JPG' style= 'float:left; width:200; height:70;'>");
+%>
+
 <%@ page import="java.io.*,java.util.Locale"%>
 <%@ page import="javax.servlet.*,javax.servlet.http.* "%>
 <%
@@ -55,7 +60,7 @@
 
 		function googleTranslateElementInit() {
 			new google.translate.TranslateElement({
-				pageLanguage : '<%=language%>',
+				pageLanguage : 'en',
 				layout : google.translate.TranslateElement.InlineLayout.SIMPLE
 			}, 'google_translate_element');
 		}

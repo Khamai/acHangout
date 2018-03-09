@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpServlet;
 
 public class Signup extends HttpServlet {
+	@SuppressWarnings("resource")
 	public static boolean validate(String values[]) {        
         boolean status = false;
        
