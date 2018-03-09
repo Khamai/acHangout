@@ -72,7 +72,7 @@
 						<div class="col-sm-12"></div>
 						
 						<div class="col-sm-12">
-						<form action="PollController" method="post">
+						<form id=pollForm action="PollController" method="post">
 						<div class="form-group">
 						<div>Your Question</div>
 						<div><textarea name="q" maxlength="255" rows="5" cols="40"></textarea></div>
@@ -94,5 +94,32 @@
 		
 	</div>
 	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+<!-- JavaScript to add listeners to qtype buttons. Will send current selection to the controller and page will react appropriately. 
+	<script>
+var f = document.getElementById("pollForm");
+f.addEventListener("focus", myFocusFunction, true);
+f.addEventListener("blur", myBlurFunction, true);
+
+function myFocusFunction() {
+    document.getElementById("myInput").style.backgroundColor = "yellow";  
+}
+
+function myBlurFunction() {
+    document.getElementById("myInput").style.backgroundColor = "";  
+}
+</script> -->
+<script type="text/javascript">
+var d = new Date()
+document.write("Made by Le Nguyen "+d.getFullYear())
+</script>
 </body>
 </html>
