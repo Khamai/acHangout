@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app
+<<<<<<< HEAD
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
 	version="2.5">
@@ -7,12 +8,56 @@
 		<servlet-name>login</servlet-name>
 		<servlet-class>com.amzi.servlets.LoginServlet</servlet-class>
 	</servlet>
+=======
+<<<<<<< HEAD
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+	version="2.5">
+	<servlet>
+		<servlet-name>login</servlet-name>
+		<servlet-class>com.amzi.servlets.LoginServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+	<servlet-name>PollController</servlet-name>
+		<servlet-class>servlet.PollController</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>login</servlet-name>
+		<url-pattern>/loginServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>PollController</servlet-name>
+		<url-pattern>/PollController</url-pattern>
+	</servlet-mapping>
+	
+	
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+=======
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+    version="2.5">
+    <servlet>
+        <servlet-name>login</servlet-name>
+        <servlet-class>com.amzi.servlets.LoginServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>signup</servlet-name>
+        <servlet-class>com.amzi.servlets.SignupServlet</servlet-class>
+    </servlet>
+>>>>>>> refs/remotes/origin/Lee
 
 	<servlet>
 		<servlet-name>signup</servlet-name>
 		<servlet-class>com.amzi.servlets.SignupServlet</servlet-class>
 	</servlet>
 
+<<<<<<< HEAD
 	<servlet>
 		<servlet-name>PollController</servlet-name>
 		<servlet-class>servlet.PollController</servlet-class>
@@ -34,4 +79,10 @@
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
+=======
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+>>>>>>> refs/remotes/origin/Kha
+>>>>>>> refs/remotes/origin/Lee
 </web-app>
