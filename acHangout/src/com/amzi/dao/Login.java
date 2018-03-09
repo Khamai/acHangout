@@ -1,4 +1,4 @@
-package dao;
+package com.amzi.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -26,7 +26,7 @@ public class Login {
         String dbName = "form";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "root";
-        String password = "root";
+        String password = "abc123";
         try {
             Class.forName(driver).newInstance();
            
@@ -34,7 +34,7 @@ public class Login {
                     .getConnection(url + dbName, userName, password);
             //The question marks will then be replaced in the setString(nth question mark, replaced with) method.
             pst = conn
-                    .prepareStatement("select * from login where user=? and password=?");
+                    .prepareStatement("select * from users where username=? and password=?");
             pst.setString(1, name);
             pst.setString(2, pass);
 
