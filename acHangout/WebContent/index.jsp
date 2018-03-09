@@ -28,7 +28,8 @@
 	<div class="top-menu">
 		<jsp:include page="top-menu.html" />
 	</div>
-
+	<br />
+	<br />
 
 	<div class="container text-center">
 		<h2>Forum Topics</h2>
