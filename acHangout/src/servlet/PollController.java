@@ -44,20 +44,14 @@ public class PollController extends HttpServlet{
 	     String qt=request.getParameter("qtype");
 	     String q=request.getParameter("q");
 	     
-	     if(q.equals("")) {
-	    	 
-	    	 
-	    	 out.print("<p style=\"color:red\">Sorry username or password error</p>");
-	    	 rd.forward(request, response);
-	    	
-	     }
+	    
 	    	  
 	     
 	    	 
 	     
 	     
 	    // poll.init(q,qt);
-	     out.print("<p style=\"color:red\">q is:"+q+"</p>");
+	     out.print("<p style=\"color:green\">Question:"+q+"</p><br><p style=\"color:grey\">Question Type:"+qt+"</p>");
 	    
 	     
 	     out.close();
