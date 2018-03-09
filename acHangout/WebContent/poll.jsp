@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<<<<<<< HEAD
-=======
-    
+
    
     		
->>>>>>> refs/remotes/origin/Kha
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,9 +17,9 @@
 </head>
 </head>
 <body>
-<<<<<<< HEAD
+
 <div class="jumbotron text-center">
-<<<<<<< HEAD
+
   <h1>Create A Poll</h1>
   <p>Start a poll! <br> Select from the options which type of poll you would like to post and type in your question.</p> 
 </div>
@@ -54,7 +52,7 @@
 </div>
   
 		<div class="container-fluid">
-=======
+
  <div class="container-fluid">
   <div class="row col-lg-12">
       
@@ -101,7 +99,7 @@
       </div>
     </div>
 		<div class="row">
->>>>>>> refs/remotes/origin/Lee
+
 		<br />
 		
 			<fieldset id="border" style='margin: 0px 155px; width: 360px;'>
@@ -132,7 +130,7 @@
 				<br /> 
 			</fieldset>
 		
->>>>>>> refs/remotes/origin/Kha
+
 	</div>
 	</div>
 </body>
