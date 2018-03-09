@@ -67,19 +67,10 @@
 		</div>
 	</div>
 
-
+   <!-- dynamically add answer setup elements based on selected qtype -->
 
 	<script>
-		function checkText() {
-
-			var text = document.forms["pollForm"]["q"].value;
-			if (text == "") {
-				//document.getElementById("submit").disabled = true;
-				//document.getElementById("submit").style.background = '#F00';
-				alert("Please enter a question");
-				return false;
-			}
-		}
+		
 	</script>
 
 
