@@ -46,7 +46,7 @@
 								Food Topics <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
-								<li><a href="#">Asian Foods</a></li>
+								<li><a href="asianfoods.jsp">Asian Foods</a></li>
 								<li><a href="#">Europe Foods</a></li>
 								<li><a href="#">American Foods</a></li>
 							</ul>
@@ -227,7 +227,7 @@
 					<div class="dropdown">
 						<button class="btn btn-primary dropdown-toggle" type="button"
 							data-toggle="dropdown">
-							Classific Topics <span class="caret"></span>
+							Classified Topics <span class="caret"></span>
 						</button>
 						<ul class="dropdown-menu">
 							<li><a href="#">Houses/Apts For Renting</a></li>
@@ -238,6 +238,13 @@
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<br /> <br /> <br /> <a href="poll.jsp" class="btn btn-primary"
+					role="button">Create a poll</a>
+			</div>
+		</div>
+
 	</div>
 	<br />
 	<br />
@@ -252,13 +259,8 @@
 	<br />
 	<br />
 	<br />
-	<br />
-	<br />
-	<br />
 
+	<jsp:include page="footer.jsp" />
 
-	<footer class="container-fluid text-center">
-		<p>Footer Text</p>
-	</footer>
 </body>
 </html>
