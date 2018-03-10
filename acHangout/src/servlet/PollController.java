@@ -18,11 +18,14 @@ public class PollController extends HttpServlet{
 	public PollController() {
 		super();
 	}
-<<<<<<< HEAD
 	public void doPost(HttpServletRequest request, HttpServletResponse response)  
 			throws ServletException, IOException { 
 		/*Instantiate the poll bean object*/
 		//	 PollModel poll = new PollModel();
+
+
+
+
 	}
 
 
@@ -41,62 +44,16 @@ public class PollController extends HttpServlet{
 		String qt=request.getParameter("qtype");
 		String q=request.getParameter("q");
 
-		if(q.equals("")) {
 
-
-			out.print("<p style=\"color:red\">Sorry username or password error</p>");
-			rd.forward(request, response);
-
-		}
 
 
 
 
 
 		// poll.init(q,qt);
-		out.print("<p style=\"color:red\">q is:"+q+"</p>");
+		out.print("<p style=\"color:green\">Question:"+q+"</p><br><p style=\"color:grey\">Question Type:"+qt+"</p>");
 
 
 		out.close();
 	}
-=======
-	 public void doPost(HttpServletRequest request, HttpServletResponse response)  
-	            throws ServletException, IOException { 
-		 /*Instantiate the poll bean object*/
-	//	 PollModel poll = new PollModel();
-		 
-		
-		 
-		 
-	 }
-	 
-	 
-	 public void doGet(HttpServletRequest request, HttpServletResponse response)
-			 throws ServletException, IOException {
- RequestDispatcher rd=request.getRequestDispatcher("poll.jsp"); 
-		 
-		 
-		 /*MIME*/
-		 response.setContentType("text/html");  
-		 
-		 /*prints HTML statements to web server*/
-		 PrintWriter out = response.getWriter();
-		 
-		 /*Collects the form inputs by name from the HTTP request*/  
-	     String qt=request.getParameter("qtype");
-	     String q=request.getParameter("q");
-	     
-	    
-	    	  
-	     
-	    	 
-	     
-	     
-	    // poll.init(q,qt);
-	     out.print("<p style=\"color:green\">Question:"+q+"</p><br><p style=\"color:grey\">Question Type:"+qt+"</p>");
-	    
-	     
-	     out.close();
-     }
->>>>>>> refs/remotes/origin/Lee
 }
