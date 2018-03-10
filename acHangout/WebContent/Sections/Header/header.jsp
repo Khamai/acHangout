@@ -1,15 +1,10 @@
 <%@ page import="java.io.*,java.util.Locale"%>
 <%@ page import="javax.servlet.*,javax.servlet.http.* "%>
 <%
-	//Get the client's Locale
-	Locale locale = request.getLocale();
-	String language = locale.getLanguage();
-	String name = "Login";
-	
-	if(!session.isNew()){
-		name = (String) session.getAttribute("name");
-	}
-	
+	String login = "login";
+    if(session.getAttribute("username") != null){
+	   login = (String)session.getAttribute("username");
+   }
 %>
 
 <!DOCTYPE html>
@@ -69,7 +64,7 @@
         <a class="nav-link" href="signup.jsp">Sign up</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="login.jsp">${name}</a>
+        <a class="nav-link" href="login.jsp"><% out.print(login); %></a>
       </li>
     </ul>
     
@@ -92,6 +87,7 @@
 			}
 		}
 
+		
 		function googleTranslateElementInit() {
 			new google.translate.TranslateElement({
 				pageLanguage : 'en',
