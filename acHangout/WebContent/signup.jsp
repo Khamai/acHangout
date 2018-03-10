@@ -22,7 +22,7 @@
 
 		<br /> <br />
 		<h3>DETAIL</h3>
-		<form class="form-horizontal" action="loginServlet" method="post">
+		<form class="form-horizontal" action="SignupServlet" method="post">
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="firstname">First
 					Name:</label>
