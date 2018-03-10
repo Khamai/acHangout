@@ -103,9 +103,7 @@ function myBlurFunction() {
     document.getElementById("myInput").style.backgroundColor = "";  
 }
 </script> -->
-	<script type="text/javascript">
-		var d = new Date()
-		document.write("Made by Le Nguyen " + d.getFullYear())
-	</script>
+	<jsp:include page="footer.jsp" />
+
 </body>
 </html>

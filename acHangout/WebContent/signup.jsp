@@ -102,8 +102,7 @@
 	<br />
 	<br />
 
-	<footer class="container-fluid text-center">
-		<p>Footer Text</p>
-	</footer>
+	<jsp:include page="footer.jsp" />
+
 </body>
 </html>
