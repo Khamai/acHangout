@@ -31,7 +31,7 @@ h3 {color: black;}
 	height: 200px;
 	top: 20px;
 	border: 2px solid;
-<<<<<<< HEAD
+
 	left: 5%;
 	margin-top: 10px;
 	margin-left:10px;
@@ -63,9 +63,9 @@ h3 {color: black;}
 	padding-left:10%;
 	border: 2px solid;
 	margin-left:10px;
-=======
+
 	margin-left:auto;
->>>>>>> refs/remotes/origin/Kha
+
 	margin-top: 10px;
 }
 
@@ -106,9 +106,7 @@ h3 {color: black;}
 	margin-left:10px;
 	text-align: center;
 }
-<<<<<<< HEAD
 
-=======
 /* Add a black background color to the top navigation bar */
 .topnav {
     overflow: hidden;
@@ -163,4 +161,4 @@ h3 {color: black;}
     }
 }
 
->>>>>>> refs/remotes/origin/Kha
+
