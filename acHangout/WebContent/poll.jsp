@@ -49,10 +49,10 @@
 
 								<div>Question Type</div>
 
-								<input type="radio" name="qtype" value="multi" checked>
-								Multiple Choice <input type="radio" name="qtype"
-									value="shortAnswer"> Short Answer <input type="radio"
-									name="qtype" value="rank"> Ranking
+								<input type="radio" name="qtype" value="multi" checked> Multiple Choice 
+								<input type="radio" name="qtype" value="shortAnswer"> Short Answer 
+								<input type="radio" name="qtype" value="rank"> Ranking
+								
 								<button id="submit" type="submit" class="btn btn-primary"
 									onSubmit="return checkText()">Submit</button>
 							</div>
@@ -70,7 +70,46 @@
    <!-- dynamically add answer setup elements based on selected qtype -->
 
 	<script>
+	var multi = document.getElementById('multi');
+	var shortAnswer = document.getElementById('shortAnswer');
+	var rank = document.getElementById('rank');
+	
+	var radioButtons = {multi,shortAnswer,rank};
+	
+	var btns;
+	
+	for(btns in radioButtons){
+		btns.type = "button";
+		btns.addEventListener('click',setAns(btns.value));
+	}
+	</script>
+	
+	
+	
+	<script>
+	function setAns(name){
 		
+		switch(name){
+		
+		
+		case "multi":
+			
+		
+			break;
+			
+		case "shortAnswer":
+		
+		
+			break;
+			
+		case "rank":
+		
+		
+			break;
+			
+		}
+	}
+	
 	</script>
 
 
