@@ -24,62 +24,69 @@
 	<div class="header">
 		<jsp:include page="header.html" />
 	</div>
-	<br></br>
-	<div class="container">
-  <h2>Asian's foods Posts</h2> 
-  <br></br>           
-  <table class="table" border="2">
-    <thead>
-      <tr>
-        <th>Topics</th>
-        <th>Auther</th>
-        <th>Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a>I found a really good place for eat Pho</a></td>
-        <td>Kha Mai</td>
-        <td>Jan-4th-2018</td>
-      </tr>
-      <tr>
-        <td><a>Anyone want to try something special Chinese food?</a></td>
-        <td>Tianze</td>
-        <td>Jan-5th-2018</td>
-      </tr>
-      <tr>
-        <td><a>Top 5 Sushi bar in Ottawa</a></td>
-        <td>Hotdog</td>
-        <td>Jan-2nd-2018</td>
-      </tr>
-      <tr>
-        <td><a>Top 5 Asian Wings bar in Ottawa</a></td>
-        <td>Hotdog</td>
-        <td>Jan-2nd-2018</td>
-      </tr>
-      <tr>
-        <td><a>What is Baijiu? Check it out!</a></td>
-        <td>Hotdog</td>
-        <td>Jan-2nd-2018</td>
-      </tr>
-      <tr>
-        <td><a>Anyone wants to try stinky Tofu lol?</a></td>
-        <td>Hotdog</td>
-        <td>Jan-2nd-2018</td>
-      </tr>
-      <tr>
-        <td><a>Kong Pao Chicken Recipe!</a></td>
-        <td>Walter white</td>
-        <td>Jan-1st-2018</td>
-      </tr>
-    </tbody>
-  </table>
-  <button type="button" class="btn btn-primary btn-lg">New Post</button>
-</div>
-	
 
-	<footer class="container-fluid text-center">
-		<p>Footer Text</p>
-	</footer>
+	<div class="top-menu">
+		<jsp:include page="top-menu.html" />
+	</div>
+	<br />
+	<br />
+
+	<div class="container">
+		<h2>Asian's foods Posts</h2>
+		<br></br>
+		<table class="table" border="2">
+			<thead>
+				<tr>
+					<th>Topics</th>
+					<th>Author</th>
+					<th>Date</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><a>I found a really good place for eat Pho</a></td>
+					<td>Kha Mai</td>
+					<td>Jan-4th-2018</td>
+				</tr>
+				<tr>
+					<td><a>Anyone want to try something special Chinese food?</a></td>
+					<td>Tianze</td>
+					<td>Jan-5th-2018</td>
+				</tr>
+				<tr>
+					<td><a>Top 5 Sushi bar in Ottawa</a></td>
+					<td>Hotdog</td>
+					<td>Jan-2nd-2018</td>
+				</tr>
+				<tr>
+					<td><a>Top 5 Asian Wings bar in Ottawa</a></td>
+					<td>Hotdog</td>
+					<td>Jan-2nd-2018</td>
+				</tr>
+				<tr>
+					<td><a>What is Baijiu? Check it out!</a></td>
+					<td>Hotdog</td>
+					<td>Jan-2nd-2018</td>
+				</tr>
+				<tr>
+					<td><a>Anyone wants to try stinky Tofu lol?</a></td>
+					<td>Hotdog</td>
+					<td>Jan-2nd-2018</td>
+				</tr>
+				<tr>
+					<td><a>Kong Pao Chicken Recipe!</a></td>
+					<td>Walter white</td>
+					<td>Jan-1st-2018</td>
+				</tr>
+			</tbody>
+		</table>
+		<button type="button" class="btn btn-primary btn-lg">New Post</button>
+	</div>
+	<br />
+	<br />
+	<br />
+	<br />
+
+	<jsp:include page="footer.jsp" />
 </body>
 </html>

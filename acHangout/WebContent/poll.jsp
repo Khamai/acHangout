@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 <<<<<<< HEAD
+<<<<<<< HEAD
 	pageEncoding="ISO-8859-1"%>
 =======
     pageEncoding="ISO-8859-1"%>
@@ -9,9 +10,14 @@
     	}%>
     		
 >>>>>>> branch 'testbranch' of https://github.com/leenguyen95/acHangout.git
+=======
+	pageEncoding="ISO-8859-1"%>
+>>>>>>> refs/remotes/origin/Kha
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
 <head>
+<<<<<<< HEAD
 <meta charset="UTF-8">
 <title>Create a Poll</title>
 <<<<<<< HEAD
@@ -31,9 +37,26 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 >>>>>>> branch 'testbranch' of https://github.com/leenguyen95/acHangout.git
+=======
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>acHangout</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+>>>>>>> refs/remotes/origin/Kha
 </head>
-</head>
+
+
+
 <body>
+<<<<<<< HEAD
 <<<<<<< HEAD
 	<div id="content">
 		<br />
@@ -118,9 +141,20 @@
 				</div>
 			</div>
 		</div>
+=======
+	<div class="header">
+		<jsp:include page="header.html" />
+	</div>
+
+	<div class="top-menu">
+		<jsp:include page="top-menu.html" />
+	</div>
+	<div class="container-fluid">
+>>>>>>> refs/remotes/origin/Kha
 		<div class="row">
 			<br />
 
+<<<<<<< HEAD
 			<fieldset id="border" style='margin: 0px 155px; width: 360px;'>
 				<legend>
 					<b>Create A Poll</b>
@@ -190,10 +224,13 @@ document.write("Made by Le Nguyen "+d.getFullYear())
 		<div class="container-fluid">
 		<br />
 		
+=======
+>>>>>>> refs/remotes/origin/Kha
 			<fieldset id="border" style='margin: 0px 155px; width: 360px;'>
 				<legend>
 					<b>Create A Poll</b>
 				</legend>
+<<<<<<< HEAD
 				<div class ="row">
 						<div class="col-sm-12"></div>
 						
@@ -214,11 +251,80 @@ document.write("Made by Le Nguyen "+d.getFullYear())
 						</div>
 						 
 						 </div><div class="col-sm-12">
+=======
+				<div class="row">
+					<div class="col-sm-12"></div>
+
+					<div class="col-sm-12">
+						<form id=pollForm action="PollController" method="get">
+							<div class="form-group">
+								<div>Your Question</div>
+								<div>
+									<textarea name="q" maxlength="255" rows="5" cols="40"></textarea>
+								</div>
+
+								<div>Question Type</div>
+
+								<input type="radio" name="qtype" value="multi" checked>
+								Multiple Choice <input type="radio" name="qtype"
+									value="shortAnswer"> Short Answer <input type="radio"
+									name="qtype" value="rank"> Ranking
+								<button id="submit" type="submit" class="btn btn-primary"
+									onSubmit="return checkText()">Submit</button>
+							</div>
+						</form>
+					</div>
+
+>>>>>>> refs/remotes/origin/Kha
 				</div>
-				<br /> 
+				<div class="col-sm-12"></div>
+				<br />
 			</fieldset>
-		
+
+		</div>
 	</div>
+<<<<<<< HEAD
 >>>>>>> branch 'testbranch' of https://github.com/leenguyen95/acHangout.git
+=======
+
+
+
+	<script>
+		function checkText() {
+
+			var text = document.forms["pollForm"]["q"].value;
+			if (text == "") {
+				//document.getElementById("submit").disabled = true;
+				//document.getElementById("submit").style.background = '#F00';
+				alert("Please enter a question");
+				return false;
+			}
+		}
+	</script>
+
+
+
+
+
+	<!-- JavaScript to add listeners to qtype buttons. Will send current selection to the controller and page will react appropriately. 
+	<button onclick="myFunction()">Try it</button>
+
+
+	<script>
+var f = document.getElementById("pollForm");
+f.addEventListener("focus", myFocusFunction, true);
+f.addEventListener("blur", myBlurFunction, true);
+
+function myFocusFunction() {
+    document.getElementById("myInput").style.backgroundColor = "yellow";  
+}
+
+function myBlurFunction() {
+    document.getElementById("myInput").style.backgroundColor = "";  
+}
+</script> -->
+	<jsp:include page="footer.jsp" />
+
+>>>>>>> refs/remotes/origin/Kha
 </body>
 </html>

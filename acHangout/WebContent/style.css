@@ -141,12 +141,45 @@ li {
 }
 
 footer {
-	height: 120px;
-	left: 0;
-	right: 0;
-	bottom: 0;
+	height: auto;
 	text-align: center;
-	background-color: #555;
+	background-color: #4d4d4d;
 	color: white;
 	padding: 15px;
+}
+
+.btn-twitter {
+	background: #00ACEE;
+	border-radius: 0;
+	color: #fff;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #0075a2;
+}
+
+.btn-twitter:link, .btn-twitter:visited {
+	color: #fff;
+}
+
+.btn-twitter:active, .btn-twitter:hover {
+	background: #0075a2;
+	color: #fff;
+}
+
+.btn-facebook {
+	background: #00ACEE;
+	border-radius: 0;
+	color: #fff;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #0075a2;
+}
+
+.btn-facebook, .btn-twitter:visited {
+	color: #fff;
+}
+
+.btn-facebook:active, .btn-facebook:hover {
+	background: #0075a2;
+	color: #fff;
 }
