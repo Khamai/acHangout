@@ -4,6 +4,12 @@
 	//Get the client's Locale
 	Locale locale = request.getLocale();
 	String language = locale.getLanguage();
+	String name = "Login";
+	
+	if(!session.isNew()){
+		name = (String) session.getAttribute("name");
+	}
+	
 %>
 
 <!DOCTYPE html>
@@ -21,7 +27,7 @@
 </head>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#"><img style="width: 300px" alt="acHangout" src="logo.gif" ></a>
+  <a class="navbar-brand" href="#"><img style="width: 300px" alt="acHangout" src="Header/logo.gif" ></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -29,7 +35,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="../../index.jsp">Home <span class="sr-only">(current)</span></a>
+        <a 11class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Profile</a>
@@ -60,10 +66,10 @@
     
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="#">Sign up</a>
+        <a class="nav-link" href="signup.jsp">Sign up</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Login</a>
+        <a class="nav-link" href="login.jsp">${name}</a>
       </li>
     </ul>
     
@@ -74,7 +80,7 @@
   </div>
 </nav>
 
-  	<script type="text/javascript">
+	<script type="text/javascript">
 		function open_translate(elmnt) {
 			var a = document.getElementById("google_translate_element");
 			if (a.style.display == "") {
@@ -88,11 +94,12 @@
 
 		function googleTranslateElementInit() {
 			new google.translate.TranslateElement({
-				pageLanguage : '<%=language%>',
+				pageLanguage : 'en',
 				layout : google.translate.TranslateElement.InlineLayout.SIMPLE
 			}, 'google_translate_element');
 		}
 	</script>
+
 	<script type="text/javascript"
 		src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
 		

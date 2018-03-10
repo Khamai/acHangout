@@ -32,12 +32,12 @@ public class LoginServlet extends HttpServlet{
         session.setAttribute("name", n);
 
         if(Login.validate(n, p)){  
-            RequestDispatcher rd=request.getRequestDispatcher("welcome.jsp");  
+            RequestDispatcher rd=request.getRequestDispatcher("index.jsp");
             rd.forward(request,response);  
         }  
         else{  
-            out.print("<p style=\"color:red\">Sorry username or password error</p>");  
-            RequestDispatcher rd=request.getRequestDispatcher("index.jsp");  
+            out.print("<p style=\"color:red; text-align:center\">Sorry username or password error</p>");  
+            RequestDispatcher rd=request.getRequestDispatcher("login.jsp");  
             rd.include(request,response);  
         }  
 

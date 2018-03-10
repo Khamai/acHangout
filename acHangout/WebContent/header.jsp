@@ -31,7 +31,11 @@
 		<a href="#contact">Messenger</a> <a href="#contact">Help&nbsp;<i
 			class="fa fa-question-circle-o"></i></a> &emsp; <a href="signup.jsp"
 			style="float: right">Sign up</a> <a href="login.jsp"
-			style="float: right">Login</a> <a href="#" style="float: right"
+			style="float: right">
+			<% if (session.getAttribute("name") == null){
+				session.setAttribute("name", "Login");	
+			}%>
+			${name}</a> <a href="#" style="float: right"
 			onclick="open_translate(this)" title="Google Translate"><i
 			class="fa fa-globe"></i></a>
 
@@ -65,6 +69,7 @@
 			}, 'google_translate_element');
 		}
 	</script>
+
 	<script type="text/javascript"
 		src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
 		

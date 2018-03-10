@@ -22,11 +22,7 @@
 		so don't need to do again one more time
 	-->
 	<div class="header">
-		<jsp:include page="header.html" />
-	</div>
-
-	<div class="top-menu">
-		<jsp:include page="top-menu.html" />
+		<jsp:include page="Header/header.jsp" />
 	</div>
 
 	<br />
