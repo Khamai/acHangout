@@ -106,7 +106,6 @@ CREATE TABLE `poll`
   `answerid` Char(20),
   `author` Bigint,
   PRIMARY KEY (`id`),
-  PRIMARY KEY (`id`),
   UNIQUE `id` (`id`)
 )
 ;
@@ -123,7 +122,6 @@ CREATE TABLE `poll_results`
   `b` Bigint,
   `c` Bigint,
   `d` Bigint,
-  PRIMARY KEY (`id`),
   PRIMARY KEY (`id`),
   UNIQUE `id` (`id`),
  INDEX `IX_Relationship3` (`id`)
