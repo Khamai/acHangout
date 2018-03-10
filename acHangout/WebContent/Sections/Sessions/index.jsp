@@ -31,7 +31,7 @@
    
    <body>
       <center>
-         <h1>Session Tracking</h1>
+         <h1><% out.print(title); %></h1>
       </center>
       
       <table border = "1" align = "center"> 

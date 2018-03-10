@@ -51,6 +51,6 @@ public class SignupServlet extends HttpServlet{
         }  
 
         out.close();  
-    }  
+    } 
 }
 
