@@ -18,7 +18,6 @@ public class Login {
         /*A SQL statement is precompiled and stored in a PreparedStatement object. 
          * This object can then be used to efficiently execute this statement multiple times. */
         PreparedStatement pst = null;
-       
         
         ResultSet rs = null;
 
@@ -26,7 +25,7 @@ public class Login {
         String dbName = "form";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "root";
-        String password = "abc123";
+        String password = "khamai_";
         try {
             Class.forName(driver).newInstance();
            

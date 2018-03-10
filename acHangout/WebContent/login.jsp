@@ -2,21 +2,29 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login</title>
-<meta charset="UTF-8">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="style.css">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+	<!-- I include header and top-menu separately because the other web pages also need to have both of them 
+		so don't need to do again one more time
+	-->
 	<div class="header">
 		<jsp:include page="header.html" />
 	</div>
+
 	<div class="top-menu">
 		<jsp:include page="top-menu.html" />
 	</div>
