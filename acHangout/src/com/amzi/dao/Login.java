@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Login {
+public class Login  {
 
 	public static boolean validate(String name, String pass) {        
         boolean status = false;

@@ -39,7 +39,7 @@
 				<div class="well">
 					<p style="color: red;">${message}</p>
 
-					<form class="form-horizontal" action="loginServlet" method="post">
+					<form class="form-horizontal" action="LoginServlet" method="post">
 						<div class="form-group">
 							<label class="control-label col-sm-2" for="username">Username:</label>
 							<div class="col-sm-10">
