@@ -2,6 +2,14 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 
+<%--
+<%
+	if (session.getAttribute("name") != null) {
+		String pagename = (String) session.getAttribute("currentpage");
+		response.sendRedirect(pagename);
+	}
+%>
+--%>
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +30,7 @@
 		so don't need to do again one more time
 	-->
 	<div class="header">
-		<jsp:include page="header.html" />
+		<jsp:include page="header.jsp" />
 	</div>
 
 	<div class="top-menu">
@@ -30,16 +38,24 @@
 	</div>
 	<br />
 	<br />
-	<h2 align=center>Login</h2>
 
 	<div class="container">
+		<ul class="breadcrumb">
+			<li><a href="#">Home &raquo;&laquo;</a></li>
+			<li><a href="#">Private</a></li>
+			<li><a href="#">Pictures</a></li>
+			<li class="active">Vacation</li>
+		</ul>
+		<div class="page-header">
+			<h2 align=center>Login</h2>
+		</div>
 		<br /> <br />
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="well">
 					<p style="color: red;">${message}</p>
 
-					<form class="form-horizontal" action="LoginServlet" method="post">
+					<form class="form-horizontal" action="loginServlet" method="post">
 						<div class="form-group">
 							<label class="control-label col-sm-2" for="username">Username:</label>
 							<div class="col-sm-10">
@@ -73,6 +89,15 @@
 						an account?&emsp; <a href="signup.jsp"
 							style="text-decoration: none;">Sign up</a>
 					</form>
+					<%--
+					<ul class="pagination">
+						<li><a href="#">1</a></li>
+						<li class="active"><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+					</ul>
+					--%>
 				</div>
 			</div>
 		</div>

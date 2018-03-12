@@ -22,7 +22,7 @@
 		so don't need to do again one more time
 	-->
 	<div class="header">
-		<jsp:include page="header.html" />
+		<jsp:include page="header.jsp" />
 	</div>
 
 	<div class="top-menu">
@@ -30,9 +30,11 @@
 	</div>
 	<br />
 	<br />
-	<h2 align=center>Sign up</h2>
 
 	<div class="container">
+		<div class="page-header">
+			<h2 align=center>Sign up</h2>
+		</div>
 		<br /> <br />
 		<div class="row">
 			<div class="col-sm-12">

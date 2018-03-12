@@ -6,6 +6,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>acHangout</title>
+<link rel="shortcut icon" type="image/x-icon" href="Resources/k.ico">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -22,7 +23,7 @@
 		so don't need to do again one more time
 	-->
 	<div class="header">
-		<jsp:include page="header.html" />
+		<jsp:include page="header.jsp" />
 	</div>
 
 	<div class="top-menu">
@@ -32,7 +33,9 @@
 	<br />
 
 	<div class="container text-center">
-		<h2>Forum Topics</h2>
+		<div class="page-header">
+			<h2>Forum Topics</h2>
+		</div>
 		<br /> <br />
 		<div class="row">
 			<div class="col-sm-4">

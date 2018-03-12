@@ -2,6 +2,14 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 
+<%
+	if (session.getAttribute("name") == null) {
+		session.setAttribute("currentpage", "asianfoods.jsp");
+%>
+<jsp:forward page="login.jsp" />
+<%
+	}
+%>
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
