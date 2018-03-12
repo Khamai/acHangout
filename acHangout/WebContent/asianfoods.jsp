@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 <%
-	if (session.getAttribute("name") == null) {
+	if (session.getAttribute("name") == null && session.getAttribute("pass") == null) {
 		session.setAttribute("currentpage", "asianfoods.jsp");
 %>
 <jsp:forward page="login.jsp" />
@@ -30,7 +30,7 @@
 		so don't need to do again one more time
 	-->
 	<div class="header">
-		<jsp:include page="header.html" />
+		<jsp:include page="header.jsp" />
 	</div>
 
 	<div class="top-menu">

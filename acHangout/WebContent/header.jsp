@@ -1,4 +1,10 @@
 
+<%
+	String login = "Login";
+	if (session.getAttribute("name") != null && session.getAttribute("pass") != null) {
+		login = "Hello, " + (String) session.getAttribute("name");
+	}
+%>
 <a href="index.jsp"> <img src='Resources/1.png' style='float: left;'
 	width='380' height='100'>
 </a>
@@ -8,9 +14,21 @@
 <div class="topnav" id="myTopnav">
 	<a class="active" href="index.jsp">Home</a> <a href="#contact">Messenger</a>
 	<a href="#contact">Help&nbsp;<i class="fa fa-question-circle-o"></i></a>
-	&emsp; <a href="signup.jsp" style="float: right">Sign up</a> <a
-		href="login.jsp" style="float: right">Login</a> <a href="#"
-		style="float: right" onclick="open_translate(this)"
+	&emsp;
+	<%
+		if (login == "Login") {
+	%>
+	<a href="signup.jsp" style="float: right">Sign up</a>
+	<%
+		} else {
+	%>
+
+	<a href="logoutServlet" style="float: right">Logout</a>
+	<%
+		}
+	%>
+	<a href="login.jsp" style="float: right"> <%=login%>
+	</a> <a href="#" style="float: right" onclick="open_translate(this)"
 		title="Google Translate"><i class="fa fa-globe"></i></a>
 
 	<div class="search-container">

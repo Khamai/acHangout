@@ -21,7 +21,6 @@ public class PollController extends HttpServlet{
 	public void doPost(HttpServletRequest request, HttpServletResponse response)  
 			throws ServletException, IOException { 
 		/*Instantiate the poll bean object*/
-		//	 PollModel poll = new PollModel();
 	}
 
 

@@ -26,10 +26,11 @@ public class LoginServlet extends HttpServlet{
 
 		String n=request.getParameter("username");  
 		String p=request.getParameter("pass"); 
-
 		HttpSession session = request.getSession(false);
-		if(session!=null)
+		if(session!=null) {
 			session.setAttribute("name", n);
+			session.setAttribute("pass", p);
+		}
 
 		if(Login.validate(n, p)){  
 			String pagename = (String) session.getAttribute("currentpage");
