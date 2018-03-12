@@ -34,9 +34,11 @@ public class LoginServlet extends HttpServlet{
 
 		if(Login.validate(n, p)){  
 			String pagename = (String) session.getAttribute("currentpage");
-			if(pagename == null) 
+			if(pagename == null) {
+				String message ="login";
+				request.setAttribute("message", message);
 				pagename = "index.jsp";
-
+			}
 			RequestDispatcher rd=request.getRequestDispatcher(pagename);  
 			rd.forward(request,response);  
 		}  

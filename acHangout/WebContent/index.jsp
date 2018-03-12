@@ -33,6 +33,32 @@
 	<br />
 
 	<div class="container text-center">
+
+		<%
+			String name = (String) request.getAttribute("message");
+			if (name == "logout") {
+		%>
+		<div class="alert alert-success alert-dismissible">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<strong>Success!</strong> You are successfully logged out!
+		</div>
+		<%
+			} else if (name == "signup") {
+		%>
+		<div class="alert alert-success alert-dismissible">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<strong>Success!</strong> You are successfully signed up!
+		</div>
+		<%
+			} else if (name == "login") {
+		%>
+		<div class="alert alert-success alert-dismissible">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<strong>Success!</strong> You have successfully logged in.
+		</div>
+		<%
+			}
+		%>
 		<div class="page-header">
 			<h2>Forum Topics</h2>
 		</div>

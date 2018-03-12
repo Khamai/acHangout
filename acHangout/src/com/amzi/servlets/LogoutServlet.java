@@ -20,7 +20,7 @@ public class LogoutServlet extends HttpServlet {
 		HttpSession session=request.getSession();  
 		session.invalidate();  
 
-		String message ="You are successfully logged out!";
+		String message ="logout";
 		request.setAttribute("message", message);
 		request.getRequestDispatcher("index.jsp").forward(request, response); 
 
