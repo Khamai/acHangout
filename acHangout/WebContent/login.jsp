@@ -40,12 +40,21 @@
 	<br />
 
 	<div class="container">
-		<ul class="breadcrumb">
-			<li><a href="#">Home &raquo;&laquo;</a></li>
-			<li><a href="#">Private</a></li>
-			<li><a href="#">Pictures</a></li>
-			<li class="active">Vacation</li>
-		</ul>
+		<div class="row">
+			<div class="col-sm-12">
+
+				<ul class="breadcrumb" style="background-color:none;">
+					<li><a href="#">Home &raquo;&laquo;</a></li>
+					<li><a href="#">Private</a></li>
+					<li><a href="#">Pictures</a></li>
+					<li class="active">Vacation</li>
+				</ul>
+			</div>
+			<div class="col-sm-12 text-right">
+
+				Welcome, <a href="#" class="underline">Robin Brons</a>
+			</div>
+		</div>
 		<div class="page-header">
 			<h2 align=center>Login</h2>
 		</div>
@@ -58,18 +67,17 @@
 					<form class="form-horizontal" action="loginServlet" method="post">
 						<div class="form-group">
 							<label class="control-label col-sm-2" for="username">Username:</label>
-							<div class="col-sm-10">
-								<input type="text" style="width: 300px;" class="form-control"
-									id="username" placeholder="Enter username" name="username"
+							<div class="col-sm-4">
+								<input type="text" class="form-control" id="username"
+									placeholder="Enter username" name="username"
 									required="required">
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="control-label col-sm-2" for="pass">Password:</label>
-							<div class="col-sm-10">
-								<input type="password" style="width: 300px;"
-									class="form-control" id="pass" placeholder="Enter password"
-									name="pass" required="required">
+							<div class="col-sm-4">
+								<input type="password" class="form-control" id="pass"
+									placeholder="Enter password" name="pass" required="required">
 							</div>
 						</div>
 						<div class="form-group">
@@ -85,9 +93,12 @@
 								<button type="submit" class="btn btn-default">Login</button>
 							</div>
 						</div>
-						<br /> &nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Don't have
-						an account?&emsp; <a href="signup.jsp"
-							style="text-decoration: none;">Sign up</a>
+						<div class="form-group">
+							<label class="col-sm-offset-1 col-sm-2"
+								style="font-weight: normal;" for="username">Don't have
+								an account?</label> <a href="signup.jsp" style="text-decoration: none;">Sign
+								up</a>
+						</div>
 					</form>
 					<%--
 					<ul class="pagination">
@@ -107,6 +118,5 @@
 	<br />
 	<br />
 	<jsp:include page="footer.jsp" />
-
 </body>
 </html>
