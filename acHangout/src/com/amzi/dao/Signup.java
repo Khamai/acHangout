@@ -26,7 +26,7 @@ public class Signup extends HttpServlet {
         String dbName = "form";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "root";
-        String password = "abc123";
+        String password = "khamai_";
         try {
             Class.forName(driver).newInstance();
            

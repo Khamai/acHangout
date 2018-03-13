@@ -6,6 +6,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>acHangout</title>
+<link rel="shortcut icon" type="image/x-icon" href="Resources/k.ico">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -22,17 +23,20 @@
 		so don't need to do again one more time
 	-->
 	<div class="header">
-		<jsp:include page="header.html" />
+		<jsp:include page="header.jsp" />
 	</div>
 
 	<div class="top-menu">
 		<jsp:include page="top-menu.html" />
 	</div>
+	<br />
+	<br />
 
-	<br />
-	<br />
+
 	<div class="container text-center">
-		<h2>Forum Topics</h2>
+		<div class="page-header">
+			<h2>Forum Topics</h2>
+		</div>
 		<br /> <br />
 		<div class="row">
 			<div class="col-sm-4">
@@ -46,7 +50,7 @@
 								Food Topics <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
-								<li><a href="#">Asian Foods</a></li>
+								<li><a href="asianfoods.jsp">Asian Foods</a></li>
 								<li><a href="#">Europe Foods</a></li>
 								<li><a href="#">American Foods</a></li>
 							</ul>
@@ -227,7 +231,7 @@
 					<div class="dropdown">
 						<button class="btn btn-primary dropdown-toggle" type="button"
 							data-toggle="dropdown">
-							Classific Topics <span class="caret"></span>
+							Classified Topics <span class="caret"></span>
 						</button>
 						<ul class="dropdown-menu">
 							<li><a href="#">Houses/Apts For Renting</a></li>
@@ -238,6 +242,13 @@
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<br /> <br /> <br /> <a href="poll.jsp" class="btn btn-primary"
+					role="button">Create a poll</a>
+			</div>
+		</div>
+
 	</div>
 	<br />
 	<br />
@@ -252,13 +263,8 @@
 	<br />
 	<br />
 	<br />
-	<br />
-	<br />
-	<br />
 
+	<jsp:include page="footer.jsp" />
 
-	<footer class="container-fluid text-center">
-		<p>Footer Text</p>
-	</footer>
 </body>
 </html>

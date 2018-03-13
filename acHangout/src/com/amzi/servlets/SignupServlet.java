@@ -19,26 +19,21 @@ public class SignupServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)  
-            throws ServletException, IOException {  
+			throws ServletException, IOException {  
 
-        response.setContentType("text/html");  
-        PrintWriter out = response.getWriter();  
-        
-        String values[] = 
-        	{
-        			request.getParameter("firstname"), request.getParameter("lastname"),
-        			request.getParameter("username"),request.getParameter("pass"),
-        			request.getParameter("email"),request.getParameter("tel"),
-        			request.getParameter("sex")
-        	};
-        
-        
-        HttpSession session = request.getSession(false);
-        
-        for(int i = 0; i < values.length; ++i)
-        	if(session!=null)
-        		session.setAttribute(i+"", values[i]);
+		response.setContentType("text/html");  
+		PrintWriter out = response.getWriter();  
 
+		String values[] = 
+			{
+					request.getParameter("firstname"), request.getParameter("lastname"),
+					request.getParameter("username"),request.getParameter("pass"),
+					request.getParameter("email"),request.getParameter("tel"),
+					request.getParameter("sex")
+			};
+
+		HttpSession session = request.getSession(false);
+		
         if(Signup.validate(values)){  
         	out.print("<p style=\"color:red; text-align:center;\">Account Created</p>");  
             RequestDispatcher rd=request.getRequestDispatcher("index.jsp");  
@@ -50,7 +45,20 @@ public class SignupServlet extends HttpServlet{
             rd.include(request,response);  
         }  
 
-        out.close();  
-    } 
+		for(int i = 0; i < values.length; ++i)
+			if(session!=null)
+				session.setAttribute(i+"", values[i]);
+
+		if(Signup.validate(values)){  
+			RequestDispatcher rd=request.getRequestDispatcher("welcome.jsp");  
+			rd.forward(request,response);  
+		}  
+		else{  
+			RequestDispatcher rd=request.getRequestDispatcher("signup.jsp");  
+			rd.include(request,response);  
+		}  
+
+		out.close();  
+	}  
 }
 
