@@ -8,13 +8,14 @@ import java.sql.SQLException;
 
 import javax.servlet.http.HttpServlet;
 
-public class Signup extends HttpServlet {
+public class Post extends HttpServlet {
 	@SuppressWarnings("resource")
 	public static boolean validate(String values[]) {        
         boolean status = false;
        
         
         Connection conn = null;
+        ResultSet rs = null;
         
         
         /*A SQL statement is precompiled and stored in a PreparedStatement object. 
@@ -35,23 +36,32 @@ public class Signup extends HttpServlet {
             
             //The question marks will then be replaced in the setString(nth question mark, replaced with) method.
             
-            pst = conn.prepareStatement("Insert INTO users(username,password,date,level) VALUES (?,?,NOW(),0)");
-            pst.setString(1, values[2]);
-            pst.setString(2, values[3]);
-            
-            pst.executeUpdate();
-            
-            
-            pst = conn.prepareStatement("Insert INTO profile(firstname, lastname,email,phone,sex) VALUES (?,?,?,?,?)");
+            pst = conn.prepareStatement("SELECT * FROM users WHERE username=?");
             pst.setString(1, values[0]);
-            pst.setString(2, values[1]);
-            pst.setString(3, values[4]);
-            pst.setString(4, values[5]);
-            pst.setString(5, values[6]);
+            
+            rs = pst.executeQuery();
+            
+            if(rs != null) {
+            	int author = rs.getInt(0);
+            	
+                pst = conn.prepareStatement("SELECT * FROM category WHERE name=?");
+                pst.setString(1, values[1]);
+                
+                rs = pst.executeQuery();
+            	
+                if(rs != null) {
+                	int category = rs.getInt(0);
+                    pst = conn.prepareStatement("Insert INTO post(author, topic, content, date) VALUES (?,?,?,NOW())");
+                    pst.setString(1, author+"");
+                    pst.setString(2, values[2]);
+                    pst.setString(3, values[3]);
 
-            pst.executeUpdate();
-           
-            status = true;
+                    pst.executeUpdate();
+                   
+                    status = true;	
+                }
+
+            }
 
         } catch (Exception e) {
             System.out.println(e);

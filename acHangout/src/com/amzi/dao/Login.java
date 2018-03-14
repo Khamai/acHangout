@@ -25,7 +25,7 @@ public class Login  {
         String dbName = "form";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "root";
-        String password = "khamai_";
+        String password = "abc123";
         try {
             Class.forName(driver).newInstance();
            

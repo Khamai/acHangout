@@ -1,7 +1,7 @@
 <%@ page import="java.io.*,java.util.Locale"%>
 <%@ page import="javax.servlet.*,javax.servlet.http.* "%>
 <%
-	String login = "login";
+	String login = "Login";
     if(session.getAttribute("username") != null){
 	   login = (String)session.getAttribute("username");
    }
@@ -44,8 +44,7 @@
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
-			<li class="nav-item active"><a 11class="nav-link"
-				href="index.jsp">Home <span class="sr-only">(current)</span></a></li>
+			<li class="nav-item active"><a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a></li>
 			<li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
 			<li class="nav-item"><a class="nav-link" href="#">Messenger</a>
 			</li>
