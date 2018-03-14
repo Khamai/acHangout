@@ -50,7 +50,9 @@ public class SignupServlet extends HttpServlet{
 				session.setAttribute(i+"", values[i]);
 
 		if(Signup.validate(values)){  
-			RequestDispatcher rd=request.getRequestDispatcher("welcome.jsp");  
+			String message ="signup";
+			request.setAttribute("message", message);
+			RequestDispatcher rd=request.getRequestDispatcher("index.jsp");  
 			rd.forward(request,response);  
 		}  
 		else{  

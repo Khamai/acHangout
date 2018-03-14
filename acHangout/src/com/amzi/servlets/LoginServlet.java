@@ -33,18 +33,28 @@ public class LoginServlet extends HttpServlet{
 		response.setContentType("text/html");  
 		PrintWriter out = response.getWriter();  
 		
-        if(Login.validate(n, p)){  
-        	
-        	session.setAttribute("username", n);
+		HttpSession session1 = request.getSession(false);
+		if(session1!=null) {
+			session1.setAttribute("name", n);
+			session1.setAttribute("pass", p);
+		}
 
-            RequestDispatcher rd=request.getRequestDispatcher("Sections/index.jsp");
-            rd.forward(request,response);  
-        }  
-        else{  
-            out.print("<p style=\"color:red; text-align:center\">Sorry username or password error</p>");  
-            RequestDispatcher rd=request.getRequestDispatcher("Sections/login.jsp");  
-            rd.include(request,response);  
-        } 
+		if(Login.validate(n, p)){  
+			String pagename = (String) session1.getAttribute("currentpage");
+			if(pagename == null) {
+				String message ="login";
+				request.setAttribute("message", message);
+				pagename = "index.jsp";
+			}
+			RequestDispatcher rd=request.getRequestDispatcher(pagename);  
+			rd.forward(request,response);  
+		}  
+		else{  
+			String message ="Sorry username or password error";
+			request.setAttribute("message", message);
+			//out.print("<p style=\"color:red\">Sorry username or password error</p>");  
+			request.getRequestDispatcher("login.jsp").forward(request, response); 
+		}  
 
 		out.close();  
 	}  

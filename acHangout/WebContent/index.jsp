@@ -34,6 +34,32 @@
 
 
 	<div class="container text-center">
+
+		<%
+			String name = (String) request.getAttribute("message");
+			if (name == "logout") {
+		%>
+		<div class="alert alert-success alert-dismissible">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<strong>Success!</strong> You are successfully logged out!
+		</div>
+		<%
+			} else if (name == "signup") {
+		%>
+		<div class="alert alert-success alert-dismissible">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<strong>Success!</strong> You are successfully signed up!
+		</div>
+		<%
+			} else if (name == "login") {
+		%>
+		<div class="alert alert-success alert-dismissible">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<strong>Success!</strong> You have successfully logged in.
+		</div>
+		<%
+			}
+		%>
 		<div class="page-header">
 			<h2>Forum Topics</h2>
 		</div>
@@ -50,7 +76,7 @@
 								Food Topics <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
-								<li><a href="asianfoods.jsp">Asian Foods</a></li>
+								<li><a href="asianfood_1.jsp">Asian Foods</a></li>
 								<li><a href="#">Europe Foods</a></li>
 								<li><a href="#">American Foods</a></li>
 							</ul>

@@ -31,8 +31,7 @@ public class GetPostsServlet extends HttpServlet {
 		
         if(GetPosts.GetPosts()){  
 
-            RequestDispatcher rd=request.getRequestDispatcher("Sections/index.jsp");
-            rd.forward(request,response);  
+
         }  
         else{  
             out.print("<p style=\"color:red; text-align:center\">Sorry username or password error</p>");  
