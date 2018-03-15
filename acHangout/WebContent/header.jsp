@@ -23,7 +23,7 @@
 		} else {
 	%>
 
-	<a href="logoutServlet" style="float: right">Logout</a>
+	<a href="logout" style="float: right">Logout</a>
 	<%
 		}
 	%>

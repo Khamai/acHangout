@@ -24,6 +24,8 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
 </head>
 <body>
 	<!-- I include header and top-menu separately because the other web pages also need to have both of them 
@@ -43,7 +45,7 @@
 		<div class="row">
 			<div class="col-sm-12">
 
-				<ul class="breadcrumb" style="background-color:none;">
+				<ul class="breadcrumb" style="background-color: none;">
 					<li><a href="#">Home &raquo;&laquo;</a></li>
 					<li><a href="#">Private</a></li>
 					<li><a href="#">Pictures</a></li>
@@ -62,9 +64,10 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="well">
+
 					<p style="color: red;">${message}</p>
 
-					<form class="form-horizontal" action="loginServlet" method="post">
+					<form class="form-horizontal" action=login method="post">
 						<div class="form-group">
 							<label class="control-label col-sm-2" for="username">Username:</label>
 							<div class="col-sm-4">
@@ -86,6 +89,12 @@
 									<label><input type="checkbox" name="remember">
 										Remember me</label>
 								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<div class="g-recaptcha"
+									data-sitekey="6Lf3iUwUAAAAAKuu5lMeXPn69FwGnkxWv9lqRF1v"></div>
 							</div>
 						</div>
 						<div class="form-group">
