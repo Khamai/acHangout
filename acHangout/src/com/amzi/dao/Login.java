@@ -8,10 +8,9 @@ import java.sql.SQLException;
 
 public class Login  {
 
-	public static boolean validate(String name, String pass) {        
-        boolean status = false;
-       
-        
+	public static String validate(String name, String pass) {     
+        String status = "";
+        String salt = "1234";
         Connection conn = null;
         
         
@@ -33,12 +32,16 @@ public class Login  {
                     .getConnection(url + dbName, userName, password);
             //The question marks will then be replaced in the setString(nth question mark, replaced with) method.
             pst = conn
-                    .prepareStatement("select * from users where username=? and password=?");
+                    .prepareStatement("select * from users where username=? and password=AES_ENCRYPT(?,UNHEX(?))");
             pst.setString(1, name);
             pst.setString(2, pass);
+            pst.setString(3, salt);
 
             rs = pst.executeQuery();
-            status = rs.next();
+            if(rs.next()){
+            	status = rs.getString("password");
+            	System.out.println("password: "+status);
+            }
 
         } catch (Exception e) {
             System.out.println(e);

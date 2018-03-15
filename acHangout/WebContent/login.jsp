@@ -1,10 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<% if(session.getAttribute("name") != null){
-		out.write("<p>Already signed in!</p>");
-		response.sendRedirect("index.jsp");
-	}
-%>
 <!DOCTYPE html>
 
 <%--
@@ -69,7 +64,7 @@
 				<div class="well">
 					<p style="color: red;">${message}</p>
 
-					<form class="form-horizontal" action="loginServlet" method="post">
+					<form class="form-horizontal" action="LoginServlet" method="post">
 						<div class="form-group">
 							<label class="control-label col-sm-2" for="username">Username:</label>
 							<div class="col-sm-4">
