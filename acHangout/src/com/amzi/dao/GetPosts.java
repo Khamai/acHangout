@@ -9,11 +9,11 @@ public class GetPosts {
 		PreparedStatement pst = null;
 		
 		
-		try {
+		/*try {
 			pst = conn.prepareStatement("SELECT * FROM post WHERE id=?");
 		} catch (Exception e){
 			
-		}
+		}*/
 		
 		
 		return false;

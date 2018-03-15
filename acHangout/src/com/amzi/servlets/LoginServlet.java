@@ -26,22 +26,22 @@ public class LoginServlet extends HttpServlet{
 
         String n=request.getParameter("username");  
         String p=request.getParameter("pass"); 
-        String renember= request.getParameter("renemeber");
+        String renember= request.getParameter("renember");
         String pass = "";
         
         
         HttpSession session = request.getSession(false);
-        if(session!=null)
-        session.setAttribute("name", n);
         
 		response.setContentType("text/html");  
 		PrintWriter out = response.getWriter();  
 		
 		pass = Login.validate(n, p);
-        if(pass != ""){  
+		if(session != null) {
         	session.setAttribute("username", n);
         	session.setAttribute("pass", pass);
-        	
+		}
+		
+        if(pass != ""){  
             RequestDispatcher rd=request.getRequestDispatcher("Sections/index.jsp");
             rd.forward(request,response);  
         }  

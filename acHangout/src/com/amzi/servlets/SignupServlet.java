@@ -44,10 +44,6 @@ public class SignupServlet extends HttpServlet{
             RequestDispatcher rd=request.getRequestDispatcher("signup.jsp");  
             rd.include(request,response);  
         }  
-
-		for(int i = 0; i < values.length; ++i)
-			if(session!=null)
-				session.setAttribute(i+"", values[i]);
 		
 		out.close();  
 	}  
