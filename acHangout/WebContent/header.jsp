@@ -11,34 +11,36 @@
 
 <div style='display: none; padding: 10px;' id='google_translate_element'></div>
 
-<div class="topnav" id="myTopnav">
-	<a class="active" href="index.jsp">Home</a> <a href="#contact">Messenger</a>
-	<a href="#contact">Help&nbsp;<i class="fa fa-question-circle-o"></i></a>
-	&emsp;
-	<%
-		if (login == "Login") {
-	%>
-	<a href="signup.jsp" style="float: right">Sign up</a>
-	<%
-		} else {
-	%>
+<div class="row">
+	<div class="topnav" id="myTopnav">
+		<a class="active" href="index.jsp">Home</a> <a href="#contact">Messenger</a>
+		<a href="#contact">Help&nbsp;<i class="fa fa-question-circle-o"></i></a>
+		&emsp;
+		<%
+			if (login == "Login") {
+		%>
+		<a href="signup.jsp" style="float: right">Sign up</a>
+		<%
+			} else {
+		%>
 
-	<a href="logout" style="float: right">Logout</a>
-	<%
-		}
-	%>
-	<a href="login.jsp" style="float: right"> <%=login%>
-	</a> <a href="#" style="float: right" onclick="open_translate(this)"
-		title="Google Translate"><i class="fa fa-globe"></i></a>
+		<a href="logout" style="float: right">Logout</a>
+		<%
+			}
+		%>
+		<a href="login.jsp" style="float: right"> <%=login%>
+		</a> <a href="#" style="float: right" onclick="open_translate(this)"
+			title="Google Translate"><i class="fa fa-globe"></i></a>
 
-	<div class="search-container">
-		<form action="search.jsp">
-			&emsp; &emsp; &emsp; &emsp; <input type="text" placeholder="Search.."
-				name="search">
-			<button type="submit">
-				<i class="fa fa-search"></i>
-			</button>
-		</form>
+		<div class="search-container">
+			<form action="search.jsp">
+				&emsp; &emsp; &emsp; &emsp; <input type="text"
+					placeholder="Search.." name="search">
+				<button type="submit">
+					<i class="fa fa-search"></i>
+				</button>
+			</form>
+		</div>
 	</div>
 </div>
 

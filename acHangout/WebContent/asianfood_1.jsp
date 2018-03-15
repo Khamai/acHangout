@@ -51,9 +51,6 @@
 				<button type="button" onclick="window.location='index.jsp'"
 					class="btn btn-primary">New Post</button>
 			</div>
-			<div class="btn-group btn-group-md">
-				<button type="button" class="btn btn-primary">Delete Post</button>
-			</div>
 		</div>
 	</div>
 

@@ -30,13 +30,6 @@ h3 {
 	height: auto;
 }
 
-.top-hot {
-	border-right: 5px solid #126758;
-	width: 280px;
-	position: absolute;
-	font-size: 18spx;
-}
-
 body {
 	background-image: url("brilliant.png");
 	margin: 0;
