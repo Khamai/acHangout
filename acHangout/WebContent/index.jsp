@@ -22,16 +22,11 @@
 	<!-- I include header and top-menu separately because the other web pages also need to have both of them 
 		so don't need to do again one more time
 	-->
-	<div class="header">
-		<jsp:include page="header.jsp" />
-	</div>
+	<jsp:include page="header.jsp" />
+	<jsp:include page="top-menu.html" />
 
-	<div class="top-menu">
-		<jsp:include page="top-menu.html" />
-	</div>
 	<br />
 	<br />
-
 
 	<div class="container text-center">
 
@@ -79,22 +74,6 @@
 								<li><a href="asianfood_1.jsp">Asian Foods</a></li>
 								<li><a href="#">Europe Foods</a></li>
 								<li><a href="#">American Foods</a></li>
-							</ul>
-						</div>
-					</div>
-
-					<div class="btn-group">
-						<div class="dropdown">
-							<button class="btn btn-primary dropdown-toggle" type="button"
-								data-toggle="dropdown">
-								Restaurant Topics <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu">
-								<li><a href="#">Asian Restaurants</a></li>
-								<li><a href="#">Canadian Restaurants</a></li>
-								<li><a href="#">Middle Eastern Restaurants</a></li>
-								<li><a href="#">Indian Restaurants</a></li>
-
 							</ul>
 						</div>
 					</div>
@@ -218,27 +197,6 @@
 							</ul>
 						</div>
 					</div>
-
-					<div class="btn-group">
-						<div class="dropdown">
-							<button class="btn btn-primary dropdown-toggle" type="button"
-								data-toggle="dropdown">
-								Genre Topics <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu">
-								<li><a href="#">Horror</a></li>
-								<li><a href="#">Thriller</a></li>
-								<li><a href="#">Action/Adventure</a></li>
-								<li><a href="#">Comedy</a></li>
-								<li><a href="#">Science Fiction</a></li>
-								<li><a href="#">Romance</a></li>
-								<li><a href="#">Mystery</a></li>
-								<li><a href="#">Fantasy</a></li>
-								<li><a href="#">Drama</a></li>
-								<li><a href="#">Others</a></li>
-							</ul>
-						</div>
-					</div>
 				</div>
 			</div>
 
@@ -276,9 +234,6 @@
 		</div>
 
 	</div>
-	<br />
-	<br />
-	<br />
 	<br />
 	<br />
 	<br />
