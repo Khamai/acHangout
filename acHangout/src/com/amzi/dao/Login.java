@@ -13,24 +13,6 @@ public class Login  {
 		String salt = "1234";
 		Connection conn = null;
 
-<<<<<<< HEAD
-        String url = "jdbc:mysql://localhost:3306/";
-        String dbName = "form";
-        String driver = "com.mysql.jdbc.Driver";
-        String userName = "root";
-        String password = "xxxx";
-        try {
-            Class.forName(driver).newInstance();
-           
-            conn = DriverManager
-                    .getConnection(url + dbName, userName, password);
-            //The question marks will then be replaced in the setString(nth question mark, replaced with) method.
-            pst = conn
-                    .prepareStatement("select * from users where username=? and password=?");
-            pst.setString(1, name);
-            pst.setString(2, pass);
-=======
->>>>>>> refs/remotes/origin/Kha
 
 		/*A SQL statement is precompiled and stored in a PreparedStatement object. 
 		 * This object can then be used to efficiently execute this statement multiple times. */
@@ -42,7 +24,7 @@ public class Login  {
 		String dbName = "form";
 		String driver = "com.mysql.jdbc.Driver";
 		String userName = "root";
-		String password = "khamai_";
+		String password = "xxxx";
 		try {
 			Class.forName(driver).newInstance();
 
