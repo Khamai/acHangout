@@ -24,37 +24,20 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
 </head>
 <body>
 	<!-- I include header and top-menu separately because the other web pages also need to have both of them 
 		so don't need to do again one more time
 	-->
-	<div class="header">
-		<jsp:include page="header.jsp" />
-	</div>
+	<jsp:include page="header.jsp" />
 
-	<div class="top-menu">
-		<jsp:include page="top-menu.html" />
-	</div>
+	<jsp:include page="top-menu.html" />
 	<br />
 	<br />
 
 	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-
-				<ul class="breadcrumb" style="background-color:none;">
-					<li><a href="#">Home &raquo;&laquo;</a></li>
-					<li><a href="#">Private</a></li>
-					<li><a href="#">Pictures</a></li>
-					<li class="active">Vacation</li>
-				</ul>
-			</div>
-			<div class="col-sm-12 text-right">
-
-				Welcome, <a href="#" class="underline">Robin Brons</a>
-			</div>
-		</div>
 		<div class="page-header">
 			<h2 align=center>Login</h2>
 		</div>
@@ -62,9 +45,14 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="well">
+
 					<p style="color: red;">${message}</p>
 
+<<<<<<< HEAD
 					<form class="form-horizontal" action="LoginServlet" method="post">
+=======
+					<form class="form-horizontal" action="login" method="post">
+>>>>>>> refs/remotes/origin/Kha
 						<div class="form-group">
 							<label class="control-label col-sm-2" for="username">Username:</label>
 							<div class="col-sm-4">
@@ -86,6 +74,12 @@
 									<label><input type="checkbox" name="remember">
 										Remember me</label>
 								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<div class="g-recaptcha"
+									data-sitekey="6Lf3iUwUAAAAAKuu5lMeXPn69FwGnkxWv9lqRF1v"></div>
 							</div>
 						</div>
 						<div class="form-group">

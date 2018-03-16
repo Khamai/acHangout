@@ -13,7 +13,10 @@ public class Signup extends HttpServlet {
 	public static boolean validate(String values[]) {        
         boolean status = false;
         String salt = "1234";
+<<<<<<< HEAD
        
+=======
+>>>>>>> refs/remotes/origin/Kha
         
         Connection conn = null;
         

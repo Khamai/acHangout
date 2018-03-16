@@ -2,10 +2,18 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 
+<%--
+<%
+	if (session.getAttribute("name") != null) {
+		String pagename = (String) session.getAttribute("currentpage");
+		response.sendRedirect(pagename);
+	}
+%>
+--%>
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sign up</title>
+<title>Login</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -16,56 +24,49 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
 </head>
 <body>
 	<!-- I include header and top-menu separately because the other web pages also need to have both of them 
 		so don't need to do again one more time
 	-->
-	<jsp:include page="header.jsp" />
+	<div class="header">
+		<jsp:include page="header.jsp" />
+	</div>
 
-<<<<<<< HEAD
-=======
-	<jsp:include page="top-menu.html" />
+	<div class="top-menu">
+		<jsp:include page="top-menu.html" />
+	</div>
 	<br />
 	<br />
->>>>>>> refs/remotes/origin/Kha
 
 	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+
+				<ul class="breadcrumb" style="background-color: none;">
+					<li><a href="#">Home &raquo;&laquo;</a></li>
+					<li><a href="#">Private</a></li>
+					<li><a href="#">Pictures</a></li>
+					<li class="active">Vacation</li>
+				</ul>
+			</div>
+			<div class="col-sm-12 text-right">
+
+				Welcome, <a href="#" class="underline">Robin Brons</a>
+			</div>
+		</div>
 		<div class="page-header">
-			<h2 align=center>Sign up</h2>
+			<h2 align=center>Login</h2>
 		</div>
 		<br /> <br />
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="well">
-					<form class="form-horizontal" action="signup" method="post">
-						<div class="form-group">
-							<label class="control-label col-sm-2" for="firstname">First
-								Name:</label>
-							<div class="col-sm-4">
-								<input type="text" class="form-control" id="firstname"
-									placeholder="Enter firstname" name="firstname"
-									required="required">
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-sm-2" for="lastname">Last
-								Name:</label>
-							<div class="col-sm-4">
-								<input type="text" class="form-control" id="lastname"
-									placeholder="Enter lastname" name="lastname"
-									required="required">
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-sm-2" for="sex">Gender:</label>
-							<div class="col-sm-4">
-								<label class="radio-inline"><input type="radio"
-									name="sex" required="required">Male</label>&emsp;&emsp;&emsp; <label
-									class="radio-inline"><input type="radio" name="sex"
-									required="required">Female</label>
-							</div>
-						</div>
+					<p style="color: red;">${message}</p>
+
+					<form class="form-horizontal" action="verify" method="post">
 						<div class="form-group">
 							<label class="control-label col-sm-2" for="username">Username:</label>
 							<div class="col-sm-4">
@@ -82,25 +83,40 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="control-label col-sm-2" for="email">Email:</label>
-							<div class="col-sm-4">
-								<input type="email" class="form-control" id="email"
-									placeholder="Enter email" name="email" required="required">
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-sm-2" for="tel">Telephone:</label>
-							<div class="col-sm-4">
-								<input type="tel" class="form-control" id="tel"
-									placeholder="Enter telephone" name="tel">
+							<div class="col-sm-offset-2 col-sm-10">
+								<div class="checkbox">
+									<label><input type="checkbox" name="remember">
+										Remember me</label>
+								</div>
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-sm-offset-2 col-sm-10">
-								<button type="submit" class="btn btn-default">Sign up</button>
+								<div class="g-recaptcha"
+									data-sitekey="6Lf3iUwUAAAAAKuu5lMeXPn69FwGnkxWv9lqRF1v"></div>
 							</div>
 						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="submit" class="btn btn-default">Login</button>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-offset-1 col-sm-2"
+								style="font-weight: normal;" for="username">Don't have
+								an account?</label> <a href="signup.jsp" style="text-decoration: none;">Sign
+								up</a>
+						</div>
 					</form>
+					<%--
+					<ul class="pagination">
+						<li><a href="#">1</a></li>
+						<li class="active"><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+					</ul>
+					--%>
 				</div>
 			</div>
 		</div>
@@ -109,8 +125,6 @@
 	<br />
 	<br />
 	<br />
-
 	<jsp:include page="footer.jsp" />
-
 </body>
 </html>
