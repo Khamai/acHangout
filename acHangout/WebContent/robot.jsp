@@ -31,13 +31,32 @@
 	<!-- I include header and top-menu separately because the other web pages also need to have both of them 
 		so don't need to do again one more time
 	-->
-	<jsp:include page="header.jsp" />
+	<div class="header">
+		<jsp:include page="header.jsp" />
+	</div>
 
-	<jsp:include page="top-menu.html" />
+	<div class="top-menu">
+		<jsp:include page="top-menu.html" />
+	</div>
 	<br />
 	<br />
 
 	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+
+				<ul class="breadcrumb" style="background-color: none;">
+					<li><a href="#">Home &raquo;&laquo;</a></li>
+					<li><a href="#">Private</a></li>
+					<li><a href="#">Pictures</a></li>
+					<li class="active">Vacation</li>
+				</ul>
+			</div>
+			<div class="col-sm-12 text-right">
+
+				Welcome, <a href="#" class="underline">Robin Brons</a>
+			</div>
+		</div>
 		<div class="page-header">
 			<h2 align=center>Login</h2>
 		</div>
@@ -45,10 +64,9 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="well">
-
 					<p style="color: red;">${message}</p>
 
-					<form class="form-horizontal" action="login" method="post">
+					<form class="form-horizontal" action="verify" method="post">
 						<div class="form-group">
 							<label class="control-label col-sm-2" for="username">Username:</label>
 							<div class="col-sm-4">

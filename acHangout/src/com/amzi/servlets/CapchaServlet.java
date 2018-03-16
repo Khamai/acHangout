@@ -1,19 +1,26 @@
 package com.amzi.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.amzi.dao.Login;
 
 import model.VerifyRecaptcha;
-
-public class LoginServlet extends HttpServlet{
-
+public class CapchaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	public CapchaServlet() {
+		super();
+	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)  
 			throws ServletException, IOException {  
@@ -28,7 +35,7 @@ public class LoginServlet extends HttpServlet{
 		boolean success = VerifyRecaptcha.verify(gRecaptchaResponse);
 
 		HttpSession session = request.getSession(false);
-		
+
 		pass = Login.validate(n, p);
 		if(session!=null) {
 			session.setAttribute("name", n);

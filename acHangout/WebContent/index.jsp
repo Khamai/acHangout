@@ -6,6 +6,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>acHangout</title>
+<link rel="shortcut icon" type="image/x-icon" href="Resources/k.ico">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -21,18 +22,42 @@
 	<!-- I include header and top-menu separately because the other web pages also need to have both of them 
 		so don't need to do again one more time
 	-->
-	<div class="header">
-		<jsp:include page="header.html" />
-	</div>
+	<jsp:include page="header.jsp" />
+	<jsp:include page="top-menu.html" />
 
-	<div class="top-menu">
-		<jsp:include page="top-menu.html" />
-	</div>
 	<br />
 	<br />
 
 	<div class="container text-center">
-		<h2>Forum Topics</h2>
+
+		<%
+			String name = (String) request.getAttribute("message");
+			if (name == "logout") {
+		%>
+		<div class="alert alert-success alert-dismissible">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<strong>Success!</strong> You are successfully logged out!
+		</div>
+		<%
+			} else if (name == "signup") {
+		%>
+		<div class="alert alert-success alert-dismissible">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<strong>Success!</strong> You are successfully signed up!
+		</div>
+		<%
+			} else if (name == "login") {
+		%>
+		<div class="alert alert-success alert-dismissible">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<strong>Success!</strong> You have successfully logged in.
+		</div>
+		<%
+			}
+		%>
+		<div class="page-header">
+			<h2>Forum Topics</h2>
+		</div>
 		<br /> <br />
 		<div class="row">
 			<div class="col-sm-4">
@@ -46,25 +71,9 @@
 								Food Topics <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
-								<li><a href="#">Asian Foods</a></li>
+								<li><a href="asianfood_1.jsp">Asian Foods</a></li>
 								<li><a href="#">Europe Foods</a></li>
 								<li><a href="#">American Foods</a></li>
-							</ul>
-						</div>
-					</div>
-
-					<div class="btn-group">
-						<div class="dropdown">
-							<button class="btn btn-primary dropdown-toggle" type="button"
-								data-toggle="dropdown">
-								Restaurant Topics <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu">
-								<li><a href="#">Asian Restaurants</a></li>
-								<li><a href="#">Canadian Restaurants</a></li>
-								<li><a href="#">Middle Eastern Restaurants</a></li>
-								<li><a href="#">Indian Restaurants</a></li>
-
 							</ul>
 						</div>
 					</div>
@@ -188,27 +197,6 @@
 							</ul>
 						</div>
 					</div>
-
-					<div class="btn-group">
-						<div class="dropdown">
-							<button class="btn btn-primary dropdown-toggle" type="button"
-								data-toggle="dropdown">
-								Genre Topics <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu">
-								<li><a href="#">Horror</a></li>
-								<li><a href="#">Thriller</a></li>
-								<li><a href="#">Action/Adventure</a></li>
-								<li><a href="#">Comedy</a></li>
-								<li><a href="#">Science Fiction</a></li>
-								<li><a href="#">Romance</a></li>
-								<li><a href="#">Mystery</a></li>
-								<li><a href="#">Fantasy</a></li>
-								<li><a href="#">Drama</a></li>
-								<li><a href="#">Others</a></li>
-							</ul>
-						</div>
-					</div>
 				</div>
 			</div>
 
@@ -227,7 +215,7 @@
 					<div class="dropdown">
 						<button class="btn btn-primary dropdown-toggle" type="button"
 							data-toggle="dropdown">
-							Classific Topics <span class="caret"></span>
+							Classified Topics <span class="caret"></span>
 						</button>
 						<ul class="dropdown-menu">
 							<li><a href="#">Houses/Apts For Renting</a></li>
@@ -238,6 +226,13 @@
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<br /> <br /> <br /> <a href="poll.jsp" class="btn btn-primary"
+					role="button">Create a poll</a>
+			</div>
+		</div>
+
 	</div>
 	<br />
 	<br />
@@ -249,16 +244,8 @@
 	<br />
 	<br />
 	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
 
+	<jsp:include page="footer.jsp" />
 
-	<footer class="container-fluid text-center">
-		<p>Footer Text</p>
-	</footer>
 </body>
 </html>

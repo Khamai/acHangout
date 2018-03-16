@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/Kha
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xmlns="http://java.sun.com/xml/ns/javaee"
@@ -9,16 +12,42 @@
 		<servlet-name>login</servlet-name>
 		<servlet-class>com.amzi.servlets.LoginServlet</servlet-class>
 	</servlet>
-	
+
 	<servlet>
-	<servlet-name>PollController</servlet-name>
-		<servlet-class>servlet.PollController</servlet-class>
+		<servlet-name>signup</servlet-name>
+		<servlet-class>com.amzi.servlets.SignupServlet</servlet-class>
 	</servlet>
-	
+
+	<servlet>
+		<servlet-name>logout</servlet-name>
+		<servlet-class>com.amzi.servlets.LogoutServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>verify</servlet-name>
+		<servlet-class>com.amzi.servlets.CapchaServlet</servlet-class>
+	</servlet>
+
 	<servlet-mapping>
+		<servlet-name>verify</servlet-name>
+		<url-pattern>/verify</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+<<<<<<< HEAD
 		<servlet-name>PollController</servlet-name>
 		<url-pattern>/PollController</url-pattern>
+=======
+		<servlet-name>login</servlet-name>
+		<url-pattern>/login</url-pattern>
 	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>logout</servlet-name>
+		<url-pattern>/logout</url-pattern>
+>>>>>>> refs/remotes/origin/Kha
+	</servlet-mapping>
+<<<<<<< HEAD
 	 
     
     <servlet>
@@ -36,4 +65,15 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
+=======
+
+	<servlet-mapping>
+		<servlet-name>signup</servlet-name>
+		<url-pattern>/signup</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+>>>>>>> refs/remotes/origin/Kha
 </web-app>
