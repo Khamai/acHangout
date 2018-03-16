@@ -1,17 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<%
-	if (session.getAttribute("name") == null) {
-%>
-<jsp:forward page="login.jsp" />
-<%
-	}
-%>
+
+
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv='cache-control' content='no-cache'>
+<meta http-equiv='expires' content='0'>
+<meta http-equiv='pragma' content='no-cache'>
 <title>acHangout</title>
+<script src="javascript/dynamicForm.js" type="text/javascript"></script>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -26,11 +25,17 @@
 
 
 <style>
-.top-seperator {
-	height: 200px;
-	width: 50%;
-	background-color: black;
+.row.display-flex {
+  display: flex;
+  flex-wrap: wrap;
 }
+.row.display-flex > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
 </style>
 </head>
 
@@ -43,12 +48,12 @@
 
 	<div class="container-fluid">
 
-		<div class="row">
+		<div class="row jumbotron">
 
-			<div class="jumbotron col-md-6">
-
+			<div class="col-md-6 form-group">
+			
 				<form id=pollForm action="PollController" method="get">
-					<div class="form-group">
+					
 						<div>
 							<h2>Your Question</h2>
 						</div>
@@ -62,131 +67,36 @@
 						</div>
 
 						<div class="btn-group btn-group-sm">
-							<button class="btn btn-primary" id="qt1" onClick="setMulti()">Multiple
+							<button class="btn btn-primary" id="qt1" onClick="qSetup('multi')">Multiple
 								Choice</button>
-							<button class="btn btn-primary" id="qt2" onClick="setShort()">Short
-								Answer</button>
-							<button class="btn btn-primary" id="qt3" onClick="setRank()">Ranking</button>
+							<button class="btn btn-primary" id="qt2" onClick="qSetup('short')">Short Answer</button>
+							<button class="btn btn-primary" id="qt3" onClick="qSetup('rank')">Ranking</button>
 						</div>
-					</div>
+					
 				</form>
+			
+			</div>
+			
+			<div class="col-md-6 form-group" id="dynamicForm">
+			
+			<!-- multi
+				<div class= ? id="dynamicElement">
+				</div> -->
+			
+			
+			
+			
+			
+			
+			
+			</div>
+			
+			
 			</div>
 
-			<div class="col-md-6" id="dynamicForm"></div>
-
 		</div>
-
-	</div>
-
-
-	<!-- dynamically add answer setup elements based on selected qtype -->
-
-	<script>
-		function submit() {
-
-			document.forms["pollForm"].submit();
-			document.forms["pollForm"].submit();
-
-		}
-	</script>
-
-	<script>
-		function deleteSetup(parentDiv, childDiv) {
-
-			alert("Discard work?");
-
-			var child = document.getElementById(childDiv);
-			var parent = document.getElementById(parentDiv);
-			parent.removeChild(child);
-			enableType();
-		}
-	</script>
-
-	<script>
-		function setMulti() {
-			var r = document.createElement('span');
-			var y = document.createElement("INPUT");
-			y.setAttribute("type", "text");
-			y.setAttribute("placeholder", "Name");
-			var g = document.createElement("button");
-			g.setAttribute("class", "btn");
-			g.setAttribute("class", "btn-danger");
-			y.setAttribute("Name", "multi");
-			r.appendChild(y);
-			g.setAttribute("onclick", "deleteSetup('dynamicForm','multi')");
-			r.appendChild(g);
-			r.setAttribute("id", "multi");
-			document.getElementById("dynamicForm").appendChild(r);
-			document.getElementById("multi").setAttribute("class", "jumbotron");
-			disableType();
-
-		}
-
-		//Add [x] button to discard setup section and allow a different answer setup option
-	</script>
-
-	<script>
-		function setShort() {
-			var r = document.createElement('span');
-			var y = document.createElement("INPUT");
-			y.setAttribute("type", "text");
-			y.setAttribute("placeholder", "Name");
-			var g = document.createElement("button");
-			g.setAttribute("class", "btn");
-			g.setAttribute("class", "btn-danger");
-			y.setAttribute("Name", "short");
-			r.appendChild(y);
-			g.setAttribute("onclick", "deleteSetup('dynamicForm','short')");
-			r.appendChild(g);
-			r.setAttribute("id", "short");
-			document.getElementById("dynamicForm").appendChild(r);
-			disableType();
-
-		}
-
-		//Add [x] button to discard setup section and allow a different answer setup option
-	</script>
-
-	<script>
-		function setRank() {
-			var r = document.createElement('span');
-			var y = document.createElement("INPUT");
-			y.setAttribute("type", "text");
-			y.setAttribute("placeholder", "Name");
-			var g = document.createElement("button");
-			g.setAttribute("class", "btn");
-			g.setAttribute("class", "btn-danger");
-			y.setAttribute("Name", "rank");
-			r.appendChild(y);
-			g.setAttribute("onclick", "deleteSetup('dynamicForm','rank')");
-			r.appendChild(g);
-			r.setAttribute("id", "rank");
-			document.getElementById("dynamicForm").appendChild(r);
-			disableType();
-
-		}
-
-		//Add [x] button to discard setup section and allow a different answer setup option
-	</script>
-
-	<script>
-		function disableType() {
-			var i;
-			for (i = 1; i < 4; i++) {
-				document.getElementById("qt" + i).disabled = true;
-			}
-		}
-	</script>
-
-	<script>
-		function enableType() {
-			var i;
-			for (i = 1; i < 4; i++) {
-				document.getElementById("qt" + i).disabled = false;
-
-			}
-		}
-	</script>
+		
+	
 
 	<script type="text/javascript">
 		var d = new Date()
