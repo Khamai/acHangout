@@ -7,7 +7,7 @@
 %>
 <div class="jumbotron" style="background-color: #cccccc;">
 	<div class="container text-center">
-		<h1 style="color: #145A32;">ACHangout</h1>
+		<img src="Resources/1.png" width="460" height="200">
 	</div>
 
 </div>

@@ -6,7 +6,8 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>acHangout</title>
-<link rel="shortcut icon" type="image/x-icon" href="Resources/k.ico">
+<link rel="shortcut icon" type="image/x-icon"
+	href="Resources/megaphonelogo.ico">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -72,7 +73,7 @@
 							</button>
 							<ul class="dropdown-menu">
 								<li><a href="asianfood_1.jsp">Asian Foods</a></li>
-								<li><a href="#">Europe Foods</a></li>
+								<li><a href="newpost.jsp">Europe Foods</a></li>
 								<li><a href="#">American Foods</a></li>
 							</ul>
 						</div>
