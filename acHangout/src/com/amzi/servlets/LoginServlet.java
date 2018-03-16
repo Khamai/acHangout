@@ -27,21 +27,21 @@ public class LoginServlet extends HttpServlet{
 
 		boolean success = VerifyRecaptcha.verify(gRecaptchaResponse);
 
-		HttpSession session = request.getSession(false);
 		
 		pass = Login.validate(n, p);
-		if(session!=null) {
-			session.setAttribute("name", n);
-			session.setAttribute("pass", pass);
-		}
 
 		if(pass != "" && success){  
+			HttpSession session = request.getSession(true);
+			
 			String pagename = (String) session.getAttribute("currentpage");
 			if(pagename == null) {
 				String message ="login";
 				request.setAttribute("message", message);
 				pagename = "index.jsp";
 			}
+			
+			session.setAttribute("username", n);
+			session.setAttribute("pass", p);
 			request.getRequestDispatcher(pagename).forward(request, response); 
 		}  
 		else{  

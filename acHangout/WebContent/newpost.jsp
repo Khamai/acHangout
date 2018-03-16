@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	
+<%
+	session.setAttribute("category", "food");
+%>
 <!DOCTYPE html>
 
 <%--
@@ -53,7 +57,7 @@
 		<div class="row">
 			<div class="col-sm-7" style="float: none; margin: 0 auto;">
 				<div class="well" style="background-color: #d9d9d9;">
-					<form>
+					<form action="postIt" method="post">
 						<div class="form-group">
 							<label for="topic">Topic:</label>
 							<textarea class="form-control" rows="2" id="topic"
