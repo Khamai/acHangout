@@ -9,7 +9,7 @@ public class Encryption {
 	private String code;
 	
 	public static boolean encrypt(String code) {        
-        
+		boolean status = false;
         Connection conn = null;
         PreparedStatement pst = null;
 
@@ -28,7 +28,7 @@ public class Encryption {
 
             pst.executeUpdate();
            
-            boolean status = true;
+            
 
         } catch (Exception e) {
             System.out.println(e);
