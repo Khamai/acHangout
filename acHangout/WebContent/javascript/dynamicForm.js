@@ -1,8 +1,38 @@
+var fieldNum = 0;
 
-		function submit() {
-
-			document.forms["pollForm"].submit();
-			document.forms["pollForm"].submit();
+function incrementField(){
+	fieldNum++;
+}
+		function qSetup(selection) {
+			
+			
+			
+			disableType();
+			switch(selection){
+			
+			case "multi":
+				setMulti();
+				
+				
+				break;
+				
+			case "short":
+				setShort();
+				
+				
+				break;
+				
+			case "rank":
+				setRank();
+				
+				
+				break;
+			
+			default:
+			
+				break;
+			}
+			
 
 		}
  
@@ -20,10 +50,13 @@
  
 
 		function setMulti() {
+			
 			var r = document.createElement('span');
 			var y = document.createElement("INPUT");
 			y.setAttribute("type", "text");
 			y.setAttribute("placeholder", "Name");
+			y.setAttribute("maxlength", "32");
+			y.setAttribute("required", "required");
 			var g = document.createElement("button");
 			g.setAttribute("class", "btn");
 			g.setAttribute("class", "btn-danger");
@@ -33,8 +66,8 @@
 			r.appendChild(g);
 			r.setAttribute("id", "multi");
 			document.getElementById("dynamicForm").appendChild(r);
-			document.getElementById("multi").setAttribute("class","jumbotron");
-			disableType();
+			
+			
 
 		}
 
@@ -54,7 +87,7 @@
 			r.appendChild(g);
 			r.setAttribute("id", "short");
 			document.getElementById("dynamicForm").appendChild(r);
-			disableType();
+			
 
 		}
 
@@ -73,7 +106,7 @@
 			r.appendChild(g);
 			r.setAttribute("id", "rank");
 			document.getElementById("dynamicForm").appendChild(r);
-			disableType();
+			
 
 		}
 

@@ -6,6 +6,9 @@
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv='cache-control' content='no-cache'>
+<meta http-equiv='expires' content='0'>
+<meta http-equiv='pragma' content='no-cache'>
 <title>acHangout</title>
 <script src="javascript/dynamicForm.js" type="text/javascript"></script>
 <link rel="stylesheet"
@@ -22,11 +25,17 @@
 
 
 <style>
-.top-seperator {
-	height: 200px;
-	width: 50%;
-	background-color: black;
+.row.display-flex {
+  display: flex;
+  flex-wrap: wrap;
 }
+.row.display-flex > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
 </style>
 </head>
 
@@ -39,10 +48,11 @@
 
 	<div class="container-fluid">
 
-		<div class="row">
+		<div class="row jumbotron">
 
-			<div class="jumbotron col-md-6">
-
+			<div class="col-md-6">
+			<div class="panel panel-default">
+			<div class="panel-body">
 				<form id=pollForm action="PollController" method="get">
 					<div class="form-group">
 						<div>
@@ -58,23 +68,35 @@
 						</div>
 
 						<div class="btn-group btn-group-sm">
-							<button class="btn btn-primary" id="qt1" onClick="setMulti()">Multiple
+							<button class="btn btn-primary" id="qt1" onClick="qSetup('multi')">Multiple
 								Choice</button>
-							<button class="btn btn-primary" id="qt2" onClick="setShort()">Short
-								Answer</button>
-							<button class="btn btn-primary" id="qt3" onClick="setRank()">Ranking</button>
+							<button class="btn btn-primary" id="qt2" onClick="qSetup('short')">Short Answer</button>
+							<button class="btn btn-primary" id="qt3" onClick="qSetup('rank')">Ranking</button>
 						</div>
 					</div>
 				</form>
 			</div>
+			</div>
+			</div>
+			
+			<div class="col-md-6" id="dynamicForm">
+			<div class="form-group" id="dynamicElement">
+			</div>
+			
+			
+			
 
-			<div class="col-md-6" id="dynamicForm"></div>
+			
+			
+			
+			
+			</div>
+			
+			
+			</div>
 
 		</div>
-
-	</div>
-
-
+		
 	
 
 	<script type="text/javascript">
