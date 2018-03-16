@@ -36,26 +36,31 @@ public class Post extends HttpServlet {
             
             //The question marks will then be replaced in the setString(nth question mark, replaced with) method.
             
-            pst = conn.prepareStatement("SELECT * FROM users WHERE username=?");
+            pst = conn.prepareStatement("SELECT * FROM users WHERE username=? and password=?");
             pst.setString(1, values[0]);
+            pst.setString(2, values[1]);
             
             rs = pst.executeQuery();
             
             if(rs != null) {
-            	int author = rs.getInt(0);
+            	String author = rs.getString("id");
             	
                 pst = conn.prepareStatement("SELECT * FROM category WHERE name=?");
-                pst.setString(1, values[1]);
+                pst.setString(1, values[2]);
                 
                 rs = pst.executeQuery();
             	
                 if(rs != null) {
-                	int category = rs.getInt(0);
-                    pst = conn.prepareStatement("Insert INTO post(author, topic, content, date) VALUES (?,?,?,NOW())");
-                    pst.setString(1, author+"");
-                    pst.setString(2, values[2]);
-                    pst.setString(3, values[3]);
-
+                	String category = rs.getString("id");
+                	
+                	pst = conn.prepareStatement("Insert INTO topics(subject,date,cat,author) VALUES (?,NOW(),?,?)");
+                	pst.setString(1, values[3]);
+                	pst.setString(2, category);
+                	pst.setString(3, author);
+                	
+                    pst = conn.prepareStatement("Insert INTO post(author, content, date) VALUES (?,?,NOW())");
+                    pst.setString(1, author);
+                    pst.setString(3, values[4]);
                     pst.executeUpdate();
                    
                     status = true;	
