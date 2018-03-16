@@ -1,21 +1,29 @@
 package com.amzi.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.amzi.dao.Login;
 
 import model.VerifyRecaptcha;
-
-public class LoginServlet extends HttpServlet{
-
+public class CapchaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	public CapchaServlet() {
+		super();
+	}
 
-	public void doPost(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException {  
+	public void doPost(HttpServletRequest request, HttpServletResponse response)  
+			throws ServletException, IOException {  
 
 		response.setContentType("text/html");  
 
@@ -27,19 +35,13 @@ public class LoginServlet extends HttpServlet{
 		boolean success = VerifyRecaptcha.verify(gRecaptchaResponse);
 
 		HttpSession session = request.getSession(false);
-		
+
 		pass = Login.validate(n, p);
 		if(session!=null) {
 			session.setAttribute("name", n);
 			session.setAttribute("pass", pass);
 		}
 
-<<<<<<< HEAD
-		if(Login.validate(n, p))
-		{  
-			RequestDispatcher rd=request.getRequestDispatcher("welcome.jsp");  
-			rd.forward(request,response);  
-=======
 		if(pass != "" && success){  
 			String pagename = (String) session.getAttribute("currentpage");
 			if(pagename == null) {
@@ -48,13 +50,8 @@ public class LoginServlet extends HttpServlet{
 				pagename = "index.jsp";
 			}
 			request.getRequestDispatcher(pagename).forward(request, response); 
->>>>>>> refs/remotes/origin/Kha
 		}  
 		else{  
-<<<<<<< HEAD
-			String message ="Sorry username or password error";
-			request.setAttribute("message", message); 
-=======
 			String message = "";
 			if(success) {
 				message ="Sorry username or password error";
@@ -63,7 +60,6 @@ public class LoginServlet extends HttpServlet{
 				message ="You missed the captcha. Care to try?";
 			}
 			request.setAttribute("message", message);
->>>>>>> refs/remotes/origin/Kha
 			request.getRequestDispatcher("login.jsp").forward(request, response); 
 		}   
 	}  
