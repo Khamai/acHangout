@@ -23,16 +23,19 @@ public class LoginServlet extends HttpServlet{
 		String n=request.getParameter("username");  
 		String p=request.getParameter("pass"); 
 		String gRecaptchaResponse = request.getParameter("g-recaptcha-response");
+		String pass = "";
 
 		boolean success = VerifyRecaptcha.verify(gRecaptchaResponse);
 
 		HttpSession session = request.getSession(false);
+		
+		pass = Login.validate(n, p);
 		if(session!=null) {
 			session.setAttribute("name", n);
-			session.setAttribute("pass", p);
+			session.setAttribute("pass", pass);
 		}
 
-		if(Login.validate(n, p) && success){  
+		if(pass != "" && success){  
 			String pagename = (String) session.getAttribute("currentpage");
 			if(pagename == null) {
 				String message ="login";

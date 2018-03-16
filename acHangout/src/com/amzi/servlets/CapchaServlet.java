@@ -22,33 +22,34 @@ public class CapchaServlet extends HttpServlet {
 		super();
 	}
 
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response)  
+			throws ServletException, IOException {  
 
-
-		// get request parameters for userID and password
+		response.setContentType("text/html");  
 
 		String n=request.getParameter("username");  
 		String p=request.getParameter("pass"); 
-		String gRecaptchaResponse = request
-				.getParameter("g-recaptcha-response");
-		//		System.out.println(gRecaptchaResponse);
+		String gRecaptchaResponse = request.getParameter("g-recaptcha-response");
+		String pass = "";
 
 		boolean success = VerifyRecaptcha.verify(gRecaptchaResponse);
+
 		HttpSession session = request.getSession(false);
+
+		pass = Login.validate(n, p);
 		if(session!=null) {
 			session.setAttribute("name", n);
-			session.setAttribute("pass", p);
+			session.setAttribute("pass", pass);
 		}
 
-		if(Login.validate(n, p) && success){  
+		if(pass != "" && success){  
 			String pagename = (String) session.getAttribute("currentpage");
 			if(pagename == null) {
 				String message ="login";
 				request.setAttribute("message", message);
 				pagename = "index.jsp";
 			}
-			response.sendRedirect(pagename); 
+			request.getRequestDispatcher(pagename).forward(request, response); 
 		}  
 		else{  
 			String message = "";
@@ -56,13 +57,11 @@ public class CapchaServlet extends HttpServlet {
 				message ="Sorry username or password error";
 			}
 			else {
-				message ="You missed the Capcha";
+				message ="You missed the captcha. Care to try?";
 			}
 			request.setAttribute("message", message);
-			//out.print("<p style=\"color:red\">Sorry username or password error</p>");  
 			request.getRequestDispatcher("login.jsp").forward(request, response); 
-		}  
-
+		}   
 	}  
 }
 

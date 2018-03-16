@@ -22,13 +22,9 @@
 	<!-- I include header and top-menu separately because the other web pages also need to have both of them 
 		so don't need to do again one more time
 	-->
-	<div class="header">
-		<jsp:include page="header.jsp" />
-	</div>
+	<jsp:include page="header.jsp" />
+	<jsp:include page="top-menu.html" />
 
-	<div class="top-menu">
-		<jsp:include page="top-menu.html" />
-	</div>
 	<br />
 	<br />
 
@@ -238,9 +234,6 @@
 		</div>
 
 	</div>
-	<br />
-	<br />
-	<br />
 	<br />
 	<br />
 	<br />

@@ -18,7 +18,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -29,13 +29,9 @@
 	<!-- I include header and top-menu separately because the other web pages also need to have both of them 
 		so don't need to do again one more time
 	-->
-	<div class="header">
-		<jsp:include page="header.jsp" />
-	</div>
+	<jsp:include page="header.jsp" />
 
-	<div class="top-menu">
-		<jsp:include page="top-menu.html" />
-	</div>
+	<jsp:include page="top-menu.html" />
 	<br />
 	<br />
 	<div class="container">
@@ -47,8 +43,8 @@
 		</div>
 		<br /> <br />
 		<div class="row text-right">
-			<div class="btn-group btn-group-md">
-				<button type="button" onclick="window.location='index.jsp'"
+			<div class="btn-group btn-group-lg">
+				<button type="button" onclick="window.location='newpost.jsp'"
 					class="btn btn-primary">New Post</button>
 			</div>
 		</div>

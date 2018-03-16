@@ -2,20 +2,45 @@
 	margin-bottom: 0;
 	border-radius: 0;
 	border: 5px solid #126758;
-	overflow: hidden;
 }
 
 .navbar a {
 	/* Padding: make button bigger or smaller (top, right, bottom, left) */
-	color: red;
 	padding: 13px 16px;
 	font-size: 18px;
-	text-decoration: none;
 }
 /* Remove the jumbotron's default bottom margin */
 .jumbotron {
 	margin-bottom: 0;
 	padding: 5px;
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover,
+	.navbar-inverse .navbar-nav>.active>a:focus {
+	background-color: #2196F3;
+}
+
+h1 {
+	color: red;
+}
+
+h2 {
+	color: green;
+}
+
+h3 {
+	color: black;
+}
+
+body {
+	background-image: url("brilliant.png");
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#google_translate_element {
+	right: 50px;
+	position: absolute;
 }
 
 footer {
@@ -60,4 +85,66 @@ footer {
 .btn-facebook:active, .btn-facebook:hover {
 	background: #0075a2;
 	color: #fff;
+}
+
+ul.breadcrumb {
+	padding: 1px 1px;
+	list-style: none;
+	background-color: #eee;
+}
+
+.row.mt {
+	margin-top: 1.25em;
+}
+
+.lpad {
+	padding: 20px;
+}
+
+.pad {
+	padding: 23px;
+}
+
+.forum-category {
+	background-color: hsl(195, 73%, 58%);
+	color: white;
+	font-size: 16px;
+}
+
+.forum-head {
+	background-color: hsl(206, 35%, 13%);
+	color: hsl(0, 0%, 100%);
+	font-size: 14px;
+	text-align: center;
+}
+
+.forum-head>.child {
+	border-right: 2px solid hsl(212, 35%, 15%);
+	border-left: 2px solid hsl(212, 28%, 12%);
+}
+
+.forum-topic {
+	background-color: hsl(0, 0%, 96%);
+	border-bottom: 1px solid hsl(0, 0%, 90%);
+	color: hsl(0, 0%, 50%);
+	font-size: 14px;
+	text-align: center;
+}
+
+.forum-topic>.child {
+	padding: 0;
+}
+
+.forum-topic>.child:first-child {
+	color: hsl(0, 0%, 60%);
+	text-align: left;
+}
+
+@media screen and (max-height: 575px) {
+	#rc-imageselect, .g-recaptcha {
+		transform: scale(0.77);
+		-webkit-transform: scale(0.77);
+		transform-origin: 0 0;
+		-webkit-transform-origin: 0 0;
+	}
 }

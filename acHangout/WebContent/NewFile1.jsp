@@ -24,7 +24,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="jumbotron">
+	<div class="jumbotron" style="background-color: #cccccc;">
 		<div class="container text-center">
 			<h1 style="color: #145A32;">ACHangout</h1>
 		</div>
@@ -32,7 +32,6 @@
 	</div>
 
 	<nav class="navbar navbar-inverse">
-
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -44,8 +43,8 @@
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li class="active color"><a href="#">Home</a></li>
-					<li><a href="#" class="color">Messenger</a></li>
+					<li class="active"><a href="index.jsp">Home</a></li>
+					<li><a href="#">Messenger</a></li>
 					<li><a href="#">Help&nbsp;<span
 							class="fa fa-question-circle-o"></span></a></li>
 				</ul>
@@ -77,7 +76,7 @@
 				%>
 				<ul class="nav navbar-nav navbar-right">
 					<li>
-						<form class="navbar-form" action="/action_page.php">
+						<form class="navbar-form" action="/search.jsp">
 							<div class="input-group">
 								<input type="text" class="form-control" placeholder="Search">
 								<div class="input-group-btn">
