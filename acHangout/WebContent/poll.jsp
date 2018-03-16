@@ -50,11 +50,10 @@
 
 		<div class="row jumbotron">
 
-			<div class="col-md-6">
-			<div class="panel panel-default">
-			<div class="panel-body">
+			<div class="col-md-6 form-group">
+			
 				<form id=pollForm action="PollController" method="get">
-					<div class="form-group">
+					
 						<div>
 							<h2>Your Question</h2>
 						</div>
@@ -73,15 +72,16 @@
 							<button class="btn btn-primary" id="qt2" onClick="qSetup('short')">Short Answer</button>
 							<button class="btn btn-primary" id="qt3" onClick="qSetup('rank')">Ranking</button>
 						</div>
-					</div>
+					
 				</form>
-			</div>
-			</div>
+			
 			</div>
 			
-			<div class="col-md-6" id="dynamicForm">
-			<div class="form-group" id="dynamicElement">
-			</div>
+			<div class="col-md-6 form-group" id="dynamicForm">
+			
+			<!-- multi
+				<div class= ? id="dynamicElement">
+				</div> -->
 			
 			
 			
