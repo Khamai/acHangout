@@ -13,10 +13,6 @@ public class Signup extends HttpServlet {
 	public static boolean validate(String values[]) {        
         boolean status = false;
         String salt = "1234";
-<<<<<<< HEAD
-       
-=======
->>>>>>> refs/remotes/origin/Kha
         
         Connection conn = null;
         
@@ -30,7 +26,7 @@ public class Signup extends HttpServlet {
         String dbName = "form";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "root";
-        String password = "abc123";
+        String password = "khamai_";
         try {
             Class.forName(driver).newInstance();
            

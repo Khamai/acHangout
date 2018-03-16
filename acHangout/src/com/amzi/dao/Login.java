@@ -9,54 +9,14 @@ import java.sql.SQLException;
 public class Login  {
 
 	public static String validate(String name, String pass) {     
-<<<<<<< HEAD
-        String status = "";
-        String salt = "1234";
-        Connection conn = null;
-        
-        
-        /*A SQL statement is precompiled and stored in a PreparedStatement object. 
-         * This object can then be used to efficiently execute this statement multiple times. */
-        PreparedStatement pst = null;
-        
-        ResultSet rs = null;
-=======
 		String status = "";
 		String salt = "1234";
 		Connection conn = null;
->>>>>>> refs/remotes/origin/Kha
 
-<<<<<<< HEAD
-        String url = "jdbc:mysql://localhost:3306/";
-        String dbName = "form";
-        String driver = "com.mysql.jdbc.Driver";
-        String userName = "root";
-        String password = "abc123";
-        try {
-            Class.forName(driver).newInstance();
-           
-            conn = DriverManager
-                    .getConnection(url + dbName, userName, password);
-            //The question marks will then be replaced in the setString(nth question mark, replaced with) method.
-            pst = conn
-                    .prepareStatement("select * from users where username=? and password=AES_ENCRYPT(?,UNHEX(?))");
-            pst.setString(1, name);
-            pst.setString(2, pass);
-            pst.setString(3, salt);
-=======
->>>>>>> refs/remotes/origin/Kha
 
-<<<<<<< HEAD
-            rs = pst.executeQuery();
-            if(rs.next()){
-            	status = rs.getString("password");
-            	System.out.println("password: "+status);
-            }
-=======
 		/*A SQL statement is precompiled and stored in a PreparedStatement object. 
 		 * This object can then be used to efficiently execute this statement multiple times. */
 		PreparedStatement pst = null;
->>>>>>> refs/remotes/origin/Kha
 
 		ResultSet rs = null;
 

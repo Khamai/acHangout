@@ -48,11 +48,7 @@
 
 					<p style="color: red;">${message}</p>
 
-<<<<<<< HEAD
-					<form class="form-horizontal" action="LoginServlet" method="post">
-=======
 					<form class="form-horizontal" action="login" method="post">
->>>>>>> refs/remotes/origin/Kha
 						<div class="form-group">
 							<label class="control-label col-sm-2" for="username">Username:</label>
 							<div class="col-sm-4">
@@ -104,6 +100,7 @@
 					</ul>
 					--%>
 				</div>
+			</div>
 		</div>
 	</div>
 	<br />
