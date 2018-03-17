@@ -1,3 +1,6 @@
+/**
+ * SignupServlet - grabs information from the client to send to the database
+ */
 package com.amzi.servlets;
 
 import java.io.IOException;
@@ -17,7 +20,11 @@ import com.amzi.dao.Signup;
 public class SignupServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
-
+	/**
+	 * Gets all fields from the signup form and sends it to the signup dao
+	 * @param request provides request information from client to a servlet
+	 * @param response provides information to send to the client
+	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)  
 			throws ServletException, IOException {  
 
