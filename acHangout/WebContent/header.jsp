@@ -5,12 +5,6 @@
 		login = "Hello, " + (String) session.getAttribute("name");
 	}
 %>
-<div class="jumbotron" style="background-color: #cccccc;">
-	<div class="container text-center">
-		<img src="Resources/1.png" width="460" height="200">
-	</div>
-
-</div>
 
 <nav class="navbar navbar-inverse">
 	<div class="container-fluid">
