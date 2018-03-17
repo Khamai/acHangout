@@ -1,3 +1,6 @@
+/**
+ * LoginServlet class - handles logins from the website
+ */
 package com.amzi.servlets;
 
 import java.io.IOException;
@@ -14,7 +17,11 @@ import model.VerifyRecaptcha;
 public class LoginServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
-
+	/**
+	 * 	Gets username, password, and captcha results information to send to the database
+	 * @param request provides request information from client to a servlet
+	 * @param response provides information to send to the client
+	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)  
 			throws ServletException, IOException {  
 

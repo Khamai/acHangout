@@ -1,3 +1,7 @@
+/**
+ * CaptchaServlet class - verify if human
+ * Testing class
+ */
 package com.amzi.servlets;
 
 import java.io.IOException;

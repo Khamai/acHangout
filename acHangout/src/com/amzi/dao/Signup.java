@@ -1,3 +1,7 @@
+/**
+ * Signup Class - handles the signup of users and inputs it in the database
+ * 
+ */
 package com.amzi.dao;
 
 import java.sql.Connection;
@@ -10,6 +14,12 @@ import javax.servlet.http.HttpServlet;
 
 public class Signup extends HttpServlet {
 	@SuppressWarnings("resource")
+	/**
+	 * Checks all required fields within a signup form and inserts in the database
+	 * @param values[] Array of values in order of the form fields
+	 * @return <code>true</code> when information was successfully input in the database
+	 * 		   <code>false</code> when insert of information has failed	 
+	 */
 	public static boolean validate(String values[]) {        
         boolean status = false;
         String salt = "1234";
