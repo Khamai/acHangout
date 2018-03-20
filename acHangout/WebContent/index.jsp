@@ -233,7 +233,13 @@
 					role="button">Create a poll</a>
 			</div>
 		</div>
-
+	<div class="row">
+		<div class="col-sm-12">
+				<br/> <br/> <br/> <a href="profile.jsp" class="btn btn-primary"
+					role="button">Profile</a>
+		</div>
+	</div>
+	
 	</div>
 	<br />
 	<br />
