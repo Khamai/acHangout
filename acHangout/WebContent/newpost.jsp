@@ -13,7 +13,10 @@
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login</title>
+<title>New Post</title>
+<link rel="shortcut icon" type="image/x-icon"
+	href="Resources/megaphone.ico">
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -53,16 +56,16 @@
 		<div class="row">
 			<div class="col-sm-7" style="float: none; margin: 0 auto;">
 				<div class="well" style="background-color: #d9d9d9;">
-					<form>
+					<form action="post" method="post">
 						<div class="form-group">
 							<label for="topic">Topic:</label>
-							<textarea class="form-control" rows="2" id="topic"
+							<textarea class="form-control" rows="2" id="topic" name="topic"
 								maxlength="100" required="required"></textarea>
 						</div>
 						<div class="form-group">
-							<label for="content">Content (Optional):</label>
+							<label for="content">Content:</label>
 							<textarea class="form-control" rows="14" maxlength="1000"
-								id="content"></textarea>
+								name="content" required="required" id="content"></textarea>
 						</div>
 						<div class="form-group">
 							<label for="url">Link Of Website (Optional):</label> <input
