@@ -26,9 +26,13 @@ public class PostServlet extends HttpServlet{
 
 		HttpSession session = request.getSession(false);
 
+		String username = (String) session.getAttribute("name");
+		String password = (String) session.getAttribute("pass");
+		
+
 		String values[] = 
 			{
-					request.getParameter("username"),request.getParameter("pass"),
+					username,password,
 					request.getParameter("category"), request.getParameter("topic"),
 					request.getParameter("content")
 			};
@@ -43,7 +47,6 @@ public class PostServlet extends HttpServlet{
 			RequestDispatcher rd=request.getRequestDispatcher("signup.jsp");  
 			rd.include(request,response);  
 		}  
-
 		out.close();  
 	}  
 }

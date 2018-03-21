@@ -32,7 +32,7 @@ public class Post extends HttpServlet {
 		String dbName = "form";
 		String driver = "com.mysql.jdbc.Driver";
 		String userName = "root";
-		String password = "abc123";
+		String password = "khamai_";
 		try {
 			Class.forName(driver).newInstance();
 
@@ -47,7 +47,7 @@ public class Post extends HttpServlet {
 
 			rs = pst.executeQuery();
 
-			if(rs != null) {
+			if(rs.next()) {
 				String author = rs.getString("id");
 
 				pst = conn.prepareStatement("SELECT * FROM category WHERE name=?");
@@ -55,7 +55,7 @@ public class Post extends HttpServlet {
 
 				rs = pst.executeQuery();
 
-				if(rs != null) {
+				if(rs.next()) {
 					String category = rs.getString("id");
 
 					pst = conn.prepareStatement("Insert INTO topics(subject,date,cat,author) VALUES (?,NOW(),?,?)");

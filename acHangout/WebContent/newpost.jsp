@@ -63,9 +63,9 @@
 								maxlength="100" required="required"></textarea>
 						</div>
 						<div class="form-group">
-							<label for="content">Content (Optional):</label>
+							<label for="content">Content:</label>
 							<textarea class="form-control" rows="14" maxlength="1000"
-								id="content"></textarea>
+								required="required" id="content"></textarea>
 						</div>
 						<div class="form-group">
 							<label for="url">Link Of Website (Optional):</label> <input
