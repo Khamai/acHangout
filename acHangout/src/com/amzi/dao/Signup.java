@@ -7,12 +7,16 @@ package com.amzi.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.servlet.http.HttpServlet;
 
 public class Signup extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@SuppressWarnings("resource")
 	/**
 	 * Checks all required fields within a signup form and inserts in the database

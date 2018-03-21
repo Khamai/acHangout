@@ -27,7 +27,6 @@ public class Post extends HttpServlet {
 		 * This object can then be used to efficiently execute this statement multiple times. */
 		PreparedStatement pst = null;
 
-
 		String url = "jdbc:mysql://localhost:3306/";
 		String dbName = "form";
 		String driver = "com.mysql.jdbc.Driver";
@@ -50,7 +49,7 @@ public class Post extends HttpServlet {
 			if(rs.next()) {
 				String author = rs.getString("id");
 
-				pst = conn.prepareStatement("SELECT * FROM category WHERE name=?");
+				pst = conn.prepareStatement("SELECT * FROM categories WHERE name=?");
 				pst.setString(1, values[2]);
 
 				rs = pst.executeQuery();
@@ -62,10 +61,15 @@ public class Post extends HttpServlet {
 					pst.setString(1, values[3]);
 					pst.setString(2, category);
 					pst.setString(3, author);
+					pst.executeUpdate();
 
-					pst = conn.prepareStatement("Insert INTO post(author, content, date) VALUES (?,?,NOW())");
+					rs = pst.executeQuery();					
+					String topic = rs.getString("id");
+
+					pst = conn.prepareStatement("Insert INTO post(author, content, topic, date) VALUES (?,?,?,NOW())");
 					pst.setString(1, author);
-					pst.setString(3, values[4]);
+					pst.setString(2, values[4]);
+					pst.setString(3, topic);
 					pst.executeUpdate();
 
 					status = true;	

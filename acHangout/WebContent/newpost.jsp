@@ -59,13 +59,13 @@
 					<form action="post" method="post">
 						<div class="form-group">
 							<label for="topic">Topic:</label>
-							<textarea class="form-control" rows="2" id="topic"
+							<textarea class="form-control" rows="2" id="topic" name="topic"
 								maxlength="100" required="required"></textarea>
 						</div>
 						<div class="form-group">
 							<label for="content">Content:</label>
 							<textarea class="form-control" rows="14" maxlength="1000"
-								required="required" id="content"></textarea>
+								name="content" required="required" id="content"></textarea>
 						</div>
 						<div class="form-group">
 							<label for="url">Link Of Website (Optional):</label> <input

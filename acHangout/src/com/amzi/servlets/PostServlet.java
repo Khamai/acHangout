@@ -28,13 +28,12 @@ public class PostServlet extends HttpServlet{
 
 		String username = (String) session.getAttribute("name");
 		String password = (String) session.getAttribute("pass");
-		
+		String content =  request.getParameter("content");
+		String topic = request.getParameter("topic");
 
 		String values[] = 
 			{
-					username,password,
-					request.getParameter("category"), request.getParameter("topic"),
-					request.getParameter("content")
+					username,password,"asianfood", topic,content
 			};
 
 		if(Post.validate(values)){  
