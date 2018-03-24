@@ -56,12 +56,12 @@ public class Post extends HttpServlet {
 
 				if(rs.next()) {
 					String category = rs.getString("id");
-
+								
 					pst = conn.prepareStatement("Insert INTO post(topic, content, date, author, catid) VALUES (?,?,NOW(),?,?)");
 					pst.setString(1, values[3]);
 					pst.setString(2, values[4]);
 					pst.setString(3, author);
-					pst.setString(3, category);
+					pst.setString(4, category);
 					pst.executeUpdate();
 
 					status = true;	

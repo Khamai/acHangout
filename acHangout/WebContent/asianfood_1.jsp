@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-
 <%
+	session.setAttribute("cat", "asianfoods");
 	if (session.getAttribute("name") == null && session.getAttribute("pass") == null) {
 		session.setAttribute("currentpage", "asianfood_1.jsp");
 %>
@@ -21,7 +21,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -29,6 +29,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+
 	<!-- I include header and top-menu separately because the other web pages also need to have both of them 
 		so don't need to do again one more time
 	-->
@@ -239,8 +240,8 @@
 	<div class="container text-center">
 		<div class="row">
 			<ul class="pagination">
-				<li class="active"><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
+				<li class="active"><a href="asianfood_1.jsp">1</a></li>
+				<li><a href="asianfood_2.jsp">2</a></li>
 				<li><a href="#">3</a></li>
 				<li><a href="#">4</a></li>
 				<li><a href="#">5</a></li>
@@ -254,7 +255,7 @@
 	<br />
 	<br />
 	<br />
-
+	<jsp:include page="/display.jsp" />
 	<jsp:include page="footer.jsp" />
 </body>
 </html>

@@ -1,15 +1,26 @@
- CREATE DATABASE form;
- use form;
-
 /*
 Created: 2018-03-02
-Modified: 2018-03-21
+Modified: 2018-03-14
 Model: MySQL 5.7
 Database: MySQL 5.7
 */
 
 
--- Create tables section -----------------------------------------------
+CREATE DATABASE form;
+
+USE form;
+
+-- Table users
+
+/*
+Created: 2018-03-02
+Modified: 2018-03-22
+Model: MySQL 5.7
+Database: MySQL 5.7
+*/
+
+
+-- Create tables section -------------------------------------------------
 
 -- Table users
 
@@ -55,9 +66,8 @@ CREATE TABLE `post`
   `date` Datetime NOT NULL,
   `author` Bigint NOT NULL,
   `catid` Bigint,
-  PRIMARY KEY (`id`),
- INDEX `IX_Relationship1` (`id`)
-) 
+  PRIMARY KEY (`id`)
+)
 ;
 
 CREATE INDEX `IX_Relationship4` ON `post` (`author`)
@@ -66,7 +76,7 @@ CREATE INDEX `IX_Relationship4` ON `post` (`author`)
 CREATE INDEX `IX_Relationship2` ON `post` (`catid`)
 ;
 
--- Table categories 
+-- Table categories
 
 CREATE TABLE `categories`
 (
@@ -162,9 +172,12 @@ ALTER TABLE `reply` ADD PRIMARY KEY (`id`)
 CREATE TABLE `rating`
 (
   `id` Bigint NOT NULL,
-  `like` Bigint,
-  `dislike` Bigint
+  `liked` Bigint,
+  `disliked` Bigint
 )
+;
+
+CREATE INDEX `IX_Relationship1` ON `rating` (`id`)
 ;
 
 ALTER TABLE `rating` ADD PRIMARY KEY (`id`)
@@ -201,10 +214,11 @@ ALTER TABLE `reply` ADD CONSTRAINT `postreply` FOREIGN KEY (`id`) REFERENCES `po
 ;
 
 
-ALTER TABLE `post` ADD CONSTRAINT `rating` FOREIGN KEY (`id`) REFERENCES `rating` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-;
-
-
 ALTER TABLE `post` ADD CONSTRAINT `Catpost` FOREIGN KEY (`catid`) REFERENCES `categories` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
+
+
+ALTER TABLE `rating` ADD CONSTRAINT `postrate` FOREIGN KEY (`id`) REFERENCES `post` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+;
+
 

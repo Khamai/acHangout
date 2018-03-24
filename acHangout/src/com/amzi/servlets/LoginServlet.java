@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import com.amzi.dao.Login;
 
@@ -35,7 +36,6 @@ public class LoginServlet extends HttpServlet{
 		boolean success = VerifyRecaptcha.verify(gRecaptchaResponse);
 
 		HttpSession session = request.getSession(false);
-		
 		pass = Login.validate(n, p);
 		if(session!=null) {
 			session.setAttribute("name", n);
