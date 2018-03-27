@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
 import com.amzi.dao.Login;
 
@@ -43,13 +42,13 @@ public class LoginServlet extends HttpServlet{
 		}
 
 		if(pass != "" && success){  
-			String pagename = (String) session.getAttribute("currentpage");
+			String pagename = (String) session.getAttribute("directpage");
 			if(pagename == null) {
 				String message ="login";
 				request.setAttribute("message", message);
-				pagename = "index.jsp";
+				request.getRequestDispatcher("index.jsp").forward(request, response); 
 			}
-			request.getRequestDispatcher(pagename).forward(request, response); 
+			response.sendRedirect(pagename);
 		}  
 		else{  
 			String message = "";

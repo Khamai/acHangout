@@ -1,15 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%--
-<%
-	if (session.getAttribute("name") != null) {
-		String pagename = (String) session.getAttribute("currentpage");
-		response.sendRedirect(pagename);
-	}
-%>
---%>
+<c:if test="${empty param.cat || empty param.lastpage}">
+	<jsp:forward page="index.jsp" />
+</c:if>
+
+<c:set var="category" value="${param.cat}" />
+<c:set var="lastpage" value="${param.lastpage}" />
+
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,8 +57,13 @@
 		<br /> <br />
 		<div class="row">
 			<div class="col-sm-7" style="float: none; margin: 0 auto;">
+				<p
+					style="color: red; text-align: center; font-weight: bold; font-size: 16px;">${message}</p>
+
 				<div class="well" style="background-color: #d9d9d9;">
 					<form action="post" method="post">
+						<input type="hidden" name="cat" value="${category}"> <input
+							type="hidden" name="lastpage" value="${lastpage}">
 						<div class="form-group">
 							<label for="topic">Topic:</label>
 							<textarea class="form-control" rows="2" id="topic" name="topic"

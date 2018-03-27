@@ -28,9 +28,16 @@ public class PostServlet extends HttpServlet{
 
 		String username = (String) session.getAttribute("name");
 		String password = (String) session.getAttribute("pass");
-		String cat = (String)session.getAttribute("cat");
+		String cat = request.getParameter("cat");
 		String content =  request.getParameter("content");
 		String topic = request.getParameter("topic");
+		int lastpage = Integer.valueOf(request.getParameter("lastpage"));
+
+		if(topic == null) {
+
+			RequestDispatcher rd=request.getRequestDispatcher("newpost.jsp");  
+			rd.forward(request,response);
+		}
 
 		String values[] = 
 			{
@@ -38,14 +45,13 @@ public class PostServlet extends HttpServlet{
 			};
 
 		if(Post.validate(values)){  
-			out.print("<p style=\"color:red; text-align:center;\">Posted</p>");  
-			RequestDispatcher rd=request.getRequestDispatcher("index.jsp");  
-			rd.forward(request,response);  
+			String pagename = "display?topic=asianfoods&page=" + lastpage;  
+			response.sendRedirect(pagename);
 		}  
 		else{  
-			out.print("<p style=\"color:red; text-align:center;\">Signup Error</p>");  
-			RequestDispatcher rd=request.getRequestDispatcher("signup.jsp");  
-			rd.include(request,response);  
+			String message = "Error! Failed to submit post";
+			request.setAttribute("message", message);
+			request.getRequestDispatcher("newpost.jsp").forward(request, response);
 		}  
 		out.close();  
 	}  
