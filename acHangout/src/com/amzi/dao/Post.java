@@ -58,20 +58,12 @@ public class Post extends HttpServlet {
 				if(rs.next()) 
 				{
 					String category = rs.getString("id");
-
-					pst = conn.prepareStatement("Insert INTO topics(subject,date,cat,author) VALUES (?,NOW(),?,?)");
+								
+					pst = conn.prepareStatement("Insert INTO post(topic, content, date, author, catid) VALUES (?,?,NOW(),?,?)");
 					pst.setString(1, values[3]);
-					pst.setString(2, category);
-					pst.setString(3, author);
-					pst.executeUpdate();
-
-					rs = pst.executeQuery();					
-					String topic = rs.getString("id");
-
-					pst = conn.prepareStatement("Insert INTO post(author, content, topic, date) VALUES (?,?,?,NOW())");
-					pst.setString(1, author);
 					pst.setString(2, values[4]);
-					pst.setString(3, topic);
+					pst.setString(3, author);
+					pst.setString(4, category);
 					pst.executeUpdate();
 
 					status = true;	

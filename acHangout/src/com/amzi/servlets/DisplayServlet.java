@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;  
 import javax.servlet.http.HttpServletResponse;  
 import javax.servlet.http.HttpSession;  
-public class LogoutServlet extends HttpServlet {  
+public class DisplayServlet extends HttpServlet {  
 	private static final long serialVersionUID = 1L;
 	
 	/**
@@ -23,14 +23,6 @@ public class LogoutServlet extends HttpServlet {
 			throws ServletException, IOException {  
 		response.setContentType("text/html");  
 		PrintWriter out=response.getWriter();  
-
-		HttpSession session=request.getSession();  
-		session.invalidate();  
-
-		String message ="logout";
-		request.setAttribute("message", message);
-		request.getRequestDispatcher("index.jsp").forward(request, response); 
-
 		out.close();  
 	}  
 }  

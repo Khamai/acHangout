@@ -28,6 +28,16 @@
 		<servlet-class>com.amzi.servlets.PostServlet</servlet-class>
 	</servlet>
 
+	<servlet>
+		<servlet-name>display</servlet-name>
+		<servlet-class>com.amzi.servlets.DisplayServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>display</servlet-name>
+		<url-pattern>/display.jsp</url-pattern>
+	</servlet-mapping>
+	
 	<servlet-mapping>
 		<servlet-name>post</servlet-name>
 		<url-pattern>/post</url-pattern>
