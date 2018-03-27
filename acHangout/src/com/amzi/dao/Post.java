@@ -31,12 +31,12 @@ public class Post extends HttpServlet {
 		String dbName = "form";
 		String driver = "com.mysql.jdbc.Driver";
 		String userName = "root";
-		String password = "khamai_";
+		String password = "xxxx";
+		
 		try {
 			Class.forName(driver).newInstance();
 
-			conn = DriverManager
-					.getConnection(url + dbName, userName, password);
+			conn = DriverManager.getConnection(url + dbName, userName, password);
 
 			//The question marks will then be replaced in the setString(nth question mark, replaced with) method.
 
@@ -46,7 +46,8 @@ public class Post extends HttpServlet {
 
 			rs = pst.executeQuery();
 
-			if(rs.next()) {
+			if(rs.next()) 
+			{
 				String author = rs.getString("id");
 
 				pst = conn.prepareStatement("SELECT * FROM categories WHERE name=?");
@@ -54,7 +55,8 @@ public class Post extends HttpServlet {
 
 				rs = pst.executeQuery();
 
-				if(rs.next()) {
+				if(rs.next()) 
+				{
 					String category = rs.getString("id");
 
 					pst = conn.prepareStatement("Insert INTO topics(subject,date,cat,author) VALUES (?,NOW(),?,?)");
@@ -80,7 +82,8 @@ public class Post extends HttpServlet {
 		} catch (Exception e) {
 			System.out.println(e);
 		} finally {
-			if (conn != null) {
+			if (conn != null) 
+			{
 				try {
 					conn.close();
 				} catch (SQLException e) {

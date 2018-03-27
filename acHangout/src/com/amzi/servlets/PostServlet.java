@@ -18,8 +18,7 @@ public class PostServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 
-	public void doPost(HttpServletRequest request, HttpServletResponse response)  
-			throws ServletException, IOException {  
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
 
 		response.setContentType("text/html");  
 		PrintWriter out = response.getWriter();  
@@ -31,17 +30,16 @@ public class PostServlet extends HttpServlet{
 		String content =  request.getParameter("content");
 		String topic = request.getParameter("topic");
 
-		String values[] = 
-			{
-					username,password,"asianfood", topic,content
-			};
+		String values[] = {username,password,"asianfood", topic,content};
 
-		if(Post.validate(values)){  
+		if(Post.validate(values))
+		{  
 			out.print("<p style=\"color:red; text-align:center;\">Posted</p>");  
 			RequestDispatcher rd=request.getRequestDispatcher("index.jsp");  
 			rd.forward(request,response);  
 		}  
-		else{  
+		else
+		{  
 			out.print("<p style=\"color:red; text-align:center;\">Signup Error</p>");  
 			RequestDispatcher rd=request.getRequestDispatcher("signup.jsp");  
 			rd.include(request,response);  

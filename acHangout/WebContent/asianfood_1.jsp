@@ -28,15 +28,20 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+
+
+
 <body>
 	<!-- I include header and top-menu separately because the other web pages also need to have both of them 
 		so don't need to do again one more time
 	-->
 	<jsp:include page="header.jsp" />
 
-	<jsp:include page="top-menu.html" />
+	<jsp:include page="top-menu.html" /> 
+	
 	<br />
 	<br />
+	
 	<div class="container">
 		<div class="row">
 			<ul class="breadcrumb">
