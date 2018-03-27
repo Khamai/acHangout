@@ -19,7 +19,6 @@
 </c:if>
 
 <c:if test="${empty param.page}">
-	<%-- go to error page --%>
 </c:if>
 
 <!DOCTYPE html>
@@ -65,8 +64,7 @@
 					type="hidden" name="lastpage" value="${numberofpage}">
 
 				<div class="btn-group btn-group-lg">
-					<button type="submit" class="btn btn-primary" id="button">New
-						Post</button>
+					<button type="submit" class="btn btn-primary">New Post</button>
 				</div>
 			</form>
 		</div>

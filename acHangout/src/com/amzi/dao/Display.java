@@ -34,12 +34,12 @@ public class Display{
 
 
 		ArrayList<DisplayList> List = new ArrayList<DisplayList>();
-		
+
 		/* Max in 1 page */
 		int maxPost = 15;
 		/* Calculate the beginning row in each page */
 		int begin = (currentpage - 1) * maxPost;
-		
+
 		DisplayList display;
 
 		ResultSet rs = null;
@@ -67,8 +67,8 @@ public class Display{
 				pst.setString(1, catid);
 				pst.setInt(2, begin);
 				pst.setInt(3, maxPost);
-
 				rs = pst.executeQuery();
+
 
 				while(rs.next()){
 					display = new DisplayList();
