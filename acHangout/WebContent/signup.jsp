@@ -6,11 +6,12 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sign up</title>
+<link rel="shortcut icon" type="image/x-icon" href="Resources/megaphone.ico">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -32,17 +33,6 @@
 			<h2 align=center>Sign up</h2>
 		</div>
 		<br /> <br />
-<<<<<<< HEAD
-		<h3>DETAIL</h3>
-		<form class="form-horizontal" action="SignupServlet" method="post">
-			<div class="form-group">
-				<label class="control-label col-sm-2" for="firstname">First
-					Name:</label>
-				<div class="col-sm-10">
-					<input type="text" style="width: 300px;" class="form-control"
-						id="firstname" placeholder="Enter firstname" name="firstname"
-						required="required">
-=======
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="well">
@@ -109,7 +99,6 @@
 							</div>
 						</div>
 					</form>
->>>>>>> refs/remotes/origin/Kha
 				</div>
 			</div>
 		</div>

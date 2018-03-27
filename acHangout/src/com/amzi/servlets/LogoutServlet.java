@@ -1,3 +1,6 @@
+/**
+ * LogoutServlet class - makes sessions invalid
+ */
 package com.amzi.servlets;
 
 import java.io.IOException;  
@@ -10,12 +13,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;  
 public class LogoutServlet extends HttpServlet {  
 	private static final long serialVersionUID = 1L;
-
+	
+	/**
+	 * invalidates sessions 
+	 * @param request provides request information from client to a servlet
+	 * @param response provides information to send to the client
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)  
 			throws ServletException, IOException {  
 		response.setContentType("text/html");  
 		PrintWriter out=response.getWriter();  
-
 
 		HttpSession session=request.getSession();  
 		session.invalidate();  
