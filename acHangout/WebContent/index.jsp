@@ -72,7 +72,7 @@
 								Food Topics <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
-								<li><a href="asianfood_1.jsp">Asian Foods</a></li>
+								<li><a href="display?topic=asianfoods&page=1" >Asian Foods</a></li>
 								<li><a href="#">Europe Foods</a></li>
 								<li><a href="#">American Foods</a></li>
 							</ul>
