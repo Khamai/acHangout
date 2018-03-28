@@ -60,8 +60,7 @@
 		<br /> <br />
 		<div class="row text-right">
 			<form action="newpost.jsp" method="post">
-				<input type="hidden" name="cat" value="asianfoods"> <input
-					type="hidden" name="lastpage" value="${numberofpage}">
+				<input type="hidden" name="cat" value="asianfoods">
 
 				<div class="btn-group btn-group-lg">
 					<button type="submit" class="btn btn-primary">New Post</button>

@@ -63,7 +63,7 @@ public class Display{
 						+ "inner join users u on p.author = u.id "
 						+ "left join reply r on p.id = r.id "
 						+ "left join rating ra on p.id = ra.id "
-						+ "where p.catid = ? group by p.id limit ?,?");
+						+ "where p.catid = ? group by p.id order by p.id desc limit ?,?");
 				pst.setString(1, catid);
 				pst.setInt(2, begin);
 				pst.setInt(3, maxPost);

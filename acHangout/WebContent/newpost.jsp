@@ -2,12 +2,11 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<c:if test="${empty param.cat || empty param.lastpage}">
+<c:if test="${empty param.cat}">
 	<jsp:forward page="index.jsp" />
 </c:if>
 
 <c:set var="category" value="${param.cat}" />
-<c:set var="lastpage" value="${param.lastpage}" />
 
 
 
@@ -62,8 +61,7 @@
 
 				<div class="well" style="background-color: #d9d9d9;">
 					<form action="post" method="post">
-						<input type="hidden" name="cat" value="${category}"> <input
-							type="hidden" name="lastpage" value="${lastpage}">
+						<input type="hidden" name="cat" value="${category}">
 						<div class="form-group">
 							<label for="topic">Topic:</label>
 							<textarea class="form-control" rows="2" id="topic" name="topic"
