@@ -109,10 +109,13 @@ CREATE TABLE `poll_results`
   `b` Bigint,
   `c` Bigint,
   `d` Bigint,
+  `pollid` Bigint,
   PRIMARY KEY (`id`),
-  UNIQUE `id` (`id`),
- INDEX `IX_Relationship3` (`id`)
+  UNIQUE `id` (`id`)
 )
+;
+
+CREATE INDEX `IX_Relationship3` ON `poll_results` (`pollid`)
 ;
 
 -- Table poll_answer
@@ -120,9 +123,12 @@ CREATE TABLE `poll_results`
 CREATE TABLE `poll_answer`
 (
   `id` Bigint NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`),
- INDEX `IX_Relationship4` (`id`)
+  `awnserid` Bigint,
+  PRIMARY KEY (`id`)
 )
+;
+
+CREATE INDEX `IX_Relationship4` ON `poll_answer` (`awnserid`)
 ;
 
 -- Table answers
@@ -147,11 +153,12 @@ CREATE TABLE `reply`
   `id` Bigint NOT NULL,
   `content` Char(255),
   `date` Datetime,
-  `author` Char(50)
+  `author` Char(50),
+  `postid` Bigint
 )
 ;
 
-CREATE INDEX `IX_Relationship2` ON `reply` (`id`)
+CREATE INDEX `IX_Relationship2` ON `reply` (`postid`)
 ;
 
 ALTER TABLE `reply` ADD PRIMARY KEY (`id`)
@@ -163,11 +170,12 @@ CREATE TABLE `rating`
 (
   `id` Bigint NOT NULL,
   `liked` Bigint,
-  `disliked` Bigint
+  `disliked` Bigint,
+  `rateid` Bigint
 )
 ;
 
-CREATE INDEX `IX_Relationship1` ON `rating` (`id`)
+CREATE INDEX `IX_Relationship1` ON `rating` (`rateid`)
 ;
 
 ALTER TABLE `rating` ADD PRIMARY KEY (`id`)
@@ -207,11 +215,11 @@ ALTER TABLE `poll` ADD CONSTRAINT `userpoll` FOREIGN KEY (`author`) REFERENCES `
 ;
 
 
-ALTER TABLE `poll_results` ADD CONSTRAINT `pollresults` FOREIGN KEY (`id`) REFERENCES `poll` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE `poll_results` ADD CONSTRAINT `pollresults` FOREIGN KEY (`pollid`) REFERENCES `poll` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
 
-ALTER TABLE `poll_answer` ADD CONSTRAINT `pollanswer` FOREIGN KEY (`id`) REFERENCES `poll` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE `poll_answer` ADD CONSTRAINT `pollanswer` FOREIGN KEY (`awnserid`) REFERENCES `poll` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
 
@@ -219,7 +227,7 @@ ALTER TABLE `answers` ADD CONSTRAINT `answers` FOREIGN KEY (`id`) REFERENCES `po
 ;
 
 
-ALTER TABLE `reply` ADD CONSTRAINT `postreply` FOREIGN KEY (`id`) REFERENCES `post` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE `reply` ADD CONSTRAINT `postreply` FOREIGN KEY (`postid`) REFERENCES `post` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
 
@@ -227,7 +235,7 @@ ALTER TABLE `post` ADD CONSTRAINT `Catpost` FOREIGN KEY (`catid`) REFERENCES `ca
 ;
 
 
-ALTER TABLE `rating` ADD CONSTRAINT `postrate` FOREIGN KEY (`id`) REFERENCES `post` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE `rating` ADD CONSTRAINT `postrate` FOREIGN KEY (`rateid`) REFERENCES `post` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
 
@@ -237,6 +245,8 @@ ALTER TABLE `uservotes` ADD CONSTRAINT `uservote` FOREIGN KEY (`userid`) REFEREN
 
 ALTER TABLE `uservotes` ADD CONSTRAINT `ratevote` FOREIGN KEY (`rateid`) REFERENCES `rating` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
+
+
 
 
 
