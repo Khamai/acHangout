@@ -93,6 +93,7 @@ CREATE TABLE `poll`
   `answerid` Char(20),
   `author` Bigint,
   PRIMARY KEY (`id`),
+  PRIMARY KEY (`id`),
   UNIQUE `id` (`id`)
 )
 ;
@@ -110,6 +111,7 @@ CREATE TABLE `poll_results`
   `c` Bigint,
   `d` Bigint,
   `pollid` Bigint,
+  PRIMARY KEY (`id`),
   PRIMARY KEY (`id`),
   UNIQUE `id` (`id`)
 )
@@ -150,18 +152,16 @@ ALTER TABLE `answers` ADD PRIMARY KEY (`id`)
 
 CREATE TABLE `reply`
 (
-  `id` Bigint NOT NULL,
+  `id` Bigint NOT NULL AUTO_INCREMENT,
   `content` Char(255),
   `date` Datetime,
   `author` Char(50),
-  `postid` Bigint
+  `postid` Bigint,
+  PRIMARY KEY (`id`)
 )
 ;
 
 CREATE INDEX `IX_Relationship2` ON `reply` (`postid`)
-;
-
-ALTER TABLE `reply` ADD PRIMARY KEY (`id`)
 ;
 
 -- Table rating
@@ -175,7 +175,7 @@ CREATE TABLE `rating`
 )
 ;
 
-CREATE INDEX `IX_Relationship1` ON `rating` (`rateid`)
+CREATE INDEX `IX_Relationship1` ON `rating` (`postid`)
 ;
 
 ALTER TABLE `rating` ADD PRIMARY KEY (`id`)
@@ -185,9 +185,10 @@ ALTER TABLE `rating` ADD PRIMARY KEY (`id`)
 
 CREATE TABLE `uservotes`
 (
-  `id` Bigint NOT NULL,
+  `id` Bigint NOT NULL AUTO_INCREMENT,
   `userid` Bigint,
-  `rateid` Bigint
+  `rateid` Bigint,
+  PRIMARY KEY (`id`)
 )
 ;
 
@@ -195,9 +196,6 @@ CREATE INDEX `IX_Relationship2` ON `uservotes` (`userid`)
 ;
 
 CREATE INDEX `IX_Relationship4` ON `uservotes` (`rateid`)
-;
-
-ALTER TABLE `uservotes` ADD PRIMARY KEY (`id`)
 ;
 
 -- Create foreign keys (relationships) section ------------------------------------------------- 
@@ -235,7 +233,7 @@ ALTER TABLE `post` ADD CONSTRAINT `Catpost` FOREIGN KEY (`catid`) REFERENCES `ca
 ;
 
 
-ALTER TABLE `rating` ADD CONSTRAINT `postrate` FOREIGN KEY (`rateid`) REFERENCES `post` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE `rating` ADD CONSTRAINT `postrate` FOREIGN KEY (`postid`) REFERENCES `post` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
 
@@ -245,6 +243,7 @@ ALTER TABLE `uservotes` ADD CONSTRAINT `uservote` FOREIGN KEY (`userid`) REFEREN
 
 ALTER TABLE `uservotes` ADD CONSTRAINT `ratevote` FOREIGN KEY (`rateid`) REFERENCES `rating` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
+
 
 
 
