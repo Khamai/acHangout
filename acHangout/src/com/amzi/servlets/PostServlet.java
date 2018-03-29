@@ -31,7 +31,6 @@ public class PostServlet extends HttpServlet{
 		String cat = request.getParameter("cat");
 		String content =  request.getParameter("content");
 		String topic = request.getParameter("topic");
-		int lastpage = Integer.valueOf(request.getParameter("lastpage"));
 
 		if(topic == null) {
 
@@ -45,7 +44,7 @@ public class PostServlet extends HttpServlet{
 			};
 
 		if(Post.validate(values)){  
-			String pagename = "display?topic=asianfoods&page=" + lastpage;  
+			String pagename = "display?topic=asianfoods&page=1";  
 			response.sendRedirect(pagename);
 		}  
 		else{  

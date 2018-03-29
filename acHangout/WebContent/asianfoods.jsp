@@ -60,8 +60,7 @@
 		<br /> <br />
 		<div class="row text-right">
 			<form action="newpost.jsp" method="post">
-				<input type="hidden" name="cat" value="asianfoods"> <input
-					type="hidden" name="lastpage" value="${numberofpage}">
+				<input type="hidden" name="cat" value="asianfoods">
 
 				<div class="btn-group btn-group-lg">
 					<button type="submit" class="btn btn-primary">New Post</button>
@@ -81,7 +80,7 @@
 					style="border-left: 2px solid hsl(212, 35%, 15%);">Author</div>
 				<div class="col-sm-1 child">Comment</div>
 				<div class="col-sm-2 child">Date Created</div>
-				<div class="col-sm-1 child">Like/Dislike</div>
+				<div class="col-sm-1 child">Likes</div>
 
 			</div>
 			<c:if test="${not empty List}">
@@ -94,6 +93,7 @@
 						<div class="col-sm-1 child">${ok.getComment()}</div>
 						<div class="col-sm-2 child">${ok.getDate()}</div>
 						<div class="col-sm-1 child">${ok.getRating()}</div>
+						
 					</div>
 				</c:forEach>
 			</c:if>
