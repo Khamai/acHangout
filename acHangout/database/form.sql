@@ -154,17 +154,15 @@ ALTER TABLE `answers` ADD PRIMARY KEY (`id`)
 
 CREATE TABLE `reply`
 (
-  `id` Bigint NOT NULL,
+  `id` Bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `content` Char(255),
   `date` Datetime,
-  `author` Char(50)
+  `author` Char(50),
+  `postid` Bigint NOT NULL
 )
 ;
 
-CREATE INDEX `IX_Relationship2` ON `reply` (`id`)
-;
-
-ALTER TABLE `reply` ADD PRIMARY KEY (`id`)
+CREATE INDEX `IX_Relationship2` ON `reply` (`postid`)
 ;
 
 -- Table rating
@@ -210,7 +208,7 @@ ALTER TABLE `answers` ADD CONSTRAINT `answers` FOREIGN KEY (`id`) REFERENCES `po
 ;
 
 
-ALTER TABLE `reply` ADD CONSTRAINT `postreply` FOREIGN KEY (`id`) REFERENCES `post` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE `reply` ADD CONSTRAINT `postreply` FOREIGN KEY (`postid`) REFERENCES `post` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
 

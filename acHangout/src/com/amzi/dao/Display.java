@@ -34,12 +34,12 @@ public class Display{
 
 
 		ArrayList<DisplayList> List = new ArrayList<DisplayList>();
-		
+
 		/* Max in 1 page */
 		int maxPost = 15;
 		/* Calculate the beginning row in each page */
 		int begin = (currentpage - 1) * maxPost;
-		
+
 		DisplayList display;
 
 		ResultSet rs = null;
@@ -59,19 +59,24 @@ public class Display{
 			if(rs.next()) {
 				String catid = rs.getString("id");
 
-				pst = conn.prepareStatement("select p.topic, u.username, count(r.id) as comment, p.date, COALESCE(ra.liked,0) + COALESCE(ra.disliked,0) as rating from post p "
+				pst = conn.prepareStatement("select p.id, p.topic, u.username, count(r.postid) as comment, p.date, COALESCE(ra.liked,0) + COALESCE(ra.disliked,0) as rating from post p "
 						+ "inner join users u on p.author = u.id "
-						+ "left join reply r on p.id = r.id "
+						+ "left join reply r on p.id = r.postid "
 						+ "left join rating ra on p.id = ra.id "
+<<<<<<< HEAD
 						+ "where p.catid = ? group by p.id order by p.id DESC limit ?,?");
+=======
+						+ "where p.catid = ? group by p.id order by p.id desc limit ?,?");
+>>>>>>> refs/remotes/origin/Kha
 				pst.setString(1, catid);
 				pst.setInt(2, begin);
 				pst.setInt(3, maxPost);
-
 				rs = pst.executeQuery();
+
 
 				while(rs.next()){
 					display = new DisplayList();
+					display.setId(rs.getInt("p.id"));
 					display.setTopic(rs.getString("p.topic"));
 					display.setUserName(rs.getString("u.username"));
 					display.setComment(rs.getString("comment"));

@@ -9,6 +9,7 @@
 <html>
 <head>
 <style>
+
 #body {
 	min-width: 100%;
 	text-align: center;
@@ -44,6 +45,7 @@
 		<div id="bar">
 			<div id="likes"></div>
 			<div id="dislikes"></div>
+			<br>
 			<input type="button" value="Like" class="btn btn-primary" onclick="like(); document.getElementById('count1').innerHTML++"/>
 			<span id="count1">1</span>
 			<input type="button" value="Dislike" class="btn btn-danger" onclick="dislike(); document.getElementById('count2').innerHTML++"/>
