@@ -7,9 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.amzi.bean.DisplayList;
+import com.amzi.bean.CommentList;
 
-public class Display{
+public class Comment{
 
 	public static Connection connect() {
 		Connection conn = null;
@@ -29,18 +29,12 @@ public class Display{
 		return conn;
 
 	}
-	@SuppressWarnings("resource")
-	public static ArrayList<DisplayList> getRecord(String cat, int currentpage) {
+	public static ArrayList<CommentList> getRecord(int topicId) {
 
 
-		ArrayList<DisplayList> List = new ArrayList<DisplayList>();
+		ArrayList<CommentList> List = new ArrayList<CommentList>();
 
-		/* Max in 1 page */
-		int maxPost = 15;
-		/* Calculate the beginning row in each page */
-		int begin = (currentpage - 1) * maxPost;
-
-		DisplayList display;
+		CommentList comment;
 
 		ResultSet rs = null;
 		Connection conn = null;
@@ -51,37 +45,30 @@ public class Display{
 
 		try {
 			conn = connect();
-			pst = conn.prepareStatement("SELECT * FROM categories WHERE name=?");
-			pst.setString(1, cat);
 
+			pst = conn.prepareStatement("select p.topic, p.content, u.username, p.date, r.content, r.date, r.author,"
+					+ "COALESCE(ra.liked,0) as liked, COALESCE(ra.disliked,0) as disliked, COALESCE(ra.liked,0) + COALESCE(ra.disliked,0) as rating "
+					+ "from post p inner join users u on p.author = u.id left join reply r on p.id = r.postid left join rating ra on p.id = ra.id where p.id=? order by p.id desc");
+			pst.setInt(1, topicId);
 			rs = pst.executeQuery();
 
-			if(rs.next()) {
-				String catid = rs.getString("id");
 
-				pst = conn.prepareStatement("select p.id, p.topic, u.username, count(r.postid) as comment, p.date, COALESCE(ra.liked,0) + COALESCE(ra.disliked,0) as rating from post p "
-						+ "inner join users u on p.author = u.id "
-						+ "left join reply r on p.id = r.postid "
-						+ "left join rating ra on p.id = ra.id "
-						+ "where p.catid = ? group by p.id order by p.id desc limit ?,?");
-				pst.setString(1, catid);
-				pst.setInt(2, begin);
-				pst.setInt(3, maxPost);
-				rs = pst.executeQuery();
+			while(rs.next()){
+				comment = new CommentList();
+				comment.set_post_topic(rs.getString("p.topic"));
+				comment.set_post_content(rs.getString("p.content"));
+				comment.set_post_username(rs.getString("u.username"));
+				comment.set_post_date(rs.getString("p.date"));
+				comment.set_comment_content(rs.getString("r.content"));
+				comment.set_comment_username(rs.getString("r.author"));
+				comment.set_comment_date(rs.getString("r.date"));
+				comment.setliked(rs.getInt("liked"));
+				comment.setdisliked(rs.getInt("disliked"));
+				comment.setRating(rs.getInt("rating"));
 
-
-				while(rs.next()){
-					display = new DisplayList();
-					display.setId(rs.getInt("p.id"));
-					display.setTopic(rs.getString("p.topic"));
-					display.setUserName(rs.getString("u.username"));
-					display.setComment(rs.getString("comment"));
-					display.setDate(rs.getString("p.date"));
-					display.setRating(rs.getString("rating"));
-
-					List.add(display);
-				}
+				List.add(comment);
 			}
+
 
 		} catch (Exception e) {
 			System.out.println(e);
@@ -103,8 +90,7 @@ public class Display{
 		}
 		return List;
 	}
-	@SuppressWarnings("resource")
-	public static int totalPost(String cat) {
+	public static int totalComment(int topicId) {
 
 		int num = 0;
 		ResultSet rs = null;
@@ -117,21 +103,15 @@ public class Display{
 		PreparedStatement pst = null;
 		try {
 			conn = connect();
-			pst = conn.prepareStatement("SELECT * FROM categories WHERE name=?");
-			pst.setString(1, cat);
+
+
+			pst = conn.prepareStatement("select count(r.postid) as total_comment from post p "
+					+ "inner join reply r on p.id = r.postid where p.id = ?;");
+			pst.setInt(1, topicId);
 
 			rs = pst.executeQuery();
-
-			if(rs.next()) {
-				String catid = rs.getString("id");
-
-				pst = conn.prepareStatement("select COUNT(id) as TOTAL from post where catid = ?");
-				pst.setString(1, catid);
-
-				rs = pst.executeQuery();
-				rs.next();
-				num = rs.getInt("TOTAL");
-			}
+			rs.next();
+			num = rs.getInt("total_comment");
 
 		} catch (Exception e) {
 			System.out.println(e);

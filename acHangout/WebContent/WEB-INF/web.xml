@@ -34,11 +34,31 @@
 		<servlet-class>com.amzi.servlets.DisplayServlet</servlet-class>
 	</servlet>
 
+	<servlet>
+		<servlet-name>comment</servlet-name>
+		<servlet-class>com.amzi.servlets.CommentServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>pcomment</servlet-name>
+		<servlet-class>com.amzi.servlets.PostCommentServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>pcomment</servlet-name>
+		<url-pattern>/postcomment</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>comment</servlet-name>
+		<url-pattern>/comment</url-pattern>
+	</servlet-mapping>
+
 	<servlet-mapping>
 		<servlet-name>display</servlet-name>
 		<url-pattern>/display</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet-mapping>
 		<servlet-name>post</servlet-name>
 		<url-pattern>/post</url-pattern>

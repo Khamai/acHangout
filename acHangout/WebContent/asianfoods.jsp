@@ -87,7 +87,7 @@
 				<c:forEach items="${List}" var="ok">
 					<div class="col-sm-12 forum-topic pad">
 						<div class="col-sm-6 child">
-							<a href="#">${ok.getTopic()}</a>
+							<a href="comment?q=${ok.getId()}">${ok.getTopic()}</a>
 						</div>
 						<div class="col-sm-2 child">${ok.getUserName()}</div>
 						<div class="col-sm-1 child">${ok.getComment()}</div>
