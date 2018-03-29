@@ -3,8 +3,9 @@
 <!DOCTYPE html>
 
 <%
+	session.setAttribute("cat", "asianfoods");
 	if (session.getAttribute("name") == null && session.getAttribute("pass") == null) {
-		session.setAttribute("currentpage", "asianfood_1.jsp");
+		session.setAttribute("currentpage", "asianfood_2.jsp");
 %>
 <jsp:forward page="login.jsp" />
 <%
@@ -14,11 +15,14 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>acHangout</title>
+<link rel="shortcut icon" type="image/x-icon"
+	href="Resources/megaphone.ico">
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -29,9 +33,9 @@
 	<!-- I include header and top-menu separately because the other web pages also need to have both of them 
 		so don't need to do again one more time
 	-->
-	<jsp:include page="header.jsp" />
+	<jsp:include page="../header.jsp" />
 
-	<jsp:include page="top-menu.html" />
+	<jsp:include page="../top-menu.html" />
 	<br />
 	<br />
 	<div class="container">
@@ -236,8 +240,8 @@
 	<div class="container text-center">
 		<div class="row">
 			<ul class="pagination">
-				<li class="active"><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
+				<li ><a href="asianfood_1">1</a></li>
+				<li class="active"><a href="asianfood_2">2</a></li>
 				<li><a href="#">3</a></li>
 				<li><a href="#">4</a></li>
 				<li><a href="#">5</a></li>
@@ -251,7 +255,6 @@
 	<br />
 	<br />
 	<br />
-
-	<jsp:include page="footer.jsp" />
+	<jsp:include page="../footer.jsp" />
 </body>
 </html>
