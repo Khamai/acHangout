@@ -171,7 +171,7 @@ CREATE TABLE `rating`
   `id` Bigint NOT NULL,
   `liked` Bigint,
   `disliked` Bigint,
-  `rateid` Bigint
+  `postid` Bigint
 )
 ;
 
