@@ -3,13 +3,13 @@
 
 /*
 Created: 2018-03-02
-Modified: 2018-03-21
+Modified: 2018-03-29
 Model: MySQL 5.7
 Database: MySQL 5.7
 */
 
 
--- Create tables section -----------------------------------------------
+-- Create tables section -------------------------------------------------
 
 -- Table users
 
@@ -35,6 +35,7 @@ CREATE TABLE `profile`
   `firstname` Char(20) NOT NULL,
   `lastname` Char(20) NOT NULL,
   `email` Char(200) NOT NULL,
+  `numpost` Bigint NOT NULL,
   `phone` Char(20),
   `sex` Char(20),
   PRIMARY KEY (`id`),
@@ -55,9 +56,8 @@ CREATE TABLE `post`
   `date` Datetime NOT NULL,
   `author` Bigint NOT NULL,
   `catid` Bigint,
-  PRIMARY KEY (`id`),
- INDEX `IX_Relationship1` (`id`)
-) 
+  PRIMARY KEY (`id`)
+)
 ;
 
 CREATE INDEX `IX_Relationship4` ON `post` (`author`)
@@ -66,7 +66,7 @@ CREATE INDEX `IX_Relationship4` ON `post` (`author`)
 CREATE INDEX `IX_Relationship2` ON `post` (`catid`)
 ;
 
--- Table categories 
+-- Table categories
 
 CREATE TABLE `categories`
 (
@@ -162,12 +162,34 @@ ALTER TABLE `reply` ADD PRIMARY KEY (`id`)
 CREATE TABLE `rating`
 (
   `id` Bigint NOT NULL,
-  `like` Bigint,
-  `dislike` Bigint
+  `liked` Bigint,
+  `disliked` Bigint
 )
 ;
 
+CREATE INDEX `IX_Relationship1` ON `rating` (`id`)
+;
+
 ALTER TABLE `rating` ADD PRIMARY KEY (`id`)
+;
+
+-- Table uservotes
+
+CREATE TABLE `uservotes`
+(
+  `id` Bigint NOT NULL,
+  `userid` Bigint,
+  `rateid` Bigint
+)
+;
+
+CREATE INDEX `IX_Relationship2` ON `uservotes` (`userid`)
+;
+
+CREATE INDEX `IX_Relationship4` ON `uservotes` (`rateid`)
+;
+
+ALTER TABLE `uservotes` ADD PRIMARY KEY (`id`)
 ;
 
 -- Create foreign keys (relationships) section ------------------------------------------------- 
@@ -201,11 +223,20 @@ ALTER TABLE `reply` ADD CONSTRAINT `postreply` FOREIGN KEY (`id`) REFERENCES `po
 ;
 
 
-ALTER TABLE `post` ADD CONSTRAINT `rating` FOREIGN KEY (`id`) REFERENCES `rating` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-;
-
-
 ALTER TABLE `post` ADD CONSTRAINT `Catpost` FOREIGN KEY (`catid`) REFERENCES `categories` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
+
+
+ALTER TABLE `rating` ADD CONSTRAINT `postrate` FOREIGN KEY (`id`) REFERENCES `post` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+;
+
+
+ALTER TABLE `uservotes` ADD CONSTRAINT `uservote` FOREIGN KEY (`userid`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+;
+
+
+ALTER TABLE `uservotes` ADD CONSTRAINT `ratevote` FOREIGN KEY (`rateid`) REFERENCES `rating` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+;
+
 
 
