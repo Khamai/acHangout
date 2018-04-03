@@ -19,16 +19,15 @@
 <script src="javascript/dynamicForm.js" type="text/javascript"></script>
 
 <link rel="stylesheet"
-	href="bootstrap/css/bootstrap.min.css">
-<script
-	src="bootstrap/js/bootstrap.min.js"></script>
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="bootstrap/js/bootstrap.min.js"></script>
 
 
 
 <style>
-	.dyn-field{
-		margin:20px;
-	}
+.dyn-field {
+	margin: 20px;
+}
 </style>
 </head>
 
@@ -44,39 +43,40 @@
 
 
 		<div class="row">
-		<div class="col-md-6 jumbotron form-group border">
+			<div class="col-md-6 jumbotron form-group border"
+				style="height: 600px;">
 
-			
+
 				<form id=pollForm action="PollController" method="get">
+					<div class="form-group">
+						<div>
+							<h2>Your Question</h2>
+						</div>
+						<div>
+							<textarea name="q" maxlength="255" rows="5" cols="40" required></textarea>
+						</div>
 
-					<div>
-						<h2>Your Question</h2>
-					</div>
-					<div>
-						<textarea name="q" maxlength="255" rows="5" cols="40" required></textarea>
-					</div>
+						<div>
+							<h3>Question Type</h3>
+						</div>
 
-					<div>
-						<h3>Question Type</h3>
+						<div class="btn-group btn-group-sm">
+							<button class="btn btn-primary" id="multi"
+								onClick="qSetup('multi')">Multiple Choice</button>
+							<button class="btn btn-primary" id="rating"
+								onClick="qSetup('rating')">Rating</button>
+						</div>
+						<input type="submit" value="submit" class="btn btn-outline border border-dark">
 					</div>
-
-					<div class="btn-group btn-group-sm">
-						<button class="btn btn-primary" id="qt1" onClick="qSetup('multi')">Multiple
-							Choice</button>
-						<button class="btn btn-primary" id="qt2" onClick="qSetup('short')">Short
-							Answer</button>
-						<button class="btn btn-primary" id="qt3" onClick="qSetup('rank')">Ranking</button>
-					</div>
-
 				</form>
 
-			
-			</div>
-			<div class="col-md-6 jumbotron form-group">
 
-			
+			</div>
+			<div class="col-md-6 jumbotron form-group border">
+
+
 				<form id=dynamicForm action="PollController" method="get">
-				<!-- <table class="">
+					<!-- <table class="">
 						<tr>
 							<td class="multi"><span><input type="text" placeholder="enter text here"></span></td>
 							<td class="multi"><span><input type="text" placeholder="enter text here"></span></td>
@@ -95,7 +95,7 @@
 						</tr>
 						
 						
-					</table>  -->	
+					</table>  -->
 					<!-- 
 					<div class="row">
 					<div class="col-md-6 " id="left-box">
@@ -119,24 +119,25 @@
 
 				
 			 -->
-			<div class="row">
-			<div class="col-md-6 " id="left-box">
-			</div>
-			<div class="col-md-6" id="right-box">
-			</div>
 				
+					<div class="row">
+					
+						<div class="col-md-6 " id="left-box"></div>
+						<div class="col-md-6" id="right-box"></div>
+
+
+					</div>
+
+				</form>
+
+
+
+
 			</div>
 
-</form>
-
-
-
-
+		</div>
 
 	</div>
-	</div>
-
-
 
 	<script type="text/javascript">
 		var d = new Date()

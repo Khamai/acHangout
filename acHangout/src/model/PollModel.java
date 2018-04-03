@@ -1,4 +1,4 @@
-package poll;
+package model;
 
 public class PollModel {
 

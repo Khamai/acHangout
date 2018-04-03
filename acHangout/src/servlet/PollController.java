@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import poll.PollModel;
+import model.PollModel;
 
 public class PollController extends HttpServlet{
 
@@ -34,20 +34,10 @@ public class PollController extends HttpServlet{
 
 		/*prints HTML statements to web server*/
 		PrintWriter out = response.getWriter();
-
+		
 		/*Collects the form inputs by name from the HTTP request*/  
 		String qt=request.getParameter("qtype");
 		String q=request.getParameter("q");
-
-
-
-
-
-
-
-		// poll.init(q,qt);
-		out.print("<p style=\"color:green\">Question:"+q+"</p><br><p style=\"color:grey\">Question Type:"+qt+"</p>");
-
 
 		out.close();
 	}

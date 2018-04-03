@@ -11,9 +11,9 @@ function decrementField(){
 }
 		function qSetup(selection) {
 			
+			document.getElementById("multi").disabled = true;
+			document.getElementById("rating").disabled = true;
 			
-			
-			disableType();
 			switch(selection){
 			
 			case "multi":
@@ -22,23 +22,18 @@ function decrementField(){
 				
 				break;
 				
-			case "short":
-				setShort();
+			case "rating":
+				setRate();
 				
 
 				break;
 				
-			case "rank":
-				setRank();
-				
-				
-				break;
-			
 			default:
-			
+				alert("default case");
 				break;
 			}
-			
+		closeBtn();
+		
 
 		}
  
@@ -46,15 +41,16 @@ function decrementField(){
  
 		function deleteSetup(parentDiv, childDiv) {
 			
-			alert("Discard work?");
 			var child = document.getElementById(childDiv);
 			var parent = document.getElementById(parentDiv);
+			alert(childDiv);
 			parent.removeChild(child);
-			
 			decrementField();
-			
-			if(fieldNum == 0){
-			enableType();
+			alert("Option deleted");
+			if(fieldNum === 0){
+				document.getElementById("multi").disabled = false;
+				document.getElementById("rating").disabled = false;
+				removeClose();
 			alert("fieldNum = "+fieldNum);
 			
 			}
@@ -63,118 +59,104 @@ function decrementField(){
  
 
 		function setMulti() {
+			if(fieldNum != 4){
 			incrementField();
-			alert("setMulti called. FieldNum = "+fieldNum);
-			
 			var d = document.createElement('div');
-			d.setAttribute("class","row border border-warning form-group");
+			d.setAttribute("class","row border border-warning");
 			//switch case left or right
-			d.setAttribute("id","left-field");
-			
+			d.setAttribute("id","left-field"+fieldNum);
+			alert("left-field"+fieldNum);
 			var r = document.createElement('span');
-			r.setAttribute("id","span");
+			r.id = "span"+fieldNum;
+			
+			
 			var y = document.createElement("INPUT");
 			y.setAttribute("type", "text");
 			y.setAttribute("class","dyn-field");
 			y.setAttribute("placeholder", "Answer");
 			y.setAttribute("maxlength", "32");
 			y.setAttribute("required", "required");
-			
+		
 			var g = document.createElement("button");
 			g.setAttribute("class", "btn btn-danger");
+			g.id = "delete"+fieldNum;
+			g.onclick = function(){deleteSetup("left-box","left-field"+fieldNum)};
 			
-			g.setAttribute("onclick", "deleteSetup('left-box','left-field')");
-			r.appendChild(g);
 			
 			var c = document.createElement("button");
 			c.setAttribute("class", "btn btn-success");
-			c.setAttribute("onclick", "setMulti()");
-			r.appendChild(c);
+			c.onclick = function(){setMulti()};
+			c.id = "add"+fieldNum;
 			
+			
+			r.appendChild(c);
+			r.appendChild(g);
 			y.setAttribute("Name", "multi");
 			r.appendChild(y);
 			
 			
-			r.setAttribute("id", "multi");
-			if(leftMultiCount != 6){
+			r.id= "multi"+fieldNum;
+			
 				document.getElementById("left-box").appendChild(d);
 				d.appendChild(r);
-				leftMultiCount++;
-				alert("Field added to leftt-box. leftMultiCount = "+leftMultiCount);
-			}
-			else if(rightMultiCount != 6){
-				document.getElementById("right-Box").appendChild(d);
-				d.appendChild(r);
-				rightMultiCount++;
-				alert("Field added to right-box. rightMultiCount = "+rightMultiCount);
-			}
-			else{
+				alert("setMulti called. FieldNum = "+fieldNum)
+				
+		}
+		else{
 				alert("Max field limit reached");
 			}
-			
-			
-			
-			
-
 		}
-
+		
+		function setRate(){
+			
+		}
 		//Add [x] button to discard setup section and allow a different answer setup option
 
-		function setShort() {
-			incrementField();
-			var r = document.createElement('span');
-			var y = document.createElement("INPUT");
-			y.setAttribute("type", "text");
-			y.setAttribute("placeholder", "Name");
-			var g = document.createElement("button");
-			g.setAttribute("class", "btn");
-			g.setAttribute("class", "btn-danger");
-			y.setAttribute("Name", "short");
-			r.appendChild(y);
-			g.setAttribute("onclick", "deleteSetup('dynamicForm','short')");
-			r.appendChild(g);
-			r.setAttribute("id", "short");
-			document.getElementById("dynamicForm").appendChild(r);
-			
-
-		}
-
-		//Allow up to 3 choices with ability to upload an image for each. Rating system implemented either by slider bar or range number input.
-		function setRank() {
-			incrementField();
-			var r = document.createElement('span');
-			var y = document.createElement("INPUT");
-			y.setAttribute("type", "text");
-			y.setAttribute("placeholder", "Name");
-			var g = document.createElement("button");
-			g.setAttribute("class", "btn");
-			g.setAttribute("class", "btn-danger");
-			y.setAttribute("Name", "rank");
-			r.appendChild(y);
-			g.setAttribute("onclick", "deleteSetup('dynamicForm','rank')");
-			r.appendChild(g);
-			r.setAttribute("id", "rank");
-			document.getElementById("dynamicForm").appendChild(r);
-			
-
-		}
-
-		//Add [x] button to discard setup section and allow a different answer setup option
-
-		function disableType() {
-			var i;
-			for (i = 1; i < 4; i++) {
-				document.getElementById("qt" + i).disabled = true;
-			}
-		}
-
-	function enableType(){
-		var i;
-		for(i=1;i<4;i++){	
-			document.getElementById("qt"+i).disabled = false;
+	
+	function closeBtn(){
+		var parent = document.getElementById("right-box");
+		var row = document.createElement("div");
+		var close = document.createElement("button");
+		var inner = document.createElement("span");
+		
+		row.id = "row";
+		close.id = "close";
+		inner.id = "inner";
+		row.setAttribute("class","row");
 		
 		
-		}
+		close.className = "col-md-1 offset-md-10 border border border-dark";
+		close.setAttribute("aria-label","Close");
+		close.setAttribute("style","border-radius:100px; background-color:#e6e6e6;padding: 4px;");
+		
+		inner.setAttribute("aria-hidden","true");
+		inner.innerHTML = "&times;";
+		
+		parent.appendChild(row);
+		row.appendChild(close);
+		close.appendChild(inner);
+		close.onclick = function(){closePress()};
+		alert("close button created");
 	}
 	
+	function removeClose(){
+//		document.getElementById("close").removeChild(document.getElementById("inner"));
+//		document.getElementById("row").removeChild(document.getElementById("close"));
+		document.getElementById("right-box").removeChild(document.getElementById("row"));
+		
+	}
+	
+/*	<div class="row">
+	<button type="button" class="close offset-md-10 border border-dark" aria-label="Close" style="border-radius:100px; background-color:#e6e6e6;padding: 10px;">
+<span aria-hidden="true">&times;</span>
+</button>
+</div> */
 
+	function closePress(){
+		
+		while(fieldNum !=0){
+			deleteSetup("left-box","left-field"+fieldNum)
+			
+		}
+		
+	}
