@@ -5,12 +5,14 @@ import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.PollModel;
 
+//@WebServlet("/poll")
 public class PollController extends HttpServlet{
 
 	private static final long serialVersionUID = 2L;
@@ -26,8 +28,12 @@ public class PollController extends HttpServlet{
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		//Grab the question form parameters
+		String question = request.getParameter("q");
+		
+		
 		RequestDispatcher rd=request.getRequestDispatcher("poll.jsp"); 
-
+		
 
 		/*MIME*/
 		response.setContentType("text/html");  
@@ -36,8 +42,7 @@ public class PollController extends HttpServlet{
 		PrintWriter out = response.getWriter();
 		
 		/*Collects the form inputs by name from the HTTP request*/  
-		String qt=request.getParameter("qtype");
-		String q=request.getParameter("q");
+		
 
 		out.close();
 	}

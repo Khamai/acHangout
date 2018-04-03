@@ -160,3 +160,10 @@ function decrementField(){
 		}
 		
 	}
+	
+	function submitForm(){
+		
+		document.forms[0].submit();
+		document.forms[1].submit();
+		
+	}

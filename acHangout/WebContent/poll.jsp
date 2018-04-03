@@ -66,7 +66,7 @@
 							<button class="btn btn-primary" id="rating"
 								onClick="qSetup('rating')">Rating</button>
 						</div>
-						<input type="submit" value="submit" class="btn btn-outline border border-dark">
+						<input type="submit" value="submit" class="btn btn-outline border border-dark" onclick="submitForm()">
 					</div>
 				</form>
 
