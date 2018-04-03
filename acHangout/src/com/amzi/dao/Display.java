@@ -18,7 +18,7 @@ public class Display{
 		String dbName = "form";
 		String driver = "com.mysql.jdbc.Driver";
 		String userName = "root";
-		String password = "xxxx";
+		String password = "khamai_";
 		try {
 			Class.forName(driver).newInstance();
 			conn = DriverManager
@@ -63,11 +63,7 @@ public class Display{
 						+ "inner join users u on p.author = u.id "
 						+ "left join reply r on p.id = r.postid "
 						+ "left join rating ra on p.id = ra.id "
-<<<<<<< HEAD
-						+ "where p.catid = ? group by p.id order by p.id DESC limit ?,?");
-=======
 						+ "where p.catid = ? group by p.id order by p.id desc limit ?,?");
->>>>>>> refs/remotes/origin/Kha
 				pst.setString(1, catid);
 				pst.setInt(2, begin);
 				pst.setInt(3, maxPost);
