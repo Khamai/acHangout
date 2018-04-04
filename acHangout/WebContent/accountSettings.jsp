@@ -69,22 +69,12 @@
 				<!-- END MENU -->
 			</div>
 		</div>
-		<div class="col-md-9">
-            <div class="profile-content">
-			   <h2>About Me</h2>
-            </div>
-            
-        <div class="col-md-9">
-        	<div class="profile-button">
-        		<a href="editprofile.jsp" class="btn btn-primary" role="button">Edit</a>
-        	</div>
-        </div>
 		</div>
-	</div>
-</div>
-<br>
-<br>
+		</div>
+		
+		<!-- edit profile main page -->
+	
+		
 
 </body>
 </html>
-	

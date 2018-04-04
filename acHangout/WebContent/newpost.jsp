@@ -54,22 +54,6 @@
 			<h2 align=center>Create New Post</h2>
 		</div>
 		<br /> <br />
-<<<<<<< HEAD
-		<form>
-		<div class="form-group">
-			<label for="exampleInputEmail1">Title</label>
-			<input class="form-control" id="title">
-		</div>
-		<div class="form-group">
-			<label for="author">Author</label>
-			<input class="form-control" id="author"> 
-		</div>
-		<div class="form-group">
-			<label for="description">Description</label>
-			<textarea class="form-control" id="description" rows="3"></textarea>
-		</div>
-					<div class="form-group text-center">
-=======
 		<div class="row">
 			<div class="col-sm-7" style="float: none; margin: 0 auto;">
 				<p
@@ -97,7 +81,6 @@
 								class="form-control" id="image" name="image">
 						</div>
 						<div class="form-group text-center">
->>>>>>> refs/remotes/origin/Kha
 							<button type="submit" class="btn btn-primary btn-md">Submit
 								Post</button>
 						</div>

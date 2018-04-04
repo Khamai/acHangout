@@ -69,16 +69,42 @@
 				<!-- END MENU -->
 			</div>
 		</div>
+		
 		<div class="col-md-9">
-            <div class="profile-content">
-			   <h2>About Me</h2>
+            <div class="profile-description">
+			   <label for="description">Description</label>
+			   <textarea class="form-control" rows="10" id="description"></textarea>
             </div>
             
+            
+        <div class="form-group row">
+        	<label class="col-md-3 col-form-label form-control label"></label>
+        	<div class="col-md-9">
+        			<input type="button" class="btn btn-primary" value="Edit">
+        			<input type="button" class="btn btn-primary" value="Save">
+        			</div>
+        	</div>
+           
+           
+       	<!--  
+       	  
         <div class="col-md-9">
         	<div class="profile-button">
         		<a href="editprofile.jsp" class="btn btn-primary" role="button">Edit</a>
         	</div>
         </div>
+        
+        <br/> <br/>	&nbsp;
+        
+        <div class="col-md-9">
+        	<div class="profile-button">
+        		<a href="#" class="btn btn-primary" role="button">Save</a>
+        	</div>
+        </div>
+        
+        -->
+        
+        
 		</div>
 	</div>
 </div>
