@@ -47,7 +47,7 @@
 				style="height: 600px;">
 
 
-				<form id=pollForm action="PollController" method="get">
+				<form id=pollForm action="poll" method="post">
 					<div class="form-group">
 						<div>
 							<h2>Your Question</h2>
@@ -75,7 +75,8 @@
 			<div class="col-md-6 jumbotron form-group border">
 
 
-				<form id=dynamicForm action="PollController" method="get">
+				<form id=dynamicForm action="poll" method="post">
+				<input type="hidden" name="param" id="param" value="" />
 					<!-- <table class="">
 						<tr>
 							<td class="multi"><span><input type="text" placeholder="enter text here"></span></td>

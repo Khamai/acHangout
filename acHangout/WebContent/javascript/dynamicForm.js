@@ -76,6 +76,7 @@ function decrementField(){
 			y.setAttribute("placeholder", "Answer");
 			y.setAttribute("maxlength", "32");
 			y.setAttribute("required", "required");
+			y.name = "option"+fieldNum;
 		
 			var g = document.createElement("button");
 			g.setAttribute("class", "btn btn-danger");
@@ -162,8 +163,8 @@ function decrementField(){
 	}
 	
 	function submitForm(){
-		
+		document.getElementById("param").value = fieldNum;
 		document.forms[0].submit();
-		document.forms[1].submit();
+		//document.forms[1].submit();
 		
 	}

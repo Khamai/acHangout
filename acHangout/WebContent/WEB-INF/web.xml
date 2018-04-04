@@ -8,10 +8,6 @@
 		<servlet-name>login</servlet-name>
 		<servlet-class>com.amzi.servlets.LoginServlet</servlet-class>
 	</servlet>
-	<servlet>
-		<servlet-name>Poll</servlet-name>
-		<servlet-class>servlet.PollController</servlet-class>
-	</servlet>
 
 	<servlet>
 		<servlet-name>signup</servlet-name>
@@ -67,10 +63,7 @@
 		<servlet-name>signup</servlet-name>
 		<url-pattern>/signup</url-pattern>
 	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>Poll</servlet-name>
-		<url-pattern>/Poll</url-pattern>
-	</servlet-mapping>
+
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
