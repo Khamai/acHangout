@@ -29,27 +29,7 @@ public class GetPostsServlet extends HttpServlet {
 		response.setContentType("text/html");  
 		PrintWriter out = response.getWriter();  
 		
-		String posts[][] = GetPosts.getRecord(categoryID, startID, endID); 
 		
-		for(int i = 0; i <= howmanyonthispage; i++) {
-	        if(){  
-				out.print(""); /*<div class="col-sm-12 forum-head lpad">
-				<div class="col-sm-6">post[i][0]</div>
-				<div class="col-sm-2 child"
-					style="border-left: 2px solid hsl(212, 35%, 15%);">Author</div>
-				<div class="col-sm-1 child">post[i][1]</div>
-				<div class="col-sm-2 child">post[i][2]</div>
-				<div class="col-sm-1 child">Like/Dislike</div>
-
-			</div>*/
-	        }
-        }  
-        else{  
-            out.print("<p style=\"color:red; text-align:center\">Sorry username or password error</p>");  
-            RequestDispatcher rd=request.getRequestDispatcher("Sections/login.jsp");  
-            rd.include(request,response);  
-        } 
-
 		out.close();  
 	}
 }

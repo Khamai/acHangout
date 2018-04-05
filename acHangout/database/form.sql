@@ -3,7 +3,7 @@
 
 /*
 Created: 2018-03-02
-Modified: 2018-03-29
+Modified: 2018-04-05
 Model: MySQL 5.7
 Database: MySQL 5.7
 */
@@ -55,7 +55,7 @@ CREATE TABLE `post`
   `topic` Char(255) NOT NULL,
   `date` Datetime NOT NULL,
   `author` Bigint NOT NULL,
-  `catid` Bigint,
+  `subcatid` Bigint,
   PRIMARY KEY (`id`)
 )
 ;
@@ -63,7 +63,7 @@ CREATE TABLE `post`
 CREATE INDEX `IX_Relationship4` ON `post` (`author`)
 ;
 
-CREATE INDEX `IX_Relationship2` ON `post` (`catid`)
+CREATE INDEX `IX_Relationship2` ON `post` (`subcatid`)
 ;
 
 -- Table categories
@@ -73,7 +73,9 @@ CREATE TABLE `categories`
   `id` Bigint NOT NULL AUTO_INCREMENT,
   `name` Char(100) NOT NULL,
   `description` Char(255) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  PRIMARY KEY (`id`),
+  UNIQUE `id` (`id`)
 )
 ;
 
@@ -86,10 +88,10 @@ CREATE TABLE `poll`
 (
   `id` Bigint NOT NULL AUTO_INCREMENT,
   `question` Char(255) NOT NULL,
-  `optionA` Char(255) NOT NULL,
-  `optionB` Char(255) NOT NULL,
-  `optionC` Char(255),
-  `optionD` Char(255),
+  `option1` Char(255) NOT NULL,
+  `option2` Char(255) NOT NULL,
+  `option3` Char(255),
+  `option4` Char(255),
   `answerid` Char(20),
   `author` Bigint,
   PRIMARY KEY (`id`),
@@ -105,11 +107,11 @@ CREATE INDEX `IX_Relationship2` ON `poll` (`author`)
 CREATE TABLE `poll_results`
 (
   `id` Bigint NOT NULL AUTO_INCREMENT,
-  `a` Bigint,
-  `b` Bigint,
-  `c` Bigint,
-  `d` Bigint,
-  `pollid` Bigint;
+  `option1` Bigint,
+  `option2` Bigint,
+  `option3` Bigint,
+  `option4` Bigint,
+  `pollid` Bigint,
   PRIMARY KEY (`id`),
   UNIQUE `id` (`id`)
 )
@@ -196,6 +198,38 @@ CREATE INDEX `IX_Relationship2` ON `uservotes` (`userid`)
 CREATE INDEX `IX_Relationship4` ON `uservotes` (`rateid`)
 ;
 
+-- Table pollvotes
+
+CREATE TABLE `pollvotes`
+(
+  `id` Bigint NOT NULL AUTO_INCREMENT,
+  `userid` Bigint,
+  `pollid` Bigint,
+  PRIMARY KEY (`id`)
+)
+;
+
+CREATE INDEX `IX_Relationship1` ON `pollvotes` (`pollid`)
+;
+
+CREATE INDEX `IX_Relationship2` ON `pollvotes` (`userid`)
+;
+
+-- Table subcategories
+
+CREATE TABLE `subcategories`
+(
+  `id` Bigint NOT NULL AUTO_INCREMENT,
+  `name` Char(100) NOT NULL,
+  `description` Char(255) NOT NULL,
+  `catid` Bigint NOT NULL,
+  PRIMARY KEY (`id`)
+)
+;
+
+CREATE INDEX `IX_Relationship2` ON `subcategories` (`catid`)
+;
+
 -- Create foreign keys (relationships) section ------------------------------------------------- 
 
 
@@ -227,10 +261,6 @@ ALTER TABLE `reply` ADD CONSTRAINT `postreply` FOREIGN KEY (`postid`) REFERENCES
 ;
 
 
-ALTER TABLE `post` ADD CONSTRAINT `Catpost` FOREIGN KEY (`catid`) REFERENCES `categories` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-;
-
-
 ALTER TABLE `rating` ADD CONSTRAINT `postrate` FOREIGN KEY (`postid`) REFERENCES `post` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
@@ -243,7 +273,19 @@ ALTER TABLE `uservotes` ADD CONSTRAINT `ratevote` FOREIGN KEY (`rateid`) REFEREN
 ;
 
 
+ALTER TABLE `pollvotes` ADD CONSTRAINT `pollvote` FOREIGN KEY (`pollid`) REFERENCES `poll` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+;
 
 
+ALTER TABLE `pollvotes` ADD CONSTRAINT `userpollvote` FOREIGN KEY (`userid`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+;
+
+
+ALTER TABLE `post` ADD CONSTRAINT `subpost` FOREIGN KEY (`subcatid`) REFERENCES `subcategories` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+;
+
+
+ALTER TABLE `subcategories` ADD CONSTRAINT `catsub` FOREIGN KEY (`catid`) REFERENCES `categories` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+;
 
 
