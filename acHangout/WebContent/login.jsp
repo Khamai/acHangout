@@ -27,7 +27,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src='https://www.google.com/recaptcha/api.js'></script>
+<%--<script src='https://www.google.com/recaptcha/api.js'></script>--%>
 
 </head>
 <body>
@@ -75,12 +75,14 @@
 								</div>
 							</div>
 						</div>
+						<%--
 						<div class="form-group">
 							<div class="col-sm-offset-2 col-sm-10">
 								<div class="g-recaptcha"
 									data-sitekey="6Lf3iUwUAAAAAKuu5lMeXPn69FwGnkxWv9lqRF1v"></div>
 							</div>
 						</div>
+						--%>
 						<div class="form-group">
 							<div class="col-sm-offset-2 col-sm-10">
 								<button type="submit" class="btn btn-default">Login</button>

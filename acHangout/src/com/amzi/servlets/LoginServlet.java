@@ -29,19 +29,18 @@ public class LoginServlet extends HttpServlet{
 
 		String n=request.getParameter("username");  
 		String p=request.getParameter("pass"); 
-		String gRecaptchaResponse = request.getParameter("g-recaptcha-response");
+		//String gRecaptchaResponse = request.getParameter("g-recaptcha-response");
 		String pass = "";
 
-		boolean success = VerifyRecaptcha.verify(gRecaptchaResponse);
+		//boolean success = VerifyRecaptcha.verify(gRecaptchaResponse);
 
 		HttpSession session = request.getSession(false);
 		pass = Login.validate(n, p);
-		if(session!=null) {
+
+		if(pass != null){  
 			session.setAttribute("name", n);
 			session.setAttribute("pass", pass);
-		}
-
-		if(pass != "" && success){  
+			
 			String pagename = (String) session.getAttribute("directpage");
 			if(pagename == null) {
 				String message ="login";
@@ -52,12 +51,12 @@ public class LoginServlet extends HttpServlet{
 		}  
 		else{  
 			String message = "";
-			if(success) {
-				message ="Sorry username or password error";
-			}
-			else {
-				message ="You missed the captcha. Care to try?";
-			}
+			//	if(success) {
+			message ="Sorry username or password error";
+			//}
+			//else {
+			//message ="You missed the captcha. Care to try?";
+			//}
 			request.setAttribute("message", message);
 			request.getRequestDispatcher("login.jsp").forward(request, response); 
 		}   

@@ -1,20 +1,9 @@
-/*
-Created: 2018-03-02
-Modified: 2018-03-14
-Model: MySQL 5.7
-Database: MySQL 5.7
-*/
-
-
-CREATE DATABASE form;
-
-USE form;
-
--- Table users
+ CREATE DATABASE form;
+ use form;
 
 /*
 Created: 2018-03-02
-Modified: 2018-03-22
+Modified: 2018-03-29
 Model: MySQL 5.7
 Database: MySQL 5.7
 */
@@ -46,6 +35,7 @@ CREATE TABLE `profile`
   `firstname` Char(20) NOT NULL,
   `lastname` Char(20) NOT NULL,
   `email` Char(200) NOT NULL,
+  `numpost` Bigint NOT NULL,
   `phone` Char(20),
   `sex` Char(20),
   PRIMARY KEY (`id`),
@@ -61,8 +51,8 @@ ALTER TABLE `profile` ADD UNIQUE `email` (`email`)
 CREATE TABLE `post`
 (
   `id` Bigint NOT NULL AUTO_INCREMENT,
-  `topic` Char(255) NOT NULL,
   `content` Char(255) NOT NULL,
+  `topic` Char(255) NOT NULL,
   `date` Datetime NOT NULL,
   `author` Bigint NOT NULL,
   `catid` Bigint,
@@ -119,10 +109,13 @@ CREATE TABLE `poll_results`
   `b` Bigint,
   `c` Bigint,
   `d` Bigint,
+  `pollid` Bigint,
   PRIMARY KEY (`id`),
-  UNIQUE `id` (`id`),
- INDEX `IX_Relationship3` (`id`)
+  UNIQUE `id` (`id`)
 )
+;
+
+CREATE INDEX `IX_Relationship3` ON `poll_results` (`pollid`)
 ;
 
 -- Table poll_answer
@@ -130,9 +123,12 @@ CREATE TABLE `poll_results`
 CREATE TABLE `poll_answer`
 (
   `id` Bigint NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`),
- INDEX `IX_Relationship4` (`id`)
+  `awnserid` Bigint,
+  PRIMARY KEY (`id`)
 )
+;
+
+CREATE INDEX `IX_Relationship4` ON `poll_answer` (`awnserid`)
 ;
 
 -- Table answers
@@ -154,11 +150,12 @@ ALTER TABLE `answers` ADD PRIMARY KEY (`id`)
 
 CREATE TABLE `reply`
 (
-  `id` Bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `id` Bigint NOT NULL AUTO_INCREMENT,
   `content` Char(255),
   `date` Datetime,
   `author` Char(50),
-  `postid` Bigint NOT NULL
+  `postid` Bigint,
+  PRIMARY KEY (`id`)
 )
 ;
 
@@ -171,14 +168,32 @@ CREATE TABLE `rating`
 (
   `id` Bigint NOT NULL,
   `liked` Bigint,
-  `disliked` Bigint
+  `disliked` Bigint,
+  `postid` Bigint
 )
 ;
 
-CREATE INDEX `IX_Relationship1` ON `rating` (`id`)
+CREATE INDEX `IX_Relationship1` ON `rating` (`postid`)
 ;
 
 ALTER TABLE `rating` ADD PRIMARY KEY (`id`)
+;
+
+-- Table uservotes
+
+CREATE TABLE `uservotes`
+(
+  `id` Bigint NOT NULL AUTO_INCREMENT,
+  `userid` Bigint,
+  `rateid` Bigint,
+  PRIMARY KEY (`id`)
+)
+;
+
+CREATE INDEX `IX_Relationship2` ON `uservotes` (`userid`)
+;
+
+CREATE INDEX `IX_Relationship4` ON `uservotes` (`rateid`)
 ;
 
 -- Create foreign keys (relationships) section ------------------------------------------------- 
@@ -196,11 +211,11 @@ ALTER TABLE `poll` ADD CONSTRAINT `userpoll` FOREIGN KEY (`author`) REFERENCES `
 ;
 
 
-ALTER TABLE `poll_results` ADD CONSTRAINT `pollresults` FOREIGN KEY (`id`) REFERENCES `poll` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE `poll_results` ADD CONSTRAINT `pollresults` FOREIGN KEY (`pollid`) REFERENCES `poll` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
 
-ALTER TABLE `poll_answer` ADD CONSTRAINT `pollanswer` FOREIGN KEY (`id`) REFERENCES `poll` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE `poll_answer` ADD CONSTRAINT `pollanswer` FOREIGN KEY (`awnserid`) REFERENCES `poll` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
 
@@ -216,7 +231,18 @@ ALTER TABLE `post` ADD CONSTRAINT `Catpost` FOREIGN KEY (`catid`) REFERENCES `ca
 ;
 
 
-ALTER TABLE `rating` ADD CONSTRAINT `postrate` FOREIGN KEY (`id`) REFERENCES `post` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE `rating` ADD CONSTRAINT `postrate` FOREIGN KEY (`postid`) REFERENCES `post` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
+
+
+ALTER TABLE `uservotes` ADD CONSTRAINT `uservote` FOREIGN KEY (`userid`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+;
+
+
+ALTER TABLE `uservotes` ADD CONSTRAINT `ratevote` FOREIGN KEY (`rateid`) REFERENCES `rating` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+;
+
+
+
 
 

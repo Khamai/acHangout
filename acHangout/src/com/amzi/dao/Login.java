@@ -19,7 +19,7 @@ public class Login  {
 	 * @return an encrypted password in string
 	 */
 	public static String validate(String name, String pass) {     
-		String status = "";
+		String status = null;
 		String salt = "1234";
 		Connection conn = null;
 
