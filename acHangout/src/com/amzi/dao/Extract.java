@@ -34,7 +34,7 @@ public class Extract {
 					cols.add(rs.getString(i));
 				}
 				
-				System.out.println("");
+				System.out.println(cols);
 				
 				rows.add(cols);
 

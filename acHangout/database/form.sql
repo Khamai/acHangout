@@ -3,7 +3,7 @@
 
 /*
 Created: 2018-03-02
-Modified: 2018-04-05
+Modified: 2018-04-06
 Model: MySQL 5.7
 Database: MySQL 5.7
 */
@@ -16,10 +16,10 @@ Database: MySQL 5.7
 CREATE TABLE `users`
 (
   `id` Bigint NOT NULL AUTO_INCREMENT,
-  `username` Char(20) NOT NULL,
-  `password` Char(255) NOT NULL,
+  `username` Char(50) NOT NULL,
+  `password` Char(50) NOT NULL,
   `date` Datetime NOT NULL,
-  `level` Int(8) NOT NULL,
+  `level` Int(10) NOT NULL,
   PRIMARY KEY (`id`)
 )
 ;
@@ -51,8 +51,8 @@ ALTER TABLE `profile` ADD UNIQUE `email` (`email`)
 CREATE TABLE `post`
 (
   `id` Bigint NOT NULL AUTO_INCREMENT,
+  `topic` Char(100) NOT NULL,
   `content` Char(255) NOT NULL,
-  `topic` Char(255) NOT NULL,
   `date` Datetime NOT NULL,
   `author` Bigint NOT NULL,
   `subcatid` Bigint,
@@ -71,9 +71,8 @@ CREATE INDEX `IX_Relationship2` ON `post` (`subcatid`)
 CREATE TABLE `categories`
 (
   `id` Bigint NOT NULL AUTO_INCREMENT,
-  `name` Char(100) NOT NULL,
-  `description` Char(255) NOT NULL,
-  PRIMARY KEY (`id`),
+  `name` Char(80) NOT NULL,
+  `description` Char(50) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE `id` (`id`)
 )
@@ -126,11 +125,12 @@ CREATE TABLE `poll_answer`
 (
   `id` Bigint NOT NULL AUTO_INCREMENT,
   `awnserid` Bigint,
+  `pollid` Bigint,
   PRIMARY KEY (`id`)
 )
 ;
 
-CREATE INDEX `IX_Relationship4` ON `poll_answer` (`awnserid`)
+CREATE INDEX `IX_Relationship4` ON `poll_answer` (`pollid`)
 ;
 
 -- Table answers
@@ -138,11 +138,12 @@ CREATE INDEX `IX_Relationship4` ON `poll_answer` (`awnserid`)
 CREATE TABLE `answers`
 (
   `id` Bigint NOT NULL,
-  `answers` Char(255)
+  `answers` Char(255),
+  `pollaid` Bigint
 )
 ;
 
-CREATE INDEX `IX_Relationship5` ON `answers` (`id`)
+CREATE INDEX `IX_Relationship5` ON `answers` (`pollaid`)
 ;
 
 ALTER TABLE `answers` ADD PRIMARY KEY (`id`)
@@ -220,8 +221,8 @@ CREATE INDEX `IX_Relationship2` ON `pollvotes` (`userid`)
 CREATE TABLE `subcategories`
 (
   `id` Bigint NOT NULL AUTO_INCREMENT,
-  `name` Char(100) NOT NULL,
-  `description` Char(255) NOT NULL,
+  `name` Char(80) NOT NULL,
+  `description` Char(50) NOT NULL,
   `catid` Bigint NOT NULL,
   PRIMARY KEY (`id`)
 )
@@ -249,11 +250,11 @@ ALTER TABLE `poll_results` ADD CONSTRAINT `pollresults` FOREIGN KEY (`pollid`) R
 ;
 
 
-ALTER TABLE `poll_answer` ADD CONSTRAINT `pollanswer` FOREIGN KEY (`awnserid`) REFERENCES `poll` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE `poll_answer` ADD CONSTRAINT `pollanswer` FOREIGN KEY (`pollid`) REFERENCES `poll` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
 
-ALTER TABLE `answers` ADD CONSTRAINT `answers` FOREIGN KEY (`id`) REFERENCES `poll_answer` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+ALTER TABLE `answers` ADD CONSTRAINT `answers` FOREIGN KEY (`pollaid`) REFERENCES `poll_answer` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
 
 
@@ -287,5 +288,3 @@ ALTER TABLE `post` ADD CONSTRAINT `subpost` FOREIGN KEY (`subcatid`) REFERENCES 
 
 ALTER TABLE `subcategories` ADD CONSTRAINT `catsub` FOREIGN KEY (`catid`) REFERENCES `categories` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
-
-
