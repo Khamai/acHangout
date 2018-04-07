@@ -1,4 +1,4 @@
- CREATE DATABASE form;
+0. CREATE DATABASE form;
  use form;
 
 /*

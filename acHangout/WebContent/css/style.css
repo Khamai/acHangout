@@ -112,11 +112,6 @@ footer {
 	text-align: center;
 }
 
-.forum-head>.child {
-	border-right: 2px solid hsl(212, 35%, 15%);
-	border-left: 2px solid hsl(212, 28%, 12%);
-}
-
 .forum-topic {
 	background-color: hsl(0, 0%, 96%);
 	border-bottom: 1px solid hsl(0, 0%, 90%);

@@ -138,7 +138,11 @@
 	<br />
 	<jsp:include page="footer.jsp" />
 	<script type="text/javascript">
-		var likes = ${liked}, disLikes = ${disliked};
+	$('count1').on('click', function() {
+	    $(this).prop('disabled', true);
+	});
+		var likes = ${liked};
+		var disLikes = ${disliked};
 		var total = 0;
 		<c:set var = "la" value="${total}"/>
 		function like() {

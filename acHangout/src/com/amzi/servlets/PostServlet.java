@@ -44,7 +44,7 @@ public class PostServlet extends HttpServlet{
 			};
 
 		if(Post.validate(values)){  
-			String pagename = "display?topic=asianfoods&page=1";  
+			String pagename = "display?sub=" + cat + "&page=1";  
 			response.sendRedirect(pagename);
 		}  
 		else{  

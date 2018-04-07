@@ -64,20 +64,10 @@
 			<div class="col-sm-4">
 				<div class="well">
 					<img src='Resources/food.png' class="img-circle" height="80"
-						width="80" alt="Avatar"> <br /> <br />
+						width="80" alt="Avatar"><br /> <br />
 					<div class="btn-group">
-						<div class="dropdown">
-							<button class="btn btn-primary dropdown-toggle" type="button"
-								data-toggle="dropdown">
-								Food Topics <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu">
-								<li><a href="display?topic=asianfoods&page=1">Asian
-										Foods</a></li>
-								<li><a href="#">Europe Foods</a></li>
-								<li><a href="#">American Foods</a></li>
-							</ul>
-						</div>
+						<a href="sub-categories?topic=food" class="btn btn-primary"
+							role="button">Food Topics</a>
 					</div>
 				</div>
 			</div>
