@@ -224,11 +224,15 @@ CREATE TABLE `subcategories`
   `name` Char(80) NOT NULL,
   `description` Char(50) NOT NULL,
   `catid` Bigint NOT NULL,
+  `author` Bigint,
   PRIMARY KEY (`id`)
 )
 ;
 
 CREATE INDEX `IX_Relationship2` ON `subcategories` (`catid`)
+;
+
+CREATE INDEX `IX_Relationship3` ON `subcategories` (`author`)
 ;
 
 -- Create foreign keys (relationships) section ------------------------------------------------- 
@@ -288,3 +292,9 @@ ALTER TABLE `post` ADD CONSTRAINT `subpost` FOREIGN KEY (`subcatid`) REFERENCES 
 
 ALTER TABLE `subcategories` ADD CONSTRAINT `catsub` FOREIGN KEY (`catid`) REFERENCES `categories` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
+
+
+ALTER TABLE `subcategories` ADD CONSTRAINT `usercat` FOREIGN KEY (`author`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+;
+
+
