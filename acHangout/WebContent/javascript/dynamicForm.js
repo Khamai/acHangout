@@ -204,7 +204,7 @@ function submitForm(){
 		alert("minimum 2 options for multiple choice poll");
 	}
 	else{
-	document.getElementById("param").value = fieldNum;
+	document.getElementById("option").value = fieldNum;
 	document.forms[0].submit();
 	document.forms[1].submit();
 	}

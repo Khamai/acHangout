@@ -14,17 +14,17 @@ import javax.servlet.http.HttpSession;
 
 
 public class PollServlet extends HttpServlet{
-
+	
 	private static final long serialVersionUID = 123L;
-	public PollServlet() {
-		super();
-	}
+	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)  
 			throws ServletException, IOException { 
 		response.setContentType("text/html");  
 		PrintWriter out = response.getWriter();  
 		HttpSession session = request.getSession(false);
-		response.sendRedirect("poll.jsp");
+		int fieldNum = Integer.parseInt(request.getParameter("option"));
+		
+		out.println(fieldNum);
 		
 		
 		out.close(); 

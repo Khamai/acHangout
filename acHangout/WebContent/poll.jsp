@@ -40,7 +40,7 @@
 
 	<div class="container-fluid">
 
-	<form id=pollForm action="poll" method="get"> 
+	<form id=pollForm action="poll" method="post"> 
 
 		<div class="row">
 			<div class="col-md-6 jumbotron form-group border"
@@ -76,7 +76,7 @@
 
 
 			<!-- <form id=dynamicForm action="#" method="get"> -->	
-				<input type="hidden" name="param" id="param" value="" />
+				<input type="hidden" name="option" id="option" value="" />
 				
 					<div class="row">
 					
