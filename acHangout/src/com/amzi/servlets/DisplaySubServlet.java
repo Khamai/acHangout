@@ -21,11 +21,11 @@ public class DisplaySubServlet extends HttpServlet {
 			throws ServletException, IOException {  
 
 		int row = 0, maxPost = 15, numberofpage = 0, currentpage = 1;
-		String tempPage;
+		String tempPage, title;
 		response.setContentType("text/html");  
 
 		tempPage = request.getParameter("page");
-		
+
 		if(tempPage != null && !tempPage.isEmpty()) {
 			currentpage= Integer.valueOf(tempPage);
 		}
@@ -39,13 +39,18 @@ public class DisplaySubServlet extends HttpServlet {
 		else
 			numberofpage = row / maxPost;
 
-		if(currentpage > numberofpage)
+		if(currentpage > numberofpage && numberofpage > 0)
 			currentpage = numberofpage;
 
 		ArrayList<DisplaySubList> List = DisplaySub.getList(cat,currentpage); 
 		request.setAttribute("List", List);
 
+		title = DisplaySub.title(cat);
 
+		if(title == "") 
+			response.sendRedirect("Error.jsp");
+
+		request.setAttribute("title", title);
 		request.setAttribute("numberofpage", numberofpage);
 		request.setAttribute("currentpage", currentpage);
 

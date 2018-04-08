@@ -57,7 +57,8 @@
 						&nbsp;by&nbsp;${List.get(0).get_post_username()}
 					</small>
 				</p>
-				<p>${List.get(0).get_post_content()}</p>
+				<br>
+				<h4>&nbsp;${List.get(0).get_post_content()}</h4>
 			</div>
 			<div id="bar">
 				<h4>Rate this post:</h4>

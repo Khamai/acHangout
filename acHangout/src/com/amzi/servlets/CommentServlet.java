@@ -8,7 +8,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.amzi.bean.CommentList;
 import com.amzi.dao.Comment;
@@ -20,12 +19,11 @@ public class CommentServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)  
 			throws ServletException, IOException {  
 
-		int numberofpage = 0, total = 0;
+		int total = 0;
 		response.setContentType("text/html");  
 
 
 		int topicId = Integer.valueOf(request.getParameter("q"));
-		HttpSession session = request.getSession(false);
 
 
 		ArrayList<CommentList> List = Comment.getRecord(topicId); 

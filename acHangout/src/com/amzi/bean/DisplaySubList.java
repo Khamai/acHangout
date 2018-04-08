@@ -1,14 +1,8 @@
 package com.amzi.bean;
 
 public class DisplaySubList {
-	private String title, topic, description, total, date;
+	private String topic, description, total, date;
 
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
 	public String getTopic() {
 		return topic;
 	}
@@ -19,7 +13,10 @@ public class DisplaySubList {
 		return description;
 	}
 	public void setDescription(String description) {
-		this.description = description;
+		if(description == null)
+			this.description = "";
+		else
+			this.description = description;
 	}
 	public String getTotal() {
 		return total;

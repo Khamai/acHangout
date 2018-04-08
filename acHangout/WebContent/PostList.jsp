@@ -66,7 +66,8 @@
 		<div class="row">
 			<ul class="breadcrumb">
 				<li><a href="index.jsp"><i class="fa fa-home fa-2x"></i></a></li>
-				<li class="active">Asian Foods</li>
+				<li>Asian Foods</li>
+				<li class="active">${title}</li>
 			</ul>
 		</div>
 		<br /> <br />
@@ -84,7 +85,7 @@
 	<div class="container">
 		<div class="row mt">
 			<div class="col-sm-12 forum-category lpad">
-				<h3>${List.get(0).getTitle()}&nbsp;Posts</h3>
+				<h3>${title}</h3>
 			</div>
 			<div class="col-sm-12 forum-head lpad">
 				<div class="col-sm-6">Topic</div>
@@ -107,6 +108,11 @@
 					</div>
 				</c:forEach>
 			</c:if>
+			<c:if test="${empty List}">
+				<div class="col-sm-12 forum-topic pad">
+					<h4>There are no post found!!</h4>
+				</div>
+			</c:if>
 		</div>
 	</div>
 	<br />
@@ -116,8 +122,7 @@
 			<ul class="pagination">
 				<c:if test="${currentpage > 1}">
 					<li><a href="display?sub=${sub}&page=1">First</a></li>
-					<li><a
-						href="display?sub=${sub}&page=${currentpage - 1}">&laquo;</a></li>
+					<li><a href="display?sub=${sub}&page=${currentpage - 1}">&laquo;</a></li>
 				</c:if>
 
 				<c:forEach begin="1" end="${numberofpage}" var="page">
@@ -135,8 +140,7 @@
 				<c:if test="${currentpage lt numberofpage}">
 					<li><a
 						href="sub-categories?sub=${sub}&page=${currentpage + 1}">&raquo;</a></li>
-					<li><a
-						href="sub-categories?sub=${sub}&page=${numberofpage}">Last</a></li>
+					<li><a href="sub-categories?sub=${sub}&page=${numberofpage}">Last</a></li>
 				</c:if>
 
 			</ul>

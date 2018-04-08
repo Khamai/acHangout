@@ -15,7 +15,7 @@ public class CreateSub extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@SuppressWarnings("resource")
-	public static boolean validate(String values[]) {        
+	public static boolean insert(String values[]) {        
 		boolean status = false;
 
 
@@ -50,18 +50,18 @@ public class CreateSub extends HttpServlet {
 				String author = rs.getString("id");
 
 				pst = conn.prepareStatement("SELECT * FROM categories WHERE name=?");
-				pst.setString(1, values[2]);
+				pst.setString(1, values[4]);
 
 				rs = pst.executeQuery();
 
 				if(rs.next()) {
-					String category = rs.getString("id");
+					String catid = rs.getString("id");
 								
-					pst = conn.prepareStatement("Insert INTO post(topic, content, date, author, catid) VALUES (?,?,CURRENT_TIMESTAMP,?,?)");
-					pst.setString(1, values[3]);
-					pst.setString(2, values[4]);
-					pst.setString(3, author);
-					pst.setString(4, category);
+					pst = conn.prepareStatement("insert into subcategories (name, description, catid, author) values (?,?,?,?);");
+					pst.setString(1, values[2]);
+					pst.setString(2, values[3]);
+					pst.setString(3, catid);
+					pst.setString(4, author);
 					pst.executeUpdate();
 
 					status = true;	

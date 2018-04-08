@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.amzi.bean.DisplayPostList;
 import com.amzi.dao.DisplayPost;
+import com.amzi.dao.DisplaySub;
 
 public class DisplayPostServlet extends HttpServlet {
 
@@ -21,7 +22,7 @@ public class DisplayPostServlet extends HttpServlet {
 			throws ServletException, IOException {  
 
 		int row = 0, maxPost = 15, numberofpage = 0, currentpage = 1;
-		String tempPage;
+		String tempPage, title;
 
 		response.setContentType("text/html");  
 
@@ -41,13 +42,18 @@ public class DisplayPostServlet extends HttpServlet {
 		else
 			numberofpage = row / maxPost;
 
-		if(currentpage > numberofpage)
+		if(currentpage > numberofpage && numberofpage > 0)
 			currentpage = numberofpage;
 
 		ArrayList<DisplayPostList> List = DisplayPost.getRecord(cat,currentpage); 
 		request.setAttribute("List", List);
 
+		title = DisplayPost.title(cat);
 
+		if(title == "") 
+			response.sendRedirect("Error.jsp");
+
+		request.setAttribute("title", title);
 		request.setAttribute("numberofpage", numberofpage);
 		request.setAttribute("currentpage", currentpage);
 

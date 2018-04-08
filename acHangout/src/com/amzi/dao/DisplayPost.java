@@ -58,7 +58,6 @@ public class DisplayPost{
 
 			if(rs.next()) {
 				String catid = rs.getString("id");
-				String title = rs.getString("name");
 
 				pst = conn.prepareStatement("select p.id, p.topic, u.username, count(r.postid) as comment, p.date, COALESCE(ra.liked,0) + COALESCE(ra.disliked,0) as rating from post p "
 						+ "inner join users u on p.author = u.id "
@@ -73,7 +72,6 @@ public class DisplayPost{
 
 				while(rs.next()){
 					display = new DisplayPostList();
-					display.setTitle(title);
 					display.setId(rs.getInt("p.id"));
 					display.setTopic(rs.getString("p.topic"));
 					display.setUserName(rs.getString("u.username"));
@@ -154,5 +152,46 @@ public class DisplayPost{
 			}
 		}
 		return num;
+	}
+	public static String title(String cat) {
+		String title = "";
+		ResultSet rs = null;
+
+
+		Connection conn = null;
+
+		/*A SQL statement is precompiled and stored in a PreparedStatement object. 
+		 * This object can then be used to efficiently execute this statement multiple times. */
+		PreparedStatement pst = null;
+		try {
+			conn = connect();
+			pst = conn.prepareStatement("SELECT * FROM subcategories WHERE name=?");
+			pst.setString(1, cat);
+
+			rs = pst.executeQuery();
+
+			if(rs.next())
+				title = rs.getString("name");
+
+		} catch (Exception e) {
+			System.out.println(e);
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (pst != null) {
+				try {
+					pst.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return title;
+
 	}
 }

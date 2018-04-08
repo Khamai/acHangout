@@ -58,24 +58,24 @@ public class DisplaySub{
 
 			if(rs.next()) {
 				String catid = rs.getString("id");
-				String title = rs.getString("description");
 
 				pst = conn.prepareStatement("SELECT s.name, s.description, count(p.subcatid) as total, max(p.date) as latest "
 						+ "from post p right join subcategories s on p.subcatid = s.id where s.catid = ? "
-						+ "group by p.subcatid, s.id order by s.id");
+						+ "group by p.subcatid, s.id order by s.id limit ?,?");
 				pst.setString(1, catid);
+				pst.setInt(2, begin);
+				pst.setInt(3, maxPost);
 				rs = pst.executeQuery();
 
 				while(rs.next()){
 					displaySub = new DisplaySubList();
-					displaySub.setTitle(title);
 					displaySub.setTopic(rs.getString("s.name"));
 					displaySub.setDescription(rs.getString("s.description"));
 					displaySub.setTotal(rs.getString("total"));
 					displaySub.setDate(rs.getString("latest"));
 
 					List.add(displaySub);
-				}
+				}				
 			}
 
 		} catch (Exception e) {
@@ -147,5 +147,46 @@ public class DisplaySub{
 			}
 		}
 		return num;
+	}
+	public static String title(String cat) {
+		String title = "";
+		ResultSet rs = null;
+
+
+		Connection conn = null;
+
+		/*A SQL statement is precompiled and stored in a PreparedStatement object. 
+		 * This object can then be used to efficiently execute this statement multiple times. */
+		PreparedStatement pst = null;
+		try {
+			conn = connect();
+			pst = conn.prepareStatement("SELECT * FROM categories WHERE name=?");
+			pst.setString(1, cat);
+
+			rs = pst.executeQuery();
+
+			if(rs.next()) 
+				title = rs.getString("description");
+
+		} catch (Exception e) {
+			System.out.println(e);
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (pst != null) {
+				try {
+					pst.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return title;
+
 	}
 }
