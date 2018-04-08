@@ -13,10 +13,10 @@ import javax.servlet.http.HttpSession;
 
 
 
-public class PollController extends HttpServlet{
+public class PollServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 123L;
-	public PollController() {
+	public PollServlet() {
 		super();
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response)  

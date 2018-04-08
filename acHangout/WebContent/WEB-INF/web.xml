@@ -7,7 +7,10 @@
 		<servlet-name>login</servlet-name>
 		<servlet-class>com.amzi.servlets.LoginServlet</servlet-class>
 	</servlet>
-
+	<servlet>
+		<servlet-name>poll</servlet-name>
+		<servlet-class>com.amzi.servlets.PollServlet</servlet-class>
+	</servlet>
 	<servlet>
 		<servlet-name>signup</servlet-name>
 		<servlet-class>com.amzi.servlets.SignupServlet</servlet-class>

@@ -15,7 +15,7 @@
 
 <title>acHangout</title>
 
-
+<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 <script src="javascript/dynamicForm.js" type="text/javascript"></script>
 
 <link rel="stylesheet"
@@ -40,14 +40,14 @@
 
 	<div class="container-fluid">
 
-
+	<form id=pollForm action="poll" method="get"> 
 
 		<div class="row">
 			<div class="col-md-6 jumbotron form-group border"
 				style="height: 600px;">
 
 
-				<form id=pollForm action="poll" method="post">
+			<!-- 	<form id=pollForm action="#" method="get">  -->
 					<div class="form-group">
 						<div>
 							<h2>Your Question</h2>
@@ -66,70 +66,30 @@
 							<button class="btn btn-primary" id="rating"
 								onClick="qSetup('rating')">Rating</button>
 						</div>
-						<input type="submit" value="submit" class="btn btn-outline border border-dark" onclick="submitForm()">
+					<input type="button" value="submit" class="btn btn-outline border border-dark" onclick="submitForm()">   
 					</div>
-				</form>
+		<!-- 		</form> -->
 
 
 			</div>
 			<div class="col-md-6 jumbotron form-group border">
 
 
-				<form id=dynamicForm action="poll" method="post">
+			<!-- <form id=dynamicForm action="#" method="get"> -->	
 				<input type="hidden" name="param" id="param" value="" />
-					<!-- <table class="">
-						<tr>
-							<td class="multi"><span><input type="text" placeholder="enter text here"></span></td>
-							<td class="multi"><span><input type="text" placeholder="enter text here"></span></td>
-						</tr>
-						<tr>
-							<td class="multi"><span><input type="text" placeholder="enter text here"></span></td>
-							<td><span class="multi"><input type="text" placeholder="enter text here"></span></td>
-						</tr>
-						<tr>
-							<td class="multi"><span><input type="text" placeholder="enter text here"></span></td>
-							<td class="multi"><span><input type="text" placeholder="enter text here"></span></td>
-						</tr>
-						<tr>
-							<td class="multi"><span><input type="text" placeholder="enter text here"></span></td>
-							<td class="multi"><span><input type="text" placeholder="enter text here"></span></td>
-						</tr>
-						
-						
-					</table>  -->
-					<!-- 
-					<div class="row">
-					<div class="col-md-6 " id="left-box">
-						<div class="row border border-warning form-group"><span><input type="text" class="dyn-field"><button class="btn btn-danger"></button></span></div>
-						<div class="row border border-warning form-group"><span><input type="text" class="dyn-field"></span></div>
-						<div class="row border border-warning form-group"><span><input type="text" class="dyn-field"></span></div>
-						<div class="row border border-warning form-group"><span><input type="text" class="dyn-field"></span></div>
-						<div class="row border border-warning form-group"><span><input type="text" class="dyn-field"></span></div>
-						<div class="row border border-warning form-group"><span><input type="text" class="dyn-field"></span></div>
-					</div>
-					
-					<div class="col-md-6" id="right-box">
-						<div class="row border border-dark form-group"><span><input type="text" class="dyn-field"></span></div>
-						<div class="row border border-dark form-group"><span><input type="text" class="dyn-field"></span></div>
-						<div class="row border border-dark form-group"><span><input type="text" class="dyn-field"></span></div>
-						<div class="row border border-dark form-group"><span><input type="text" class="dyn-field"></span></div>
-						<div class="row border border-dark form-group"><span><input type="text" class="dyn-field"></span></div>
-						<div class="row border border-dark form-group"><span><input type="text" class="dyn-field"></span></div>
-					</div>
-					</div>
-
-				
-			 -->
 				
 					<div class="row">
 					
-						<div class="col-md-6 " id="left-box"></div>
-						<div class="col-md-6" id="right-box"></div>
+						<div class="col-md-10 border" id="left-box">
+							
+						
+						</div>
+						<div class="col-md-2 border border-warning" id="right-box"></div>
 
 
 					</div>
 
-				</form>
+			<!-- 	</form> -->
 
 
 
@@ -137,6 +97,7 @@
 			</div>
 
 		</div>
+		</form>
 
 	</div>
 
