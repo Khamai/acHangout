@@ -32,6 +32,19 @@ public class DisplaySubServlet extends HttpServlet {
 
 		String cat = request.getParameter("topic");
 
+
+		title = DisplaySub.title(cat);
+
+		if(title == "") 
+			response.sendRedirect("Error.jsp");
+
+		HttpSession session = request.getSession(false);
+
+		if(session!=null) {
+			session.setAttribute("cat", title);
+			session.setAttribute("link", cat);		
+		}
+
 		row = DisplaySub.totalSub(cat);
 
 		if(row % maxPost > 0)
@@ -45,12 +58,7 @@ public class DisplaySubServlet extends HttpServlet {
 		ArrayList<DisplaySubList> List = DisplaySub.getList(cat,currentpage); 
 		request.setAttribute("List", List);
 
-		title = DisplaySub.title(cat);
 
-		if(title == "") 
-			response.sendRedirect("Error.jsp");
-
-		request.setAttribute("title", title);
 		request.setAttribute("numberofpage", numberofpage);
 		request.setAttribute("currentpage", currentpage);
 

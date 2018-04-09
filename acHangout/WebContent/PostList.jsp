@@ -29,10 +29,6 @@
 	<c:set var="sub" value="${param.sub}" />
 </c:if>
 
-<c:if test="${empty param.sub}">
-	<jsp:forward page="index.jsp" />
-</c:if>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,7 +62,7 @@
 		<div class="row">
 			<ul class="breadcrumb">
 				<li><a href="index.jsp"><i class="fa fa-home fa-2x"></i></a></li>
-				<li>Asian Foods</li>
+				<li><a href="sub-categories?topic=${link}">${cat}</a></li>
 				<li class="active">${title}</li>
 			</ul>
 		</div>
@@ -93,7 +89,6 @@
 				<div class="col-sm-1 child">Comment</div>
 				<div class="col-sm-2 child">Date Created</div>
 				<div class="col-sm-1 child">Like/Dislike</div>
-
 			</div>
 			<c:if test="${not empty List}">
 				<c:forEach items="${List}" var="ok">
@@ -139,10 +134,9 @@
 
 				<c:if test="${currentpage lt numberofpage}">
 					<li><a
-						href="sub-categories?sub=${sub}&page=${currentpage + 1}">&raquo;</a></li>
-					<li><a href="sub-categories?sub=${sub}&page=${numberofpage}">Last</a></li>
+						href="display?sub=${sub}&page=${currentpage + 1}">&raquo;</a></li>
+					<li><a href="display?sub=${sub}&page=${numberofpage}">Last</a></li>
 				</c:if>
-
 			</ul>
 		</div>
 	</div>

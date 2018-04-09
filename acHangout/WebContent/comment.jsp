@@ -27,7 +27,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -49,7 +49,7 @@
 		<c:if test="${not empty List}">
 			<div class="well"
 				style="border-bottom: 5px solid #126758; background-color: #f2f2f2;">
-				<h2>${List.get(0).get_post_topic()}</h2>
+				<h2>Topic:&emsp;${List.get(0).get_post_topic()}</h2>
 				<p>
 					<small style="color: #9999ff; font-size: 13px;">&emsp;<span
 						class="fa fa-star"></span>&emsp;submitted in
@@ -58,7 +58,7 @@
 					</small>
 				</p>
 				<br>
-				<h4>&nbsp;${List.get(0).get_post_content()}</h4>
+				<h4>${List.get(0).get_post_content()}</h4>
 			</div>
 			<div id="bar">
 				<h4>Rate this post:</h4>

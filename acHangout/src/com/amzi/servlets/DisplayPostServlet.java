@@ -35,6 +35,16 @@ public class DisplayPostServlet extends HttpServlet {
 
 		String cat = request.getParameter("sub");
 
+		title = DisplayPost.title(cat);
+
+		if(title == "") 
+			response.sendRedirect("Error.jsp");
+
+		HttpSession session = request.getSession(false);
+
+		if(session!=null) 
+			session.setAttribute("title", title);
+
 		row = DisplayPost.totalPost(cat);
 
 		if(row % maxPost > 0)
@@ -48,12 +58,7 @@ public class DisplayPostServlet extends HttpServlet {
 		ArrayList<DisplayPostList> List = DisplayPost.getRecord(cat,currentpage); 
 		request.setAttribute("List", List);
 
-		title = DisplayPost.title(cat);
 
-		if(title == "") 
-			response.sendRedirect("Error.jsp");
-
-		request.setAttribute("title", title);
 		request.setAttribute("numberofpage", numberofpage);
 		request.setAttribute("currentpage", currentpage);
 

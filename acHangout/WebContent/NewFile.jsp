@@ -10,14 +10,18 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 .modal-header, h4, .close {
-	background-color: #5cb85c;
+	background-color: hsl(195, 73%, 58%);
 	color: white !important;
 	text-align: center;
 	font-size: 30px;
 }
 
 .modal-footer {
-	background-color: #f9f9f9;
+	background-color: #e6e6e6;
+}
+
+.modal-body {
+	background-color: hsl(0, 0%, 96%);
 }
 </style>
 </head>
@@ -27,6 +31,7 @@
 		<h2>Modal Login Example</h2>
 		<!-- Trigger the modal with a button -->
 		<button type="button" class="btn btn-default btn-lg" id="myBtn">Login</button>
+		<p style="color: red;">${message}</p>
 
 		<!-- Modal -->
 		<div class="modal fade" id="myModal" role="dialog">
@@ -34,45 +39,35 @@
 
 				<!-- Modal content-->
 				<div class="modal-content">
-					<div class="modal-header" style="padding: 35px 50px;">
+					<div class="modal-header" style="padding: 5px 7px;">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4>
-							<span class="glyphicon glyphicon-lock"></span> Login
-						</h4>
+						<h4>Login</h4>
 					</div>
-					<div class="modal-body" style="padding: 40px 50px;">
-						<form role="form">
+					<div class="modal-body" style="padding: 20px 30px;">
+						<p style="color: red;">${message}</p>
+						<form action="login" method="post">
 							<div class="form-group">
-								<label for="usrname"><span
-									class="glyphicon glyphicon-user"></span> Username</label> <input
-									type="text" class="form-control" id="usrname"
-									placeholder="Enter email">
+								<label for="username">Username:</label> <input type="text"
+									class="form-control" id="username" placeholder="Enter username"
+									name="username" required="required">
 							</div>
 							<div class="form-group">
-								<label for="psw"><span
-									class="glyphicon glyphicon-eye-open"></span> Password</label> <input
-									type="text" class="form-control" id="psw"
-									placeholder="Enter password">
+								<label for="pass">Password:</label> <input type="password"
+									class="form-control" id="pass" placeholder="Enter password"
+									name="pass" required="required">
+
 							</div>
 							<div class="checkbox">
-								<label><input type="checkbox" value="" checked>Remember
-									me</label>
+								<label><input type="checkbox" value="" name="remember">
+									Remember me</label>
 							</div>
-							<button type="submit" class="btn btn-success btn-block">
-								<span class="glyphicon glyphicon-off"></span> Login
-							</button>
+							<button type="submit" class="btn btn-info btn-block">Login</button>
 						</form>
 					</div>
 					<div class="modal-footer">
-						<button type="submit" class="btn btn-danger btn-default pull-left"
-							data-dismiss="modal">
-							<span class="glyphicon glyphicon-remove"></span> Cancel
-						</button>
 						<p>
-							Not a member? <a href="#">Sign Up</a>
-						</p>
-						<p>
-							Forgot <a href="#">Password?</a>
+							Don't have an account?<a href="signup.jsp"
+								style="text-decoration: none;">&emsp;Sign up</a>
 						</p>
 					</div>
 				</div>
