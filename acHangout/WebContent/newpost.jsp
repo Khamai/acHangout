@@ -67,12 +67,12 @@
 						<input type="hidden" name="cat" value="${category}">
 						<div class="form-group">
 							<label for="topic">Topic:</label>
-							<textarea class="form-control" rows="2" id="topic" name="topic"
+							<textarea class="form-control" rows="3" id="topic" name="topic"
 								maxlength="100" required="required"></textarea>
 						</div>
 						<div class="form-group">
 							<label for="content">Content:</label>
-							<textarea class="form-control" rows="14" maxlength="1000"
+							<textarea class="form-control" rows="10" maxlength="255"
 								name="content" required="required" id="content"></textarea>
 						</div>
 						<div class="form-group">

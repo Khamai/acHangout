@@ -1,6 +1,6 @@
 package com.amzi.bean;
 
-public class DisplayList {
+public class DisplayPostList {
 	private String topic, username, comment, date, rating;
 	private int id;
 

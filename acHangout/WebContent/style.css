@@ -148,3 +148,22 @@ ul.breadcrumb {
 		-webkit-transform-origin: 0 0;
 	}
 }
+
+#likes {
+	height: 5px;
+	width: 50%;
+	float: left;
+	background: green;
+}
+
+#dislikes {
+	height: 5px;
+	width: 50%;
+	float: right;
+	background: red;
+}
+
+#bar {
+	margin: 0 auto;
+	width: 60%;
+}

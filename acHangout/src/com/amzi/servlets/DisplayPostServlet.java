@@ -10,10 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.amzi.bean.DisplayList;
-import com.amzi.dao.Display;
+import com.amzi.bean.DisplayPostList;
+import com.amzi.dao.DisplayPost;
+import com.amzi.dao.DisplaySub;
 
-public class DisplayServlet extends HttpServlet {
+public class DisplayPostServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
@@ -21,37 +22,43 @@ public class DisplayServlet extends HttpServlet {
 			throws ServletException, IOException {  
 
 		int row = 0, maxPost = 15, numberofpage = 0, currentpage = 1;
+		String tempPage, title;
+
 		response.setContentType("text/html");  
 
 
-		currentpage= Integer.valueOf(request.getParameter("page"));
+		tempPage = request.getParameter("page");
 
-		HttpSession session = request.getSession(false);
+		if(tempPage != null && !tempPage.isEmpty()) {
+			currentpage= Integer.valueOf(tempPage);
+		}
 
-		if(currentpage == 0)
-			currentpage = 1;
+		String cat = request.getParameter("sub");
 
-		String cat = request.getParameter("topic");
-
-		row = Display.totalPost(cat);
+		row = DisplayPost.totalPost(cat);
 
 		if(row % maxPost > 0)
 			numberofpage = (row / maxPost) + 1;
 		else
 			numberofpage = row / maxPost;
 
-		if(currentpage > numberofpage)
+		if(currentpage > numberofpage && numberofpage > 0)
 			currentpage = numberofpage;
 
-		ArrayList<DisplayList> List = Display.getRecord(cat,currentpage); 
+		ArrayList<DisplayPostList> List = DisplayPost.getRecord(cat,currentpage); 
 		request.setAttribute("List", List);
 
+		title = DisplayPost.title(cat);
 
+		if(title == "") 
+			response.sendRedirect("Error.jsp");
+
+		request.setAttribute("title", title);
 		request.setAttribute("numberofpage", numberofpage);
 		request.setAttribute("currentpage", currentpage);
 
 
-		RequestDispatcher rd = request.getRequestDispatcher("asianfoods.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("PostList.jsp");
 		rd.include(request, response);
 
 	}

@@ -11,6 +11,9 @@
 </c:if>
 
 <c:set var="postid" value="${param.q}" />
+<c:set var="liked" value="${List.get(0).getliked()}" />
+<c:set var="disliked" value="${List.get(0).getdisliked()}" />
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,9 +57,29 @@
 						&nbsp;by&nbsp;${List.get(0).get_post_username()}
 					</small>
 				</p>
-				<p>${List.get(0).get_post_content()}</p>
 				<br>
+				<h4>&nbsp;${List.get(0).get_post_content()}</h4>
 			</div>
+			<div id="bar">
+				<h4>Rate this post:</h4>
+				<div class="text-center">
+					<c:out value="${la}" />
+				</div>
+				<br />
+				<div id="likes"></div>
+				<div id="dislikes"></div>
+				<br /> <br />
+				<div class="form-group text-center">
+					<span id="count1">${liked}</span>&emsp; <input type="button"
+						value="Like" class="btn btn-primary"
+						onclick="like(); document.getElementById('count1').innerHTML++" />&emsp;
+					<input type="button" id="btn" value="Dislike"
+						class="btn btn-danger"
+						onclick="dislike(); document.getElementById('count2').innerHTML++" />&emsp;
+					<span id="count2">${disliked}</span>
+				</div>
+			</div>
+			<hr>
 			<br />
 			<br />
 			<div class="row">
@@ -115,5 +138,35 @@
 	<br />
 	<br />
 	<jsp:include page="footer.jsp" />
+	<script type="text/javascript">
+	$('count1').on('click', function() {
+	    $(this).prop('disabled', true);
+	});
+		var likes = ${liked};
+		var disLikes = ${disliked};
+		var total = 0;
+		<c:set var = "la" value="${total}"/>
+		function like() {
+			likes++;
+			calculateBar();
+		}
+		function dislike() {
+			disLikes++;
+			calculateBar();
+		}
+		function calculateBar() {
+		total = likes + disLikes;
+			var percentageLikes = (likes / total) * 100;
+			var percentageDislikes = (disLikes / total) * 100;
+
+			document.getElementById('likes').style.width = percentageLikes
+					.toString()
+					+ "%";
+			document.getElementById('dislikes').style.width = percentageDislikes
+					.toString()
+					+ "%";
+		}
+		calculateBar();
+	</script>
 </body>
 </html>

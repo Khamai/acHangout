@@ -31,7 +31,12 @@
 
 	<servlet>
 		<servlet-name>display</servlet-name>
-		<servlet-class>com.amzi.servlets.DisplayServlet</servlet-class>
+		<servlet-class>com.amzi.servlets.DisplayPostServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>displaysub</servlet-name>
+		<servlet-class>com.amzi.servlets.DisplaySubServlet</servlet-class>
 	</servlet>
 
 	<servlet>
@@ -43,6 +48,21 @@
 		<servlet-name>pcomment</servlet-name>
 		<servlet-class>com.amzi.servlets.PostCommentServlet</servlet-class>
 	</servlet>
+
+	<servlet>
+		<servlet-name>createsub</servlet-name>
+		<servlet-class>com.amzi.servlets.CreateSubServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>createsub</servlet-name>
+		<url-pattern>/create-forum</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>displaysub</servlet-name>
+		<url-pattern>/sub-categories</url-pattern>
+	</servlet-mapping>
 
 	<servlet-mapping>
 		<servlet-name>pcomment</servlet-name>

@@ -49,7 +49,7 @@ public class Post extends HttpServlet {
 			if(rs.next()) {
 				String author = rs.getString("id");
 
-				pst = conn.prepareStatement("SELECT * FROM categories WHERE name=?");
+				pst = conn.prepareStatement("SELECT * FROM subcategories WHERE name=?");
 				pst.setString(1, values[2]);
 
 				rs = pst.executeQuery();
@@ -57,7 +57,11 @@ public class Post extends HttpServlet {
 				if(rs.next()) {
 					String category = rs.getString("id");
 								
+
 					pst = conn.prepareStatement("Insert INTO post(topic, content, date, author, catid) VALUES (?,?,now(),?,?)");
+
+					pst = conn.prepareStatement("Insert INTO post(topic, content, date, author, subcatid) VALUES (?,?,now(),?,?)");
+
 					pst.setString(1, values[3]);
 					pst.setString(2, values[4]);
 					pst.setString(3, author);

@@ -3,6 +3,7 @@ INSERT INTO categories (name, description) VALUES('europefoods','food');
 INSERT INTO categories (name, description) VALUES('americanfoods','food');
 INSERT INTO categories (name, description) VALUES('fulltimeprograms','program');
 INSERT INTO categories (name, description) VALUES('parttimeprograms','program');
+<<<<<<< HEAD
 INSERT INTO categories (name, description) VALUES('musics','media');
 INSERT INTO categories (name, description) VALUES('films','media');
 INSERT INTO categories (name, description) VALUES('tvseries','media');
@@ -36,4 +37,6 @@ INSERT INTO categories (name, description) VALUES('others','classified');
 
 
 
+=======
+>>>>>>> refs/remotes/origin/Kha
 select * from categories;

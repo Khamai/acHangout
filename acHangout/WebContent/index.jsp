@@ -64,20 +64,10 @@
 			<div class="col-sm-4">
 				<div class="well">
 					<img src='Resources/food.png' class="img-circle" height="80"
-						width="80" alt="Avatar"> <br /> <br />
+						width="80" alt="Avatar"><br /> <br />
 					<div class="btn-group">
-						<div class="dropdown">
-							<button class="btn btn-primary dropdown-toggle" type="button"
-								data-toggle="dropdown">
-								Food Topics <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu">
-								<li><a href="display?topic=asianfoods&page=1">Asian
-										Foods</a></li>
-								<li><a href="#">Europe Foods</a></li>
-								<li><a href="#">American Foods</a></li>
-							</ul>
-						</div>
+						<a href="sub-categories?topic=food" class="btn btn-primary"
+							role="button">Food Topics</a>
 					</div>
 				</div>
 			</div>
@@ -85,15 +75,9 @@
 				<div class="well">
 					<img src='Resources/study.png' class="img-circle" height="80"
 						width="80" alt="Avatar"><br /> <br />
-					<div class="dropdown">
-						<button class="btn btn-primary dropdown-toggle" type="button"
-							data-toggle="dropdown">
-							Program Topics <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu">
-							<li><a href="#">Full-time Programs</a></li>
-							<li><a href="#">Part-time Programs</a></li>
-						</ul>
+					<div class="btn-group">
+						<a href="sub-categories?topic=program" class="btn btn-primary"
+							role="button">Program Topics</a>
 					</div>
 				</div>
 			</div>
@@ -101,19 +85,9 @@
 				<div class="well">
 					<img src='Resources/media.png' class="img-circle" height="80"
 						width="80" alt="Avatar"><br /> <br />
-					<div class="dropdown">
-						<button class="btn btn-primary dropdown-toggle" type="button"
-							data-toggle="dropdown">
-							Media Topics <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu">
-							<li><a href="#">Musics</a></li>
-							<li><a href="#">Films</a></li>
-							<li><a href="#">TV Series</a></li>
-							<li><a href="#">TV Shows</a></li>
-							<li><a href="#">Anime</a></li>
-							<li><a href="#">Photos</a></li>
-						</ul>
+					<div class="btn-group">
+						<a href="sub-categories?topic=media" class="btn btn-primary"
+							role="button">Media Topics</a>
 					</div>
 				</div>
 			</div>
@@ -125,24 +99,9 @@
 				<div class="well">
 					<img src='Resources/sport.png' height="82" width="90" alt="Avatar">
 					<br /> <br />
-					<div class="dropdown">
-						<button class="btn btn-primary dropdown-toggle" type="button"
-							data-toggle="dropdown">
-							Sport Topics <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu">
-							<li><a href="#">Soccer</a></li>
-							<li><a href="#">American Football</a></li>
-							<li><a href="#">Basketball</a></li>
-							<li><a href="#">Baseball</a></li>
-							<li><a href="#">Hockey</a></li>
-							<li><a href="#">Fitness</a></li>
-							<li><a href="#">Badminton</a></li>
-							<li><a href="#">Swimming</a></li>
-							<li><a href="#">Tennis</a></li>
-							<li><a href="#">Others</a></li>
-
-						</ul>
+					<div class="btn-group">
+						<a href="sub-categories?topic=sport" class="btn btn-primary"
+							role="button">Sport Topics</a>
 					</div>
 				</div>
 			</div>
@@ -150,23 +109,19 @@
 				<div class="well">
 					<img src='Resources/help.png' class="img-circle" height="80"
 						width="80" alt="Avatar"><br /> <br />
-					<button type="button" class="btn btn-primary">Ask For Help</button>
+					<div class="btn-group">
+						<a href="sub-categories?topic=help" class="btn btn-primary"
+							role="button">Ask For Help</a>
+					</div>
 				</div>
 			</div>
 			<div class="col-sm-4">
 				<div class="well">
 					<img src='Resources/event.png' class="img-circle" height="80"
 						width="80" alt="Avatar"><br /> <br />
-					<div class="dropdown">
-						<button class="btn btn-primary dropdown-toggle" type="button"
-							data-toggle="dropdown">
-							Activity Topics <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu">
-							<li><a href="#">Event</a></li>
-							<li><a href="#">Indoor Activities</a></li>
-							<li><a href="#">Outdoor Activities</a></li>
-						</ul>
+					<div class="btn-group">
+						<a href="sub-categories?topic=activity" class="btn btn-primary"
+							role="button">Activity Topics</a>
 					</div>
 				</div>
 			</div>
@@ -179,25 +134,8 @@
 					<img src='Resources/comic.png' height="82" width="90" alt="Avatar">
 					<br /> <br />
 					<div class="btn-group">
-						<div class="dropdown">
-							<button class="btn btn-primary dropdown-toggle" type="button"
-								data-toggle="dropdown">
-								Book Topics <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu">
-								<li class="dropdown-header"
-									style="color: brown; font-weight: bold;">Literature</li>
-								<li><a href="#">Asia</a></li>
-								<li><a href="#">Africa</a></li>
-								<li><a href="#">Europe</a></li>
-								<li><a href="#">America</a></li>
-								<li class="divider"></li>
-								<li class="dropdown-header"
-									style="color: brown; font-weight: bold;">Books</li>
-								<li><a href="#">Manga</a></li>
-								<li><a href="#">Novel</a></li>
-							</ul>
-						</div>
+						<a href="sub-categories?topic=book" class="btn btn-primary"
+							role="button">Book Topics</a>
 					</div>
 				</div>
 			</div>
@@ -206,7 +144,10 @@
 				<div class="well">
 					<img src='Resources/happy.ico' class="img-circle" height="80"
 						width="80" alt="Avatar"><br /> <br />
-					<button type="button" class="btn btn-primary">Funny Spots</button>
+					<div class="btn-group">
+						<a href="sub-categories?topic=funny" class="btn btn-primary"
+							role="button">Funny Spots</a>
+					</div>
 				</div>
 			</div>
 
@@ -214,16 +155,9 @@
 				<div class="well">
 					<img src='Resources/money2.png' class="img-circle" height="80"
 						width="80" alt="Avatar"><br /> <br />
-					<div class="dropdown">
-						<button class="btn btn-primary dropdown-toggle" type="button"
-							data-toggle="dropdown">
-							Classified Topics <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu">
-							<li><a href="#">Houses/Apts For Renting</a></li>
-							<li><a href="#">Used Stuff</a></li>
-							<li><a href="#">Others</a></li>
-						</ul>
+					<div class="btn-group">
+						<a href="sub-categories?topic=classified" class="btn btn-primary"
+							role="button">Classified Topics</a>
 					</div>
 				</div>
 			</div>

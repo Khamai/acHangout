@@ -1,6 +1,3 @@
-/**
- *  Login class - handles the login between the servlet and database
- */
 package com.amzi.dao;
 
 import java.sql.Connection;
@@ -9,48 +6,68 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Login  {
+import javax.servlet.http.HttpServlet;
+
+public class CreateSub extends HttpServlet {
 	/**
-	 * Verify if database has the username and password.
-	 * Encrypts password into the database using AES 
 	 * 
-	 * @param name the username inputed by user
-	 * @param pass the password inputed by user
-	 * @return an encrypted password in string
 	 */
-	public static String validate(String name, String pass) {     
-		String status = null;
-		String salt = "1234";
+	private static final long serialVersionUID = 1L;
+
+	@SuppressWarnings("resource")
+	public static boolean insert(String values[]) {        
+		boolean status = false;
+
+
 		Connection conn = null;
+		ResultSet rs = null;
 
 
 		/*A SQL statement is precompiled and stored in a PreparedStatement object. 
 		 * This object can then be used to efficiently execute this statement multiple times. */
 		PreparedStatement pst = null;
 
-		ResultSet rs = null;
-
 		String url = "jdbc:mysql://localhost:3306/";
 		String dbName = "form";
 		String driver = "com.mysql.jdbc.Driver";
 		String userName = "root";
-		String password = "xxxx";
+		String password = "khamai_";
 		try {
 			Class.forName(driver).newInstance();
 
 			conn = DriverManager
 					.getConnection(url + dbName, userName, password);
+
 			//The question marks will then be replaced in the setString(nth question mark, replaced with) method.
-			pst = conn
-					.prepareStatement("select * from users where username=? and password=AES_ENCRYPT(?,UNHEX(?))");
-			pst.setString(1, name);
-			pst.setString(2, pass);
-			pst.setString(3, salt);
+
+			pst = conn.prepareStatement("SELECT * FROM users WHERE username=? and password=?");
+			pst.setString(1, values[0]);
+			pst.setString(2, values[1]);
 
 			rs = pst.executeQuery();
-			if(rs.next())
-				status = rs.getString("password");
 
+			if(rs.next()) {
+				String author = rs.getString("id");
+
+				pst = conn.prepareStatement("SELECT * FROM categories WHERE name=?");
+				pst.setString(1, values[4]);
+
+				rs = pst.executeQuery();
+
+				if(rs.next()) {
+					String catid = rs.getString("id");
+								
+					pst = conn.prepareStatement("insert into subcategories (name, description, catid, author) values (?,?,?,?);");
+					pst.setString(1, values[2]);
+					pst.setString(2, values[3]);
+					pst.setString(3, catid);
+					pst.setString(4, author);
+					pst.executeUpdate();
+
+					status = true;	
+				}
+
+			}
 
 		} catch (Exception e) {
 			System.out.println(e);
@@ -65,13 +82,6 @@ public class Login  {
 			if (pst != null) {
 				try {
 					pst.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if (rs != null) {
-				try {
-					rs.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
