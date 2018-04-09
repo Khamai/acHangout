@@ -64,13 +64,13 @@
 		<div class="row">
 			<ul class="breadcrumb">
 				<li><a href="index.jsp"><i class="fa fa-home fa-2x"></i></a></li>
-				<li class="active">${title}</li>
+				<li class="active">${cat}</li>
 			</ul>
 		</div>
 		<br />
 		<div class="row text-center">
 			<div class="page-header">
-				<h2>${title}</h2>
+				<h2>${cat}</h2>
 			</div>
 		</div>
 		<br /> <br /> <br /> <br />

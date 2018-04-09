@@ -39,7 +39,7 @@
 		<div class="row">
 			<ul class="breadcrumb">
 				<li><a href="index.jsp"><i class="fa fa-home fa-2x"></i></a></li>
-				<li class="active">Asian Foods</li>
+				<li class="active">${cat}</li>
 			</ul>
 		</div>
 		<br />

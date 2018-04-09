@@ -22,7 +22,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -45,13 +45,15 @@
 		<div class="row">
 			<ul class="breadcrumb">
 				<li><a href="index.jsp"><i class="fa fa-home fa-2x"></i></a></li>
-				<li>Asian Foods</li>
+				<li><a href="sub-categories?topic=${link}">${cat}</a></li>
+				<li><a href="display?sub=${title}">${title}</a></li>
 				<li class="active">New Post</li>
-
 			</ul>
 		</div>
-		<div class="page-header">
-			<h2 align=center>Create New Post</h2>
+		<div class="row">
+			<div class="page-header">
+				<h2 align=center>Create New Post</h2>
+			</div>
 		</div>
 		<br /> <br />
 		<div class="row">

@@ -24,13 +24,13 @@ public class CreateSubServlet extends HttpServlet{
 
 		HttpSession session = request.getSession(false);
 
+		
 		String username = (String) session.getAttribute("name");
 		String password = (String) session.getAttribute("pass");
 
 		String title = request.getParameter("title");
 		String description =  request.getParameter("description");
 		String topic = request.getParameter("topic");
-		System.out.println(topic);
 
 		if(topic == null) {
 			RequestDispatcher rd=request.getRequestDispatcher("newpost.jsp");  
