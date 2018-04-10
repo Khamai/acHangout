@@ -55,12 +55,21 @@
 	</servlet>
 
 	<servlet>
+<<<<<<< HEAD
 		<servlet-name>like</servlet-name>
 		<servlet-class>com.amzi.servlets.LikeServlet</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>like</servlet-name>
+=======
+		<servlet-name>rating</servlet-name>
+		<servlet-class>com.amzi.servlets.RatingServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>rating</servlet-name>
+>>>>>>> refs/remotes/origin/Kha
 		<url-pattern>/rating</url-pattern>
 	</servlet-mapping>
 
