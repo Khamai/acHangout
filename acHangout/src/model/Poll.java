@@ -5,18 +5,27 @@ import java.util.ArrayList;
 public class Poll {
 
 	private String question = null;
+	private String id = null;
 	
-	private ArrayList options = new ArrayList();
+	private ArrayList<String> options = new ArrayList<String>();
 	
+	public String getId() {
+		
+		return id;
+	}
 	
-	private String getQuestion() {
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	public String getQuestion() {
 		return question;
 	}
 	
 	
 	
 	
-	private void setQ(String question) {
+	public void setQuestion(String question) {
 		
 		this.question = question;
 	}
@@ -24,15 +33,13 @@ public class Poll {
 
 
 
-	public ArrayList getOptions() {
-		return options;
+	public void setOptions(String option) {
+		options.add(option);
 	}
-
-
-
-
-	public void setOptions(ArrayList options) {
-		options.add(options);
+	
+	public ArrayList getOptions() {
+		
+		return options;
 	}
 	
 

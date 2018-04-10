@@ -123,7 +123,7 @@ function setRate(){
 		var d = document.createElement('div');
 		d.setAttribute("class","row border border-warning");
 		d.setAttribute("id","left-field"+fieldNum);
-
+		
 
 		var r = document.createElement('span');
 		r.id = "span"+fieldNum;
@@ -204,7 +204,7 @@ function submitForm(){
 		alert("minimum 2 options for multiple choice poll");
 	}
 	else{
-	document.getElementById("option").value = fieldNum;
+	document.getElementById("fieldNum").value = fieldNum;
 	document.forms[0].submit();
 	document.forms[1].submit();
 	}

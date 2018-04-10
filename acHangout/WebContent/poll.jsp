@@ -53,7 +53,7 @@
 							<h2>Your Question</h2>
 						</div>
 						<div>
-							<textarea name="q" maxlength="255" rows="5" cols="40" required></textarea>
+							<textarea name="question" maxlength="255" rows="5" cols="40" required></textarea>
 						</div>
 
 						<div>
@@ -76,7 +76,7 @@
 
 
 			<!-- <form id=dynamicForm action="#" method="get"> -->	
-				<input type="hidden" name="option" id="option" value="" />
+				<input type="hidden" name="fieldNum" id="fieldNum" value="" />
 				
 					<div class="row">
 					
