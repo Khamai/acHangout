@@ -108,10 +108,10 @@
 								class="list-group-item">Funny spot</a> <a href="#"
 								class="list-group-item">Classified</a>
 						</div>
-						<form action="newpost.jsp" method="post">
+						<form action="NewTopic.jsp" method="post">
 							<div class="btn-group btn-group-md text-center">
-								<button type="submit" class="btn btn-primary">Start New
-									Forum</button>
+								<button type="submit" class="btn btn-primary">New
+									Sub-category</button>
 							</div>
 						</form>
 					</div>
