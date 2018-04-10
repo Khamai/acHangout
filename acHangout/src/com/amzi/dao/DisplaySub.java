@@ -7,9 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.amzi.bean.DisplayList;
+import com.amzi.bean.DisplaySubList;
 
-public class Display{
+public class DisplaySub{
 
 	public static Connection connect() {
 		Connection conn = null;
@@ -30,17 +30,17 @@ public class Display{
 
 	}
 	@SuppressWarnings("resource")
-	public static ArrayList<DisplayList> getRecord(String cat, int currentpage) {
+	public static ArrayList<DisplaySubList> getList(String cat, int currentpage) {
 
 
-		ArrayList<DisplayList> List = new ArrayList<DisplayList>();
+		ArrayList<DisplaySubList> List = new ArrayList<DisplaySubList>();
 
 		/* Max in 1 page */
 		int maxPost = 15;
 		/* Calculate the beginning row in each page */
 		int begin = (currentpage - 1) * maxPost;
 
-		DisplayList display;
+		DisplaySubList displaySub;
 
 		ResultSet rs = null;
 		Connection conn = null;
@@ -59,27 +59,23 @@ public class Display{
 			if(rs.next()) {
 				String catid = rs.getString("id");
 
-				pst = conn.prepareStatement("select p.topic, u.username, count(r.id) as comment, p.date, COALESCE(ra.liked,0) + COALESCE(ra.disliked,0) as rating from post p "
-						+ "inner join users u on p.author = u.id "
-						+ "left join reply r on p.id = r.id "
-						+ "left join rating ra on p.id = ra.id "
-						+ "where p.catid = ? group by p.id limit ?,?");
+				pst = conn.prepareStatement("SELECT s.name, s.description, count(p.subcatid) as total, max(p.date) as latest "
+						+ "from post p right join subcategories s on p.subcatid = s.id where s.catid = ? "
+						+ "group by p.subcatid, s.id order by s.id limit ?,?");
 				pst.setString(1, catid);
 				pst.setInt(2, begin);
 				pst.setInt(3, maxPost);
 				rs = pst.executeQuery();
 
-
 				while(rs.next()){
-					display = new DisplayList();
-					display.setTopic(rs.getString("p.topic"));
-					display.setUserName(rs.getString("u.username"));
-					display.setComment(rs.getString("comment"));
-					display.setDate(rs.getString("p.date"));
-					display.setRating(rs.getString("rating"));
+					displaySub = new DisplaySubList();
+					displaySub.setTopic(rs.getString("s.name"));
+					displaySub.setDescription(rs.getString("s.description"));
+					displaySub.setTotal(rs.getString("total"));
+					displaySub.setDate(rs.getString("latest"));
 
-					List.add(display);
-				}
+					List.add(displaySub);
+				}				
 			}
 
 		} catch (Exception e) {
@@ -103,7 +99,7 @@ public class Display{
 		return List;
 	}
 	@SuppressWarnings("resource")
-	public static int totalPost(String cat) {
+	public static int totalSub(String cat) {
 
 		int num = 0;
 		ResultSet rs = null;
@@ -124,7 +120,7 @@ public class Display{
 			if(rs.next()) {
 				String catid = rs.getString("id");
 
-				pst = conn.prepareStatement("select COUNT(id) as TOTAL from post where catid = ?");
+				pst = conn.prepareStatement("select count(catid) as TOTAL from subcategories where catid = ?");
 				pst.setString(1, catid);
 
 				rs = pst.executeQuery();
@@ -151,5 +147,46 @@ public class Display{
 			}
 		}
 		return num;
+	}
+	public static String title(String cat) {
+		String title = "";
+		ResultSet rs = null;
+
+
+		Connection conn = null;
+
+		/*A SQL statement is precompiled and stored in a PreparedStatement object. 
+		 * This object can then be used to efficiently execute this statement multiple times. */
+		PreparedStatement pst = null;
+		try {
+			conn = connect();
+			pst = conn.prepareStatement("SELECT * FROM categories WHERE name=?");
+			pst.setString(1, cat);
+
+			rs = pst.executeQuery();
+
+			if(rs.next()) 
+				title = rs.getString("description");
+
+		} catch (Exception e) {
+			System.out.println(e);
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (pst != null) {
+				try {
+					pst.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return title;
+
 	}
 }

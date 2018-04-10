@@ -3,22 +3,30 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
+
 <c:if test="${empty sessionScope.name && empty sessionScope.pass}">
-	<c:if test="${not empty param.page}">
+	<c:if test="${not empty param.sub}">
 		<%
-			int check = Integer.valueOf(request.getParameter("page"));
-					session.setAttribute("directpage", "display?topic=asianfoods&page=" + check);
+			String sub = request.getParameter("sub");
 		%>
-	</c:if>
-	<c:if test="${empty param.page}">
-		<%
-			session.setAttribute("directpage", "display?topic=asianfoods&page=1");
-		%>
+
+		<c:if test="${not empty param.page}">
+			<%
+				int check = Integer.valueOf(request.getParameter("page"));
+							session.setAttribute("directpage", "display?sub=" + sub + "&page=" + check);
+			%>
+		</c:if>
+		<c:if test="${empty param.page}">
+			<%
+				session.setAttribute("directpage", "display?sub=" + sub);
+			%>
+		</c:if>
 	</c:if>
 	<jsp:forward page="login.jsp" />
 </c:if>
 
-<c:if test="${empty param.page}">
+<c:if test="${not empty param.sub}">
+	<c:set var="sub" value="${param.sub}" />
 </c:if>
 
 <!DOCTYPE html>
@@ -54,14 +62,14 @@
 		<div class="row">
 			<ul class="breadcrumb">
 				<li><a href="index.jsp"><i class="fa fa-home fa-2x"></i></a></li>
-				<li class="active">Asian Foods</li>
+				<li><a href="sub-categories?topic=${link}">${cat}</a></li>
+				<li class="active">${title}</li>
 			</ul>
 		</div>
 		<br /> <br />
 		<div class="row text-right">
 			<form action="newpost.jsp" method="post">
-				<input type="hidden" name="cat" value="asianfoods"> <input
-					type="hidden" name="lastpage" value="${numberofpage}">
+				<input type="hidden" name="cat" value="${sub}">
 
 				<div class="btn-group btn-group-lg">
 					<button type="submit" class="btn btn-primary">New Post</button>
@@ -73,22 +81,20 @@
 	<div class="container">
 		<div class="row mt">
 			<div class="col-sm-12 forum-category lpad">
-				<h3>Asian's foods Posts</h3>
+				<h3>${title}</h3>
 			</div>
 			<div class="col-sm-12 forum-head lpad">
 				<div class="col-sm-6">Topic</div>
-				<div class="col-sm-2 child"
-					style="border-left: 2px solid hsl(212, 35%, 15%);">Author</div>
+				<div class="col-sm-2 child">Author</div>
 				<div class="col-sm-1 child">Comment</div>
 				<div class="col-sm-2 child">Date Created</div>
 				<div class="col-sm-1 child">Like/Dislike</div>
-
 			</div>
 			<c:if test="${not empty List}">
 				<c:forEach items="${List}" var="ok">
 					<div class="col-sm-12 forum-topic pad">
 						<div class="col-sm-6 child">
-							<a href="#">${ok.getTopic()}</a>
+							<a href="comment?q=${ok.getId()}">${ok.getTopic()}</a>
 						</div>
 						<div class="col-sm-2 child">${ok.getUserName()}</div>
 						<div class="col-sm-1 child">${ok.getComment()}</div>
@@ -97,6 +103,11 @@
 					</div>
 				</c:forEach>
 			</c:if>
+			<c:if test="${empty List}">
+				<div class="col-sm-12 forum-topic pad">
+					<h4>There are no post found!!</h4>
+				</div>
+			</c:if>
 		</div>
 	</div>
 	<br />
@@ -104,29 +115,28 @@
 	<div class="container text-center">
 		<div class="row">
 			<ul class="pagination">
-
 				<c:if test="${currentpage > 1}">
-					<li><a href="display?topic=asianfoods&page=1">First</a></li>
-					<li><a href="display?topic=asianfoods&page=${currentpage - 1}">&laquo;</a></li>
+					<li><a href="display?sub=${sub}&page=1">First</a></li>
+					<li><a href="display?sub=${sub}&page=${currentpage - 1}">&laquo;</a></li>
 				</c:if>
 
 				<c:forEach begin="1" end="${numberofpage}" var="page">
 					<c:choose>
 						<c:when test="${currentpage eq page }">
 							<li class="active"><a
-								href="display?topic=asianfoods&page=${currentpage}">${page}</a></li>
+								href="display?sub=${sub}&page=${currentpage}">${page}</a></li>
 						</c:when>
 						<c:otherwise>
-							<li><a href="display?topic=asianfoods&page=${page}">${page}</a></li>
+							<li><a href="display?sub=${sub}&page=${page}">${page}</a></li>
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
 
 				<c:if test="${currentpage lt numberofpage}">
-					<li><a href="display?topic=asianfoods&page=${currentpage + 1}">&raquo;</a></li>
-					<li><a href="display?topic=asianfoods&page=${numberofpage}">Last</a></li>
+					<li><a
+						href="display?sub=${sub}&page=${currentpage + 1}">&raquo;</a></li>
+					<li><a href="display?sub=${sub}&page=${numberofpage}">Last</a></li>
 				</c:if>
-
 			</ul>
 		</div>
 	</div>

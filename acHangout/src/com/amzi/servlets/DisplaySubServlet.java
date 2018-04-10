@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.amzi.bean.DisplayList;
-import com.amzi.dao.Display;
+import com.amzi.bean.DisplaySubList;
+import com.amzi.dao.DisplaySub;
 
-public class DisplayServlet extends HttpServlet {
+public class DisplaySubServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
@@ -21,29 +21,41 @@ public class DisplayServlet extends HttpServlet {
 			throws ServletException, IOException {  
 
 		int row = 0, maxPost = 15, numberofpage = 0, currentpage = 1;
+		String tempPage, title;
 		response.setContentType("text/html");  
 
+		tempPage = request.getParameter("page");
 
-		currentpage= Integer.valueOf(request.getParameter("page"));
-
-		HttpSession session = request.getSession(false);
-
-		if(currentpage == 0)
-			currentpage = 1;
+		if(tempPage != null && !tempPage.isEmpty()) {
+			currentpage= Integer.valueOf(tempPage);
+		}
 
 		String cat = request.getParameter("topic");
 
-		row = Display.totalPost(cat);
+
+		title = DisplaySub.title(cat);
+
+		if(title == "") 
+			response.sendRedirect("Error.jsp");
+
+		HttpSession session = request.getSession(false);
+
+		if(session!=null) {
+			session.setAttribute("cat", title);
+			session.setAttribute("link", cat);		
+		}
+
+		row = DisplaySub.totalSub(cat);
 
 		if(row % maxPost > 0)
 			numberofpage = (row / maxPost) + 1;
 		else
 			numberofpage = row / maxPost;
 
-		if(currentpage > numberofpage)
+		if(currentpage > numberofpage && numberofpage > 0)
 			currentpage = numberofpage;
 
-		ArrayList<DisplayList> List = Display.getRecord(cat,currentpage); 
+		ArrayList<DisplaySubList> List = DisplaySub.getList(cat,currentpage); 
 		request.setAttribute("List", List);
 
 
@@ -51,7 +63,7 @@ public class DisplayServlet extends HttpServlet {
 		request.setAttribute("currentpage", currentpage);
 
 
-		RequestDispatcher rd = request.getRequestDispatcher("asianfoods.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("Forum.jsp");
 		rd.include(request, response);
 
 	}

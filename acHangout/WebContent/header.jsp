@@ -1,10 +1,11 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%
-	String login = "Login";
-	if (session.getAttribute("name") != null && session.getAttribute("pass") != null) {
-		login = "Hello, " + (String) session.getAttribute("name");
-	}
-%>
+<c:set var="login" value="Login" />
+
+<c:if
+	test="${not empty sessionScope.name &&  not empty sessionScope.pass}">
+	<c:set var="login" value="Hello, ${sessionScope['name']}" />
+</c:if>
 <div class="jumbotron" style="background-color: #cccccc;">
 	<div class="container text-center">
 		<h1 style="color: #145A32;">ACHangout</h1>
@@ -29,15 +30,11 @@
 				<li><a href="#">Help&nbsp;<span
 						class="fa fa-question-circle-o"></span></a></li>
 			</ul>
-
-			<%
-				if (login == "Login") {
-			%>
 			<ul class="nav navbar-nav navbar-right">
 				<li>
 					<form class="navbar-form" action="search.jsp">
 						<div class="input-group">
-							<input type="text" class="form-control" placeholder="Search">
+							<input type="text" name="searchid" class="form-control" placeholder="Search">
 							<div class="input-group-btn">
 								<button class="btn btn-default" type="submit">
 									<i class="glyphicon glyphicon-search"></i>
@@ -48,35 +45,15 @@
 				</li>
 				<li><a href="#" onclick="open_translate(this)"
 					title="Google Translate"><i class="fa fa-globe"></i></a></li>
-				<li><a href="login.jsp"> <%=login%></a></li>
-
-				<li><a href="signup.jsp">Sign up</a></li>
+				<c:if test="${login == 'Login'}">
+					<li><a href="login.jsp">${login}</a></li>
+					<li><a href="signup.jsp">Sign up</a></li>
+				</c:if>
+				<c:if test="${login != 'Login'}">
+					<li><a href="profile.jsp">${login}</a></li>
+					<li><a href="logout">Logout</a></li>
+				</c:if>
 			</ul>
-			<%
-				} else {
-			%>
-			<ul class="nav navbar-nav navbar-right">
-				<li>
-					<form class="navbar-form" action="/search.jsp">
-						<div class="input-group">
-							<input type="text" class="form-control" placeholder="Search">
-							<div class="input-group-btn">
-								<button class="btn btn-default" type="submit">
-									<i class="glyphicon glyphicon-search"></i>
-								</button>
-							</div>
-						</div>
-					</form>
-				</li>
-				<li><a href="#" onclick="open_translate(this)"
-					title="Google Translate"><i class="fa fa-globe"></i></a></li>
-				<li><a href="login.jsp"> <%=login%></a></li>
-
-				<li><a href="logout">Logout</a></li>
-			</ul>
-			<%
-				}
-			%>
 			<div class="text-center" style='display: none; padding: 10px;'
 				id='google_translate_element'></div>
 		</div>

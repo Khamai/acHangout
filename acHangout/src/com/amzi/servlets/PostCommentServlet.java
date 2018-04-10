@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.amzi.dao.Post;
+import com.amzi.dao.PostComment;
 
 
 
-public class PostServlet extends HttpServlet{
+public class PostCommentServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 
@@ -28,29 +28,22 @@ public class PostServlet extends HttpServlet{
 
 		String username = (String) session.getAttribute("name");
 		String password = (String) session.getAttribute("pass");
-		String cat = request.getParameter("cat");
 		String content =  request.getParameter("content");
-		String topic = request.getParameter("topic");
-
-		if(topic == null) {
-
-			RequestDispatcher rd=request.getRequestDispatcher("newpost.jsp");  
-			rd.forward(request,response);
-		}
+		String postId = request.getParameter("postid");
 
 		String values[] = 
 			{
-					username,password,cat, topic,content
+					username,password,content, postId
 			};
 
-		if(Post.validate(values)){  
-			String pagename = "display?sub=" + cat + "&page=1";  
+		if(PostComment.add(values)){  
+			String pagename = "comment?q=" + postId;  
 			response.sendRedirect(pagename);
 		}  
 		else{  
-			String message = "Error! Failed to submit post";
+			String message = "Error! Failed to submit comment";
 			request.setAttribute("message", message);
-			request.getRequestDispatcher("newpost.jsp").forward(request, response);
+			request.getRequestDispatcher("comment.jsp").forward(request, response);
 		}  
 		out.close();  
 	}  
