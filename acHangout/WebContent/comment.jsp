@@ -69,14 +69,21 @@
 				<div id="likes"></div>
 				<div id="dislikes"></div>
 				<br /> <br />
+
 				<div class="form-group text-center">
-					<span id="count1">${liked}</span>&emsp; <input type="button"
-						value="Like" class="btn btn-primary"
-						onclick="like(); document.getElementById('count1').innerHTML++" />&emsp;
-					<input type="button" id="btn" value="Dislike"
-						class="btn btn-danger"
-						onclick="dislike(); document.getElementById('count2').innerHTML++" />&emsp;
-					<span id="count2">${disliked}</span>
+					<form action="rating" method="post">
+						<input type="hidden" name="postid" id="postid" value="${postid}"> <span
+							id="count1">${liked}</span>&emsp; <input type="submit"
+							value="Like" class="btn btn-primary"
+							onclick="submitLike('like'); document.getElementById('count1').innerHTML++;" />&emsp;
+
+						<input type="submit" id="btn" value="Dislike"
+							class="btn btn-danger"
+							onclick="submitLike('dislike'); document.getElementById('count2').innerHTML++;" />&emsp;
+						<span id="count2">${disliked}</span> <input type="hidden"
+							name="choice" id="choice" value="">
+
+					</form>
 				</div>
 			</div>
 			<hr>
@@ -139,12 +146,27 @@
 	<br />
 	<jsp:include page="footer.jsp" />
 	<script type="text/javascript">
-	$('count1').on('click', function() {
-	    $(this).prop('disabled', true);
-	});
-		var likes = ${liked};
-		var disLikes = ${disliked};
+		function submitLike(choice) {
+			if (choice === "like") {
+				document.getElementById("choice").value = "1";
+			} else if (choice === "dislike") {
+				document.getElementById("choice").value = "-1";
+			}
+		}
+		$('count1').on('click', function() {
+			$(this).prop('disabled', true);
+		});
+		var likes = $
+		{
+			liked
+		};
+		var disLikes = $
+		{
+			disliked
+		};
 		var total = 0;
+		var clickCount = 0;
+
 		<c:set var = "la" value="${total}"/>
 		function like() {
 			likes++;
@@ -155,7 +177,7 @@
 			calculateBar();
 		}
 		function calculateBar() {
-		total = likes + disLikes;
+			total = likes + disLikes;
 			var percentageLikes = (likes / total) * 100;
 			var percentageDislikes = (disLikes / total) * 100;
 
@@ -166,6 +188,7 @@
 					.toString()
 					+ "%";
 		}
+
 		calculateBar();
 	</script>
 </body>
