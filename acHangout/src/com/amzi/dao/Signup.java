@@ -55,17 +55,17 @@ public class Signup extends HttpServlet {
             pst.setString(3, salt);
             
             pst.executeUpdate();
-            
-            
-            pst = conn.prepareStatement("Insert INTO profile(firstname, lastname,email,phone,sex) VALUES (?,?,?,?,?)");
+           
+            pst = conn.prepareStatement("Insert INTO profile(firstname, lastname,email,phone,sex, numpost) VALUES (?,?,?,?,?, ?)");
             pst.setString(1, values[0]);
             pst.setString(2, values[1]);
             pst.setString(3, values[4]);
             pst.setString(4, values[5]);
             pst.setString(5, values[6]);
+            pst.setString((6), "0");
 
             pst.executeUpdate();
-           
+            
             status = true;
 
         } catch (Exception e) {

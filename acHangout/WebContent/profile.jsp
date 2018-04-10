@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 	
+	
+	
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -39,7 +42,7 @@
 				<!-- SIDEBAR USER TITLE -->
 				<div class="profile-usertitle">
 					<div class="profile-usertitle-name">
-						Marcus Doe
+						<%= session.getAttribute("firstname") %>
 					</div>
 					<div class="profile-usertitle-job">
 						Developer
@@ -69,6 +72,8 @@
 				<!-- END MENU -->
 			</div>
 		</div>
+		
+		<!-- About Me Description -->
 		<div class="col-md-9">
             <div class="profile-content">
 			   <h2>About Me</h2>
@@ -76,9 +81,10 @@
             
         <div class="col-md-9">
         	<div class="profile-button">
-        		<a href="editprofile.jsp" class="btn btn-primary" role="button">Edit</a>
+        		<a href="editprofile.jsp" type="button" class="btn btn-primary">Edit</a>
         	</div>
         </div>
+			
 		</div>
 	</div>
 </div>
@@ -87,4 +93,3 @@
 
 </body>
 </html>
-	

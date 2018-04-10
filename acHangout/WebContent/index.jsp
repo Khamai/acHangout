@@ -107,7 +107,7 @@
 							Media Topics <span class="caret"></span>
 						</button>
 						<ul class="dropdown-menu">
-							<li><a href="#">Musics</a></li>
+							<li><a href="#">Music</a></li>
 							<li><a href="#">Films</a></li>
 							<li><a href="#">TV Series</a></li>
 							<li><a href="#">TV Shows</a></li>
@@ -238,6 +238,12 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<br /> <br /> <br /> <a href="profile.jsp" class="btn btn-primary" role="button">Profile</a>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-sm-12">
+				<br /> <br /> <br /> <a href="test.jsp" class="btn btn-primary" role="button">Test</a>
 			</div>
 		</div>
 

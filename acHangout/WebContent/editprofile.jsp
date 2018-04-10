@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 	
+	<%
+	String login = "Login";
+	if (session.getAttribute("name") != null && session.getAttribute("pass") != null) {
+		login = "Hello, " + (String) session.getAttribute("name");
+	}
+	%>
+	
 <!DOCTYPE html>
 
 <html lang="en">
@@ -72,38 +79,18 @@
 		
 		<div class="col-md-9">
             <div class="profile-description">
-			   <label for="description">Description</label>
+			   <label for="description">About Me</label>
 			   <textarea class="form-control" rows="10" id="description"></textarea>
             </div>
-            
+         <br/>   
             
         <div class="form-group row">
         	<label class="col-md-3 col-form-label form-control label"></label>
-        	<div class="col-md-9">
-        			<input type="button" class="btn btn-primary" value="Edit">
-        			<input type="button" class="btn btn-primary" value="Save">
-        			</div>
-        	</div>
-           
-           
-       	<!--  
-       	  
-        <div class="col-md-9">
-        	<div class="profile-button">
-        		<a href="editprofile.jsp" class="btn btn-primary" role="button">Edit</a>
+        	<div class="col-lg-9">
+        			<input type="button" class="btn btn-primary" value="Save"> &nbsp;
+        			<input type="button" class="btn btn-secondary" value="Cancel">
         	</div>
         </div>
-        
-        <br/> <br/>	&nbsp;
-        
-        <div class="col-md-9">
-        	<div class="profile-button">
-        		<a href="#" class="btn btn-primary" role="button">Save</a>
-        	</div>
-        </div>
-        
-        -->
-        
         
 		</div>
 	</div>

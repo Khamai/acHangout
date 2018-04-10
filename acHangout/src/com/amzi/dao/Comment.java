@@ -95,7 +95,6 @@ public class Comment{
 		int num = 0;
 		ResultSet rs = null;
 
-
 		Connection conn = null;
 
 		/*A SQL statement is precompiled and stored in a PreparedStatement object. 

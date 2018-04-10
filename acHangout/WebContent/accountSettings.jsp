@@ -69,12 +69,51 @@
 				<!-- END MENU -->
 			</div>
 		</div>
-		</div>
-		</div>
 		
-		<!-- edit profile main page -->
-	
-		
+		<!-- put code here -->
+		<div class="col-md-9" id="edit">
+                    <form role="form">
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" value="Jane">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" value="Bishop">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="email" value="email@gmail.com">
+                            </div>
+                        </div>  
 
+                         <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Telephone</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" value="111 111-1111">
+                            </div>
+                        </div>
+                   
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label"></label>
+                            <div class="col-lg-9">
+                                <input type="reset" class="btn btn-secondary" value="Cancel">
+                                <input type="button" class="btn btn-primary" value="Save Changes">
+                            </div>
+                        </div>
+                    </form>
+                </div>	
+	</div>
+	</div>
+	
+	<br/>
+	<br/>
+		
 </body>
 </html>
+				

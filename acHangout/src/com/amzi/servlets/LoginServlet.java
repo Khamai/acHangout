@@ -12,8 +12,6 @@ import javax.servlet.http.HttpSession;
 
 import com.amzi.dao.Login;
 
-import model.VerifyRecaptcha;
-
 public class LoginServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
@@ -32,7 +30,6 @@ public class LoginServlet extends HttpServlet{
 		String gRecaptchaResponse = request.getParameter("g-recaptcha-response");
 		String pass = "";
 
-		boolean success = VerifyRecaptcha.verify(gRecaptchaResponse);
 
 		HttpSession session = request.getSession(false);
 		pass = Login.validate(n, p);
@@ -41,7 +38,7 @@ public class LoginServlet extends HttpServlet{
 			session.setAttribute("pass", pass);
 		}
 
-		if(pass != "" && success){  
+		if(pass != null){  
 			String pagename = (String) session.getAttribute("directpage");
 			if(pagename == null) {
 				String message ="login";
@@ -52,12 +49,9 @@ public class LoginServlet extends HttpServlet{
 		}  
 		else{  
 			String message = "";
-			if(success) {
-				message ="Sorry username or password error";
-			}
-			else {
-				message ="You missed the captcha. Care to try?";
-			}
+
+			message ="Sorry username or password error";
+
 			request.setAttribute("message", message);
 			request.getRequestDispatcher("login.jsp").forward(request, response); 
 		}   
