@@ -31,7 +31,7 @@ public class PostComment extends HttpServlet {
 		String dbName = "form";
 		String driver = "com.mysql.jdbc.Driver";
 		String userName = "root";
-		String password = "khamai_";
+		String password = "xxxx";
 		try {
 			Class.forName(driver).newInstance();
 
