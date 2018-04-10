@@ -21,6 +21,8 @@ public class Post extends HttpServlet {
 
 		Connection conn = null;
 		ResultSet rs = null;
+		int totalId = 0;
+		int postId = 1;
 
 
 		/*A SQL statement is precompiled and stored in a PreparedStatement object. 
@@ -56,12 +58,28 @@ public class Post extends HttpServlet {
 
 				if(rs.next()) {
 					String category = rs.getString("id");
-								
+
 					pst = conn.prepareStatement("Insert INTO post(topic, content, date, author, subcatid) VALUES (?,?,now(),?,?)");
 					pst.setString(1, values[3]);
 					pst.setString(2, values[4]);
 					pst.setString(3, author);
 					pst.setString(4, category);
+					pst.executeUpdate();
+
+					pst = conn.prepareStatement("SELECT max(id) as max FROM post");
+					rs = pst.executeQuery();
+					if(rs.next()) 
+						postId = Integer.parseInt(rs.getString("max"));
+
+					pst = conn.prepareStatement("SELECT * FROM rating");
+					rs = pst.executeQuery();
+
+					if(rs.next())
+						totalId = Integer.parseInt(rs.getString("id"));
+
+					pst = conn.prepareStatement("Insert into rating(id,liked,disliked,postid)values(?,0,0,?)");
+					pst.setInt(1, totalId + 1);
+					pst.setInt(2, postId);
 					pst.executeUpdate();
 
 					status = true;	

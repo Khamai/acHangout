@@ -25,7 +25,7 @@ public class Rating extends HttpServlet{
 		String dbName = "form";
 		String driver = "com.mysql.jdbc.Driver";
 		String userName = "root";
-		String password = "xxxx";
+		String password = "khamai_";
 
 		try {
 			Class.forName(driver).newInstance();
@@ -38,33 +38,36 @@ public class Rating extends HttpServlet{
 			rs = pst.executeQuery();
 
 			if(rs.next()) {
-				String id = rs.getString("id");
-				pst = conn.prepareStatement("SELECT * FROM post WHERE id=?");
+				String userId = rs.getString("id");
+
+				pst = conn.prepareStatement("select * from rating where postid = ?");
 				pst.setString(1, values[2]);
-
 				rs = pst.executeQuery();
-
 				if(rs.next()) {
-					String postid = rs.getString("id");
+					int ratingId = Integer.parseInt(rs.getString("id"));
+					
+					pst = conn.prepareStatement("Insert into uservotes (userid, rateid) values (?,?);");
+					
+					pst.setString(1, userId);
+					pst.setInt(2, ratingId);
+					pst.executeUpdate();
+
 
 					if(choice == 1) {
-						pst = conn.prepareStatement("Insert into rating(id,liked,disliked,postid)values(1,1)ON DUPLICATE KEY UPDATE liked=liked+1;");
-
-
+						pst = conn.prepareStatement("Insert into rating(id,postid)values(?,?)ON DUPLICATE KEY UPDATE liked=liked+1;");
 					}
 					else {
-						pst = conn.prepareStatement("Insert into rating(id,liked,disliked,postid)values(1,1)ON DUPLICATE KEY UPDATE disliked = disliked+1;");
-
+						pst = conn.prepareStatement("Insert into rating(id,postid)values(?,?)ON DUPLICATE KEY UPDATE disliked = disliked+1;");
 					}
 
-					pst.setString(1, values[2]);
+					pst.setInt(1, ratingId);
+					pst.setString(2, values[2]);
+
 					pst.executeUpdate();
 
 					status = true;	
 				}
 			}
-			pst.setString(1, values[2]);
-
 		}catch(Exception e) {
 			System.out.println(e);
 		}finally {

@@ -17,23 +17,24 @@ public class RatingServlet extends HttpServlet{
 	 * 
 	 */
 	private static final long serialVersionUID = -1500130484127461522L;
-	
+
 	public void doPost(HttpServletRequest request, HttpServletResponse response)  
 			throws ServletException, IOException {
-		
+
 		response.setContentType("text/html");  
 		PrintWriter out = response.getWriter(); 
-		
+
 		HttpSession session = request.getSession(false);
 
 		String username = (String) session.getAttribute("name");
 		String password = (String) session.getAttribute("pass");
 		int choice = Integer.parseInt(request.getParameter("choice"));
-		String postid = request.getParameter("postid");
-		
-		String values[] = {username,password,postid};	
+		String postId = request.getParameter("postid");
+
+		String values[] = {username,password,postId};	
 		if(Rating.validate(values, choice)){  
-			System.out.println("success");
+			String pagename = "comment?q=" + postId;  
+			response.sendRedirect(pagename);		
 		}  
 		else{  
 			String message = "Error! Failed to submit post";
