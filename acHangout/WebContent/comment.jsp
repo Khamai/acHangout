@@ -63,26 +63,23 @@
 			<div id="bar">
 				<h4>Rate this post:</h4>
 				<div class="text-center">
-					<c:out value="${la}" />
+					<c:out value="${List.get(0).getRating()}" />
 				</div>
 				<br />
 				<div id="likes"></div>
 				<div id="dislikes"></div>
 				<br /> <br />
-
 				<div class="form-group text-center">
 					<form action="rating" method="post">
-						<input type="hidden" name="postid" id="postid" value="${postid}"> <span
-							id="count1">${liked}</span>&emsp; <input type="submit"
+						<input type="hidden" name="postid" id="postid" value="${postid}">
+						<span id="count1">${liked}</span>&emsp; <input type="submit"
 							value="Like" class="btn btn-primary"
-							onclick="submitLike('like'); document.getElementById('count1').innerHTML++;" />&emsp;
-
+							onclick="submitLike('like'); document.getElementById('count1').innerHTML++" />&emsp;
 						<input type="submit" id="btn" value="Dislike"
 							class="btn btn-danger"
-							onclick="submitLike('dislike'); document.getElementById('count2').innerHTML++;" />&emsp;
+							onclick="submitLike('dislike'); document.getElementById('count2').innerHTML++" />&emsp;
 						<span id="count2">${disliked}</span> <input type="hidden"
 							name="choice" id="choice" value="">
-
 					</form>
 				</div>
 			</div>
@@ -156,18 +153,8 @@
 		$('count1').on('click', function() {
 			$(this).prop('disabled', true);
 		});
-		var likes = $
-		{
-			liked
-		};
-		var disLikes = $
-		{
-			disliked
-		};
-		var total = 0;
-		var clickCount = 0;
-
-		<c:set var = "la" value="${total}"/>
+		var likes = ${liked};
+		var disLikes = ${disliked};
 		function like() {
 			likes++;
 			calculateBar();
@@ -177,7 +164,7 @@
 			calculateBar();
 		}
 		function calculateBar() {
-			total = likes + disLikes;
+			var total = likes + disLikes;
 			var percentageLikes = (likes / total) * 100;
 			var percentageDislikes = (disLikes / total) * 100;
 
@@ -188,7 +175,6 @@
 					.toString()
 					+ "%";
 		}
-
 		calculateBar();
 	</script>
 </body>
