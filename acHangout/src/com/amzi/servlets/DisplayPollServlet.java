@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.amzi.dao.PollDao;
+
 import model.Poll;
 
 public class DisplayPollServlet extends HttpServlet {
@@ -31,37 +33,24 @@ public class DisplayPollServlet extends HttpServlet {
 			currentpage= Integer.valueOf(tempPage);
 		}
 
-		String cat = request.getParameter("sub");
-
-		title = DisplayPost.title(cat);
-
-		if(title == "") 
-			response.sendRedirect("Error.jsp");
-
-		HttpSession session = request.getSession(false);
-
-		if(session!=null) 
-			session.setAttribute("title", title);
-
-		row = DisplayPost.totalPost(cat);
-
-		if(row % maxPost > 0)
-			numberofpage = (row / maxPost) + 1;
+		if(row % maxPoll > 0)
+			numberofpage = (row / maxPoll) + 1;
 		else
-			numberofpage = row / maxPost;
+			numberofpage = row / maxPoll;
 
 		if(currentpage > numberofpage && numberofpage > 0)
 			currentpage = numberofpage;
 
-		ArrayList<DisplayPostList> List = DisplayPost.getRecord(cat,currentpage); 
-		request.setAttribute("List", List);
+		ArrayList<Poll> list = PollDao.getRecords();
+
+		request.setAttribute("List", list);
 
 
 		request.setAttribute("numberofpage", numberofpage);
 		request.setAttribute("currentpage", currentpage);
 
 
-		RequestDispatcher rd = request.getRequestDispatcher("PostList.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("pollList.jsp");
 		rd.include(request, response);
 
 	}

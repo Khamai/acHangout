@@ -5,23 +5,6 @@
 
 
 <c:if test="${empty sessionScope.name && empty sessionScope.pass}">
-	<c:if test="${not empty param.sub}">
-		<%
-			String sub = request.getParameter("sub");
-		%>
-
-		<c:if test="${not empty param.page}">
-			<%
-				int check = Integer.valueOf(request.getParameter("page"));
-							session.setAttribute("directpage", "display?sub=" + sub + "&page=" + check);
-			%>
-		</c:if>
-		<c:if test="${empty param.page}">
-			<%
-				session.setAttribute("directpage", "display?sub=" + sub);
-			%>
-		</c:if>
-	</c:if>
 	<jsp:forward page="login.jsp" />
 </c:if>
 
@@ -72,7 +55,7 @@
 				<input type="hidden" name="cat" value="${sub}">
 
 				<div class="btn-group btn-group-lg">
-					<button type="submit" class="btn btn-primary">New Post</button>
+					<a href="poll.jsp" class="btn btn-primary">New Poll</a>
 				</div>
 			</form>
 		</div>
@@ -84,28 +67,28 @@
 				<h3>${title}</h3>
 			</div>
 			<div class="col-sm-12 forum-head lpad">
-				<div class="col-sm-6">Topic</div>
+				<div class="col-sm-6">Question</div>
 				<div class="col-sm-2 child">Author</div>
-				<div class="col-sm-1 child">Comment</div>
-				<div class="col-sm-2 child">Date Created</div>
-				<div class="col-sm-1 child">Like/Dislike</div>
+				<div class="col-sm-1 child">Votes</div>
+				<div class="col-sm-2 child">Type</div>
+				<div class="col-sm-1 child">Date Created</div>
 			</div>
 			<c:if test="${not empty List}">
 				<c:forEach items="${List}" var="ok">
 					<div class="col-sm-12 forum-topic pad">
 						<div class="col-sm-6 child">
-							<a href="comment?q=${ok.getId()}">${ok.getTopic()}</a>
+							<a href="#">${ok.getQuestion()}</a>
 						</div>
-						<div class="col-sm-2 child">${ok.getUserName()}</div>
-						<div class="col-sm-1 child">${ok.getComment()}</div>
-						<div class="col-sm-2 child">${ok.getDate()}</div>
-						<div class="col-sm-1 child">${ok.getRating()}</div>
+						<div class="col-sm-2 child">${ok.getName()}</div>
+						<div class="col-sm-1 child">0</div>
+						<div class="col-sm-2 child">0</div>
+						<div class="col-sm-1 child">${ok.getDate()}</div>
 					</div>
 				</c:forEach>
 			</c:if>
 			<c:if test="${empty List}">
 				<div class="col-sm-12 forum-topic pad">
-					<h4>There are no post found!!</h4>
+					<h4>There are no poll found!!</h4>
 				</div>
 			</c:if>
 		</div>

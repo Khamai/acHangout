@@ -164,7 +164,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="well">
+		<div class="well" style="background-image:url('./Resources/data.jpg'">
 		<div class="row">
 			
 				<div class="col-sm-12">
@@ -172,7 +172,7 @@
 						role="button">Create a poll</a>
 				</div>
 				<div class="col-sm-12">
-					<br /> <br /> <br /> <a href="poll.jsp" class="btn btn-primary"
+					<br /> <br /> <br /> <a href="displaypoll" class="btn btn-primary"
 						role="button">Vote!</a>
 				</div>
 			</div>

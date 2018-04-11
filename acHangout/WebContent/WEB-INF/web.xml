@@ -56,6 +56,16 @@
 		<servlet-class>com.amzi.servlets.CreateSubServlet</servlet-class>
 	</servlet>
 
+	<servlet>
+		<servlet-name>displaypoll</servlet-name>
+		<servlet-class>com.amzi.servlets.DisplayPollServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>displaypoll</servlet-name>
+		<url-pattern>/displaypoll</url-pattern>
+	</servlet-mapping>
+	
 	<servlet-mapping>
 		<servlet-name>createsub</servlet-name>
 		<url-pattern>/create-forum</url-pattern>

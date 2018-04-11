@@ -27,16 +27,6 @@
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 				<li>
-					<form class="navbar-form" action="search.jsp">
-						<div class="input-group">
-							<input type="text" name="searchid" class="form-control" placeholder="Search">
-							<div class="input-group-btn">
-								<button class="btn btn-default" type="submit">
-									<i class="fas fa-search"></i>
-								</button>
-							</div>
-						</div>
-					</form>
 				</li>
 				<c:if test="${login == 'Login'}">
 					<li><a href="login.jsp">${login}</a></li>

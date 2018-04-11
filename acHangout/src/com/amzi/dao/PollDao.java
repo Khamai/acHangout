@@ -5,6 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+
+import com.amzi.bean.DisplayPostList;
 
 import model.Poll;
 
@@ -36,7 +39,7 @@ public class PollDao {
 	}
 
 	@SuppressWarnings("finally")
-	public boolean submitPoll(Poll poll) {     
+	public static boolean submitPoll(Poll poll) {     
 
 		boolean status = false;
 
@@ -64,7 +67,7 @@ public class PollDao {
 			pst.executeUpdate();
 			rs = pst.getGeneratedKeys();
 			if(rs.next()) {
-				poll.setPollId(rs.getInt(1));
+				poll.setPollId(rs.getString(1));
 
 				//Load into DB all the options for the poll.
 				pst = connection.prepareStatement("Insert INTO poll_option(answer, poll_id) VALUES (?,?)");
@@ -73,23 +76,25 @@ public class PollDao {
 					pst.setString(2,""+poll.getPollId());
 					pst.executeUpdate();
 				}
+				pst = connection.prepareStatement("Insert INTO poll_option(answer, poll_id) VALUES (?,?)");
+
 			}
 			if (pst != null) {
 				try {
 					pst.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
-				/*Upon SQL Exception, undo the previous statement and revert table changes.
-				 * 
-				 */
-				pst.executeUpdate("DELETE FROM form.poll WHERE poll_id ="+poll.getPollId());
-				pst.executeUpdate("SELECT MAX( 'option_id' ) FROM poll_option");
-				rs = pst.getResultSet();
-				pst.executeUpdate("ALTER TABLE poll_option auto_increment ="+(rs.getInt(1)-1));
-				pst.executeUpdate("SELECT MAX( 'poll_id' ) FROM table");
-				rs = pst.getResultSet();
-				pst.executeUpdate("ALTER TABLE poll auto_increment ="+(rs.getInt(1)-1));
-					
+					/*Upon SQL Exception, undo the previous statement and revert table changes.
+					 * 
+					 */
+					pst.executeUpdate("DELETE FROM form.poll WHERE poll_id ="+poll.getPollId());
+					pst.executeUpdate("SELECT MAX( 'option_id' ) FROM poll_option");
+					rs = pst.getResultSet();
+					pst.executeUpdate("ALTER TABLE poll_option auto_increment ="+(rs.getInt(1)-1));
+					pst.executeUpdate("SELECT MAX( 'poll_id' ) FROM table");
+					rs = pst.getResultSet();
+					pst.executeUpdate("ALTER TABLE poll auto_increment ="+(rs.getInt(1)-1));
+
 				}
 			}
 			if (connection != null) {
@@ -112,5 +117,56 @@ public class PollDao {
 
 
 		}
+	}
+	@SuppressWarnings("resource")
+	public static ArrayList<Poll> getRecords() {
+
+		Connection conn = DbConnector.connect();
+
+		ArrayList<Poll> list = new ArrayList<Poll>();
+
+		Poll temp;
+		ResultSet rs = null;
+
+
+		/*A SQL statement is precompiled and stored in a PreparedStatement object. 
+		 * This object can then be used to efficiently execute this statement multiple times. */
+		PreparedStatement pst = null;
+
+		try {
+
+			pst = conn.prepareStatement("select u.username, p.poll_id, p.author_id, p.question,  p.date from users u inner join poll p on u.id = p.author_id;");
+
+			rs = pst.executeQuery();
+
+			while(rs.next()){
+				temp = new Poll();
+
+				temp.setPollId(rs.getString("p.poll_id"));
+				temp.setUserId(rs.getString("p.author_id"));
+				temp.setName(rs.getString("u.username"));
+				temp.setQuestion(rs.getString("p.question"));
+				temp.setDate(rs.getString("p.date"));
+				list.add(temp);
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (pst != null) {
+				try {
+					pst.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return list;
 	}
 }
