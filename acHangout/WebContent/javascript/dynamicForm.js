@@ -10,7 +10,6 @@ function decrementField(){
 	fieldNum-= 1;
 }
 function qSetup(selection) {
-	alert("Selection: "+selection);
 	document.getElementById("multi").disabled = true;
 	document.getElementById("rating").disabled = true;
 	if(fieldNum == 0){
@@ -26,7 +25,6 @@ function qSetup(selection) {
 		break;
 
 	case "rating":
-		alert("rating selected v 2.0");
 		setRate();
 		break;
 
@@ -41,14 +39,11 @@ function qSetup(selection) {
 
 
 function deleteSetup(parentDiv, childDiv) {
-	alert("chilDiv "+childDiv+" received. Current fieldNum is "+fieldNum);
 	var child = document.getElementById(childDiv);
 	var parent = document.getElementById(parentDiv);
-	alert(childDiv);
 	parent.removeChild(child);
 	decrementField();
 
-	alert("Option deleted");
 	if(fieldNum === 0){
 		document.getElementById("multi").disabled = false;
 		document.getElementById("rating").disabled = false;
@@ -64,7 +59,6 @@ function deleteSetup(parentDiv, childDiv) {
 function setMulti() {
 	if(fieldNum != 4){
 		incrementField();
-		alert("set multi for input "+fieldNum);
 		var d = document.createElement('div');
 		d.setAttribute("class","row border border-warning");
 		d.setAttribute("id","left-field"+fieldNum);
@@ -86,7 +80,6 @@ function setMulti() {
 		var g = document.createElement("button");
 		g.setAttribute("class", "btn btn-danger");
 		g.id = "delete"+fieldNum;
-		alert("delete function for"+fieldNum);
 		//Setting on click deleteSetup("","left-field"+fieldNum) will always use the newest value and
 		//not current value at time of declaration.
 		g.onclick = function(){deleteSetup("left-box",d.getAttribute('id'))};
@@ -116,22 +109,20 @@ function setMulti() {
 }
 
 function setRate(){
+	incrementField();
 	for(fieldNum=1;fieldNum<6;fieldNum++){
-		alert("set multi for input "+fieldNum);
 		var d = document.createElement('div');
 		d.setAttribute("class","row border border-warning");
 		d.setAttribute("id","left-field"+fieldNum);
 
-
 		var r = document.createElement('span');
 		r.id = "span"+fieldNum;
 		r.setAttribute("style","color:Gold");
-
+		
 		var s = document.createElement('i');
 		s.id = "star"+fieldNum;
 		s.setAttribute("class","fas fa-star");
 		s.setAttribute("style","");
-
 
 
 		var y = document.createElement("INPUT");
@@ -139,9 +130,8 @@ function setRate(){
 		y.setAttribute("class","dyn-field");
 		y.setAttribute("placeholder", "rating description");
 		y.setAttribute("maxlength", "32");
-		y.setAttribute("required");
+		y.setAttribute("required","required");
 		y.name = "option"+fieldNum;
-
 		r.appendChild(s);
 		d.innerHTML = fieldNum;
 
@@ -177,7 +167,6 @@ function closeBtn(){
 	parent.appendChild(row);
 	row.appendChild(icon);
 	row.onclick = function(){closePress()};
-	alert("close button created");
 }
 
 function removeClose(){

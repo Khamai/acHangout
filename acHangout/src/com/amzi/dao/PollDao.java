@@ -18,9 +18,9 @@ public class PollDao {
 		PreparedStatement pst = null;
 
 		// get the connection for the database
-		Connection connection = DbConnector.connect();
+		Connection conn = DbConnector.connect();
 		try {
-			pst = connection.prepareStatement("SELECT * FROM users WHERE username=?");
+			pst = conn.prepareStatement("SELECT * FROM users WHERE username=?");
 			pst.setString(1,userName );
 
 			ResultSet rs = pst.executeQuery();
