@@ -53,7 +53,7 @@
 							<h2>Your Question</h2>
 						</div>
 						<div>
-							<textarea name="question" maxlength="255" rows="5" cols="40" required></textarea>
+							<textarea name="question" id="question" maxlength="255" rows="5" cols="40" required></textarea>
 						</div>
 
 						<div>
@@ -66,7 +66,7 @@
 							<button class="btn btn-primary" id="rating"
 								onClick="qSetup('rating')">Rating</button>
 						</div>
-					<input type="button" value="submit" class="btn btn-outline border border-dark" onclick="submitForm()">   
+					<input type="submit" value="submit" class="btn btn-outline border border-dark" onclick="submitForm()">   
 					</div>
 		<!-- 		</form> -->
 
@@ -77,7 +77,7 @@
 
 			<!-- <form id=dynamicForm action="#" method="get"> -->	
 				<input type="hidden" name="fieldNum" id="fieldNum" value="" />
-				
+				<input type="hidden" name="qType" id="qType" value="" />
 					<div class="row">
 					
 						<div class="col-md-10 border" id="left-box">

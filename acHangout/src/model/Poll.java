@@ -5,17 +5,17 @@ import java.util.ArrayList;
 public class Poll {
 
 	private String question = null;
-	private String id = null;
-	
+	private String userId = null;
+	private int pollId;
 	private ArrayList<String> options = new ArrayList<String>();
 	
-	public String getId() {
+	public String getUserId() {
 		
-		return id;
+		return userId;
 	}
 	
-	public void setId(String id) {
-		this.id = id;
+	public void setUserId(String id) {
+		this.userId = id;
 	}
 	
 	public String getQuestion() {
@@ -40,6 +40,14 @@ public class Poll {
 	public ArrayList getOptions() {
 		
 		return options;
+	}
+
+	public int getPollId() {
+		return pollId;
+	}
+
+	public void setPollId(int pollId) {
+		this.pollId = pollId;
 	}
 	
 

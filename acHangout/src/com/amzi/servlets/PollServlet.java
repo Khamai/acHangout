@@ -28,25 +28,33 @@ public class PollServlet extends HttpServlet{
 		HttpSession session = request.getSession(false);
 		int fieldNum = Integer.parseInt(request.getParameter("fieldNum"));
 		String question = request.getParameter("question");
+		String message = null;
+		
 		Poll poll = new Poll();
 		poll.setQuestion(question);
 		for(int i =1;i<=fieldNum;i++) {
 			poll.setOptions(request.getParameter("option"+i));
 		}
-		out.println("<br>Question: "+poll.getQuestion());
-		out.println(fieldNum+" options<br>");
-		for(Object i: poll.getOptions()) {
-			out.println("<br>option:"+i);
+		//out.println("<br>Question: "+poll.getQuestion());
+		//out.println(fieldNum+" options<br>");
+	//	for(Object i: poll.getOptions()) {
+	//		out.println("<br>option:"+i);
 			
-		}
+//		}
 		
 		
 		
 		
 		//Call poll DAO to save object to DB
 		PollDao pollDao = new PollDao();
+		poll.setUserId(pollDao.getUserId((String)session.getAttribute("name")));
 		
-		
+		if(!pollDao.submitPoll(poll)){
+			message="Sorry, an error occurred!";
+		}
+		else{
+			message="User registered successfully!";
+		}
 		
 		out.close(); 
 		

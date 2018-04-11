@@ -20,23 +20,21 @@ function qSetup(selection) {
 
 	case "multi":
 		setMulti();
-
-
+		if(fieldNum == 1){
+			setMulti();
+		}
 		break;
 
 	case "rating":
 		alert("rating selected v 2.0");
 		setRate();
-
-
 		break;
 
 	default:
 		alert("default case");
 	break;
 	}
-
-
+	document.getElementById("qType").value = selection;
 
 }
 
@@ -55,7 +53,7 @@ function deleteSetup(parentDiv, childDiv) {
 		document.getElementById("multi").disabled = false;
 		document.getElementById("rating").disabled = false;
 		removeClose();
-
+		document.getElementById("qType").value = "";
 
 	}
 
@@ -123,7 +121,7 @@ function setRate(){
 		var d = document.createElement('div');
 		d.setAttribute("class","row border border-warning");
 		d.setAttribute("id","left-field"+fieldNum);
-		
+
 
 		var r = document.createElement('span');
 		r.id = "span"+fieldNum;
@@ -133,7 +131,7 @@ function setRate(){
 		s.id = "star"+fieldNum;
 		s.setAttribute("class","fas fa-star");
 		s.setAttribute("style","");
-		
+
 
 
 		var y = document.createElement("INPUT");
@@ -141,22 +139,22 @@ function setRate(){
 		y.setAttribute("class","dyn-field");
 		y.setAttribute("placeholder", "rating description");
 		y.setAttribute("maxlength", "32");
-		y.setAttribute("required", "required");
+		y.setAttribute("required");
 		y.name = "option"+fieldNum;
 
 		r.appendChild(s);
 		d.innerHTML = fieldNum;
-		
+
 		r.appendChild(y);
 		d.appendChild(r);
 
 
 
 		document.getElementById("left-box").appendChild(d);
-	
+
 	}
 	fieldNum = 5;
-	
+
 }
 //Add [x] button to discard setup section and allow a different answer setup option
 
@@ -169,12 +167,12 @@ function closeBtn(){
 	row.id = "row";
 	close.id = "close";
 	icon.id= "icon";
-	
+
 	row.setAttribute("class","row");
 	row.setAttribute("style","font-size:2em; color:black");
 	icon.setAttribute("class","far fa-times-circle");
 
-	
+
 
 	parent.appendChild(row);
 	row.appendChild(icon);
@@ -200,13 +198,21 @@ function closePress(){
 }
 
 function submitForm(){
-	if(fieldNum < 2){
-		alert("minimum 2 options for multiple choice poll");
+	if(document.getElementById("qType").value === ""){
+		alert("Please select a question type and enter your options");
+		
+	}
+	else if(fieldNum < 2){
+
+		alert("Please enter a minimum of 2 options for multiple choice");
 	}
 	else{
-	document.getElementById("fieldNum").value = fieldNum;
-	document.forms[0].submit();
-	document.forms[1].submit();
+//		if(document.getElementById("question").value ){
+
+	//	}
+		//else{
+			document.getElementById("fieldNum").value = fieldNum;
+		//}
 	}
 
 }

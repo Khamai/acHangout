@@ -8,6 +8,9 @@ import java.sql.SQLException;
 
 public class Login  {
 
+	public Login() {
+		
+	}
 	public static String validate(String name, String pass) {     
 		String status = "";
 		String salt = "1234";
@@ -24,7 +27,7 @@ public class Login  {
 		String dbName = "form";
 		String driver = "com.mysql.jdbc.Driver";
 		String userName = "root";
-		String password = "khamai_";
+		String password = "root";
 		try {
 			Class.forName(driver).newInstance();
 
