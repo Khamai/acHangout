@@ -2,7 +2,8 @@ package com.amzi.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-public class DbConnector {
+
+public class Database {
 
 	public static Connection connect() {
 		Connection conn = null;
@@ -14,7 +15,8 @@ public class DbConnector {
 		String password = "khamai_";
 		try {
 			Class.forName(driver).newInstance();
-			conn = DriverManager.getConnection(url + dbName, userName, password);
+			conn = DriverManager
+					.getConnection(url + dbName, userName, password);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -22,4 +24,3 @@ public class DbConnector {
 
 	}
 }
-

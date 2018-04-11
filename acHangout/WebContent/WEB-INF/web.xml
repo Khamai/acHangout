@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app
-    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
-    version="2.5">
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+	version="2.5">
 	<servlet>
 		<servlet-name>login</servlet-name>
 		<servlet-class>com.amzi.servlets.LoginServlet</servlet-class>
@@ -57,7 +57,6 @@
 	</servlet>
 
 	<servlet>
-<<<<<<< HEAD
 		<servlet-name>rating</servlet-name>
 		<servlet-class>com.amzi.servlets.RatingServlet</servlet-class>
 	</servlet>
@@ -80,6 +79,21 @@
 	<servlet>
 		<servlet-name>editdes</servlet-name>
 		<servlet-class>com.amzi.servlets.EditDescriptionServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>extract</servlet-name>
+		<servlet-class>com.amzi.servlets.ExtractServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>edit</servlet-name>
+		<servlet-class>com.amzi.servlets.EditServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>updatelvl</servlet-name>
+		<servlet-class>com.amzi.servlets.updatelvlServlet</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
@@ -107,17 +121,16 @@
 		<url-pattern>/rating</url-pattern>
 	</servlet-mapping>
 
-=======
+	<servlet>
 		<servlet-name>displaypoll</servlet-name>
 		<servlet-class>com.amzi.servlets.DisplayPollServlet</servlet-class>
 	</servlet>
-	
+
 	<servlet-mapping>
 		<servlet-name>displaypoll</servlet-name>
 		<url-pattern>/displaypoll</url-pattern>
 	</servlet-mapping>
-	
->>>>>>> refs/remotes/origin/Lee
+
 	<servlet-mapping>
 		<servlet-name>createsub</servlet-name>
 		<url-pattern>/create-forum</url-pattern>
@@ -170,6 +183,21 @@
 	<servlet-mapping>
 		<servlet-name>poll</servlet-name>
 		<url-pattern>/poll</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>extract</servlet-name>
+		<url-pattern>/extract</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>edit</servlet-name>
+		<url-pattern>/edit</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>updatelvl</servlet-name>
+		<url-pattern>/updatelvl</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>

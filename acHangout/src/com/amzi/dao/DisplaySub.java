@@ -18,7 +18,7 @@ public class DisplaySub{
 		String dbName = "form";
 		String driver = "com.mysql.jdbc.Driver";
 		String userName = "root";
-		String password = "root";
+		String password = "khamai_";
 		try {
 			Class.forName(driver).newInstance();
 			conn = DriverManager

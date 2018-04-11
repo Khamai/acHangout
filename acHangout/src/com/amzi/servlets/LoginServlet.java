@@ -40,14 +40,14 @@ public class LoginServlet extends HttpServlet{
 		if(pass != null){  
 			session.setAttribute("name", n);
 			session.setAttribute("pass", pass);
-			
+
 			String pagename = (String) session.getAttribute("directpage");
 			if(pagename == null) {
 				String message ="login";
 				request.setAttribute("message", message);
 				request.getRequestDispatcher("index.jsp").forward(request, response); 
 			}
-			response.sendRedirect(pagename);
+			request.getRequestDispatcher("index.jsp").forward(request, response); 
 		}  
 		else{  
 			String message = "";
