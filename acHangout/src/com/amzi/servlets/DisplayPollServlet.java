@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.DisplayPostList;
+import model.Poll;
 
 public class DisplayPollServlet extends HttpServlet {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 154L;
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)  
 			throws ServletException, IOException {  
 
-		int row = 0, maxPost = 15, numberofpage = 0, currentpage = 1;
+		int row = 0, maxPoll = 15, numberofpage = 0, currentpage = 1;
 		String tempPage, title;
 
 		response.setContentType("text/html");  
