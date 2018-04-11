@@ -12,8 +12,6 @@ import javax.servlet.http.HttpSession;
 
 import com.amzi.dao.Post;
 
-
-
 public class PostServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;

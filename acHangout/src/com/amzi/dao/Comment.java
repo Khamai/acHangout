@@ -19,6 +19,7 @@ public class Comment{
 		String driver = "com.mysql.jdbc.Driver";
 		String userName = "root";
 		String password = "1234";
+		
 		try {
 			Class.forName(driver).newInstance();
 			conn = DriverManager

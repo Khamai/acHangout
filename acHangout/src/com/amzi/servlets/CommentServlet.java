@@ -23,10 +23,8 @@ public class CommentServlet extends HttpServlet {
 		int numberofpage = 0, total = 0;
 		response.setContentType("text/html");  
 
-
 		int topicId = Integer.valueOf(request.getParameter("q"));
 		HttpSession session = request.getSession(false);
-
 
 		ArrayList<CommentList> List = Comment.getRecord(topicId); 
 		request.setAttribute("List", List);
@@ -34,9 +32,7 @@ public class CommentServlet extends HttpServlet {
 		total = Comment.totalComment(topicId);
 		request.setAttribute("total", total);
 
-
 		RequestDispatcher rd = request.getRequestDispatcher("comment.jsp");
 		rd.include(request, response);
-
 	}
 }

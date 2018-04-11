@@ -5,25 +5,24 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServlet;
 
+import com.amzi.bean.CommentList;
 import com.amzi.bean.DisplayList;
+import com.amzi.bean.ProfileList;
+
 
 public class Profile extends HttpServlet {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@SuppressWarnings("resource")
 	public static boolean validate(String values[]) {        
 		boolean status = false;
 
-
 		Connection conn = null;
 		ResultSet rs = null;
-
 
 		/*A SQL statement is precompiled and stored in a PreparedStatement object. 
 		 * This object can then be used to efficiently execute this statement multiple times. */
@@ -34,12 +33,18 @@ public class Profile extends HttpServlet {
 		String driver = "com.mysql.jdbc.Driver";
 		String userName = "root";
 		String password = "1234";
+		
 		try {
 			Class.forName(driver).newInstance();
 
 			conn = DriverManager
 					.getConnection(url + dbName, userName, password);
-
+			
+			public static ArrayList<ProfileList> getRecord(int topicId) {
+			
+			ArrayList<ProfileList> List = new ArrayList<ProfileList>();
+			DisplayList display;
+			
 			//The question marks will then be replaced in the setString(nth question mark, replaced with) method.
 
 			pst = conn.prepareStatement("SELECT * FROM users WHERE username=? and password=?");
