@@ -25,13 +25,19 @@ public class Rating extends HttpServlet{
 		String dbName = "form";
 		String driver = "com.mysql.jdbc.Driver";
 		String userName = "root";
-		String password = "khamai_";
+		String password = "xxxx";
 
 		try {
 			Class.forName(driver).newInstance();
 			conn = DriverManager.getConnection(url + dbName, userName, password);
 
 			pst = conn.prepareStatement("SELECT * FROM users WHERE username=? and password=?");
+			pst.setString(1, values[0]);
+			pst.setString(2, values[1]);
+			//result set
+			rs = pst.executeQuery();
+			
+			pst = conn.prepareStatement("SELECT * FROM usersvotes WHERE userid=? and postid=?");
 			pst.setString(1, values[0]);
 			pst.setString(2, values[1]);
 			//result set

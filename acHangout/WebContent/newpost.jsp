@@ -7,12 +7,9 @@
 </c:if>
 
 <c:set var="category" value="${param.cat}" />
-<<<<<<< HEAD
-=======
 
 
 
->>>>>>> refs/remotes/origin/Kha
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,10 +1,10 @@
-<<<<<<< HEAD
+
 INSERT INTO categories (name, description) VALUES('asianfoods','food');
 INSERT INTO categories (name, description) VALUES('europefoods','food');
 INSERT INTO categories (name, description) VALUES('americanfoods','food');
 INSERT INTO categories (name, description) VALUES('fulltimeprograms','program');
 INSERT INTO categories (name, description) VALUES('parttimeprograms','program');
-<<<<<<< HEAD
+
 INSERT INTO categories (name, description) VALUES('musics','media');
 INSERT INTO categories (name, description) VALUES('films','media');
 INSERT INTO categories (name, description) VALUES('tvseries','media');
@@ -38,11 +38,9 @@ INSERT INTO categories (name, description) VALUES('others','classified');
 
 
 
-=======
->>>>>>> refs/remotes/origin/Kha
+
 select * from categories;
-=======
-use form;
+
 select * from subcategories;
 insert into subcategories (name, description, catid, author) values ('Asian Foods', 'food', 1, 1);
 insert into subcategories (name, description, catid, author) values ('European Foods','food',  1, 1);
@@ -136,4 +134,3 @@ select COUNT(id) as TOTAL from post where subcatid = 1;
 SELECT s.name, s.description, count(p.subcatid) as total, max(p.date) as latest from post p right join subcategories s on p.subcatid = s.id where s.catid = 1 group by p.subcatid, s.id order by s.id; 
 
 select count(catid) from subcategories where catid = 2;
->>>>>>> refs/remotes/origin/Kha

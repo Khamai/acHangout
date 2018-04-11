@@ -58,10 +58,8 @@ public class DisplaySubServlet extends HttpServlet {
 		ArrayList<DisplaySubList> List = DisplaySub.getList(cat,currentpage); 
 		request.setAttribute("List", List);
 
-
 		request.setAttribute("numberofpage", numberofpage);
 		request.setAttribute("currentpage", currentpage);
-
 
 		RequestDispatcher rd = request.getRequestDispatcher("Forum.jsp");
 		rd.include(request, response);
