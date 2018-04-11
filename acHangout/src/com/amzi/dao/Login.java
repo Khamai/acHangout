@@ -1,6 +1,3 @@
-/**
- *  Login class - handles the login between the servlet and database
- */
 package com.amzi.dao;
 
 import java.sql.Connection;
@@ -10,16 +7,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Login  {
-	/**
-	 * Verify if database has the username and password.
-	 * Encrypts password into the database using AES 
-	 * 
-	 * @param name the username inputed by user
-	 * @param pass the password inputed by user
-	 * @return an encrypted password in string
-	 */
+
+	public Login() {
+		
+	}
 	public static String validate(String name, String pass) {     
-		String status = null;
+		String status = "";
 		String salt = "1234";
 		Connection conn = null;
 
@@ -34,7 +27,7 @@ public class Login  {
 		String dbName = "form";
 		String driver = "com.mysql.jdbc.Driver";
 		String userName = "root";
-		String password = "khamai_";
+		String password = "root";
 		try {
 			Class.forName(driver).newInstance();
 

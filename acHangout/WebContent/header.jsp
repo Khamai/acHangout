@@ -6,6 +6,11 @@
 	test="${not empty sessionScope.name &&  not empty sessionScope.pass}">
 	<c:set var="login" value="Hello, ${sessionScope['name']}" />
 </c:if>
+<div class="jumbotron row" style="background-color: #cccccc;">
+	<div class="container text-center">
+		<h1 style="color: #145A32;">Ask A Question</h1>
+	</div>
+	</div>
 <div class="jumbotron" style="background-color: #cccccc;">
 	<div class="container text-center">
 		<h1 style="color: #145A32;">ACHangout</h1>

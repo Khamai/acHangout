@@ -1,93 +1,120 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:if test="${empty sessionScope.name && empty sessionScope.pass}">
+	<jsp:forward page="login.jsp" />
 
+</c:if>
 
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv='cache-control' content='no-cache'>
 <meta http-equiv='expires' content='0'>
 <meta http-equiv='pragma' content='no-cache'>
-<title>acHangout</title>
-<script src="javascript/dynamicForm.js" type="text/javascript"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="shortcut icon" type="image/x-icon" href="Resources/k.ico">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="style.css">
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<title>acHangout</title>
+
+<script defer
+	src="https://use.fontawesome.com/releases/v5.0.9/js/all.js"
+	integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
+	crossorigin="anonymous"></script>
+<script src="javascript/dynamicForm.js" type="text/javascript"></script>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+
+<style>
+.dyn-field {
+	margin: 20px;
+}
+
+body {
+	background-image: url('./Resources/brilliant.png');
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+</style>
 </head>
+
+
 
 <body>
 
-	<jsp:include page="header.jsp" />
-	<jsp:include page="top-menu.html" />
-
-	<br />
-	<br />
 
 
+	<jsp:include page="pollHeader.jsp" />
 	<div class="container-fluid">
 
-		<div class="row jumbotron">
+		<form id=pollForm action="poll" method="post"
+			onsubmit="event.preventDefault(); submitForm();">
 
-			<div class="col-md-6 form-group">
+			<div class="row">
 
-				<form id=pollForm action="PollController" method="get">
+				<div class="col-md-6 jumbotron form-group border"
+					style="height: 600px;">
 
-					<div>
-						<h2>Your Question</h2>
+
+					<!-- 	<form id=pollForm action="#" method="get">  -->
+					<div class="form-group">
+						<div>
+							<h2>Your Question</h2>
+						</div>
+						<div>
+							<textarea name="question" id="question" maxlength="255" rows="5"
+								cols="40" required></textarea>
+						</div>
+
+						<div>
+							<h3>Question Type</h3>
+						</div>
+
+						<div class="btn-group btn-group-sm">
+							<button class="btn btn-primary" id="multi"
+								onClick="qSetup('multi')">Multiple Choice</button>
+							<button class="btn btn-primary" id="rating"
+								onClick="qSetup('rating')">Rating</button>
+						</div>
+						<input type="submit" value="submit"
+							class="btn btn-outline border border-dark">
 					</div>
-					<div>
-						<textarea name="q" maxlength="255" rows="5" cols="40"
-							required="required"></textarea>
+					<!-- 		</form> -->
+
+
+				</div>
+				<div class="col-md-6 jumbotron form-group border">
+
+
+					<!-- <form id=dynamicForm action="#" method="get"> -->
+					<input type="hidden" name="fieldNum" id="fieldNum" value="" /> <input
+						type="hidden" name="qType" id="qType" value="" />
+					<div class="row">
+
+						<div class="col-md-10" id="left-box"></div>
+						<div class="col-md-2" id="right-box"></div>
+
+
 					</div>
 
-					<div>
-						<h3>Question Type</h3>
-					</div>
+					<!-- 	</form> -->
 
-					<div class="btn-group btn-group-sm">
-						<button class="btn btn-primary" id="qt1" onClick="qSetup('multi')">Multiple
-							Choice</button>
-						<button class="btn btn-primary" id="qt2" onClick="qSetup('short')">Short
-							Answer</button>
-						<button class="btn btn-primary" id="qt3" onClick="qSetup('rank')">Ranking</button>
-					</div>
 
-				</form>
+
+
+				</div>
 
 			</div>
-
-			<div class="col-md-6 form-group" id="dynamicForm">
-
-				<!-- multi
-				<div class= ? id="dynamicElement">
-				</div> -->
-
-			</div>
-
-
-		</div>
+		</form>
 
 	</div>
 
-
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-
-	<jsp:include page="footer.jsp" />
-
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

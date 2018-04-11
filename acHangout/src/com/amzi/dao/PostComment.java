@@ -19,7 +19,7 @@ public class PostComment extends HttpServlet {
 		boolean status = false;
 
 
-		Connection conn = null;
+		Connection conn = DbConnector.connect();
 		ResultSet rs = null;
 
 
@@ -27,16 +27,9 @@ public class PostComment extends HttpServlet {
 		 * This object can then be used to efficiently execute this statement multiple times. */
 		PreparedStatement pst = null;
 
-		String url = "jdbc:mysql://localhost:3306/";
-		String dbName = "form";
-		String driver = "com.mysql.jdbc.Driver";
-		String userName = "root";
-		String password = "khamai_";
+		
 		try {
-			Class.forName(driver).newInstance();
-
-			conn = DriverManager
-					.getConnection(url + dbName, userName, password);
+			
 
 			//The question marks will then be replaced in the setString(nth question mark, replaced with) method.
 

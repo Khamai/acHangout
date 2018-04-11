@@ -3,6 +3,7 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 
+
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -164,13 +165,19 @@
 				</div>
 			</div>
 		</div>
+		<div class="well" style="background-image:url('./Resources/data.jpg'">
 		<div class="row">
-			<div class="col-sm-12">
-				<br /> <br /> <br /> <a href="poll.jsp" class="btn btn-primary"
-					role="button">Create a poll</a>
+			
+				<div class="col-sm-12">
+					<br /> <br /> <br /> <a href="poll.jsp" class="btn btn-primary"
+						role="button">Create a poll</a>
+				</div>
+				<div class="col-sm-12">
+					<br /> <br /> <br /> <a href="displaypoll" class="btn btn-primary"
+						role="button">Vote!</a>
+				</div>
 			</div>
 		</div>
-
 	</div>
 	<br />
 	<br />
