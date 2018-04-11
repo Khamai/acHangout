@@ -38,6 +38,7 @@ CREATE TABLE `profile`
   `numpost` Bigint NOT NULL,
   `phone` Char(20),
   `sex` Char(20),
+  `description` Char(255),
   PRIMARY KEY (`id`),
  INDEX `IX_Relationship6` (`id`)
 )
@@ -297,4 +298,3 @@ ALTER TABLE `subcategories` ADD CONSTRAINT `catsub` FOREIGN KEY (`catid`) REFERE
 
 ALTER TABLE `subcategories` ADD CONSTRAINT `usersub` FOREIGN KEY (`author`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
-
