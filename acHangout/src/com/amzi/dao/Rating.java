@@ -13,7 +13,7 @@ public class Rating extends HttpServlet{
 	private static final long serialVersionUID = -1203125235252940220L;
 
 	@SuppressWarnings("resource")
-	public static boolean validate(String values[], int choice) {        
+	public static boolean vote(String values[], int choice) {        
 		boolean status = false;
 
 		Connection conn = null;
@@ -51,26 +51,86 @@ public class Rating extends HttpServlet{
 				rs = pst.executeQuery();
 				if(rs.next()) {
 					int ratingId = Integer.parseInt(rs.getString("id"));
-					
-					pst = conn.prepareStatement("Insert into uservotes (userid, rateid) values (?,?);");
-					
+
+					pst = conn.prepareStatement("select * from uservotes where userid = ? and rateid = ?;");
 					pst.setString(1, userId);
 					pst.setInt(2, ratingId);
-					pst.executeUpdate();
+					rs = pst.executeQuery();
+					if(!rs.next()) {
+
+						pst = conn.prepareStatement("Insert into uservotes (userid, rateid, pick) values (?,?,?);");
+
+						pst.setString(1, userId);
+						pst.setInt(2, ratingId);
+						pst.setInt(3, choice);
+						pst.executeUpdate();
 
 
-					if(choice == 1) {
-						pst = conn.prepareStatement("Insert into rating(id,postid)values(?,?)ON DUPLICATE KEY UPDATE liked=liked+1;");
+						if(choice == 1) {
+							pst = conn.prepareStatement("Insert into rating(id,postid)values(?,?)ON DUPLICATE KEY UPDATE liked=liked+1;");
+						}
+						else {
+							pst = conn.prepareStatement("Insert into rating(id,postid)values(?,?)ON DUPLICATE KEY UPDATE disliked = disliked+1;");
+						}
+
+						pst.setInt(1, ratingId);
+						pst.setString(2, values[2]);
+
+						pst.executeUpdate();
 					}
 					else {
-						pst = conn.prepareStatement("Insert into rating(id,postid)values(?,?)ON DUPLICATE KEY UPDATE disliked = disliked+1;");
+						int pick = Integer.parseInt(rs.getString("pick"));
+
+						if(pick == choice) {
+							pst = conn.prepareStatement("delete from uservotes where userid = ? and rateid = ?");
+							pst.setString(1, userId);
+							pst.setInt(2, ratingId);
+							pst.executeUpdate();
+
+							if(choice == 1) 
+								pst = conn.prepareStatement("Insert into rating(id,postid)values(?,?)ON DUPLICATE KEY UPDATE liked=liked-1;");
+
+							else
+								pst = conn.prepareStatement("Insert into rating(id,postid)values(?,?)ON DUPLICATE KEY UPDATE disliked = disliked-1;");
+
+							pst.setInt(1, ratingId);
+							pst.setString(2, values[2]);
+							pst.executeUpdate();
+						}
+						else if(pick != choice) {
+							
+							pst = conn.prepareStatement("UPDATE uservotes SET pick=? WHERE userid = ? and rateid = ?;");
+							pst.setInt(1, choice);
+							pst.setString(2, userId);
+							pst.setInt(3, ratingId);
+
+							pst.executeUpdate();
+							
+							if(choice == 1) {
+								pst = conn.prepareStatement("Insert into rating(id,postid)values(?,?)ON DUPLICATE KEY UPDATE disliked = disliked-1;");
+								pst.setInt(1, ratingId);
+								pst.setString(2, values[2]);
+								pst.executeUpdate();
+								
+								pst = conn.prepareStatement("Insert into rating(id,postid)values(?,?)ON DUPLICATE KEY UPDATE liked=liked+1;");
+								pst.setInt(1, ratingId);
+								pst.setString(2, values[2]);
+								pst.executeUpdate();
+							}
+							else {
+								pst = conn.prepareStatement("Insert into rating(id,postid)values(?,?)ON DUPLICATE KEY UPDATE liked=liked-1;");
+								pst.setInt(1, ratingId);
+								pst.setString(2, values[2]);
+								pst.executeUpdate();
+								
+								pst = conn.prepareStatement("Insert into rating(id,postid)values(?,?)ON DUPLICATE KEY UPDATE disliked = disliked+1;");
+								pst.setInt(1, ratingId);
+								pst.setString(2, values[2]);
+								pst.executeUpdate();
+								
+							}
+						}
 					}
-
-					pst.setInt(1, ratingId);
-					pst.setString(2, values[2]);
-
-					pst.executeUpdate();
-
 					status = true;	
 				}
 			}

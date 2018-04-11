@@ -59,6 +59,26 @@
 		<servlet-class>com.amzi.servlets.RatingServlet</servlet-class>
 	</servlet>
 
+	<servlet>
+		<servlet-name>profile</servlet-name>
+		<servlet-class>com.amzi.servlets.ProfileServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>editprofile</servlet-name>
+		<servlet-class>com.amzi.servlets.EditProfileServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>editprofile</servlet-name>
+		<url-pattern>/editprofile</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>profile</servlet-name>
+		<url-pattern>/account</url-pattern>
+	</servlet-mapping>
+
 	<servlet-mapping>
 		<servlet-name>rating</servlet-name>
 		<url-pattern>/rating</url-pattern>

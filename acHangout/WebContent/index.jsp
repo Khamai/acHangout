@@ -48,6 +48,7 @@
 			<strong>Success!</strong> You are successfully signed up!
 		</div>
 		<%
+		
 			} else if (name == "login") {
 		%>
 		<div class="alert alert-success alert-dismissible">
