@@ -46,6 +46,13 @@
 	<br />
 	<br />
 	<div class="container">
+		<div class="row">
+			<ul class="breadcrumb">
+				<li><a href="index.jsp"><i class="fa fa-home fa-2x"></i></a></li>
+				<li><a href="sub-categories?topic=${link}">${cat}</a></li>
+				<li class="active">${title}</li>
+			</ul>
+		</div>
 		<c:if test="${not empty List}">
 			<div class="well">
 				<h2>Topic:&emsp;${List.get(0).get_post_topic()}</h2>

@@ -39,6 +39,10 @@
 		<div class="row profile">
 			<div class="col-md-3">
 				<div class="profile-sidebar">
+					<div class="profile-userpic">
+						<img src='Resources/emptyprofile.png' class="img-responsive"
+							alt="">
+					</div>
 					<!-- SIDEBAR USERPIC -->
 					<!-- END SIDEBAR USERPIC -->
 					<!-- SIDEBAR USER TITLE -->
@@ -57,7 +61,7 @@
 					<!-- SIDEBAR MENU -->
 					<div class="profile-usermenu">
 						<ul class="nav">
-							<li><a href="profile.jsp"> <i
+							<li><a href="your-profile"> <i
 									class="glyphicon glyphicon-home"></i> Overview
 							</a></li>
 							<li class="active"><a href="accountSettings.jsp"> <i
@@ -69,7 +73,6 @@
 				</div>
 			</div>
 			<div class="col-md-9" id="edit">
-
 				<c:if test="${not empty List}">
 					<c:forEach items="${List}" var="ok">
 						<!-- put code here -->

@@ -50,7 +50,7 @@
 					<li><a href="signup.jsp">Sign up</a></li>
 				</c:if>
 				<c:if test="${login != 'Login'}">
-					<li><a href="profile.jsp">${login}</a></li>
+					<li><a href="your-profile">${login}</a></li>
 					<li><a href="logout">Logout</a></li>
 				</c:if>
 			</ul>

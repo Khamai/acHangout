@@ -37,14 +37,16 @@
 		<div class="row profile">
 			<div class="col-md-3">
 				<div class="profile-sidebar">
+					<div class="profile-userpic">
+						<img src='Resources/emptyprofile.png' class="img-responsive"
+							alt="">
+					</div>
 					<!-- SIDEBAR USERPIC -->
 					<!-- END SIDEBAR USERPIC -->
 					<!-- SIDEBAR USER TITLE -->
 					<div class="profile-usertitle">
 						<div class="profile-usertitle-job">Welcome</div>
-						<div class="profile-usertitle-name">
-							<%=session.getAttribute("name")%>
-						</div>
+						<div class="profile-usertitle-name">${name}</div>
 					</div>
 					<!-- END SIDEBAR USER TITLE -->
 					<!-- SIDEBAR BUTTONS -->
@@ -55,7 +57,7 @@
 					<!-- SIDEBAR MENU -->
 					<div class="profile-usermenu">
 						<ul class="nav">
-							<li class="active"><a href="profile.jsp"> <i
+							<li class="active"><a href="your-profile"> <i
 									class="glyphicon glyphicon-home"></i> Overview
 							</a></li>
 							<li><a href="account"> <i
@@ -71,13 +73,37 @@
 			<div class="col-md-9">
 				<div class="profile-content">
 					<h2>About Me</h2>
-					<p>Currently, there is nothing about me</p>
-				</div>
-				<br />
-				<div class="profile-button">
-					<a href="editprofile.jsp" type="button" class="btn btn-primary">Edit</a>
-				</div>
+					<br />
+					<c:if test="${not empty List}">
+						<c:forEach items="${List}" var="ok">
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">First
+									name:</label>${ok.getLastName()}
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">Last
+									name:</label>${ok.getLastName()}
 
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">Email:</label>${ok.getLastName()}
+							</div>
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">Telephone:</label>${ok.getTelephone()}
+							</div>
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">Description:</label>${ok.getDescription()}
+							</div>
+						</c:forEach>
+					</c:if>
+					<br />
+				</div>
+				<div class="profile-button">
+					<a href="editprofile.jsp" type="button" class="btn btn-primary">Edit
+						your description</a>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -25,92 +25,66 @@
 	<!-- I include header and top-menu separately because the other web pages also need to have both of them 
 		so don't need to do again one more time
 	-->
-<jsp:include page="header.jsp" />
+	<jsp:include page="header.jsp" />
 
-<div class="container">
-    <div class="row profile">
-		<div class="col-md-3">
-			<div class="profile-sidebar">
-				<!-- SIDEBAR USERPIC -->
-				<div class="profile-userpic">
-					<img src="http://keenthemes.com/preview/metronic/theme/assets/admin/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
-				</div>
-				<!-- END SIDEBAR USERPIC -->
-				<!-- SIDEBAR USER TITLE -->
-				<div class="profile-usertitle">
-					<div class="profile-usertitle-name">
-						Marcus Doe
+	<div class="container">
+		<div class="row profile">
+			<div class="col-md-3">
+				<div class="profile-sidebar">
+					<!-- SIDEBAR USERPIC -->
+					<div class="profile-userpic">
+						<img src='Resources/emptyprofile.png' class="img-responsive"
+							alt="">
 					</div>
-					<div class="profile-usertitle-job">
-						Developer
+					<!-- END SIDEBAR USERPIC -->
+					<!-- SIDEBAR USER TITLE -->
+					<div class="profile-usertitle">
+						<div class="profile-usertitle-job">Welcome</div>
+						<div class="profile-usertitle-name">${name}</div>
 					</div>
+					<!-- END SIDEBAR USER TITLE -->
+					<!-- SIDEBAR BUTTONS -->
+					<div class="profile-userbuttons">
+						<button type="button" class="btn btn-danger btn-sm">Message</button>
+					</div>
+					<!-- END SIDEBAR BUTTONS -->
+					<!-- SIDEBAR MENU -->
+					<div class="profile-usermenu">
+						<ul class="nav">
+							<li class="active"><a href="your-profile"> <i
+									class="glyphicon glyphicon-home"></i> Overview
+							</a></li>
+							<li><a href="accountsettings.jsp"> <i
+									class="glyphicon glyphicon-user"></i> Account Settings
+							</a></li>
+						</ul>
+					</div>
+					<!-- END MENU -->
 				</div>
-				<!-- END SIDEBAR USER TITLE -->
-				<!-- SIDEBAR BUTTONS -->
-				<div class="profile-userbuttons">
-					<button type="button" class="btn btn-danger btn-sm">Message</button>
-				</div>
-				<!-- END SIDEBAR BUTTONS -->
-				<!-- SIDEBAR MENU -->
-				<div class="profile-usermenu">
-					<ul class="nav">
-						<li class="active">
-							<a href="profile.jsp">
-							<i class="glyphicon glyphicon-home"></i>
-							Overview </a>
-						</li>
-						<li>
-							<a href="accountSettings.jsp">
-							<i class="glyphicon glyphicon-user"></i>
-							Account Settings </a>
-						</li>
-					</ul>
-				</div>
-				<!-- END MENU -->
 			</div>
-		</div>
-		
-		<div class="col-md-9">
-            <div class="profile-description">
-			   <label for="description">Description</label>
-			   <textarea class="form-control" rows="10" id="description"></textarea>
-            </div>
-            
-            
-        <div class="form-group row">
-        	<label class="col-md-3 col-form-label form-control label"></label>
-        	<div class="col-md-9">
-        			<input type="button" class="btn btn-primary" value="Edit">
-        			<input type="button" class="btn btn-primary" value="Save">
-        			</div>
-        	</div>
-           
-           
-       	<!--  
-       	  
-        <div class="col-md-9">
-        	<div class="profile-button">
-        		<a href="editprofile.jsp" class="btn btn-primary" role="button">Edit</a>
-        	</div>
-        </div>
-        
-        <br/> <br/>	&nbsp;
-        
-        <div class="col-md-9">
-        	<div class="profile-button">
-        		<a href="#" class="btn btn-primary" role="button">Save</a>
-        	</div>
-        </div>
-        
-        -->
-        
-        
+			<form role="form" action="editdescription" method="post">
+				<div class="col-md-9">
+					<div class="profile-description">
+						<label for="description">Description</label>
+						<textarea class="form-control" rows="10" id="description"
+							maxlength="255" name="description"></textarea>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-md-3 col-form-label form-control label"></label>
+						<div class="col-md-9">
+							<input type="reset" class="btn btn-secondary" value="Cancel">
+							<input type="submit" class="btn btn-primary" value="Edit">
+						</div>
+					</div>
+				</div>
+			</form>
+
+
 		</div>
 	</div>
-</div>
-<br>
-<br>
+	<br>
+	<br>
 
 </body>
 </html>
-	

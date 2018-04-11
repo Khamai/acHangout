@@ -69,6 +69,26 @@
 		<servlet-class>com.amzi.servlets.EditProfileServlet</servlet-class>
 	</servlet>
 
+	<servlet>
+		<servlet-name>getdes</servlet-name>
+		<servlet-class>com.amzi.servlets.GetDescriptionServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>editdes</servlet-name>
+		<servlet-class>com.amzi.servlets.EditDescriptionServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>editdes</servlet-name>
+		<url-pattern>/editdescription</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>getdes</servlet-name>
+		<url-pattern>/your-profile</url-pattern>
+	</servlet-mapping>
+
 	<servlet-mapping>
 		<servlet-name>editprofile</servlet-name>
 		<url-pattern>/editprofile</url-pattern>
