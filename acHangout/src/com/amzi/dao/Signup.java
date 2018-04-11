@@ -49,7 +49,7 @@ public class Signup extends HttpServlet {
             
             //The question marks will then be replaced in the setString(nth question mark, replaced with) method.
             
-            pst = conn.prepareStatement("Insert INTO users(username,password,date,level) VALUES (?,AES_ENCRYPT(?,UNHEX(?)),NOW(),0)");
+            pst = conn.prepareStatement("Insert INTO users(username,password,date,level) VALUES (?,AES_ENCRYPT(?,UNHEX(?)),NOW(),1)");
             pst.setString(1, values[2]);
             pst.setString(2, values[3]);
             pst.setString(3, salt);

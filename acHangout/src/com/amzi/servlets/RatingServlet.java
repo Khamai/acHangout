@@ -32,14 +32,14 @@ public class RatingServlet extends HttpServlet{
 		String postId = request.getParameter("postid");
 
 		String values[] = {username,password,postId};	
-		if(Rating.validate(values, choice)){  
+		
+		if(Rating.vote(values, choice)){ 
 			String pagename = "comment?q=" + postId;  
 			response.sendRedirect(pagename);		
 		}  
 		else{  
-			String message = "Error! Failed to submit post";
-			request.setAttribute("message", message);
-			request.getRequestDispatcher("newpost.jsp").forward(request, response);
+			String pagename = "comment?q=" + postId;  
+			response.sendRedirect(pagename);	
 		}  
 		out.close();  
 	}  

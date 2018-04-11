@@ -11,11 +11,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.amzi.dao.Signup;
-
-
 
 public class SignupServlet extends HttpServlet{
 
@@ -38,13 +35,6 @@ public class SignupServlet extends HttpServlet{
 					request.getParameter("email"),request.getParameter("tel"),
 					request.getParameter("sex")
 			};
-
-
-		HttpSession session = request.getSession(false);
-
-		for(int i = 0; i < values.length; ++i)
-			if(session!=null)
-				session.setAttribute(i+"", values[i]);
 
 		if(Signup.validate(values)){  
 			String message ="signup";

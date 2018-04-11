@@ -47,8 +47,7 @@
 	<br />
 	<div class="container">
 		<c:if test="${not empty List}">
-			<div class="well"
-				style="border-bottom: 5px solid #126758; background-color: #f2f2f2;">
+			<div class="well">
 				<h2>Topic:&emsp;${List.get(0).get_post_topic()}</h2>
 				<p>
 					<small style="color: #9999ff; font-size: 13px;">&emsp;<span
@@ -72,13 +71,17 @@
 				<div class="form-group text-center">
 					<form action="rating" method="post">
 						<input type="hidden" name="postid" id="postid" value="${postid}">
-						<span id="count1">${liked}</span>&emsp; <input type="submit"
-							value="Like" class="btn btn-primary"
-							onclick="submitLike('like'); document.getElementById('count1').innerHTML++" />&emsp;
-						<input type="submit" id="btn" value="Dislike"
-							class="btn btn-danger"
-							onclick="submitLike('dislike'); document.getElementById('count2').innerHTML++" />&emsp;
-						<span id="count2">${disliked}</span> <input type="hidden"
+						<span id="count1">${liked}</span>&emsp;
+						<button type="submit" class="btn btn-primary"
+							onclick="submitLike('like');">
+							<span class="fa fa-thumbs-o-up"></span> Like
+						</button>
+						&emsp;
+						<button type="submit" class="btn btn-primary"
+							onclick="submitLike('dislike');">
+							<span class="fa fa-thumbs-o-down"></span> Dislike
+						</button>
+						&emsp; <span id="count2">${disliked}</span> <input type="hidden"
 							name="choice" id="choice" value="">
 					</form>
 				</div>
@@ -150,19 +153,10 @@
 				document.getElementById("choice").value = "-1";
 			}
 		}
-		$('count1').on('click', function() {
-			$(this).prop('disabled', true);
-		});
-		var likes = ${liked};
-		var disLikes = ${disliked};
-		function like() {
-			likes++;
-			calculateBar();
-		}
-		function dislike() {
-			disLikes++;
-			calculateBar();
-		}
+
+		var likes = <c:out value="${liked}"/>;
+		var disLikes = <c:out value="${disliked}"/>;
+
 		function calculateBar() {
 			var total = likes + disLikes;
 			var percentageLikes = (likes / total) * 100;

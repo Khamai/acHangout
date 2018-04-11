@@ -71,14 +71,20 @@ public class Post extends HttpServlet {
 					if(rs.next()) 
 						postId = Integer.parseInt(rs.getString("max"));
 
-					pst = conn.prepareStatement("SELECT * FROM rating");
+					pst = conn.prepareStatement("select max(id) as maxrating from rating;");
 					rs = pst.executeQuery();
 
-					if(rs.next())
-						totalId = Integer.parseInt(rs.getString("id"));
-
-					pst = conn.prepareStatement("Insert into rating(id,liked,disliked,postid)values(?,0,0,?)");
-					pst.setInt(1, totalId + 1);
+					if(rs.next()) {
+						String returnmax = rs.getString("maxrating");
+						if(returnmax == null) 
+							totalId = 1;
+						else {
+							totalId = Integer.parseInt(returnmax);
+							totalId++;
+						}
+					}
+					pst = conn.prepareStatement("Insert into rating(id,liked,disliked,postid)values(?,0,0,?);");
+					pst.setInt(1, totalId);
 					pst.setInt(2, postId);
 					pst.executeUpdate();
 
