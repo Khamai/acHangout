@@ -40,7 +40,7 @@
 
 	<div class="container-fluid">
 
-	<form id=pollForm action="poll" method="post"> 
+	<form id=pollForm action="poll" method="post" onsubmit="event.preventDefault(); submitForm();"> 
 
 		<div class="row">
 			<div class="col-md-6 jumbotron form-group border"
@@ -66,7 +66,7 @@
 							<button class="btn btn-primary" id="rating"
 								onClick="qSetup('rating')">Rating</button>
 						</div>
-					<input type="submit" value="submit" class="btn btn-outline border border-dark" onclick="submitForm()">   
+					<input type="submit" value="submit" class="btn btn-outline border border-dark">   
 					</div>
 		<!-- 		</form> -->
 

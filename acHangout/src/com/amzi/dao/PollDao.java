@@ -35,6 +35,7 @@ public class PollDao {
 		return userId;
 	}
 
+	@SuppressWarnings("finally")
 	public boolean submitPoll(Poll poll) {     
 
 		boolean status = false;
@@ -57,7 +58,7 @@ public class PollDao {
 
 			//	String pollid = rs.getString("pollid");
 
-			pst = connection.prepareStatement("Insert INTO poll(author_id, question, date) VALUES (?,?,now())", pst.RETURN_GENERATED_KEYS);
+			pst = connection.prepareStatement("Insert INTO poll(author_id, question, date) VALUES (?,?,now())", Statement.RETURN_GENERATED_KEYS);
 			pst.setString(1, poll.getUserId());
 			pst.setString(2, poll.getQuestion());
 			pst.executeUpdate();
@@ -66,7 +67,7 @@ public class PollDao {
 				poll.setPollId(rs.getInt(1));
 
 				//Load into DB all the options for the poll.
-				pst = connection.prepareStatement("Insert INTO option(answer, poll_id) VALUES (?,?)");
+				pst = connection.prepareStatement("Insert INTO poll_option(answer, poll_id) VALUES (?,?)");
 				for(Object i : poll.getOptions()) {
 					pst.setString(1, i.toString());
 					pst.setString(2,""+poll.getPollId());
@@ -78,6 +79,17 @@ public class PollDao {
 					pst.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
+				/*Upon SQL Exception, undo the previous statement and revert table changes.
+				 * 
+				 */
+				pst.executeUpdate("DELETE FROM form.poll WHERE poll_id ="+poll.getPollId());
+				pst.executeUpdate("SELECT MAX( 'option_id' ) FROM poll_option");
+				rs = pst.getResultSet();
+				pst.executeUpdate("ALTER TABLE poll_option auto_increment ="+(rs.getInt(1)-1));
+				pst.executeUpdate("SELECT MAX( 'poll_id' ) FROM table");
+				rs = pst.getResultSet();
+				pst.executeUpdate("ALTER TABLE poll auto_increment ="+(rs.getInt(1)-1));
+					
 				}
 			}
 			if (connection != null) {

@@ -51,6 +51,16 @@ public class PollServlet extends HttpServlet{
 		
 		if(!pollDao.submitPoll(poll)){
 			message="Sorry, an error occurred!";
+			RequestDispatcher rd=request.getRequestDispatcher("index.jsp");  
+			out.println("<div id=\"modal\">\r\n" + 
+					"    <div class=\"modalconent\">\r\n" + 
+					"         <h1></h1>\r\n" + 
+					"\r\n" + 
+					"        <p>fasfsdfasfsfsdfsdfsdsffsd</p>\r\n" + 
+					"        <button id=\"button\">Close</button>\r\n" + 
+					"    </div>\r\n" + 
+					"</div>");
+			rd.forward(request,response);
 		}
 		else{
 			message="User registered successfully!";

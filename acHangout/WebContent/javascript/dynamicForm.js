@@ -205,6 +205,7 @@ function submitForm(){
 	else if(fieldNum < 2){
 
 		alert("Please enter a minimum of 2 options for multiple choice");
+		
 	}
 	else{
 //		if(document.getElementById("question").value ){
@@ -212,6 +213,7 @@ function submitForm(){
 	//	}
 		//else{
 			document.getElementById("fieldNum").value = fieldNum;
+			document.forms[0].submit();
 		//}
 	}
 
