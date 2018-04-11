@@ -152,11 +152,8 @@ public class DisplaySub{
 		String title = "";
 		ResultSet rs = null;
 
-
 		Connection conn = null;
 
-		/*A SQL statement is precompiled and stored in a PreparedStatement object. 
-		 * This object can then be used to efficiently execute this statement multiple times. */
 		PreparedStatement pst = null;
 		try {
 			conn = connect();

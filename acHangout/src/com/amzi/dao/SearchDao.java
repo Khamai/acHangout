@@ -44,11 +44,11 @@ public class SearchDao {
 		
 		try {
 			conn = connect();
-			pst = conn.prepareStatement("select * from post where title like '%" + searchString + "%'");
+			pst = conn.prepareStatement("select * from Subpost where title like '%" + searchString + "%'");
 
 			rs = pst.executeQuery();
 
-			while (rs.next()) {
+			while (rs.next()) {  //These code maybe wrong.
 				searchlist = new SearchList();
 				searchlist.setTopic(rs.getString("s.name"));
 				searchlist.setDescription(rs.getString("s.description"));
