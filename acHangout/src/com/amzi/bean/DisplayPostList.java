@@ -1,3 +1,13 @@
+/***************************************************************************************************
+ * DisplayPostList - is a java bean that contains values of all the data related to post
+ * Variables
+ * <table>
+ * <tr><th>Post:</th></tr>
+ * <tr><td>topic</td><th>username</td><td>comment</td><td>date</td><td>rating</td></tr>
+ * </table>
+ * @author      Kai mai
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.bean;
 
 public class DisplayPostList {
