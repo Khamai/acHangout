@@ -1,3 +1,7 @@
+/***************************************************************************************************
+ * DeletePostServlet - To let users delete their posts in profile
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.servlets;
 
 import java.io.IOException;

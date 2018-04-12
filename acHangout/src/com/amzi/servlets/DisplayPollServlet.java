@@ -1,3 +1,7 @@
+/***************************************************************************************************
+ * DisplayPollServlet - To display all poll question from database
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.servlets;
 
 import java.io.IOException;

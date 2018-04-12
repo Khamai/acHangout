@@ -1,6 +1,7 @@
-/**
- * LoginServlet class - handles logins from the website
- */
+/***************************************************************************************************
+ * LoginServlet - To let user login to database
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.servlets;
 
 import java.io.IOException;

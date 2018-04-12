@@ -1,6 +1,7 @@
-/**
- * SignupServlet - grabs information from the client to send to the database
- */
+/***************************************************************************************************
+ * SignupServlet - To let user sign up their new account
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.servlets;
 
 import java.io.IOException;

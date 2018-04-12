@@ -1,3 +1,7 @@
+/***************************************************************************************************
+ * EditDescriptionServlet - To edit description in user's profile
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.servlets;
 
 import java.io.IOException;

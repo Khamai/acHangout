@@ -1,3 +1,7 @@
+/***************************************************************************************************
+ * GetDescriptionServlet - To display user's profile in profile page
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.servlets;
 
 import java.io.IOException;

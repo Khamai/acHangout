@@ -1,3 +1,7 @@
+/***************************************************************************************************
+ * EditProfileServlet - To let user edit their first name, last name, email and phone
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.servlets;
 
 import java.io.IOException;

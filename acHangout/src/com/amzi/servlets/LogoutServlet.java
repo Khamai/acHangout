@@ -1,6 +1,7 @@
-/**
- * LogoutServlet class - makes sessions invalid
- */
+/***************************************************************************************************
+ * LogoutServlet - To let user log out from their account
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.servlets;
 
 import java.io.IOException;  

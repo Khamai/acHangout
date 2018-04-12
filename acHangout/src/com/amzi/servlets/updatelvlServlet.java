@@ -1,3 +1,7 @@
+/***************************************************************************************************
+ * updatelvlServlet - To let admin disable or enable user account
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.servlets;
 
 import java.io.IOException;
