@@ -89,6 +89,7 @@ CREATE TABLE `poll`
   `poll_id` Bigint NOT NULL AUTO_INCREMENT,
   `question` Char(255) NOT NULL,
   `author_id` Bigint NOT NULL,
+  `date` Datetime NOT NULL,
   PRIMARY KEY (`poll_id`),
   UNIQUE `id` (`poll_id`)
 )
@@ -186,8 +187,6 @@ CREATE INDEX `IX_Relationship2` ON `subcategories` (`catid`)
 CREATE INDEX `IX_Relationship1` ON `subcategories` (`author`)
 ;
 
-<<<<<<< HEAD
-=======
 -- Table poll_option
 
 CREATE TABLE `poll_option`
@@ -202,7 +201,6 @@ CREATE TABLE `poll_option`
 CREATE INDEX `IX_Relationship1` ON `poll_option` (`poll_id`)
 ;
 
->>>>>>> refs/remotes/origin/Lee
 -- Create foreign keys (relationships) section ------------------------------------------------- 
 
 
@@ -248,8 +246,6 @@ ALTER TABLE `subcategories` ADD CONSTRAINT `catsub` FOREIGN KEY (`catid`) REFERE
 
 ALTER TABLE `subcategories` ADD CONSTRAINT `usersub` FOREIGN KEY (`author`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
-<<<<<<< HEAD
-=======
 
 
 ALTER TABLE `poll_option` ADD CONSTRAINT `pollopt` FOREIGN KEY (`poll_id`) REFERENCES `poll` (`poll_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
@@ -258,4 +254,3 @@ ALTER TABLE `poll_option` ADD CONSTRAINT `pollopt` FOREIGN KEY (`poll_id`) REFER
 
 ALTER TABLE `poll_answer` ADD CONSTRAINT `userspa` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ;
->>>>>>> refs/remotes/origin/Lee
