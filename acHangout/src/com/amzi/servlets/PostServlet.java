@@ -26,25 +26,32 @@ public class PostServlet extends HttpServlet{
 
 		HttpSession session = request.getSession(false);
 
+		String username = (String) session.getAttribute("name");
+		String password = (String) session.getAttribute("pass");
+		String cat = request.getParameter("cat");
+		String content =  request.getParameter("content");
+		String topic = request.getParameter("topic");
+
+		if(topic == null) {
+
+			RequestDispatcher rd=request.getRequestDispatcher("newpost.jsp");  
+			rd.forward(request,response);
+		}
+
 		String values[] = 
 			{
-					request.getParameter("username"),request.getParameter("pass"),
-					request.getParameter("category"), request.getParameter("topic"),
-					request.getParameter("content")
+					username,password,cat, topic,content
 			};
 
 		if(Post.validate(values)){  
-			out.print("<p style=\"color:red; text-align:center;\">Posted</p>");  
-			RequestDispatcher rd=request.getRequestDispatcher("index.jsp");  
-			rd.forward(request,response);  
+			String pagename = "display?sub=" + cat + "&page=1";  
+			response.sendRedirect(pagename);
 		}  
 		else{  
-			out.print("<p style=\"color:red; text-align:center;\">Signup Error</p>");  
-			RequestDispatcher rd=request.getRequestDispatcher("signup.jsp");  
-			rd.include(request,response);  
+			String message = "Error! Failed to submit post";
+			request.setAttribute("message", message);
+			request.getRequestDispatcher("newpost.jsp").forward(request, response);
 		}  
-
 		out.close();  
 	}  
 }
-

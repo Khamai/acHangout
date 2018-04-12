@@ -14,14 +14,7 @@ import javax.servlet.http.HttpSession;
 import com.amzi.dao.Extract;
 
 public class ExtractServlet extends HttpServlet {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * 
-	 */
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)  
 			throws ServletException, IOException {  
@@ -34,17 +27,11 @@ public class ExtractServlet extends HttpServlet {
 
 		HttpSession session = request.getSession(false);
 
-		if(currentpage == 0)
-			currentpage = 1;
-
 		//String cat = request.getParameter("topic");
+		List<List<String>> list = Extract.getRecords("Select * From users LEFT JOIN profile ON users.id=profile.id",8);		
 		
-		List<List<String>> list = Extract.getRecords("Select * From users LEFT JOIN profile ON users.id=profile.id",8);
-		
-		
-		//ArrayList<DisplayList> List = Display.getRecord(cat,currentpage); 
+		//ArrayList<DisplayList> List = Display.getRecord(cat,currentpage);
 		request.setAttribute("List", list);
-
 
 		//request.setAttribute("numberofpage", numberofpage);
 		//request.setAttribute("currentpage", currentpage);
@@ -52,6 +39,5 @@ public class ExtractServlet extends HttpServlet {
 
 		RequestDispatcher rd = request.getRequestDispatcher("users.jsp");
 		rd.include(request, response);
-
 	}
 }

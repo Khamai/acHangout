@@ -1,10 +1,20 @@
+/******************************************************************************
+ * Database - Connection to the database
+ * 
+ * @author      Kha Mai
+ * @since       1.0
+*******************************************************************************/
 package com.amzi.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class Database {
-
+	
+	/**
+	 * connect - connects to database and returns the connection
+	 * @return
+	 */
 	public static Connection connect() {
 		Connection conn = null;
 
@@ -12,7 +22,7 @@ public class Database {
 		String dbName = "form";
 		String driver = "com.mysql.jdbc.Driver";
 		String userName = "root";
-		String password = "abc123";
+		String password = "khamai_";
 		try {
 			Class.forName(driver).newInstance();
 			conn = DriverManager

@@ -6,15 +6,18 @@ import java.util.List;
 
 import com.amzi.dao.Database;
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * Extracts data from database using statments from servlets
+ * @author 
+ *
+ */
 public class Extract {
 	public static List<List<String>> getRecords(String statement, int numOfCols){
-		List rows = new ArrayList();
-		List<String> cols = new ArrayList();
+		List rows = new ArrayList<List>();
+		List<String> cols = new ArrayList<String>();
 		Connection conn = null;
 		ResultSet rs = null;
 		Statement stmt = null;
