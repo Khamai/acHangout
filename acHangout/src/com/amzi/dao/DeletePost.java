@@ -1,3 +1,7 @@
+/***************************************************************************************************
+ * DeletePost - To delete specific post depends on user from database
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.dao;
 
 import java.sql.Connection;

@@ -1,3 +1,7 @@
+/***************************************************************************************************
+ * DisplayPost - To get post information based on sub-category id from database and store into list
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.dao;
 
 import java.sql.Connection;

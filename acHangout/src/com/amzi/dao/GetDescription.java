@@ -1,3 +1,7 @@
+/***************************************************************************************************
+ * GetDescription - To get all information of that user from database
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.dao;
 
 import java.sql.Connection;

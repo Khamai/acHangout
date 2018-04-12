@@ -1,3 +1,7 @@
+/***************************************************************************************************
+ * EditProfile - To update firstname, lastname, email, phone of user into database
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.dao;
 
 import java.sql.Connection;

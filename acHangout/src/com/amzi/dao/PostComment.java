@@ -1,3 +1,7 @@
+/***************************************************************************************************
+ * PostComment - To add new comment from specific topic into database
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.dao;
 
 import java.sql.Connection;

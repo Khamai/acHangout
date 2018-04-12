@@ -1,7 +1,7 @@
-/**
- * Signup Class - handles the signup of users and inputs it in the database
- * 
- */
+/***************************************************************************************************
+ * Signup - To store new account into database
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.dao;
 
 import java.sql.Connection;

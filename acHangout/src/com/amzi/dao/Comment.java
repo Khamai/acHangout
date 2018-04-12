@@ -1,3 +1,7 @@
+/***************************************************************************************************
+ * Comment - To get information related to that post from database and save it into arraylist
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.dao;
 
 import java.sql.Connection;
@@ -8,6 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.amzi.bean.CommentList;
+
 
 public class Comment{
 

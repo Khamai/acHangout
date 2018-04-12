@@ -1,3 +1,7 @@
+/***************************************************************************************************
+ * DisplaySub - To get sub-category information based on main category id from database and store into list
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.dao;
 
 import java.sql.Connection;
