@@ -17,7 +17,7 @@ public class DeletePostServlet  extends HttpServlet {
 			throws ServletException, IOException {  
 
 
-		String id = request.getParameter("postid");
+		String id = request.getParameter("delete");
 
 		if(DeletePost.getRecord(id) == true) {
 			response.sendRedirect("your-profile");

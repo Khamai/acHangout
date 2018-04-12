@@ -5,7 +5,7 @@
  * <tr><th>Sub-categories:</th></tr>
  * <tr><td>topic</td><th>description</td><td>total</td><td>date</td></tr>
  * </table>
- * @author      Kai mai
+ * @author      Ahmed Afzal
  * @since       1.0
 ***************************************************************************************************/
 package com.amzi.bean;

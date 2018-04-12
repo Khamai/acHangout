@@ -5,7 +5,7 @@
  * <tr><th>Post:</th></tr>
  * <tr><td>topic</td><th>username</td><td>comment</td><td>date</td><td>rating</td></tr>
  * </table>
- * @author      Kai mai
+ * @author      Kha Mai
  * @since       1.0
 ***************************************************************************************************/
 package com.amzi.bean;

@@ -58,7 +58,8 @@
 						<div class="col-sm-2 child">${ok.getDate()}</div>
 						<div class="col-sm-2 child">
 							<form action="userdelete" method="post">
-								<button id="${ok.getId()}" name="delete" class="btn btn-danger">Delete</button>
+								<button name="delete" class="btn btn-danger"
+									value="${ok.getId()}">Delete</button>
 							</form>
 						</div>
 
@@ -74,23 +75,6 @@
 	</div>
 	<br />
 	<br />
-	<script>
-		$(document).ready(function() {
-			$(".btn[name=delete]").on('click', function() {
-				var tid = $(this).attr('id');
-				$.ajax({
-					url : "userdelete",
-					data : {
-						postid : tid
-					},
-					type : 'post',
-					success : function() {
-						location.reload();
-					}
-				});
-			})
-		})
-	</script>
 	<br />
 	<br />
 	<jsp:include page="footer.jsp" />

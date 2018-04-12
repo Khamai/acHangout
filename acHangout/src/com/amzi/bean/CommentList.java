@@ -9,7 +9,7 @@
  * <tr><th>Rating:</th></tr>
  * <tr><td>liked</td><th>disliked</td><td>total</td></tr>
  * </table>
- * @author      Kha mai
+ * @author      Kha Mai
  * @since       1.0
 ***************************************************************************************************/
 package com.amzi.bean;

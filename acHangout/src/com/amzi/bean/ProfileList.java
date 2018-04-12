@@ -5,7 +5,7 @@
  * <tr><th>Profile:</th></tr>
  * <tr><td>first name</td><th>last name</td><td>email</td><td>telephone</td><td>description</td></tr>
  * </table>
- * @author      Kai mai
+ * @author      Kha Mai
  * @since       1.0
 ***************************************************************************************************/
 package com.amzi.bean;

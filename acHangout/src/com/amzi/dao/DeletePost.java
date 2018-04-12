@@ -43,21 +43,30 @@ public class DeletePost{
 		try {
 			conn = connect();
 
-			pst = conn.prepareStatement("select * from uservotes where rateid = ?;");
+			pst = conn.prepareStatement("select * from rating where postid = ?;");
 			pst.setString(1, id);
 			rs = pst.executeQuery();
 
-			while(rs.next()) {
-				String userid = rs.getString("userid");
+			if(rs.next()) {
+				String rateid = rs.getString("id");
 
-				pst = conn.prepareStatement("delete from uservotes where rateid = ? and userid=?;");
+				pst = conn.prepareStatement("select * from uservotes where rateid = ?;");
+				pst.setString(1, rateid);
+				rs = pst.executeQuery();
+
+				while(rs.next()) {
+					String userid = rs.getString("userid");
+
+					pst = conn.prepareStatement("delete from uservotes where rateid = ? and userid =?;");
+					pst.setString(1, rateid);
+					pst.setString(2, userid);
+
+					pst.executeUpdate();
+				}
+				pst = conn.prepareStatement("delete from rating where postid = ?;");
 				pst.setString(1, id);
-				pst.setString(2, userid);
 				pst.executeUpdate();
 			}
-			pst = conn.prepareStatement("delete from rating where postid = ?;");
-			pst.setString(1, id);
-			pst.executeUpdate();
 
 			pst = conn.prepareStatement("select * from reply where postid = ?;");
 			pst.setString(1, id);
@@ -77,7 +86,6 @@ public class DeletePost{
 			pst.executeUpdate();
 
 			pass = true;				
-
 		} catch (Exception e) {
 			System.out.println(e);
 		} finally {
