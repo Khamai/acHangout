@@ -3,13 +3,13 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
-<%@ page import = "java.io.*,java.util.*" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page import="java.io.*,java.util.*"%>
 
 <c:if test="${empty List}">
 	<jsp:forward page="extract" />
 </c:if>
-  
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -108,7 +108,7 @@
 				<h3>User Information</h3>
 			</div>
 
-			
+
 			<div class="col-sm-12 forum-head lpad">
 				<div class="col-sm-1">ID</div>
 				<div class="col-sm-3">Username</div>
@@ -120,50 +120,44 @@
 				<%-- <div class="col-sm-2 child" style="border-left: 2px solid hsl(212, 35%, 15%);">User</div> --%>
 			</div>
 
-			<div class="col-sm-12 forum-topic pad">
-				<div class="col-sm-1">ID</div>
-				<div class="col-sm-3">Username</div>
-				<div class="col-sm-2">Name</div>
-				<div class="col-sm-1 child">Level</div>
-				<div class="col-sm-2 child">Date Created</div>
-				<div class="col-sm-3">Operations</div>
-			</div>
-
 			<div class="records">
-			<c:if test="${not empty List}">
-				<c:forEach items="${List}" var="ok">
-					<fmt:parseNumber var = "i" type = "number" value = "${ok.get(4)}" />
+				<c:if test="${not empty List}">
+					<c:forEach items="${List}" var="ok">
+						<fmt:parseNumber var="i" type="number" value="${ok.get(4)}" />
+						<div class="col-sm-12 forum-topic pad">
+							<div class="col-sm-1">${ok.get(0)}</div>
+							<div class="col-sm-3">${ok.get(1)}</div>
+							<div class="col-sm-2">${ok.get(6)}${ok.get(7)}</div>
+							<div class="col-sm-1 child" id="${ok.get(0)}">${ok.get(4)}
+							</div>
+							<div class="col-sm-2 child">${ok.get(3)}</div>
+							<div class="col-sm-3" id="${ok.get(0)}">
+								<c:choose>
+									<c:when test="${i > 0}">
+										<button id='${ok.get(0)}' name="valid" class="btn btn-danger">Disable</button>
+									</c:when>
+									<c:otherwise>
+										<button id='${ok.get(0)}' name="valid" class="btn btn-success">Enable</button>
+									</c:otherwise>
+								</c:choose>
+
+								<button id='${ok.get(0)}' name="edit" class="btn btn-info">Edit</button>
+							</div>
+						</div>
+					</c:forEach>
+				</c:if>
+				<c:if test="${empty List}">
 					<div class="col-sm-12 forum-topic pad">
-						<div class="col-sm-1">${ok.get(0)}</div>
-						<div class="col-sm-3">${ok.get(1)}</div>
-						<div class="col-sm-2">${ok.get(6)} ${ok.get(7)}</div>
-						<div class="col-sm-1 child" id="${ok.get(0)}">
-							${ok.get(4)}
-						</div>
-						<div class="col-sm-2 child">${ok.get(3)}</div>
-						<div class="col-sm-3" id="${ok.get(0)}">
-						<c:choose>
-							<c:when test="${i > 0}">
-  								<button id='${ok.get(0)}' name="valid" class="btn btn-danger">Disable</button>
-  							</c:when>
-  							<c:otherwise>
-  								<button id='${ok.get(0)}' name="valid" class="btn btn-success">Enable</button>
-  							</c:otherwise>
-  						</c:choose>
-  							
-  							<button id='${ok.get(0)}' name="edit" class="btn btn-info">Edit</button>
-						</div>
-						
+						<h4>Currently, there are no user!!</h4>
 					</div>
-				</c:forEach>
-			</c:if>
+				</c:if>
 			</div>
 		</div>
 	</div>
 
 	<br />
 	<br />
-	
+
 	<div class="container">
 		<div class="row text-right">
 			<div class="btn-group btn-group-md">
@@ -177,7 +171,7 @@
 				<li class="active">Asian Foods</li>
 			</ul>
 		</div>
-	</div>	
+	</div>
 
 	<br />
 	<br />
@@ -185,8 +179,8 @@
 	<br />
 	<br />
 	<br />
-	
-<script>
+
+	<script>
 	var ids = [],values = [];
 	$(document).ready(function(){
 		$(".btn[name=edit]").hide();

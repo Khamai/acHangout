@@ -63,6 +63,9 @@
 							<li><a href="account"> <i
 									class="glyphicon glyphicon-user"></i> Account Settings
 							</a></li>
+							<li><a href="showuser_post"> <i class="fa fa-remove"></i>&nbsp;
+									Delete Post
+							</a></li>
 						</ul>
 					</div>
 					<!-- END MENU -->
@@ -78,7 +81,7 @@
 						<c:forEach items="${List}" var="ok">
 							<div class="form-group row">
 								<label class="col-lg-3 col-form-label form-control-label">First
-									name:</label>${ok.getLastName()}
+									name:</label>${ok.getFirstName()}
 							</div>
 							<div class="form-group row">
 								<label class="col-lg-3 col-form-label form-control-label">Last
@@ -86,7 +89,7 @@
 
 							</div>
 							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Email:</label>${ok.getLastName()}
+								<label class="col-lg-3 col-form-label form-control-label">Email:</label>${ok.getEmail()}
 							</div>
 
 							<div class="form-group row">

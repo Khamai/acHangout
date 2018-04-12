@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class Login  {
 
 	public Login() {
-		
+
 	}
 	public static String validate(String name, String pass) {     
 		String status = "";
@@ -42,7 +42,8 @@ public class Login  {
 
 			rs = pst.executeQuery();
 			if(rs.next())
-				status = rs.getString("password");
+				if(!rs.getString("level").equals("0") )
+					status = rs.getString("password");
 
 
 		} catch (Exception e) {

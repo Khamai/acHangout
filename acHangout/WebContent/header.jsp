@@ -4,7 +4,7 @@
 
 <c:if
 	test="${not empty sessionScope.name &&  not empty sessionScope.pass}">
-	<c:set var="login" value="Hello, ${sessionScope['name']}" />
+	<c:set var="login" value="${sessionScope['name']}" />
 </c:if>
 
 
@@ -30,6 +30,9 @@
 				<li class="active"><a href="index.jsp">Home</a></li>
 				<li><a href="#">Help&nbsp;<span
 						class="fa fa-question-circle-o"></span></a></li>
+				<c:if test="${login == 'admin'}">
+					<li><a href="users.jsp">Admin</a></li>
+				</c:if>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li>
@@ -52,7 +55,7 @@
 					<li><a href="signup.jsp">Sign up</a></li>
 				</c:if>
 				<c:if test="${login != 'Login'}">
-					<li><a href="your-profile">${login}</a></li>
+					<li><a href="your-profile">Hello, ${login}</a></li>
 					<li><a href="logout">Logout</a></li>
 				</c:if>
 			</ul>

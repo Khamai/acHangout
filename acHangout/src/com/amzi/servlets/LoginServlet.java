@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet{
 		HttpSession session = request.getSession(false);
 		pass = Login.validate(n, p);
 
-		if(pass != null){  
+		if(pass != ""){  
 			session.setAttribute("name", n);
 			session.setAttribute("pass", pass);
 

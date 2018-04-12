@@ -26,7 +26,10 @@ public class DisplayPostList {
 		return comment;
 	}
 	public void setComment(String comment) {
-		this.comment = comment;
+		if(comment == null)
+			this.comment = "";
+		else
+			this.comment = comment;
 	}
 	public String getDate() {
 		return date;
@@ -38,6 +41,9 @@ public class DisplayPostList {
 		return rating;
 	}
 	public void setRating(String rating) {
-		this.rating = rating;
+		if(rating == null)
+			this.rating = "";
+		else
+			this.rating = rating;
 	}
 }
