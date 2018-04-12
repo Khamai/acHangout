@@ -26,7 +26,6 @@ public class updatelvlServlet  extends HttpServlet {
 		
 		for(int i = 0; i < data.length; ++i) {
 			Edit.EditRecords("UPDATE users SET level="+data[i]+" WHERE users.id="+ids[i]+";");
-			System.out.println("Updated ID:"+ids[i]+" to level:"+data[i]);
 		}
 
 		RequestDispatcher rd = request.getRequestDispatcher("users.jsp");

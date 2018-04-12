@@ -7,9 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.amzi.bean.DisplayPostList;
-
-public class ShowPost{
+public class DeletePost{
 
 	public static Connection connect() {
 		Connection conn = null;
@@ -30,12 +28,10 @@ public class ShowPost{
 
 	}
 	@SuppressWarnings("resource")
-	public static ArrayList<DisplayPostList> getRecord(String values[]) {
+	public static boolean getRecord(String id) {
 
+		boolean pass = false;
 
-		ArrayList<DisplayPostList> List = new ArrayList<DisplayPostList>();
-
-		DisplayPostList display;
 
 		ResultSet rs = null;
 		Connection conn = null;
@@ -46,32 +42,41 @@ public class ShowPost{
 
 		try {
 			conn = connect();
-			pst = conn.prepareStatement("SELECT * FROM users WHERE username=? and password=?");
-			pst.setString(1, values[0]);
-			pst.setString(2, values[1]);
 
+			pst = conn.prepareStatement("select * from uservotes where rateid = ?;");
+			pst.setString(1, id);
 			rs = pst.executeQuery();
 
-			if(rs.next()) {
-				String author = rs.getString("id");
+			while(rs.next()) {
+				String userid = rs.getString("userid");
 
-				pst = conn.prepareStatement("select p.id, p.topic,p.content, u.username, p.date from post p inner join users u on p.author = u.id where p.author = ?;");
-
-				pst.setString(1, author);
-				rs = pst.executeQuery();
-
-
-				while(rs.next()){
-					display = new DisplayPostList();
-					display.setId(rs.getInt("p.id"));
-					display.setContent(rs.getString("p.content"));
-					display.setTopic(rs.getString("p.topic"));
-					display.setUserName(rs.getString("u.username"));
-					display.setDate(rs.getString("p.date"));
-
-					List.add(display);
-				}
+				pst = conn.prepareStatement("delete from uservotes where rateid = ? and userid=?;");
+				pst.setString(1, id);
+				pst.setString(2, userid);
+				pst.executeUpdate();
 			}
+			pst = conn.prepareStatement("delete from rating where postid = ?;");
+			pst.setString(1, id);
+			pst.executeUpdate();
+
+			pst = conn.prepareStatement("select * from reply where postid = ?;");
+			pst.setString(1, id);
+			rs = pst.executeQuery();
+
+			while(rs.next()) {
+				String replyid = rs.getString("id");
+
+				pst = conn.prepareStatement("delete from reply where postid = ? and id=?;");
+				pst.setString(1, id);
+				pst.setString(2, replyid);
+				pst.executeUpdate();
+			}
+
+			pst = conn.prepareStatement("delete from post where id = ?;");
+			pst.setString(1, id);
+			pst.executeUpdate();
+
+			pass = true;				
 
 		} catch (Exception e) {
 			System.out.println(e);
@@ -91,6 +96,6 @@ public class ShowPost{
 				}
 			}
 		}
-		return List;
+		return pass;
 	}
 }

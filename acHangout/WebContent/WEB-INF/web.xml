@@ -96,6 +96,26 @@
 		<servlet-class>com.amzi.servlets.updatelvlServlet</servlet-class>
 	</servlet>
 
+	<servlet>
+		<servlet-name>showpost</servlet-name>
+		<servlet-class>com.amzi.servlets.ShowPostServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>userdelete</servlet-name>
+		<servlet-class>com.amzi.servlets.DeletePostServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>userdelete</servlet-name>
+		<url-pattern>/userdelete</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>showpost</servlet-name>
+		<url-pattern>/showpost</url-pattern>
+	</servlet-mapping>
+
 	<servlet-mapping>
 		<servlet-name>editdes</servlet-name>
 		<url-pattern>/editdescription</url-pattern>
@@ -199,6 +219,7 @@
 		<servlet-name>updatelvl</servlet-name>
 		<url-pattern>/updatelvl</url-pattern>
 	</servlet-mapping>
+
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>

@@ -1,7 +1,7 @@
 package com.amzi.bean;
 
 public class DisplayPostList {
-	private String topic, username, comment, date, rating;
+	private String topic, username, comment, date, rating, content;
 	private int id;
 
 	public int getId() {
@@ -15,6 +15,13 @@ public class DisplayPostList {
 	}
 	public void setTopic(String topic) {
 		this.topic = topic;
+	}
+
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
 	}
 	public String getUserName() {
 		return username;

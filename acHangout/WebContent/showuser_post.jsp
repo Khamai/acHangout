@@ -42,22 +42,26 @@
 	<div class="container">
 		<div class="row mt">
 			<div class="col-sm-12 forum-head lpad">
-				<div class="col-sm-6">Topic</div>
+				<div class="col-sm-3">Topic</div>
+				<div class="col-sm-3">Content</div>
 				<div class="col-sm-2 child">Author</div>
-				<div class="col-sm-1 child">Comment</div>
 				<div class="col-sm-2 child">Date Created</div>
-				<div class="col-sm-1 child">Like/Dislike</div>
 			</div>
 			<c:if test="${not empty List}">
 				<c:forEach items="${List}" var="ok">
 					<div class="col-sm-12 forum-topic pad">
-						<div class="col-sm-6 child">
+						<div class="col-sm-3 child">
 							<a href="comment?q=${ok.getId()}">${ok.getTopic()}</a>
 						</div>
+						<div class="col-sm-3 child">${ok.getContent()}</div>
 						<div class="col-sm-2 child">${ok.getUserName()}</div>
-						<div class="col-sm-1 child">${ok.getComment()}</div>
 						<div class="col-sm-2 child">${ok.getDate()}</div>
-						<div class="col-sm-1 child">${ok.getRating()}</div>
+						<div class="col-sm-2 child">
+							<form action="userdelete" method="post">
+								<button id="${ok.getId()}" name="delete" class="btn btn-danger">Delete</button>
+							</form>
+						</div>
+
 					</div>
 				</c:forEach>
 			</c:if>
@@ -69,36 +73,24 @@
 		</div>
 	</div>
 	<br />
-
-	<div class="container text-center">
-		<div class="row">
-			<ul class="pagination">
-				<c:if test="${currentpage > 1}">
-					<li><a href="display?sub=${sub}&page=1">First</a></li>
-					<li><a href="display?sub=${sub}&page=${currentpage - 1}">&laquo;</a></li>
-				</c:if>
-
-				<c:forEach begin="1" end="${numberofpage}" var="page">
-					<c:choose>
-						<c:when test="${currentpage eq page }">
-							<li class="active"><a
-								href="display?sub=${sub}&page=${currentpage}">${page}</a></li>
-						</c:when>
-						<c:otherwise>
-							<li><a href="display?sub=${sub}&page=${page}">${page}</a></li>
-						</c:otherwise>
-					</c:choose>
-				</c:forEach>
-
-				<c:if test="${currentpage lt numberofpage}">
-					<li><a href="display?sub=${sub}&page=${currentpage + 1}">&raquo;</a></li>
-					<li><a href="display?sub=${sub}&page=${numberofpage}">Last</a></li>
-				</c:if>
-			</ul>
-		</div>
-	</div>
 	<br />
-	<br />
+	<script>
+		$(document).ready(function() {
+			$(".btn[name=delete]").on('click', function() {
+				var tid = $(this).attr('id');
+				$.ajax({
+					url : "userdelete",
+					data : {
+						postid : tid
+					},
+					type : 'post',
+					success : function() {
+						location.reload();
+					}
+				});
+			})
+		})
+	</script>
 	<br />
 	<br />
 	<jsp:include page="footer.jsp" />

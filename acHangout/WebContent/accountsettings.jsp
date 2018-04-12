@@ -67,6 +67,9 @@
 							<li class="active"><a href="accountSettings.jsp"> <i
 									class="glyphicon glyphicon-user"></i> Account Settings
 							</a></li>
+							<li><a href="showpost"> <i class="fa fa-remove"></i>&nbsp;Delete
+									Post
+							</a></li>
 						</ul>
 					</div>
 					<!-- END MENU -->
