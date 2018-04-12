@@ -1,3 +1,13 @@
+/***************************************************************************************************
+ * DisplaySubList - is a java bean to hold all variables related to Sub-categories
+ * Variables
+ * <table>
+ * <tr><th>Sub-categories:</th></tr>
+ * <tr><td>topic</td><th>description</td><td>total</td><td>date</td></tr>
+ * </table>
+ * @author      Kai mai
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.bean;
 
 public class DisplaySubList {
