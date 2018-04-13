@@ -135,7 +135,7 @@ public class PollDao {
 
 		try {
 
-			pst = conn.prepareStatement("select u.username, p.poll_id, p.author_id, p.question,  p.date from users u inner join poll p on u.id = p.author_id;");
+			pst = conn.prepareStatement("select u.username, p.poll_id, p.author_id, p.question,  aaaaza from users u inner join poll p on u.id = p.author_id;");
 
 			rs = pst.executeQuery();
 

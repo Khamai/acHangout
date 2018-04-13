@@ -11,12 +11,28 @@ import com.amzi.bean.DisplayPostList;
 
 public class DisplayPost{
 
-	
+	public static Connection connect() {
+		Connection conn = null;
+
+		String url = "jdbc:mysql://localhost:3306/";
+		String dbName = "form";
+		String driver = "com.mysql.jdbc.Driver";
+		String userName = "root";
+		String password = "khamai_";
+		try {
+			Class.forName(driver).newInstance();
+			conn = DriverManager
+					.getConnection(url + dbName, userName, password);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return conn;
+
+	}
 	@SuppressWarnings("resource")
 	public static ArrayList<DisplayPostList> getRecord(String cat, int currentpage) {
 
-		Connection conn = DbConnector.connect();
-		
+
 		ArrayList<DisplayPostList> List = new ArrayList<DisplayPostList>();
 
 		/* Max in 1 page */
@@ -27,14 +43,14 @@ public class DisplayPost{
 		DisplayPostList display;
 
 		ResultSet rs = null;
-		
+		Connection conn = null;
 
 		/*A SQL statement is precompiled and stored in a PreparedStatement object. 
 		 * This object can then be used to efficiently execute this statement multiple times. */
 		PreparedStatement pst = null;
 
 		try {
-			
+			conn = connect();
 			pst = conn.prepareStatement("SELECT * FROM subcategories WHERE name=?");
 			pst.setString(1, cat);
 
@@ -100,7 +116,7 @@ public class DisplayPost{
 		 * This object can then be used to efficiently execute this statement multiple times. */
 		PreparedStatement pst = null;
 		try {
-			
+			conn = connect();
 			pst = conn.prepareStatement("SELECT * FROM subcategories WHERE name=?");
 			pst.setString(1, cat);
 
@@ -148,7 +164,7 @@ public class DisplayPost{
 		 * This object can then be used to efficiently execute this statement multiple times. */
 		PreparedStatement pst = null;
 		try {
-			
+			conn = connect();
 			pst = conn.prepareStatement("SELECT * FROM subcategories WHERE name=?");
 			pst.setString(1, cat);
 
