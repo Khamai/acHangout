@@ -4,13 +4,10 @@
 
 <c:if
 	test="${not empty sessionScope.name &&  not empty sessionScope.pass}">
-	<c:set var="login" value="Hello, ${sessionScope['name']}" />
+	<c:set var="login" value="${sessionScope['name']}" />
 </c:if>
-<div class="jumbotron row" style="background-color: #cccccc;">
-	<div class="container text-center">
-		<h1 style="color: #145A32;">Ask A Question</h1>
-	</div>
-	</div>
+
+
 <div class="jumbotron" style="background-color: #cccccc;">
 	<div class="container text-center">
 		<h1 style="color: #145A32;">ACHangout</h1>
@@ -31,15 +28,18 @@
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="index.jsp">Home</a></li>
-				<li><a href="#">Messenger</a></li>
 				<li><a href="#">Help&nbsp;<span
 						class="fa fa-question-circle-o"></span></a></li>
+				<c:if test="${login == 'admin'}">
+					<li><a href="users.jsp">Admin</a></li>
+				</c:if>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li>
 					<form class="navbar-form" action="search.jsp">
 						<div class="input-group">
-							<input type="text" name="searchid" class="form-control" placeholder="Search">
+							<input type="text" name="searchid" class="form-control"
+								placeholder="Search">
 							<div class="input-group-btn">
 								<button class="btn btn-default" type="submit">
 									<i class="glyphicon glyphicon-search"></i>
@@ -55,7 +55,7 @@
 					<li><a href="signup.jsp">Sign up</a></li>
 				</c:if>
 				<c:if test="${login != 'Login'}">
-					<li><a href="profile.jsp">${login}</a></li>
+					<li><a href="your-profile">Hello, ${login}</a></li>
 					<li><a href="logout">Logout</a></li>
 				</c:if>
 			</ul>

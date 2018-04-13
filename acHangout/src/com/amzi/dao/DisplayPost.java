@@ -1,3 +1,7 @@
+/***************************************************************************************************
+ * DisplayPost - To get post information based on sub-category id from database and store into list
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.dao;
 
 import java.sql.Connection;
@@ -59,11 +63,12 @@ public class DisplayPost{
 			if(rs.next()) {
 				String catid = rs.getString("id");
 
-				pst = conn.prepareStatement("select p.id, p.topic, u.username, count(r.postid) as comment, p.date, COALESCE(ra.liked,0) + COALESCE(ra.disliked,0) as rating from post p "
+				pst = conn.prepareStatement("select p.id, p.topic, u.username, count(r.postid) as comment, p.date, ra.liked + ra.disliked as rating from post p "
 						+ "inner join users u on p.author = u.id "
 						+ "left join reply r on p.id = r.postid "
-						+ "left join rating ra on p.id = ra.id "
-						+ "where p.subcatid = ? group by p.id order by p.id desc limit ?,?");
+						+ "inner join rating ra on p.id = ra.postid "
+						+ "where p.subcatid = ? group by p.id, ra.id order by p.id desc limit ?,?");
+				
 				pst.setString(1, catid);
 				pst.setInt(2, begin);
 				pst.setInt(3, maxPost);

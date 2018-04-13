@@ -1,3 +1,7 @@
+/***************************************************************************************************
+ * Login - To verify username and password in database
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.dao;
 
 import java.sql.Connection;
@@ -9,7 +13,7 @@ import java.sql.SQLException;
 public class Login  {
 
 	public Login() {
-		
+
 	}
 	public static String validate(String name, String pass) {     
 		String status = "";
@@ -27,7 +31,7 @@ public class Login  {
 		String dbName = "form";
 		String driver = "com.mysql.jdbc.Driver";
 		String userName = "root";
-		String password = "root";
+		String password = "khamai_";
 		try {
 			Class.forName(driver).newInstance();
 
@@ -42,7 +46,8 @@ public class Login  {
 
 			rs = pst.executeQuery();
 			if(rs.next())
-				status = rs.getString("password");
+				if(!rs.getString("level").equals("0") )
+					status = rs.getString("password");
 
 
 		} catch (Exception e) {

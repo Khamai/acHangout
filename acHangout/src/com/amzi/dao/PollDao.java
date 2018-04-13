@@ -1,3 +1,7 @@
+/***************************************************************************************************
+ * PollDao - To insert new poll question into database or get poll question from database
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.dao;
 
 import java.sql.Connection;

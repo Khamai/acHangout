@@ -1,3 +1,7 @@
+/***************************************************************************************************
+ * CommentServlet - To call dao file to get all record from post and comment
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.servlets;
 
 import java.io.IOException;

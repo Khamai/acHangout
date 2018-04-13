@@ -46,9 +46,15 @@
 	<br />
 	<br />
 	<div class="container">
+		<div class="row">
+			<ul class="breadcrumb">
+				<li><a href="index.jsp"><i class="fa fa-home fa-2x"></i></a></li>
+				<li><a href="sub-categories?topic=${link}">${cat}</a></li>
+				<li class="active">${title}</li>
+			</ul>
+		</div>
 		<c:if test="${not empty List}">
-			<div class="well"
-				style="border-bottom: 5px solid #126758; background-color: #f2f2f2;">
+			<div class="well">
 				<h2>Topic:&emsp;${List.get(0).get_post_topic()}</h2>
 				<p>
 					<small style="color: #9999ff; font-size: 13px;">&emsp;<span
@@ -63,20 +69,28 @@
 			<div id="bar">
 				<h4>Rate this post:</h4>
 				<div class="text-center">
-					<c:out value="${la}" />
+					<c:out value="${List.get(0).getRating()}" />
 				</div>
 				<br />
 				<div id="likes"></div>
 				<div id="dislikes"></div>
 				<br /> <br />
 				<div class="form-group text-center">
-					<span id="count1">${liked}</span>&emsp; <input type="button"
-						value="Like" class="btn btn-primary"
-						onclick="like(); document.getElementById('count1').innerHTML++" />&emsp;
-					<input type="button" id="btn" value="Dislike"
-						class="btn btn-danger"
-						onclick="dislike(); document.getElementById('count2').innerHTML++" />&emsp;
-					<span id="count2">${disliked}</span>
+					<form action="rating" method="post">
+						<input type="hidden" name="postid" id="postid" value="${postid}">
+						<span id="count1">${liked}</span>&emsp;
+						<button type="submit" class="btn btn-primary"
+							onclick="submitLike('like');">
+							<span class="fa fa-thumbs-o-up"></span> Like
+						</button>
+						&emsp;
+						<button type="submit" class="btn btn-primary"
+							onclick="submitLike('dislike');">
+							<span class="fa fa-thumbs-o-down"></span> Dislike
+						</button>
+						&emsp; <span id="count2">${disliked}</span> <input type="hidden"
+							name="choice" id="choice" value="">
+					</form>
 				</div>
 			</div>
 			<hr>
@@ -139,23 +153,19 @@
 	<br />
 	<jsp:include page="footer.jsp" />
 	<script type="text/javascript">
-	$('count1').on('click', function() {
-	    $(this).prop('disabled', true);
-	});
-		var likes = ${liked};
-		var disLikes = ${disliked};
-		var total = 0;
-		<c:set var = "la" value="${total}"/>
-		function like() {
-			likes++;
-			calculateBar();
+		function submitLike(choice) {
+			if (choice === "like") {
+				document.getElementById("choice").value = "1";
+			} else if (choice === "dislike") {
+				document.getElementById("choice").value = "-1";
+			}
 		}
-		function dislike() {
-			disLikes++;
-			calculateBar();
-		}
+
+		var likes = <c:out value="${liked}"/>;
+		var disLikes = <c:out value="${disliked}"/>;
+
 		function calculateBar() {
-		total = likes + disLikes;
+			var total = likes + disLikes;
 			var percentageLikes = (likes / total) * 100;
 			var percentageDislikes = (disLikes / total) * 100;
 

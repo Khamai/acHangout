@@ -1,3 +1,7 @@
+/***************************************************************************************************
+ * PollServlet - To let user add new poll question
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.servlets;
 
 import java.io.IOException;
@@ -18,9 +22,9 @@ import model.Poll;
 
 
 public class PollServlet extends HttpServlet{
-	
+
 	private static final long serialVersionUID = 123L;
-	
+
 	public void doPost(HttpServletRequest request, HttpServletResponse response)  
 			throws ServletException, IOException { 
 		response.setContentType("text/html");  
@@ -29,7 +33,7 @@ public class PollServlet extends HttpServlet{
 		int fieldNum = Integer.parseInt(request.getParameter("fieldNum"));
 		String question = request.getParameter("question");
 		String message = null;
-		
+
 		Poll poll = new Poll();
 		poll.setQuestion(question);
 		for(int i =1;i<=fieldNum;i++) {
@@ -37,37 +41,31 @@ public class PollServlet extends HttpServlet{
 		}
 		//out.println("<br>Question: "+poll.getQuestion());
 		//out.println(fieldNum+" options<br>");
-	//	for(Object i: poll.getOptions()) {
-	//		out.println("<br>option:"+i);
-			
-//		}
-		
-		
-		
-		
+		//	for(Object i: poll.getOptions()) {
+		//		out.println("<br>option:"+i);
+
+		//		}
+
+
+
+
 		//Call poll DAO to save object to DB
 		PollDao pollDao = new PollDao();
 		poll.setUserId(pollDao.getUserId((String)session.getAttribute("name")));
-		
+
 		if(!pollDao.submitPoll(poll)){
 			message="Sorry, an error occurred!";
 			RequestDispatcher rd=request.getRequestDispatcher("index.jsp");  
-			out.println("<div id=\"modal\">\r\n" + 
-					"    <div class=\"modalconent\">\r\n" + 
-					"         <h1></h1>\r\n" + 
-					"\r\n" + 
-					"        <p>fasfsdfasfsfsdfsdfsdsffsd</p>\r\n" + 
-					"        <button id=\"button\">Close</button>\r\n" + 
-					"    </div>\r\n" + 
-					"</div>");
 			rd.forward(request,response);
 		}
 		else{
 			message="User registered successfully!";
+			RequestDispatcher rd=request.getRequestDispatcher("index.jsp");  
+			rd.forward(request,response);
 		}
-		
+
 		out.close(); 
-		
+
 	}
 
 }

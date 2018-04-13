@@ -1,3 +1,7 @@
+/***************************************************************************************************
+ * PostCommentServlet - To let user add new comment in specific topic
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.servlets;
 
 import java.io.IOException;

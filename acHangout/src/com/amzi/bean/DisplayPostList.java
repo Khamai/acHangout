@@ -1,7 +1,17 @@
+/***************************************************************************************************
+ * DisplayPostList - is a java bean that contains values of all the data related to post
+ * Variables
+ * <table>
+ * <tr><th>Post:</th></tr>
+ * <tr><td>topic</td><th>username</td><td>comment</td><td>date</td><td>rating</td></tr>
+ * </table>
+ * @author      Kha Mai
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.bean;
 
 public class DisplayPostList {
-	private String topic, username, comment, date, rating;
+	private String topic, username, comment, date, rating, content;
 	private int id;
 
 	public int getId() {
@@ -16,6 +26,13 @@ public class DisplayPostList {
 	public void setTopic(String topic) {
 		this.topic = topic;
 	}
+
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
 	public String getUserName() {
 		return username;
 	}
@@ -26,7 +43,10 @@ public class DisplayPostList {
 		return comment;
 	}
 	public void setComment(String comment) {
-		this.comment = comment;
+		if(comment == null)
+			this.comment = "";
+		else
+			this.comment = comment;
 	}
 	public String getDate() {
 		return date;
@@ -38,6 +58,9 @@ public class DisplayPostList {
 		return rating;
 	}
 	public void setRating(String rating) {
-		this.rating = rating;
+		if(rating == null)
+			this.rating = "";
+		else
+			this.rating = rating;
 	}
 }

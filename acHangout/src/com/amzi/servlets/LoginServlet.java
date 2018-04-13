@@ -1,6 +1,7 @@
-/**
- * LoginServlet class - handles logins from the website
- */
+/***************************************************************************************************
+ * LoginServlet - To let user login to database
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.servlets;
 
 import java.io.IOException;
@@ -37,17 +38,17 @@ public class LoginServlet extends HttpServlet{
 		HttpSession session = request.getSession(false);
 		pass = Login.validate(n, p);
 
-		if(pass != null){  
+		if(pass != ""){  
 			session.setAttribute("name", n);
 			session.setAttribute("pass", pass);
-			
+
 			String pagename = (String) session.getAttribute("directpage");
 			if(pagename == null) {
 				String message ="login";
 				request.setAttribute("message", message);
 				request.getRequestDispatcher("index.jsp").forward(request, response); 
 			}
-			response.sendRedirect(pagename);
+			request.getRequestDispatcher("index.jsp").forward(request, response); 
 		}  
 		else{  
 			String message = "";

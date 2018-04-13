@@ -1,3 +1,7 @@
+/***************************************************************************************************
+ * DisplaySubServlet - To display all sub-category in main topic
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.servlets;
 
 import java.io.IOException;

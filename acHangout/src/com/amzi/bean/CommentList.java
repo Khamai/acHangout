@@ -1,3 +1,16 @@
+/***************************************************************************************************
+ * CommentList - is a java bean to hold all variables related to comment
+ * Variables
+ * <table>
+ * <tr><th>Post:</th></tr>
+ * <tr><td>topic</td><th>content</td><td>username</td><td>date</td></tr>
+ * <tr><th>Comment:</th></tr>
+ * <tr><td>content</td><th>username</td><td>date</td></tr>
+ * <tr><th>Rating:</th></tr>
+ * <tr><td>liked</td><th>disliked</td><td>total</td></tr>
+ * </table>
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.bean;
 
 public class CommentList {

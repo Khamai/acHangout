@@ -89,6 +89,7 @@ CREATE TABLE `poll`
   `poll_id` Bigint NOT NULL AUTO_INCREMENT,
   `question` Char(255) NOT NULL,
   `author_id` Bigint NOT NULL,
+  `date` Datetime NOT NULL,
   PRIMARY KEY (`poll_id`),
   UNIQUE `id` (`poll_id`)
 )

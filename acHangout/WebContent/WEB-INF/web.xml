@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app
-    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
-    version="2.5">
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+	version="2.5">
 	<servlet>
 		<servlet-name>login</servlet-name>
 		<servlet-class>com.amzi.servlets.LoginServlet</servlet-class>
@@ -57,15 +57,100 @@
 	</servlet>
 
 	<servlet>
+		<servlet-name>rating</servlet-name>
+		<servlet-class>com.amzi.servlets.RatingServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>profile</servlet-name>
+		<servlet-class>com.amzi.servlets.ProfileServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>editprofile</servlet-name>
+		<servlet-class>com.amzi.servlets.EditProfileServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>getdes</servlet-name>
+		<servlet-class>com.amzi.servlets.GetDescriptionServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>editdes</servlet-name>
+		<servlet-class>com.amzi.servlets.EditDescriptionServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>extract</servlet-name>
+		<servlet-class>com.amzi.servlets.ExtractServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>edit</servlet-name>
+		<servlet-class>com.amzi.servlets.EditServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>updatelvl</servlet-name>
+		<servlet-class>com.amzi.servlets.updatelvlServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>showpost</servlet-name>
+		<servlet-class>com.amzi.servlets.ShowPostServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>userdelete</servlet-name>
+		<servlet-class>com.amzi.servlets.DeletePostServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>userdelete</servlet-name>
+		<url-pattern>/userdelete</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>showpost</servlet-name>
+		<url-pattern>/showpost</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>editdes</servlet-name>
+		<url-pattern>/editdescription</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>getdes</servlet-name>
+		<url-pattern>/your-profile</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>editprofile</servlet-name>
+		<url-pattern>/editprofile</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>profile</servlet-name>
+		<url-pattern>/account</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>rating</servlet-name>
+		<url-pattern>/rating</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
 		<servlet-name>displaypoll</servlet-name>
 		<servlet-class>com.amzi.servlets.DisplayPollServlet</servlet-class>
 	</servlet>
-	
+
 	<servlet-mapping>
 		<servlet-name>displaypoll</servlet-name>
 		<url-pattern>/displaypoll</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet-mapping>
 		<servlet-name>createsub</servlet-name>
 		<url-pattern>/create-forum</url-pattern>
@@ -119,6 +204,22 @@
 		<servlet-name>poll</servlet-name>
 		<url-pattern>/poll</url-pattern>
 	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>extract</servlet-name>
+		<url-pattern>/extract</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>edit</servlet-name>
+		<url-pattern>/edit</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>updatelvl</servlet-name>
+		<url-pattern>/updatelvl</url-pattern>
+	</servlet-mapping>
+
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>

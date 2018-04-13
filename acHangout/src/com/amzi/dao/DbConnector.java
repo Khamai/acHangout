@@ -1,3 +1,7 @@
+/***************************************************************************************************
+ * DbConnector - To connect to database
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.dao;
 
 import java.sql.Connection;
@@ -11,7 +15,7 @@ public class DbConnector {
 		String dbName = "form";
 		String driver = "com.mysql.jdbc.Driver";
 		String userName = "root";
-		String password = "root";
+		String password = "khamai_";
 		try {
 			Class.forName(driver).newInstance();
 			conn = DriverManager.getConnection(url + dbName, userName, password);

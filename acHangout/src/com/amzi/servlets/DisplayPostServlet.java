@@ -1,3 +1,7 @@
+/***************************************************************************************************
+ * DisplayPostServlet - To display every post list in each sub-category to user
+ * @since       1.0
+***************************************************************************************************/
 package com.amzi.servlets;
 
 import java.io.IOException;

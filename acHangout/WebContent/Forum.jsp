@@ -125,7 +125,6 @@
 								class="list-group-item">Classified</a>
 						</div>
 						<form action="NewTopic.jsp" method="post">
-
 							<div class="btn-group btn-group-md text-center">
 								<button type="submit" class="btn btn-primary">New
 									Sub-category</button>
