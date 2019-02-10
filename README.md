@@ -1,5 +1,5 @@
 # acHangout
-##For our project, we have decided to build a forum, similar to websites such as reddit, and other forum websites out there today. To do this, we have several features that will be implemented to complete this project.
+*For our project, we have decided to build a forum, similar to websites such as reddit, and other forum websites out there today. To do this, we have several features that will be implemented to complete this project.
 .
 ●	Depending on the tab (sport, food, media), different features will be implemented
 ●	Food tab - able to view and rate various restaurants, see their location, interact with other users
