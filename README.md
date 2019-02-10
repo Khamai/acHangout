@@ -1,6 +1,5 @@
 # acHangout
 For our project, we built a forum, similar to websites such as reddit, and other forum websites out there today. Some of the features are:
-* Depending on the tab (sport, food, media), different features will be implemented
 * Food tab - able to view and rate various restaurants, see their location, interact with other users
 * Media tab - images, videos, 
 * Sport tab - post threads, articles on different types of sports, discuss with other users
