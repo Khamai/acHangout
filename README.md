@@ -16,3 +16,9 @@ All four discussion tabs will have a broad range of topics to choose from, so wh
 ![Main Menu](https://raw.githubusercontent.com/mai00015/acHangout/master/acHangout/database/2.png)  
 >The first menu when running the software 
 
+![Main Menu](https://raw.githubusercontent.com/mai00015/acHangout/master/acHangout/database/3.png)  
+>The first menu when running the software 
+
+![Main Menu](https://raw.githubusercontent.com/mai00015/acHangout/master/acHangout/database/4.png)  
+>The first menu when running the software 
+
