@@ -10,5 +10,9 @@ This forum, like many others, will be a place of discussion and hanging out with
 
 All four discussion tabs will have a broad range of topics to choose from, so whether you’re into sports or food, there’s a community out there for you. 
 
-![Main Menu](https://raw.githubusercontent.com/mai00015/acHangout/master/acHangout/database/1.png)  
+![Navbar](https://raw.githubusercontent.com/mai00015/acHangout/master/acHangout/database/1.png)  
+>The navbar
+
+![Main Menu](https://raw.githubusercontent.com/mai00015/acHangout/master/acHangout/database/2.png)  
 >The first menu when running the software 
+
