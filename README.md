@@ -9,3 +9,6 @@ For our project, we built a forum, similar to websites such as reddit, and other
 This forum, like many others, will be a place of discussion and hanging out with others that have the same common interests. Users will be able to create threads in any of the four discussion tabs (food, sports, media, education), after which, other users can actively participate by posting comments relevant to that thread. 
 
 All four discussion tabs will have a broad range of topics to choose from, so whether you’re into sports or food, there’s a community out there for you. 
+
+![Main Menu](https://github.com/ThuongMai3004/PasswordSystem/blob/master/images/image6.png?raw=true)  
+>The first menu when running the software 
