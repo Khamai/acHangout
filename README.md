@@ -19,20 +19,20 @@ All four discussion tabs will have a broad range of topics to choose from, so wh
 ![Log in](https://raw.githubusercontent.com/mai00015/acHangout/master/acHangout/database/3.png)  
 >The login form
 
-![Multilanguage](https://raw.githubusercontent.com/mai00015/acHangout/master/acHangout/database/5.png)  
->Use Google Translation API key
+![Sign up](https://raw.githubusercontent.com/mai00015/acHangout/master/acHangout/database/5.png)  
+>The Sign up form
 
 ![Multilanguage](https://raw.githubusercontent.com/mai00015/acHangout/master/acHangout/database/4.png)  
 >Use Google Translation API key
 
-![Multilanguage](https://raw.githubusercontent.com/mai00015/acHangout/master/acHangout/database/6.png)  
->Use Google Translation API key
+![Main topics](https://raw.githubusercontent.com/mai00015/acHangout/master/acHangout/database/6.png)  
+>Display main topics
 
-![Multilanguage](https://raw.githubusercontent.com/mai00015/acHangout/master/acHangout/database/7.png)  
->Use Google Translation API key
+![Sub-topic](https://raw.githubusercontent.com/mai00015/acHangout/master/acHangout/database/7.png)  
+>Display sub-topics
 
-![Multilanguage](https://raw.githubusercontent.com/mai00015/acHangout/master/acHangout/database/8.png)  
->Use Google Translation API key
+![Rating](https://raw.githubusercontent.com/mai00015/acHangout/master/acHangout/database/8.png)  
+>Like or dislike
 
-![Multilanguage](https://raw.githubusercontent.com/mai00015/acHangout/master/acHangout/database/9.png)  
->Use Google Translation API key
+![Comments](https://raw.githubusercontent.com/mai00015/acHangout/master/acHangout/database/9.png)  
+>Display comments
