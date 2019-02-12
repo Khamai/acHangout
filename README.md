@@ -10,5 +10,5 @@ This forum, like many others, will be a place of discussion and hanging out with
 
 All four discussion tabs will have a broad range of topics to choose from, so whether you’re into sports or food, there’s a community out there for you. 
 
-![Main Menu](https://github.com/ThuongMai3004/PasswordSystem/blob/master/images/image6.png?raw=true)  
+![Main Menu](https://raw.githubusercontent.com/mai00015/acHangout/master/acHangout/database/1.png)  
 >The first menu when running the software 
