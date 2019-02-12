@@ -19,6 +19,20 @@ All four discussion tabs will have a broad range of topics to choose from, so wh
 ![Log in](https://raw.githubusercontent.com/mai00015/acHangout/master/acHangout/database/3.png)  
 >The login form
 
+![Multilanguage](https://raw.githubusercontent.com/mai00015/acHangout/master/acHangout/database/5.png)  
+>Use Google Translation API key
+
 ![Multilanguage](https://raw.githubusercontent.com/mai00015/acHangout/master/acHangout/database/4.png)  
 >Use Google Translation API key
 
+![Multilanguage](https://raw.githubusercontent.com/mai00015/acHangout/master/acHangout/database/6.png)  
+>Use Google Translation API key
+
+![Multilanguage](https://raw.githubusercontent.com/mai00015/acHangout/master/acHangout/database/7.png)  
+>Use Google Translation API key
+
+![Multilanguage](https://raw.githubusercontent.com/mai00015/acHangout/master/acHangout/database/8.png)  
+>Use Google Translation API key
+
+![Multilanguage](https://raw.githubusercontent.com/mai00015/acHangout/master/acHangout/database/9.png)  
+>Use Google Translation API key
